@@ -1,0 +1,7 @@
+[
+  { "id": "0001", "categoria": "Aceites", "orden": 1, "disponible": true },
+  { "id": "0002", "categoria": "Endulzantes", "orden": 2, "disponible": true },
+  { "id": "0003", "categoria": "Frutos secos", "orden": 3, "disponible": true },
+  { "id": "0004", "categoria": "Suplementos", "orden": 4, "disponible": false },
+  { "id": "0005", "categoria": "Infusiones", "orden": 5, "disponible": true }
+]

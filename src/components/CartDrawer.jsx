@@ -1,0 +1,63 @@
+import { useState } from 'react'
+import { useCart } from '../context/CartContext.jsx'
+import { useCatalogo } from '../context/CatalogContext.jsx'
+
+export default function CartDrawer() {
+  const [abierto, setAbierto] = useState(false)
+  const { items, actualizarCantidad, quitarItem, vaciarCarrito } = useCart()
+  const { productos } = useCatalogo()
+
+  const itemsConDatos = items
+    .map((item) => {
+      const producto = productos.find((p) => p.id === item.id)
+      if (!producto) return null
+      return { ...item, ...producto }
+    })
+    .filter(Boolean)
+
+  const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
+  const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
+
+  return (
+    <>
+      <button className="boton-carrito" onClick={() => setAbierto(true)}>
+        Carrito ({cantidadTotal})
+      </button>
+
+      {abierto && (
+        <div className="carrito-overlay" onClick={() => setAbierto(false)}>
+          <div className="carrito-panel" onClick={(e) => e.stopPropagation()}>
+            <h2>Tu carrito</h2>
+
+            {itemsConDatos.length === 0 && <p>El carrito está vacío.</p>}
+
+            {itemsConDatos.map((item) => (
+              <div key={item.id} className="item-carrito">
+                <span>{item.nombre}</span>
+                <input
+                  type="number"
+                  min="1"
+                  value={item.cantidad}
+                  onChange={(e) => actualizarCantidad(item.id, Number(e.target.value))}
+                />
+                <span>${item.precio * item.cantidad}</span>
+                <button onClick={() => quitarItem(item.id)}>Quitar</button>
+              </div>
+            ))}
+
+            {itemsConDatos.length > 0 && (
+              <>
+                <p className="total">Total: ${total}</p>
+                <button onClick={vaciarCarrito}>Vaciar carrito</button>
+              </>
+            )}
+
+            <button className="cerrar" onClick={() => setAbierto(false)}>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
