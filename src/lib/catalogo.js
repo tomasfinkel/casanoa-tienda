@@ -59,6 +59,7 @@ export async function obtenerCatalogoTienda() {
         precio: prod.precio,
         imagen: null,
         categoria: item.categoria,
+        novedad: item.novedad ?? false,
       }
     })
     .filter(Boolean)
