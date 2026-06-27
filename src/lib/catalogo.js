@@ -1,7 +1,13 @@
-// IMPORTANTE: los nombres de campo (nombre, precio, imagen) abajo son un
-// supuesto. Hay que confirmarlos contra la estructura real de productos.json
-// antes de que esto funcione. Si DUX usa otros nombres (ej: descripcion,
-// precioVenta, urlImagen), hay que ajustar acá nomás.
+// Confirmado contra ~50 productos reales de productos.json:
+//   - Cada producto tiene "codigo" (string, ej "11020") — 100% de los casos.
+//   - "nombre" y "precio" existen siempre.
+//   - "barcodes" es un array que en muchos productos viene vacío ([]). No es
+//     confiable como única clave.
+//   - No existe ningún campo de imagen. Las fotos van por afuera de DUX.
+//
+// catalogo-tienda.json puede identificar cada producto por "codigo" (el
+// interno de DUX, confiable siempre) o por "barcode" (más cómodo si lo tenés
+// a mano, pero no todos los productos lo tienen cargado).
 
 import catalogoTienda from '../data/catalogo-tienda.json'
 
@@ -14,26 +20,32 @@ export async function obtenerCatalogoTienda() {
 
   const productos = await productosRes.json()
 
-  // productos.json puede venir como array de productos, o ya como mapa
-  // {id: producto}. Soportamos los dos en vez de asumir uno solo.
-  const productosPorId = Array.isArray(productos)
-    ? Object.fromEntries(productos.map((p) => [p.id, p]))
-    : productos
+  const productosPorCodigo = {}
+  const productosPorBarcode = {}
+  for (const p of productos) {
+    productosPorCodigo[p.codigo] = p
+    for (const codigo of p.barcodes ?? []) {
+      productosPorBarcode[codigo] = p
+    }
+  }
 
   return catalogoTienda
     .filter((item) => item.disponible)
     .sort((a, b) => a.orden - b.orden)
     .map((item) => {
-      const prod = productosPorId[item.id]
+      const prod = item.codigo
+        ? productosPorCodigo[item.codigo]
+        : productosPorBarcode[item.barcode]
+
       if (!prod) {
-        console.warn(`Producto curado ${item.id} no aparece en el cache de DUX`)
+        console.warn(`Producto curado (${item.codigo ?? item.barcode}) no aparece en el cache de DUX`)
         return null
       }
       return {
-        id: item.id,
-        nombre: prod.nombre, // AJUSTAR si el campo real se llama distinto
-        precio: prod.precio, // AJUSTAR si el campo real se llama distinto
-        imagen: prod.imagen ?? null, // AJUSTAR si el campo real se llama distinto
+        id: item.codigo ?? item.barcode,
+        nombre: prod.nombre,
+        precio: prod.precio,
+        imagen: null, // confirmado: DUX no provee fotos, hay que cargarlas aparte
         categoria: item.categoria,
       }
     })
