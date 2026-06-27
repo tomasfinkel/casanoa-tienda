@@ -20,5 +20,12 @@
   { "codigo": "PANE1", "categoria": "Congelados", "orden": 19, "disponible": true, "novedad": false },
   { "codigo": "KEPRODPIST", "categoria": "Dulces", "orden": 20, "disponible": true, "novedad": false },
   { "codigo": "CALI06", "categoria": "Lácteos", "orden": 21, "disponible": true, "novedad": false },
-  { "codigo": "PANE3", "categoria": "Congelados", "orden": 22, "disponible": true, "novedad": false }
+  { "codigo": "PANE3", "categoria": "Congelados", "orden": 22, "disponible": true, "novedad": false },
+  { "codigo": "PIEL06", "categoria": "Vinos", "orden": 23, "disponible": true, "novedad": true },
+  { "codigo": "SANPE", "categoria": "Bebidas", "orden": 24, "disponible": true, "novedad": true },
+  { "codigo": "NOA25", "categoria": "Café e infusiones", "orden": 25, "disponible": true, "novedad": true },
+  { "codigo": "8002873021900", "categoria": "Dulces", "orden": 26, "disponible": true, "novedad": true },
+  { "codigo": "ORANGE", "categoria": "Dulces", "orden": 27, "disponible": true, "novedad": true },
+  { "codigo": "ZUCC002", "categoria": "Aceites", "orden": 28, "disponible": true, "novedad": true },
+  { "codigo": "MINISET", "categoria": "Dulces", "orden": 29, "disponible": true, "novedad": true }
 ]
