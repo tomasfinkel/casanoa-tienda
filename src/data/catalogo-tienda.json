@@ -1,4 +1,24 @@
 [
-  { "barcode": "7791728242720", "categoria": "Sin clasificar", "orden": 1, "disponible": true },
-  { "codigo": "10947", "categoria": "Sin clasificar", "orden": 2, "disponible": true }
+  { "codigo": "11235", "categoria": "Bebidas", "orden": 1, "disponible": true, "novedad": false },
+  { "codigo": "829", "categoria": "Snacks", "orden": 2, "disponible": true, "novedad": false },
+  { "codigo": "116", "categoria": "Snacks", "orden": 3, "disponible": true, "novedad": false },
+  { "codigo": "PONTNUEVA", "categoria": "Barras y proteína", "orden": 4, "disponible": true, "novedad": false },
+  { "codigo": "11075", "categoria": "Lácteos", "orden": 5, "disponible": true, "novedad": false },
+  { "codigo": "KAY02", "categoria": "Lácteos", "orden": 6, "disponible": true, "novedad": false },
+  { "codigo": "10752", "categoria": "Postres", "orden": 7, "disponible": true, "novedad": false },
+  { "codigo": "WAP", "categoria": "Lácteos", "orden": 8, "disponible": true, "novedad": false },
+  { "codigo": "MAMIK", "categoria": "Panificados", "orden": 9, "disponible": true, "novedad": false },
+  { "codigo": "KAY03", "categoria": "Lácteos", "orden": 10, "disponible": true, "novedad": false },
+  { "codigo": "CALI05", "categoria": "Lácteos", "orden": 11, "disponible": true, "novedad": false },
+  { "codigo": "CALI04", "categoria": "Lácteos", "orden": 12, "disponible": true, "novedad": false },
+  { "codigo": "10628", "categoria": "Congelados", "orden": 13, "disponible": true, "novedad": false },
+  { "codigo": "MI77", "categoria": "Desayuno", "orden": 14, "disponible": true, "novedad": false },
+  { "codigo": "YGI02", "categoria": "Lácteos", "orden": 15, "disponible": true, "novedad": false },
+  { "codigo": "7CABRI06", "categoria": "Ahumados y fiambres", "orden": 16, "disponible": true, "novedad": false },
+  { "codigo": "KEKE", "categoria": "Dulces", "orden": 17, "disponible": true, "novedad": false },
+  { "codigo": "BEIN54", "categoria": "Huevos", "orden": 18, "disponible": true, "novedad": false },
+  { "codigo": "PANE1", "categoria": "Congelados", "orden": 19, "disponible": true, "novedad": false },
+  { "codigo": "KEPRODPIST", "categoria": "Dulces", "orden": 20, "disponible": true, "novedad": false },
+  { "codigo": "CALI06", "categoria": "Lácteos", "orden": 21, "disponible": true, "novedad": false },
+  { "codigo": "PANE3", "categoria": "Congelados", "orden": 22, "disponible": true, "novedad": false }
 ]
