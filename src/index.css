@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   background: #e7e3db;
   color: #3c2c23;
 }
@@ -43,8 +43,22 @@ body {
   border-radius: 6px;
 }
 
+.card-producto h3 {
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.card-producto .categoria {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #7a6048;
+  margin: 0;
+}
+
 .precio {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .boton-carrito {
