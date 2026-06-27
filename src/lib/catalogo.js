@@ -11,12 +11,14 @@ const CATALOGO_BLOB_URL =
 export async function obtenerCatalogoTienda() {
   const productosRes = await fetch(CATALOGO_BLOB_URL)
   if (!productosRes.ok) throw new Error('No se pudo leer el cache de DUX')
+
   const productos = await productosRes.json()
 
-  const productosPorId = {}
-  for (const p of productos) {
-    productosPorId[p.id] = p
-  }
+  // productos.json puede venir como array de productos, o ya como mapa
+  // {id: producto}. Soportamos los dos en vez de asumir uno solo.
+  const productosPorId = Array.isArray(productos)
+    ? Object.fromEntries(productos.map((p) => [p.id, p]))
+    : productos
 
   return catalogoTienda
     .filter((item) => item.disponible)
