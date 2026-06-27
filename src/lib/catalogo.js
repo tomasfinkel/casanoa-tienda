@@ -5,20 +5,32 @@
 //     confiable como única clave.
 //   - No existe ningún campo de imagen. Las fotos van por afuera de DUX.
 //
-// catalogo-tienda.json puede identificar cada producto por "codigo" (el
-// interno de DUX, confiable siempre) o por "barcode" (más cómodo si lo tenés
-// a mano, pero no todos los productos lo tienen cargado).
+// Lo que NO está confirmado: si productos.json es un array directo, o un
+// objeto que tiene el array adentro (ej: {"productos": [...]}). Por eso
+// extraerListaProductos prueba varias formas en vez de asumir una sola.
 
 import catalogoTienda from '../data/catalogo-tienda.json'
 
 const CATALOGO_BLOB_URL =
   'https://sjczw9fimmonkf7t.public.blob.vercel-storage.com/productos.json'
 
+function extraerListaProductos(data) {
+  if (Array.isArray(data)) return data
+  if (data && Array.isArray(data.productos)) return data.productos
+  if (data && Array.isArray(data.items)) return data.items
+  if (data && Array.isArray(data.data)) return data.data
+  throw new Error(
+    'productos.json no tiene un array reconocible. Claves recibidas: ' +
+      Object.keys(data ?? {}).join(', '),
+  )
+}
+
 export async function obtenerCatalogoTienda() {
   const productosRes = await fetch(CATALOGO_BLOB_URL)
   if (!productosRes.ok) throw new Error('No se pudo leer el cache de DUX')
 
-  const productos = await productosRes.json()
+  const productosRaw = await productosRes.json()
+  const productos = extraerListaProductos(productosRaw)
 
   const productosPorCodigo = {}
   const productosPorBarcode = {}
@@ -45,7 +57,7 @@ export async function obtenerCatalogoTienda() {
         id: item.codigo ?? item.barcode,
         nombre: prod.nombre,
         precio: prod.precio,
-        imagen: null, // confirmado: DUX no provee fotos, hay que cargarlas aparte
+        imagen: null,
         categoria: item.categoria,
       }
     })
