@@ -61,8 +61,11 @@ export default function ProductList() {
   if (categoriaActiva) {
     coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
   } else if (busqueda.trim().length >= 2) {
-    const termino = busqueda.trim().toLowerCase()
-    coincidencias = productos.filter((p) => p.nombre.toLowerCase().includes(termino))
+    const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
+    coincidencias = productos.filter((p) => {
+      const nombre = p.nombre.toLowerCase()
+      return palabras.every((palabra) => nombre.includes(palabra))
+    })
   }
   const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
   const buscando = categoriaActiva || busqueda.trim().length >= 2
