@@ -138,6 +138,127 @@ body {
   cursor: pointer;
 }
 
+.seccion-instagram {
+  padding: 1rem 0;
+}
+
+.seccion-instagram h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0 0 0.7rem;
+  padding: 0 1.5rem;
+}
+
+.fila-instagram {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0 1.5rem 0.7rem;
+}
+
+.foto-instagram {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+
+.link-instagram {
+  display: block;
+  padding: 0 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #3c2c23;
+  text-decoration: underline;
+}
+
+.seccion-novedades {
+  padding: 1.2rem 0 0.5rem;
+}
+
+.seccion-novedades h2,
+.seccion-categorias h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0 0 0.7rem;
+  padding: 0 1.5rem;
+}
+
+.fila-novedades {
+  display: flex;
+  gap: 0.7rem;
+  overflow-x: auto;
+  padding: 0 1.5rem 0.3rem;
+}
+
+.tarjeta-novedad {
+  flex: 0 0 130px;
+  background: #fff;
+  border: 1px solid #e2ded6;
+  border-radius: 10px;
+  padding: 0.6rem;
+}
+
+.tarjeta-novedad img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+}
+
+.tarjeta-novedad-nombre {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.tarjeta-novedad-precio {
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.tarjeta-novedad button {
+  width: 100%;
+  padding: 0.35rem;
+  font-size: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #3c2c23;
+  background: #fff;
+  color: #3c2c23;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.seccion-categorias {
+  padding: 1rem 0;
+}
+
+.grid-categorias-inicio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  padding: 0 1.5rem;
+}
+
+.boton-categoria-inicio {
+  padding: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #3c2c23;
+  background: #fff;
+  color: #3c2c23;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
 .banner-puntos {
   background: #3c2c23;
   color: #e7e3db;
