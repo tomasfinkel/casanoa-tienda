@@ -7,7 +7,7 @@ function FotoInstagram({ archivo }) {
   return (
     <img
       className="foto-instagram"
-      src={`/instagram/${archivo}`}
+      src={`/${archivo}`}
       alt="Casa NOA en Instagram"
       onError={() => setRota(true)}
     />
