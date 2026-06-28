@@ -1,5 +1,4 @@
 import { useSucursal } from '../context/BranchContext.jsx'
-import BannerDestacado from './BannerDestacado.jsx'
 
 const NIVELES = [
   { puntos: 50, premio: '5% de descuento' },
@@ -19,8 +18,6 @@ export default function Inicio({ onVerProductos }) {
 
   return (
     <div className="inicio">
-      <BannerDestacado />
-
       <section className="banner-puntos">
         <h2>Sumá puntos en cada compra</h2>
         <p className="banner-puntos-sub">
