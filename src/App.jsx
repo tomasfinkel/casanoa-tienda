@@ -6,6 +6,7 @@ import BranchPicker from './components/BranchPicker.jsx'
 import Inicio from './components/Inicio.jsx'
 import ProductList from './components/ProductList.jsx'
 import CartDrawer from './components/CartDrawer.jsx'
+import MiCuenta from './components/MiCuenta.jsx'
 
 function Contenido() {
   const { sucursal, cambiarSucursal } = useSucursal()
@@ -37,14 +38,18 @@ function Contenido() {
         >
           Productos
         </button>
+        <button
+          className={'tab-principal' + (tab === 'cuenta' ? ' activo' : '')}
+          onClick={() => setTab('cuenta')}
+        >
+          Mi cuenta
+        </button>
       </nav>
 
       <main>
-        {tab === 'inicio' ? (
-          <Inicio onVerProductos={() => setTab('productos')} />
-        ) : (
-          <ProductList />
-        )}
+        {tab === 'inicio' && <Inicio onVerProductos={() => setTab('productos')} />}
+        {tab === 'productos' && <ProductList />}
+        {tab === 'cuenta' && <MiCuenta />}
       </main>
       <CartDrawer />
     </CartProvider>
