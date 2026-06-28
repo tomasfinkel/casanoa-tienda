@@ -125,6 +125,12 @@ export default function MiCuenta() {
     )
   }
 
+  function cerrarSesion() {
+    localStorage.removeItem(STORAGE_KEY)
+    setTelefono('')
+    setCliente(null)
+  }
+
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(cliente.telefono)}`
 
   return (
@@ -135,6 +141,9 @@ export default function MiCuenta() {
       <p className="texto-inicio">
         Mostrá este código en el local para sumar puntos en tu compra.
       </p>
+      <button className="link-cerrar-sesion" onClick={cerrarSesion}>
+        No soy yo / cerrar sesión
+      </button>
     </div>
   )
 }
