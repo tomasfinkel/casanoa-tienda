@@ -7,6 +7,7 @@ import Inicio from './components/Inicio.jsx'
 import ProductList from './components/ProductList.jsx'
 import CartDrawer from './components/CartDrawer.jsx'
 import MiCuenta from './components/MiCuenta.jsx'
+import PopupPromo from './components/PopupPromo.jsx'
 
 function Contenido() {
   const { sucursal, cambiarSucursal } = useSucursal()
@@ -52,6 +53,7 @@ function Contenido() {
         {tab === 'cuenta' && <MiCuenta />}
       </main>
       <CartDrawer />
+      <PopupPromo />
     </CartProvider>
   )
 }
