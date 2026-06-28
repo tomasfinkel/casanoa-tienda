@@ -145,6 +145,15 @@ body {
   color: #3c2c23;
 }
 
+.card-promo-dia {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #3c2c23;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 0.3rem;
+}
+
 .card-promo-detalle {
   font-family: 'Playfair Display', serif;
   font-style: italic;
