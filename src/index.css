@@ -57,38 +57,105 @@ body {
 }
 
 .inicio {
-  padding: 1.5rem;
+  padding: 0 0 1.5rem;
 }
 
-.bloque-inicio {
-  background: #fff;
+.banner-puntos {
+  background: #3c2c23;
+  color: #e7e3db;
+  padding: 1.6rem 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.banner-puntos h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+}
+
+.banner-puntos-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: #cfc6b8;
+  margin: 0 0 1.1rem;
+}
+
+.fila-niveles {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+}
+
+.pill-nivel {
+  flex: 0 0 auto;
+  background: #e7e3db;
+  color: #3c2c23;
   border-radius: 10px;
-  padding: 1.2rem;
-  margin-bottom: 1rem;
-  border: 1px solid #e2ded6;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
 }
 
-.bloque-inicio h2 {
-  font-size: 1rem;
-  margin: 0 0 0.5rem;
+.pill-nivel-puntos {
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
-.texto-inicio {
-  font-size: 0.85rem;
+.pill-nivel-premio {
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 0.2rem;
   color: #5a4a3a;
-  margin: 0 0 0.75rem;
 }
 
-.lista-niveles,
-.lista-promos {
-  margin: 0;
-  padding-left: 1.1rem;
+.banner-promos {
+  padding: 0 1.5rem;
+}
+
+.banner-promos h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0 0 0.7rem;
+}
+
+.fila-promos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.3rem;
+}
+
+.card-promo {
+  flex: 1 1 130px;
+  background: #fff;
+  border: 1.5px solid #3c2c23;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-promo-nombre {
+  font-weight: 800;
   font-size: 0.85rem;
-  line-height: 1.6;
+  color: #3c2c23;
+}
+
+.card-promo-detalle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: #7a6048;
+  margin-top: 0.15rem;
 }
 
 .boton-ver-productos {
-  width: 100%;
+  width: calc(100% - 3rem);
+  margin: 0 1.5rem;
   background: #3c2c23;
   color: #e7e3db;
   border: none;
