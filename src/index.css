@@ -145,6 +145,56 @@ body {
   color: #3c2c23;
 }
 
+.mi-cuenta {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mi-cuenta h2 {
+  margin: 0 0 0.5rem;
+}
+
+.form-registro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.form-registro input {
+  padding: 0.8rem;
+  border: 1px solid #d8d3c8;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-registro button {
+  background: #3c2c23;
+  color: #e7e3db;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.puntos-actuales {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0.3rem 0 1.2rem;
+}
+
+.qr-cliente {
+  border: 1px solid #e2ded6;
+  border-radius: 10px;
+  padding: 0.8rem;
+  background: #fff;
+}
+
 .card-promo-dia {
   font-size: 0.7rem;
   font-weight: 700;
