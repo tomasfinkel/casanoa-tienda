@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
+import { useSucursal } from '../context/BranchContext.jsx'
 
 export default function CartDrawer() {
   const [abierto, setAbierto] = useState(false)
   const { items, actualizarCantidad, quitarItem, vaciarCarrito } = useCart()
   const { productos } = useCatalogo()
+  const { sucursal, cambiarSucursal } = useSucursal()
 
   const itemsConDatos = items
     .map((item) => {
@@ -18,6 +20,21 @@ export default function CartDrawer() {
   const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
 
+  function enviarPorWhatsapp() {
+    const lineas = itemsConDatos.map(
+      (i) => `• ${i.nombre} x${i.cantidad} — $${i.precio * i.cantidad}`,
+    )
+    const mensaje = [
+      `Hola! Quiero hacer un pedido en Casa NOA ${sucursal.nombre}:`,
+      '',
+      ...lineas,
+      '',
+      `Total: $${total}`,
+    ].join('\n')
+    const url = `https://wa.me/${sucursal.whatsapp}?text=${encodeURIComponent(mensaje)}`
+    window.open(url, '_blank')
+  }
+
   return (
     <>
       <button className="boton-carrito" onClick={() => setAbierto(true)}>
@@ -28,6 +45,12 @@ export default function CartDrawer() {
         <div className="carrito-overlay" onClick={() => setAbierto(false)}>
           <div className="carrito-panel" onClick={(e) => e.stopPropagation()}>
             <h2>Tu carrito</h2>
+            <p className="sucursal-actual">
+              Pidiendo en: <strong>{sucursal?.nombre}</strong>{' '}
+              <button className="link-cambiar" onClick={cambiarSucursal}>
+                cambiar
+              </button>
+            </p>
 
             {itemsConDatos.length === 0 && <p>El carrito está vacío.</p>}
 
@@ -48,6 +71,9 @@ export default function CartDrawer() {
             {itemsConDatos.length > 0 && (
               <>
                 <p className="total">Total: ${total}</p>
+                <button className="boton-whatsapp" onClick={enviarPorWhatsapp}>
+                  Finalizar pedido por WhatsApp
+                </button>
                 <button onClick={vaciarCarrito}>Vaciar carrito</button>
               </>
             )}

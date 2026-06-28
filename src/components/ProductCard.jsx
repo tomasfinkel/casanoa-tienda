@@ -14,7 +14,6 @@ export default function ProductCard({ producto }) {
           onError={() => setImagenRota(true)}
         />
       )}
-      <p className="categoria">{producto.categoria}</p>
       <h3>{producto.nombre}</h3>
       <p className="precio">${producto.precio}</p>
       <button onClick={() => agregarItem(producto.id)}>Agregar al carrito</button>

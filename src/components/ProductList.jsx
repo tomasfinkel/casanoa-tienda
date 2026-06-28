@@ -1,18 +1,111 @@
+import { useState } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
+import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
+import categorias from '../data/categorias.json'
+
+const LIMITE_RESULTADOS = 60
+
+const ATAJOS = [
+  'Vinos',
+  'Lácteos',
+  'Snacks',
+  'Aceites y vinagres',
+  'Café e infusiones',
+  'Dulces y chocolates',
+  'Panificados',
+  'Congelados',
+  'Condimentos y especias',
+  'Suplementos y superalimentos',
+  'Bebidas',
+  'Pastas y arroces',
+  'Conservas',
+  'Frutos secos y semillas',
+  'Huevos',
+  'Carnes y fiambres',
+  'Cuidado personal',
+  'Sin gluten / TACC',
+  'Keto',
+]
 
 export default function ProductList() {
-  const { productos, cargando, error } = useCatalogo()
+  const { productos: todosLosProductos, cargando, error } = useCatalogo()
+  const { sucursalId } = useSucursal()
+  const [busqueda, setBusqueda] = useState('')
+  const [categoriaActiva, setCategoriaActiva] = useState(null)
 
-  if (cargando) return <p className="estado">Cargando productos...</p>
+  if (cargando) return <p className="estado">Cargando catálogo...</p>
   if (error)
     return <p className="estado error">No se pudo cargar el catálogo: {error}</p>
 
+  // Solo ocultamos si HAY un dato de stock para esta sucursal y dice 0 o
+  // menos. Si no hay dato (sync nunca corrió, o el producto no aparece en
+  // stock.json), se sigue mostrando — fallar abierto, no cerrado.
+  const productos = todosLosProductos.filter((p) => {
+    if (!p.stock) return true
+    const enEstaSucursal = p.stock[sucursalId]
+    return enEstaSucursal === undefined || enEstaSucursal === null || enEstaSucursal > 0
+  })
+
+  function buscarTexto(valor) {
+    setBusqueda(valor)
+    setCategoriaActiva(null)
+  }
+
+  function aplicarAtajo(categoria) {
+    setCategoriaActiva(categoria)
+    setBusqueda('')
+  }
+
+  let coincidencias = []
+  if (categoriaActiva) {
+    coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
+  } else if (busqueda.trim().length >= 2) {
+    const termino = busqueda.trim().toLowerCase()
+    coincidencias = productos.filter((p) => p.nombre.toLowerCase().includes(termino))
+  }
+  const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
+  const buscando = categoriaActiva || busqueda.trim().length >= 2
+
   return (
-    <div className="grid-productos">
-      {productos.map((p) => (
-        <ProductCard key={p.id} producto={p} />
-      ))}
+    <div>
+      <input
+        className="buscador"
+        type="text"
+        placeholder={`Buscá entre ${productos.length} productos...`}
+        value={busqueda}
+        onChange={(e) => buscarTexto(e.target.value)}
+      />
+
+      <div className="atajos">
+        {ATAJOS.map((cat) => (
+          <button
+            key={cat}
+            className={'boton-atajo' + (categoriaActiva === cat ? ' activo' : '')}
+            onClick={() => aplicarAtajo(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {!buscando && (
+        <p className="estado">Escribí al menos 2 letras, o tocá un atajo, para buscar.</p>
+      )}
+      {buscando && coincidencias.length === 0 && (
+        <p className="estado">No encontramos nada.</p>
+      )}
+      {coincidencias.length > LIMITE_RESULTADOS && (
+        <p className="estado">
+          Mostrando los primeros {LIMITE_RESULTADOS} de {coincidencias.length} resultados — escribí algo más específico.
+        </p>
+      )}
+
+      <div className="grid-productos">
+        {resultados.map((p) => (
+          <ProductCard key={p.id} producto={p} />
+        ))}
+      </div>
     </div>
   )
 }

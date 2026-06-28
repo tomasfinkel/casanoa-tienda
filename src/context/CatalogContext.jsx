@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { obtenerCatalogoTienda } from '../lib/catalogo.js'
+import { obtenerCatalogoCompleto } from '../lib/catalogo.js'
 
 const CatalogContext = createContext(null)
 
@@ -9,7 +9,7 @@ export function CatalogProvider({ children }) {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    obtenerCatalogoTienda()
+    obtenerCatalogoCompleto()
       .then(setProductos)
       .catch((err) => setError(err.message))
       .finally(() => setCargando(false))

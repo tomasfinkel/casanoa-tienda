@@ -1,18 +1,20 @@
-// Confirmado contra ~50 productos reales de productos.json:
-//   - Cada producto tiene "codigo" (string, ej "11020") — 100% de los casos.
-//   - "nombre" y "precio" existen siempre.
-//   - "barcodes" es un array que en muchos productos viene vacío ([]). No es
-//     confiable como única clave.
-//   - No existe ningún campo de imagen. Las fotos van por afuera de DUX.
+// Catálogo completo: son TODOS los productos de DUX.
 //
-// Lo que NO está confirmado: si productos.json es un array directo, o un
-// objeto que tiene el array adentro (ej: {"productos": [...]}). Por eso
-// extraerListaProductos prueba varias formas en vez de asumir una sola.
-
-import catalogoTienda from '../data/catalogo-tienda.json'
+// El stock ahora sí existe (stock.json, sincronizado una vez por día desde
+// casanoa-pedidos), pero puede no estar disponible todavía la primera vez
+// que esto se despliegue, o si la sincronización de un día se cortó a
+// la mitad. Por eso el filtro de stock se aplica más abajo (en
+// ProductList), "fallando abierto": si no hay dato de stock para un
+// producto, se sigue mostrando — no se oculta por las dudas.
 
 const CATALOGO_BLOB_URL =
   'https://sjczw9fimmonkf7t.public.blob.vercel-storage.com/productos.json'
+
+// [Probable] Mismo Blob store que productos.json, mismo patrón de nombre.
+// No confirmado todavía con una sincronización real corrida — si falla,
+// avisar para ajustar la URL.
+const STOCK_BLOB_URL =
+  'https://sjczw9fimmonkf7t.public.blob.vercel-storage.com/stock.json'
 
 function extraerListaProductos(data) {
   if (Array.isArray(data)) return data
@@ -25,42 +27,34 @@ function extraerListaProductos(data) {
   )
 }
 
-export async function obtenerCatalogoTienda() {
-  const productosRes = await fetch(CATALOGO_BLOB_URL)
-  if (!productosRes.ok) throw new Error('No se pudo leer el cache de DUX')
-
-  const productosRaw = await productosRes.json()
-  const productos = extraerListaProductos(productosRaw)
-
-  const productosPorCodigo = {}
-  const productosPorBarcode = {}
-  for (const p of productos) {
-    productosPorCodigo[p.codigo] = p
-    for (const codigo of p.barcodes ?? []) {
-      productosPorBarcode[codigo] = p
-    }
+async function obtenerStockPorCodigo() {
+  try {
+    const res = await fetch(STOCK_BLOB_URL)
+    if (!res.ok) return {}
+    const data = await res.json()
+    return data?.stock ?? {}
+  } catch {
+    // Todavía no corrió ninguna sincronización de stock, o falló.
+    // No es un error fatal: el catálogo se muestra igual, sin filtrar.
+    return {}
   }
+}
 
-  return catalogoTienda
-    .filter((item) => item.disponible)
-    .sort((a, b) => a.orden - b.orden)
-    .map((item) => {
-      const prod = item.codigo
-        ? productosPorCodigo[item.codigo]
-        : productosPorBarcode[item.barcode]
+export async function obtenerCatalogoCompleto() {
+  const [resProductos, stockPorCodigo] = await Promise.all([
+    fetch(CATALOGO_BLOB_URL),
+    obtenerStockPorCodigo(),
+  ])
+  if (!resProductos.ok) throw new Error('No se pudo leer el cache de DUX')
 
-      if (!prod) {
-        console.warn(`Producto curado (${item.codigo ?? item.barcode}) no aparece en el cache de DUX`)
-        return null
-      }
-      return {
-        id: item.codigo ?? item.barcode,
-        nombre: prod.nombre,
-        precio: prod.precio,
-        imagen: null,
-        categoria: item.categoria,
-        novedad: item.novedad ?? false,
-      }
-    })
-    .filter(Boolean)
+  const raw = await resProductos.json()
+  const productos = extraerListaProductos(raw)
+
+  return productos.map((p) => ({
+    id: p.codigo,
+    nombre: p.nombre,
+    precio: p.precio,
+    imagen: `/productos/${p.codigo}.jpg`,
+    stock: stockPorCodigo[p.codigo] ?? null,
+  }))
 }
