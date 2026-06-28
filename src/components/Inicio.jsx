@@ -1,4 +1,6 @@
 import { useSucursal } from '../context/BranchContext.jsx'
+import Novedades from './Novedades.jsx'
+import InstagramFeed from './InstagramFeed.jsx'
 
 const NIVELES = [
   { puntos: 50, premio: '5% de descuento' },
@@ -13,11 +15,40 @@ const PROMOS = [
   { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra' },
 ]
 
+const CATEGORIAS_DESTACADAS = [
+  'Vinos',
+  'Lácteos',
+  'Snacks',
+  'Dulces y chocolates',
+  'Suplementos y superalimentos',
+  'Cuidado personal',
+  'Café e infusiones',
+  'Congelados',
+]
+
 export default function Inicio({ onVerProductos }) {
   const { sucursalId } = useSucursal()
 
   return (
     <div className="inicio">
+      <Novedades />
+      <InstagramFeed />
+
+      <section className="seccion-categorias">
+        <h2>Categorías</h2>
+        <div className="grid-categorias-inicio">
+          {CATEGORIAS_DESTACADAS.map((cat) => (
+            <button
+              key={cat}
+              className="boton-categoria-inicio"
+              onClick={() => onVerProductos(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
+
       <section className="banner-puntos">
         <h2>Sumá puntos en cada compra</h2>
         <p className="banner-puntos-sub">
@@ -56,8 +87,8 @@ export default function Inicio({ onVerProductos }) {
         </div>
       </section>
 
-      <button className="boton-ver-productos" onClick={onVerProductos}>
-        Ver catálogo
+      <button className="boton-ver-productos" onClick={() => onVerProductos()}>
+        Ver catálogo completo
       </button>
     </div>
   )
