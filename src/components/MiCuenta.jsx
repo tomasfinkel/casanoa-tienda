@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-// AJUSTAR: pegar el ID del bin nuevo de JSONBin que Tomás va a crear.
-const JSONBIN_BIN_ID = 'PENDIENTE'
+// ID del bin de clientes, creado el 28/6.
+const JSONBIN_BIN_ID = '6a41818ef5f4af5e293e7862'
 const JSONBIN_MASTER_KEY =
   '$2a$10$1BGyO1jHwbMeYO1q//l4cONT1jPzR454VBh9kchyu6xE.xsmMtxz2'
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`
