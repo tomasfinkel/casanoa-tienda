@@ -8,9 +8,9 @@ const NIVELES = [
 ]
 
 const PROMOS = [
-  { nombre: 'Cuenta DNI', detalle: 'Descuento a confirmar' },
-  { nombre: 'BBVA', detalle: 'Descuento a confirmar' },
-  { nombre: 'Efectivo', detalle: 'Descuento a confirmar' },
+  { nombre: 'Cuenta DNI', dia: 'Lunes a viernes', detalle: '20% OFF — tope $6.000 por semana' },
+  { nombre: 'BBVA', dia: 'Martes', detalle: '30% OFF con Visa o Mastercard — tope $12.000 por mes' },
+  { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra' },
 ]
 
 export default function Inicio({ onVerProductos }) {
@@ -40,13 +40,17 @@ export default function Inicio({ onVerProductos }) {
           {PROMOS.map((p) => (
             <div className="card-promo" key={p.nombre}>
               <span className="card-promo-nombre">{p.nombre}</span>
+              <span className="card-promo-dia">{p.dia}</span>
               <span className="card-promo-detalle">{p.detalle}</span>
             </div>
           ))}
           {sucursalId === 'migueletes' && (
             <div className="card-promo">
-              <span className="card-promo-nombre">Socio Megatlon</span>
-              <span className="card-promo-detalle">Descuento a confirmar</span>
+              <span className="card-promo-nombre">Socios Megatlon</span>
+              <span className="card-promo-dia">Todos los días</span>
+              <span className="card-promo-detalle">
+                10% OFF con cualquier medio de pago — 15% OFF pagando en efectivo
+              </span>
             </div>
           )}
         </div>
