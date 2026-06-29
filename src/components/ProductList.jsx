@@ -35,23 +35,28 @@ const ATAJOS = [
   'Keto',
 ]
 
-export default function ProductList() {
+export default function ProductList({ categoriaInicial }) {
   const { productos: todosLosProductos, cargando, error } = useCatalogo()
   const { sucursalId } = useSucursal()
   const [busqueda, setBusqueda] = useState('')
-  const [categoriaActiva, setCategoriaActiva] = useState(null)
+  const [categoriaActiva, setCategoriaActiva] = useState(categoriaInicial || null)
 
   if (cargando) return <p className="estado">Cargando catálogo...</p>
   if (error)
     return <p className="estado error">No se pudo cargar el catálogo: {error}</p>
 
-  // Solo ocultamos si HAY un dato de stock para esta sucursal y dice 0 o
-  // menos. Si no hay dato (sync nunca corrió, o el producto no aparece en
-  // stock.json), se sigue mostrando — fallar abierto, no cerrado.
+  // Si la sucursal todavía no sincronizó ningún producto hoy, fallamos
+  // abierto (puede ser que el cron no llegó todavía). Si ya sincronizó,
+  // un producto ausente o sin esa sucursal en su stock significa que
+  // de verdad no hay stock ahí — se oculta.
+  const sucursalesConDatos = todosLosProductos.sucursalesConDatos
+  const sucursalYaSincronizo = sucursalesConDatos?.has(sucursalId) ?? false
   const productos = todosLosProductos.filter((p) => {
-    if (!p.stock) return true
-    const enEstaSucursal = p.stock[sucursalId]
-    return enEstaSucursal === undefined || enEstaSucursal === null || enEstaSucursal > 0
+    const enEstaSucursal = p.stock ? p.stock[sucursalId] : undefined
+    if (enEstaSucursal === undefined || enEstaSucursal === null) {
+      return !sucursalYaSincronizo
+    }
+    return enEstaSucursal > 0
   })
 
   function buscarTexto(valor) {
