@@ -66,6 +66,20 @@ export default function Inicio({ onVerProductos }) {
       </section>
 
       <section className="banner-promos">
+        <h2>Envíos y retiro</h2>
+        <div className="fila-promos">
+          <div className="card-promo">
+            <span className="card-promo-nombre">Capital Federal</span>
+            <span className="card-promo-dia">Envío gratis desde $90.000</span>
+          </div>
+          <div className="card-promo">
+            <span className="card-promo-nombre">Provincia de Buenos Aires</span>
+            <span className="card-promo-dia">Hacé el pedido y retirá en la sucursal</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="banner-promos">
         <h2>Promociones vigentes</h2>
         <div className="fila-promos">
           {PROMOS.map((p) => (
