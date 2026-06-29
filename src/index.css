@@ -532,6 +532,23 @@ body {
   margin-top: 1rem;
 }
 
+.info-envio {
+  background: #f5f2ec;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin: 0.7rem 0;
+  font-size: 0.78rem;
+  color: #5a4a3a;
+}
+
+.info-envio p {
+  margin: 0 0 0.4rem;
+}
+
+.info-envio p:last-child {
+  margin-bottom: 0;
+}
+
 .estado {
   padding: 2rem;
   text-align: center;
