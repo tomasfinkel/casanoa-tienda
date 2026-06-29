@@ -40,6 +40,20 @@ async function obtenerStockPorCodigo() {
   }
 }
 
+// Qué sucursales ya tienen al menos un producto sincronizado hoy.
+// Sirve para distinguir "este producto no tiene stock acá" (la sucursal
+// ya sincronizó, y no apareció) de "todavía no sé" (la sucursal ni
+// empezó su sincronización de hoy).
+function calcularSucursalesConDatos(stockPorCodigo) {
+  const sucursales = new Set()
+  for (const datosProducto of Object.values(stockPorCodigo)) {
+    for (const sucursalId of Object.keys(datosProducto)) {
+      sucursales.add(sucursalId)
+    }
+  }
+  return sucursales
+}
+
 export async function obtenerCatalogoCompleto() {
   const [resProductos, stockPorCodigo] = await Promise.all([
     fetch(CATALOGO_BLOB_URL),
@@ -49,12 +63,18 @@ export async function obtenerCatalogoCompleto() {
 
   const raw = await resProductos.json()
   const productos = extraerListaProductos(raw)
+  const sucursalesConDatos = calcularSucursalesConDatos(stockPorCodigo)
 
-  return productos.map((p) => ({
+  const resultado = productos.map((p) => ({
     id: p.codigo,
     nombre: p.nombre,
     precio: p.precio,
     imagen: `/productos/${p.codigo}.jpg`,
     stock: stockPorCodigo[p.codigo] ?? null,
   }))
+
+  // Propiedad extra sobre el array (no un índice), para que ProductList
+  // sepa qué sucursales ya tienen datos confiables hoy.
+  resultado.sucursalesConDatos = sucursalesConDatos
+  return resultado
 }
