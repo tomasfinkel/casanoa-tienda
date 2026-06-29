@@ -71,6 +71,18 @@ export default function CartDrawer() {
             {itemsConDatos.length > 0 && (
               <>
                 <p className="total">Total: ${total}</p>
+                <div className="info-envio">
+                  <p>
+                    <strong>Envío gratis a Capital Federal</strong> a partir de $90.000.
+                    {total >= 90000
+                      ? ' ¡Tu pedido ya califica!'
+                      : ` Te faltan $${90000 - total} para llegar.`}
+                  </p>
+                  <p>
+                    <strong>Provincia de Buenos Aires:</strong> hacé el pedido y coordinás
+                    con la sucursal para pasar a retirarlo.
+                  </p>
+                </div>
                 <button className="boton-whatsapp" onClick={enviarPorWhatsapp}>
                   Finalizar pedido por WhatsApp
                 </button>
