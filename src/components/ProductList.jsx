@@ -4,7 +4,7 @@ import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
 import categorias from '../data/categorias.json'
 
-const LIMITE_RESULTADOS = 60
+const LIMITE_RESULTADOS = 500
 
 const ATAJOS = [
   'Vinos',
