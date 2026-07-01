@@ -10,9 +10,11 @@ const NIVELES = [
 ]
 
 const PROMOS = [
-  { nombre: 'Cuenta DNI', dia: 'Lunes a viernes', detalle: '20% OFF — tope $6.000 por semana' },
-  { nombre: 'BBVA', dia: 'Martes', detalle: '30% OFF con Visa o Mastercard — tope $12.000 por mes' },
-  { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra' },
+  { nombre: 'Cuenta DNI', dia: 'Lunes a viernes', detalle: '20% OFF — tope $6.000 por semana', sucursales: null },
+  { nombre: 'BBVA', dia: 'Martes', detalle: '30% OFF con Visa o Mastercard — tope $12.000 por mes', sucursales: null },
+  { nombre: 'Mercado Pago', dia: 'Miércoles y sábados', detalle: '25% de reintegro con tarjeta de crédito Mercado Pago en el Point — tope $15.000 por mes', sucursales: ['siria'] },
+  { nombre: 'Megatlon', dia: 'Todos los días', detalle: '15% OFF en efectivo / 10% OFF con cualquier otro medio de pago', sucursales: ['migueletes'] },
+  { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra', sucursales: null },
 ]
 
 const CATEGORIAS_DESTACADAS = [
@@ -82,22 +84,13 @@ export default function Inicio({ onVerProductos }) {
       <section className="banner-promos">
         <h2>Promociones vigentes</h2>
         <div className="fila-promos">
-          {PROMOS.map((p) => (
+          {PROMOS.filter((p) => !p.sucursales || p.sucursales.includes(sucursalId)).map((p) => (
             <div className="card-promo" key={p.nombre}>
               <span className="card-promo-nombre">{p.nombre}</span>
               <span className="card-promo-dia">{p.dia}</span>
               <span className="card-promo-detalle">{p.detalle}</span>
             </div>
           ))}
-          {sucursalId === 'migueletes' && (
-            <div className="card-promo">
-              <span className="card-promo-nombre">Socios Megatlon</span>
-              <span className="card-promo-dia">Todos los días</span>
-              <span className="card-promo-detalle">
-                10% OFF con cualquier medio de pago — 15% OFF pagando en efectivo
-              </span>
-            </div>
-          )}
         </div>
       </section>
 
