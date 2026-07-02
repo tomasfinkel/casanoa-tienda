@@ -723,7 +723,7 @@
     "Condimentos y especias"
   ],
   "10148": [
-    "Panificados"
+    "Snacks"
   ],
   "10151": [
     "Congelados"
@@ -756,7 +756,7 @@
     "Lácteos"
   ],
   "10191": [
-    "Lácteos"
+    "Snacks"
   ],
   "10207": [
     "Congelados",
@@ -783,7 +783,7 @@
     "Sin gluten / TACC"
   ],
   "10217": [
-    "Dulces y chocolates",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "10220": [
@@ -876,6 +876,7 @@
   ],
   "10285": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "10286": [
@@ -1068,7 +1069,8 @@
     "Dulces y chocolates"
   ],
   "1043": [
-    "Dulces y chocolates"
+    "Aceites y vinagres",
+    "Condimentos y especias"
   ],
   "10433": [
     "Dulces y chocolates"
@@ -1093,6 +1095,7 @@
   ],
   "10451": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "10452": [
@@ -1152,7 +1155,8 @@
     "Pastas y arroces"
   ],
   "10494": [
-    "Bebidas"
+    "Bebidas",
+    "Fermentados"
   ],
   "10495": [
     "Lácteos"
@@ -1173,7 +1177,8 @@
     "Congelados"
   ],
   "10503": [
-    "Miel y untables"
+    "Snacks",
+    "Dulces y chocolates"
   ],
   "10504": [
     "Snacks"
@@ -1234,6 +1239,7 @@
   ],
   "10536": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "10539": [
@@ -1246,10 +1252,11 @@
     "Conservas"
   ],
   "10543": [
-    "Comidas listas"
+    "Comidas listas",
+    "Congelados"
   ],
   "10548": [
-    "Lácteos"
+    "Panificados"
   ],
   "10549": [
     "Snacks"
@@ -1450,7 +1457,9 @@
     "Comidas listas"
   ],
   "10653": [
-    "Lácteos"
+    "Congelados",
+    "Comidas listas",
+    "Pastas y arroces"
   ],
   "10655": [
     "Lácteos"
@@ -1584,7 +1593,7 @@
     "Pastas y arroces"
   ],
   "10717": [
-    "Dulces y chocolates"
+    "Cereales y legumbres"
   ],
   "1072": [
     "Condimentos y especias"
@@ -1596,7 +1605,7 @@
     "Snacks"
   ],
   "10739": [
-    "Condimentos y especias"
+    "Frutos secos y semillas"
   ],
   "1074": [
     "Condimentos y especias"
@@ -1653,7 +1662,8 @@
     "Condimentos y especias"
   ],
   "10766": [
-    "Congelados"
+    "Congelados",
+    "Comidas listas"
   ],
   "10768": [
     "Frutos secos y semillas"
@@ -1790,7 +1800,7 @@
     "Frutos secos y semillas"
   ],
   "10854": [
-    "Condimentos y especias"
+    "Snacks"
   ],
   "1086": [
     "Conservas"
@@ -1805,7 +1815,7 @@
     "Congelados"
   ],
   "10865": [
-    "Condimentos y especias"
+    "Conservas"
   ],
   "10866": [
     "Cuidado personal"
@@ -1863,33 +1873,47 @@
     "Condimentos y especias",
     "Frutos secos y semillas"
   ],
-  "10906": [],
+  "10906": [
+    "Cereales y legumbres",
+    "Sin gluten / TACC"
+  ],
   "1091": [
     "Conservas"
   ],
   "10915": [
-    "Café e infusiones"
+    "Bebidas",
+    "Fermentados"
   ],
   "10916": [
     "Bebidas"
   ],
   "10918": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados",
+    "Miel y untables"
   ],
   "10919": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados"
   ],
   "10920": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "10921": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "10922": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados",
+    "Miel y untables"
   ],
   "10923": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados"
   ],
   "10925": [
     "Helados y postres"
@@ -2244,7 +2268,7 @@
     "Suplementos y superalimentos"
   ],
   "11168": [
-    "Aceites y vinagres"
+    "Cuidado personal"
   ],
   "11169": [
     "Suplementos y superalimentos"
@@ -2311,6 +2335,8 @@
     "Dulces y chocolates"
   ],
   "11208": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "11209": [
@@ -2435,6 +2461,7 @@
     "Panificados"
   ],
   "11274": [
+    "Conservas",
     "Pastas y arroces"
   ],
   "11275": [
@@ -2478,16 +2505,18 @@
     "Cuidado personal"
   ],
   "11291": [
-    "Bebidas"
+    "Cuidado personal"
   ],
   "11293": [
     "Frutos secos y semillas"
   ],
   "11294": [
-    "Dulces y chocolates"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "11295": [
-    "Dulces y chocolates"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "11296": [
     "Suplementos y superalimentos"
@@ -2550,7 +2579,7 @@
     "Sin gluten / TACC"
   ],
   "11330": [
-    "Frutos secos y semillas"
+    "Bebidas"
   ],
   "11332": [
     "Café e infusiones"
@@ -2686,7 +2715,7 @@
     "Miel y untables"
   ],
   "11418": [
-    "Bebidas"
+    "Cuidado personal"
   ],
   "11419": [
     "Panificados",
@@ -2734,10 +2763,12 @@
     "Pastas y arroces"
   ],
   "11446": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "11447": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "11448": [
     "Dulces y chocolates"
@@ -2825,7 +2856,6 @@
     "Sin gluten / TACC"
   ],
   "116": [
-    "Lácteos",
     "Keto"
   ],
   "11687": [
@@ -3002,10 +3032,10 @@
     "Cuidado personal"
   ],
   "1415": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "1416": [
-    "Aceites y vinagres"
+    "Cuidado personal"
   ],
   "1417": [
     "Cuidado personal"
@@ -3319,7 +3349,8 @@
     "Condimentos y especias"
   ],
   "1730": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "1731": [
     "Condimentos y especias"
@@ -3608,7 +3639,7 @@
     "Condimentos y especias"
   ],
   "1980": [
-    "Lácteos"
+    "Miel y untables"
   ],
   "199": [
     "Aceites y vinagres"
@@ -3656,10 +3687,11 @@
     "Condimentos y especias"
   ],
   "2005": [
-    "Condimentos y especias"
+    "Dulces y chocolates"
   ],
   "20057": [
-    "Café e infusiones"
+    "Snacks",
+    "Suplementos y superalimentos"
   ],
   "2006": [
     "Condimentos y especias"
@@ -3698,6 +3730,7 @@
     "Sin gluten / TACC"
   ],
   "2027": [
+    "Condimentos y especias",
     "Sin gluten / TACC"
   ],
   "2028": [
@@ -3743,13 +3776,13 @@
     "Condimentos y especias"
   ],
   "20604": [
-    "Lácteos"
+    "Cuidado personal"
   ],
   "20605": [
-    "Lácteos"
+    "Cuidado personal"
   ],
   "20609": [
-    "Lácteos"
+    "Cuidado personal"
   ],
   "2064": [
     "Condimentos y especias"
@@ -3969,7 +4002,7 @@
     "Café e infusiones"
   ],
   "24947": [
-    "Condimentos y especias"
+    "Harinas y premezclas"
   ],
   "2495": [
     "Harinas y premezclas"
@@ -4141,6 +4174,7 @@
   ],
   "276": [
     "Pastas y arroces",
+    "Frutos secos y semillas",
     "Sin gluten / TACC"
   ],
   "277": [
@@ -4268,7 +4302,7 @@
     "Café e infusiones"
   ],
   "29": [
-    "Comidas listas"
+    "Congelados"
   ],
   "290": [
     "Pastas y arroces"
@@ -4297,7 +4331,7 @@
     "Bebidas"
   ],
   "2939": [
-    "Frutos secos y semillas",
+    "Bebidas",
     "Sin gluten / TACC"
   ],
   "2942": [
@@ -4331,10 +4365,12 @@
     "Lácteos"
   ],
   "2960": [
-    "Frutos secos y semillas"
+    "Bebidas",
+    "Dulces y chocolates"
   ],
   "2961": [
-    "Frutos secos y semillas"
+    "Bebidas",
+    "Dulces y chocolates"
   ],
   "297": [
     "Lácteos"
@@ -4651,7 +4687,8 @@
     "Aceites y vinagres"
   ],
   "33211": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "33233": [
     "Pastas y arroces"
@@ -4717,7 +4754,8 @@
     "Condimentos y especias"
   ],
   "3390": [
-    "Dulces y chocolates"
+    "Miel y untables",
+    "Lácteos"
   ],
   "340": [
     "Cereales y legumbres"
@@ -4737,19 +4775,20 @@
     "Cereales y legumbres"
   ],
   "3413": [
-    "Dulces y chocolates"
+    "Miel y untables",
+    "Lácteos"
   ],
   "341520": [
     "Dulces y chocolates"
   ],
   "3419": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "342": [
     "Cereales y legumbres"
   ],
   "3420": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "3422": [
     "Condimentos y especias"
@@ -4785,17 +4824,20 @@
     "Dulces y chocolates"
   ],
   "34589": [
-    "Dulces y chocolates"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "346": [
     "Cereales y legumbres"
   ],
   "3460": [
-    "Dulces y chocolates",
+    "Miel y untables",
+    "Lácteos",
     "Sin gluten / TACC"
   ],
   "3461": [
-    "Dulces y chocolates",
+    "Miel y untables",
+    "Lácteos",
     "Sin gluten / TACC"
   ],
   "3462": [
@@ -4832,7 +4874,7 @@
     "Snacks"
   ],
   "3497917003588": [
-    "Condimentos y especias"
+    "Snacks"
   ],
   "35109": [
     "Aceites y vinagres"
@@ -4932,6 +4974,7 @@
   ],
   "3655": [
     "Pastas y arroces",
+    "Dulces y chocolates",
     "Sin gluten / TACC"
   ],
   "3666": [
@@ -5078,7 +5121,7 @@
     "Snacks"
   ],
   "3791": [
-    "Dulces y chocolates"
+    "Snacks"
   ],
   "38": [
     "Congelados"
@@ -5158,7 +5201,7 @@
     "Cereales y legumbres"
   ],
   "3889": [
-    "Helados y postres"
+    "Snacks"
   ],
   "389": [
     "Cereales y legumbres"
@@ -5272,7 +5315,7 @@
     "Dulces y chocolates"
   ],
   "396792": [
-    "Dulces y chocolates"
+    "Frutos secos y semillas"
   ],
   "3968": [
     "Dulces y chocolates"
@@ -5386,7 +5429,8 @@
     "Dulces y chocolates"
   ],
   "401005": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Dulces y chocolates"
   ],
   "401183": [
     "Dulces y chocolates"
@@ -5407,10 +5451,12 @@
     "Lácteos"
   ],
   "40198644": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "40198651": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "40293": [
     "Snacks"
@@ -5423,7 +5469,7 @@
     "Dulces y chocolates"
   ],
   "40319": [
-    "Condimentos y especias"
+    "Lácteos"
   ],
   "40320": [
     "Vinos"
@@ -5559,7 +5605,7 @@
     "Snacks"
   ],
   "4162": [
-    "Condimentos y especias"
+    "Snacks"
   ],
   "4163": [
     "Snacks"
@@ -5578,6 +5624,7 @@
   ],
   "4174": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "4175": [
@@ -5631,7 +5678,7 @@
     "Frutos secos y semillas"
   ],
   "4194": [
-    "Panificados"
+    "Frutos secos y semillas"
   ],
   "4212": [
     "Frutos secos y semillas",
@@ -5641,7 +5688,6 @@
     "Condimentos y especias"
   ],
   "4216": [
-    "Condimentos y especias",
     "Sin gluten / TACC"
   ],
   "4218": [
@@ -5690,10 +5736,11 @@
   ],
   "4264": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "4265": [
-    "Panificados",
+    "Frutos secos y semillas",
     "Sin gluten / TACC"
   ],
   "4277": [
@@ -5740,16 +5787,17 @@
     "Suplementos y superalimentos"
   ],
   "4401": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "440176": [
     "Dulces y chocolates"
   ],
   "4402": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "4403": [
-    "Café e infusiones"
+    "Cuidado personal",
+    "Condimentos y especias"
   ],
   "4407": [
     "Suplementos y superalimentos"
@@ -5761,13 +5809,13 @@
     "Condimentos y especias"
   ],
   "4414": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "4420": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "4421": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "44267": [
     "Frutos secos y semillas"
@@ -5779,7 +5827,7 @@
     "Dulces y chocolates"
   ],
   "444": [
-    "Condimentos y especias"
+    "Suplementos y superalimentos"
   ],
   "4440": [
     "Lácteos"
@@ -5858,10 +5906,12 @@
     "Comidas listas"
   ],
   "4521": [
-    "Conservas"
+    "Congelados",
+    "Comidas listas"
   ],
   "4523": [
-    "Conservas"
+    "Congelados",
+    "Comidas listas"
   ],
   "45440": [
     "Pastas y arroces",
@@ -5903,6 +5953,8 @@
     "Congelados"
   ],
   "4561": [
+    "Congelados",
+    "Comidas listas",
     "Pastas y arroces"
   ],
   "4562": [
@@ -5928,17 +5980,20 @@
     "Pastas y arroces"
   ],
   "4575": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "4576": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "4577": [
     "Congelados",
     "Pastas y arroces"
   ],
   "4578": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "4579": [
     "Congelados",
@@ -6050,7 +6105,7 @@
     "Dulces y chocolates"
   ],
   "48261": [
-    "Dulces y chocolates"
+    "Lácteos"
   ],
   "48619": [
     "Dulces y chocolates",
@@ -6079,7 +6134,7 @@
     "Lácteos"
   ],
   "4966": [
-    "Lácteos"
+    "Dulces y chocolates"
   ],
   "4967": [
     "Lácteos"
@@ -6160,7 +6215,7 @@
     "Sin gluten / TACC"
   ],
   "50206": [
-    "Lácteos"
+    "Cereales y legumbres"
   ],
   "50257": [
     "Lácteos",
@@ -6246,7 +6301,8 @@
     "Lácteos"
   ],
   "5149": [
-    "Dulces y chocolates"
+    "Miel y untables",
+    "Lácteos"
   ],
   "5150": [
     "Lácteos"
@@ -6440,7 +6496,7 @@
     "Café e infusiones"
   ],
   "584": [
-    "Café e infusiones"
+    "Bebidas"
   ],
   "585": [
     "Bebidas"
@@ -6463,7 +6519,7 @@
     "Suplementos y superalimentos"
   ],
   "5900919000212": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "5907029005182": [
     "Snacks",
@@ -6480,10 +6536,11 @@
   ],
   "60019": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "60026": [
-    "Panificados",
+    "Frutos secos y semillas",
     "Sin gluten / TACC"
   ],
   "60073": [
@@ -6491,10 +6548,12 @@
     "Sin gluten / TACC"
   ],
   "60351": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "60405": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "60462": [
     "Dulces y chocolates"
@@ -6704,7 +6763,7 @@
     "Dulces y chocolates"
   ],
   "714604171942": [
-    "Dulces y chocolates",
+    "Panificados",
     "Keto"
   ],
   "72": [
@@ -6718,7 +6777,7 @@
     "Bebidas"
   ],
   "72125": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "72325": [
     "Dulces y chocolates"
@@ -6730,7 +6789,7 @@
     "Frutos secos y semillas"
   ],
   "72743": [
-    "Aceites y vinagres"
+    "Cuidado personal"
   ],
   "72773": [
     "Frutos secos y semillas"
@@ -6739,7 +6798,8 @@
     "Frutos secos y semillas"
   ],
   "734191403820": [
-    "Panificados"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "73555": [
     "Snacks"
@@ -6761,10 +6821,10 @@
     "Frutos secos y semillas"
   ],
   "751545": [
-    "Dulces y chocolates"
+    "Cereales y legumbres"
   ],
   "751552": [
-    "Pastas y arroces"
+    "Cereales y legumbres"
   ],
   "754697506085": [
     "Suplementos y superalimentos"
@@ -6787,7 +6847,7 @@
     "Lácteos"
   ],
   "776": [
-    "Congelados"
+    "Condimentos y especias"
   ],
   "7774440260562": [
     "Pastas y arroces"
@@ -6821,7 +6881,8 @@
     "Café e infusiones"
   ],
   "7798040890097": [
-    "Dulces y chocolates"
+    "Aceites y vinagres",
+    "Condimentos y especias"
   ],
   "7798041520207": [
     "Lácteos"
@@ -6869,7 +6930,7 @@
     "Dulces y chocolates"
   ],
   "7798131061733": [
-    "Vinos"
+    "Aceites y vinagres"
   ],
   "7798137450029": [
     "Dulces y chocolates"
@@ -6916,7 +6977,7 @@
     "Dulces y chocolates"
   ],
   "7798187761090": [
-    "Pastas y arroces"
+    "Cereales y legumbres"
   ],
   "7798197300067": [
     "Dulces y chocolates"
@@ -6933,10 +6994,10 @@
     "Dulces y chocolates"
   ],
   "7798307810387": [
-    "Café e infusiones"
+    "Snacks"
   ],
   "7798318385010": [
-    "Aceites y vinagres"
+    "Cuidado personal"
   ],
   "7798343751651": [
     "Snacks"
@@ -6970,8 +7031,8 @@
     "Dulces y chocolates"
   ],
   "7798362490128": [
-    "Frutos secos y semillas",
-    "Sin gluten / TACC"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "7798362490135": [
     "Dulces y chocolates"
@@ -6986,7 +7047,7 @@
     "Aceites y vinagres"
   ],
   "7798439570067": [
-    "Aceites y vinagres"
+    "Café e infusiones"
   ],
   "7798456650025": [
     "Dulces y chocolates",
@@ -7122,7 +7183,8 @@
     "Sin gluten / TACC"
   ],
   "8001250019646": [
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Pastas y arroces"
   ],
   "8001250019677": [
     "Pastas y arroces"
@@ -7140,7 +7202,7 @@
     "Café e infusiones"
   ],
   "8001876002152": [
-    "Aceites y vinagres"
+    "Pastas y arroces"
   ],
   "80023": [
     "Snacks",
@@ -7151,6 +7213,7 @@
     "Dulces y chocolates"
   ],
   "8002873021931": [
+    "Galletas",
     "Frutos secos y semillas"
   ],
   "8002873022532": [
@@ -7247,7 +7310,6 @@
     "Condimentos y especias"
   ],
   "829": [
-    "Lácteos",
     "Keto"
   ],
   "830": [
@@ -7284,7 +7346,7 @@
     "Cuidado personal"
   ],
   "843": [
-    "Suplementos y superalimentos"
+    "Condimentos y especias"
   ],
   "844": [
     "Condimentos y especias"
@@ -7313,13 +7375,13 @@
     "Dulces y chocolates"
   ],
   "86017": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "86024": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "86319": [
-    "Dulces y chocolates"
+    "Suplementos y superalimentos"
   ],
   "8681042335217": [
     "Panificados"
@@ -7337,7 +7399,7 @@
     "Bebidas"
   ],
   "880047": [
-    "Pastas y arroces"
+    "Miel y untables"
   ],
   "8801037039795": [
     "Café e infusiones"
@@ -7376,7 +7438,7 @@
     "Condimentos y especias"
   ],
   "8904153820206": [
-    "Condimentos y especias"
+    "Suplementos y superalimentos"
   ],
   "891": [
     "Condimentos y especias"
@@ -7637,7 +7699,7 @@
     "Frutos secos y semillas"
   ],
   "ALCH08": [
-    "Frutos secos y semillas"
+    "Café e infusiones"
   ],
   "ALERCES01": [
     "Panificados"
@@ -7691,7 +7753,7 @@
     "Lácteos"
   ],
   "ALLY02": [
-    "Café e infusiones"
+    "Frutos secos y semillas"
   ],
   "ALLY03": [
     "Lácteos"
@@ -7726,7 +7788,7 @@
     "Snacks"
   ],
   "ALMA10": [
-    "Panificados",
+    "Snacks",
     "Keto"
   ],
   "ALMA100": [
@@ -7744,6 +7806,7 @@
     "Snacks"
   ],
   "ALMA16": [
+    "Café e infusiones",
     "Panificados"
   ],
   "ALMA17": [
@@ -7787,6 +7850,7 @@
     "Vinos"
   ],
   "ALMA78": [
+    "Café e infusiones",
     "Panificados"
   ],
   "ALMAD15": [
@@ -7833,19 +7897,20 @@
     "Snacks"
   ],
   "AMAN04": [
-    "Frutos secos y semillas"
+    "Bebidas"
   ],
   "AMAN08": [
-    "Frutos secos y semillas"
+    "Bebidas"
   ],
   "AMANALM": [
-    "Frutos secos y semillas"
+    "Bebidas"
   ],
   "AMANDE1": [
     "Bebidas"
   ],
   "AMOE30": [
-    "Conservas"
+    "Congelados",
+    "Comidas listas"
   ],
   "AMOECALAB": [
     "Lácteos"
@@ -7874,7 +7939,8 @@
     "Frutos secos y semillas"
   ],
   "ANCH": [
-    "Aceites y vinagres"
+    "Aceites y vinagres",
+    "Conservas"
   ],
   "ANGI01": [
     "Snacks",
@@ -7929,9 +7995,13 @@
     "Frutos secos y semillas"
   ],
   "ARGBO": [
+    "Congelados",
+    "Comidas listas",
     "Sin gluten / TACC"
   ],
   "ARGE01": [
+    "Congelados",
+    "Comidas listas",
     "Sin gluten / TACC"
   ],
   "ARGE02": [
@@ -7988,6 +8058,8 @@
     "Cuidado personal"
   ],
   "ARPAP": [
+    "Congelados",
+    "Comidas listas",
     "Sin gluten / TACC"
   ],
   "ARR1": [
@@ -8036,6 +8108,7 @@
     "Lácteos"
   ],
   "ATHOMX1": [
+    "Suplementos y superalimentos",
     "Galletas"
   ],
   "ATHOMX2": [
@@ -8066,7 +8139,7 @@
     "Frutos secos y semillas"
   ],
   "BACI01": [
-    "Snacks"
+    "Café e infusiones"
   ],
   "BACI02": [
     "Snacks"
@@ -8159,7 +8232,7 @@
     "Condimentos y especias"
   ],
   "BADIA101": [
-    "Café e infusiones"
+    "Condimentos y especias"
   ],
   "BADIA102": [
     "Condimentos y especias"
@@ -8171,7 +8244,7 @@
     "Condimentos y especias"
   ],
   "BADIA21": [
-    "Frutos secos y semillas"
+    "Condimentos y especias"
   ],
   "BADIA22": [
     "Condimentos y especias"
@@ -8364,7 +8437,8 @@
     "Dulces y chocolates"
   ],
   "BEZGLUTEN1": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Sin gluten / TACC"
   ],
   "BIAN02": [
     "Lácteos"
@@ -8381,13 +8455,15 @@
     "Lácteos"
   ],
   "BICEN1": [
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "BICEN2": [
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "BICEN3": [
-    "Carnes y fiambres"
+    "Snacks"
   ],
   "BICEN4": [
     "Sin gluten / TACC"
@@ -8466,7 +8542,7 @@
     "Suplementos y superalimentos"
   ],
   "BLOOM02": [
-    "Dulces y chocolates"
+    "Cuidado personal"
   ],
   "BLOOM03": [
     "Suplementos y superalimentos"
@@ -8478,7 +8554,7 @@
     "Suplementos y superalimentos"
   ],
   "BLUE06": [
-    "Condimentos y especias"
+    "Frutos secos y semillas"
   ],
   "BLUE07": [
     "Aceites y vinagres"
@@ -8487,13 +8563,16 @@
     "Harinas y premezclas"
   ],
   "BLUE2": [
-    "Conservas"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "BLUE3": [
-    "Conservas"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "BLUE4": [
-    "Conservas"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "BOCADO00": [
     "Frutos secos y semillas"
@@ -8560,10 +8639,12 @@
     "Miel y untables"
   ],
   "BOOCH1255": [
-    "Café e infusiones"
+    "Bebidas",
+    "Fermentados"
   ],
   "BOOCHJAZ": [
-    "Café e infusiones"
+    "Bebidas",
+    "Fermentados"
   ],
   "BOOM01": [
     "Suplementos y superalimentos"
@@ -8603,7 +8684,7 @@
     "Condimentos y especias"
   ],
   "BORNIBUS4": [
-    "Dulces y chocolates"
+    "Condimentos y especias"
   ],
   "BOT124": [
     "Cuidado personal"
@@ -8624,10 +8705,12 @@
     "Cuidado personal"
   ],
   "BOTTI01": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "BOTTI02": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "BOTTI03": [
     "Condimentos y especias"
@@ -8672,7 +8755,8 @@
     "Aceites y vinagres"
   ],
   "BRAGG2": [
-    "Café e infusiones"
+    "Bebidas",
+    "Aceites y vinagres"
   ],
   "BRAGG3": [
     "Aceites y vinagres"
@@ -8720,7 +8804,8 @@
     "Frutos secos y semillas"
   ],
   "BRIASNACK01": [
-    "Pastas y arroces"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "BRIASNACK02": [
     "Keto"
@@ -8862,7 +8947,7 @@
     "Café e infusiones"
   ],
   "BUNJI02": [
-    "Café e infusiones"
+    "Bebidas"
   ],
   "BUTTER01": [
     "Dulces y chocolates",
@@ -8915,7 +9000,7 @@
     "Lácteos"
   ],
   "CABRANDI17": [
-    "Vinos"
+    "Lácteos"
   ],
   "CABRANDI2": [
     "Lácteos"
@@ -8946,7 +9031,8 @@
     "Dulces y chocolates"
   ],
   "CACHA1": [
-    "Galletas"
+    "Snacks",
+    "Dulces y chocolates"
   ],
   "CADBURY": [
     "Dulces y chocolates"
@@ -9029,7 +9115,7 @@
     "Bebidas"
   ],
   "CAMP27": [
-    "Pastas y arroces"
+    "Comidas listas"
   ],
   "CAMPOFIDE": [
     "Pastas y arroces"
@@ -9172,6 +9258,7 @@
   ],
   "CARMEKETO1": [
     "Panificados",
+    "Snacks",
     "Keto"
   ],
   "CARMEKETO2": [
@@ -9183,7 +9270,9 @@
     "Keto"
   ],
   "CARMELA02": [
-    "Frutos secos y semillas"
+    "Snacks",
+    "Frutos secos y semillas",
+    "Dulces y chocolates"
   ],
   "CARMELA04": [
     "Snacks"
@@ -9209,7 +9298,7 @@
     "Suplementos y superalimentos"
   ],
   "CAROSOMA51": [
-    "Bebidas"
+    "Suplementos y superalimentos"
   ],
   "CARRE01": [
     "Dulces y chocolates"
@@ -9230,7 +9319,8 @@
     "Dulces y chocolates"
   ],
   "CASA V": [
-    "Condimentos y especias"
+    "Congelados",
+    "Comidas listas"
   ],
   "CASA14": [
     "Congelados"
@@ -9380,6 +9470,7 @@
   ],
   "CELULA01": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "CELULA02": [
@@ -9593,7 +9684,7 @@
     "Condimentos y especias"
   ],
   "CIRIO 03": [
-    "Condimentos y especias"
+    "Conservas"
   ],
   "CIT01": [
     "Bebidas"
@@ -9659,7 +9750,7 @@
     "Bebidas"
   ],
   "CODA01": [
-    "Café e infusiones"
+    "Bebidas"
   ],
   "COFFEON": [
     "Dulces y chocolates"
@@ -9843,7 +9934,7 @@
     "Dulces y chocolates"
   ],
   "COSACO01": [
-    "Bebidas"
+    "Lácteos"
   ],
   "COSACO02": [
     "Frutos secos y semillas"
@@ -9883,6 +9974,7 @@
     "Conservas"
   ],
   "CRISTO01": [
+    "Conservas",
     "Pastas y arroces"
   ],
   "CRO840": [
@@ -9916,7 +10008,7 @@
     "Condimentos y especias"
   ],
   "CROPS1": [
-    "Condimentos y especias"
+    "Snacks"
   ],
   "CROPS2": [
     "Snacks"
@@ -9984,7 +10076,8 @@
     "Frutos secos y semillas"
   ],
   "CUMANASE": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "CUMANUEZ": [
     "Frutos secos y semillas"
@@ -10029,7 +10122,7 @@
     "Miel y untables"
   ],
   "DAL02": [
-    "Condimentos y especias"
+    "Miel y untables"
   ],
   "DAL03": [
     "Miel y untables"
@@ -10112,7 +10205,7 @@
     "Pastas y arroces"
   ],
   "DECCE03": [
-    "Huevos"
+    "Pastas y arroces"
   ],
   "DECECCARNA": [
     "Pastas y arroces"
@@ -10133,7 +10226,8 @@
     "Lácteos"
   ],
   "DELF09": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Lácteos"
   ],
   "DELF11": [
     "Lácteos"
@@ -10254,7 +10348,7 @@
     "Condimentos y especias"
   ],
   "DICO26": [
-    "Suplementos y superalimentos",
+    "Dulces y chocolates",
     "Sin gluten / TACC"
   ],
   "DICO27": [
@@ -10299,7 +10393,7 @@
     "Sin gluten / TACC"
   ],
   "DICO80": [
-    "Panificados",
+    "Harinas y premezclas",
     "Sin gluten / TACC"
   ],
   "DICOAVE": [
@@ -10413,7 +10507,8 @@
     "Dulces y chocolates"
   ],
   "DOÑA STEVIA": [
-    "Dulces y chocolates"
+    "Miel y untables",
+    "Lácteos"
   ],
   "DOÑA01": [
     "Pastas y arroces"
@@ -10449,7 +10544,7 @@
     "Dulces y chocolates"
   ],
   "DROGUERIA01": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "DROGUERIA02": [
     "Café e infusiones"
@@ -10464,7 +10559,7 @@
     "Café e infusiones"
   ],
   "DROGUERIA07": [
-    "Dulces y chocolates"
+    "Café e infusiones"
   ],
   "DROGUERIA08": [
     "Café e infusiones"
@@ -10494,7 +10589,7 @@
     "Café e infusiones"
   ],
   "DROGUERIA19": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "DROGUERIA20": [
     "Café e infusiones"
@@ -10509,7 +10604,7 @@
     "Café e infusiones"
   ],
   "DROGUERIA24": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "DROGUERIA25": [
     "Suplementos y superalimentos"
@@ -10676,7 +10771,8 @@
     "Frutos secos y semillas"
   ],
   "ELCASTI4949": [
-    "Panificados"
+    "Condimentos y especias",
+    "Dulces y chocolates"
   ],
   "ELCASTMANI": [
     "Frutos secos y semillas"
@@ -10774,10 +10870,10 @@
     "Lácteos"
   ],
   "ENTR03": [
-    "Pastas y arroces"
+    "Miel y untables"
   ],
   "ENTRE01": [
-    "Pastas y arroces"
+    "Miel y untables"
   ],
   "ENTREMONT": [
     "Lácteos"
@@ -10889,6 +10985,7 @@
     "Dulces y chocolates"
   ],
   "FELICESMUZZA": [
+    "Lácteos",
     "Frutos secos y semillas"
   ],
   "FELICIA1": [
@@ -10963,6 +11060,7 @@
     "Congelados"
   ],
   "FRAMS 01": [
+    "Harinas y premezclas",
     "Sin gluten / TACC"
   ],
   "FRAN": [
@@ -11023,10 +11121,14 @@
     "Congelados"
   ],
   "FRO4": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "FRO5": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados",
+    "Miel y untables"
   ],
   "FRO6": [
     "Helados y postres"
@@ -11197,7 +11299,7 @@
     "Frutos secos y semillas"
   ],
   "GAUCHI01": [
-    "Condimentos y especias"
+    "Snacks"
   ],
   "GAUCHISINSAL": [
     "Snacks",
@@ -11397,10 +11499,10 @@
     "Condimentos y especias"
   ],
   "GOOD1": [
-    "Conservas"
+    "Bebidas"
   ],
   "GOOD2": [
-    "Conservas"
+    "Bebidas"
   ],
   "GOOD3": [
     "Snacks"
@@ -11415,7 +11517,7 @@
     "Bebidas"
   ],
   "GOODIPRET": [
-    "Panificados"
+    "Snacks"
   ],
   "GOTA1": [
     "Café e infusiones"
@@ -11439,7 +11541,7 @@
     "Suplementos y superalimentos"
   ],
   "GRAN09": [
-    "Lácteos"
+    "Panificados"
   ],
   "GRANGER01": [
     "Harinas y premezclas"
@@ -11454,13 +11556,14 @@
     "Suplementos y superalimentos"
   ],
   "GRANGER06": [
-    "Helados y postres"
+    "Harinas y premezclas",
+    "Frutos secos y semillas"
   ],
   "GRANGER07": [
     "Suplementos y superalimentos"
   ],
   "GRANGER10": [
-    "Cereales y legumbres"
+    "Cuidado personal"
   ],
   "GRANGER20": [
     "Galletas"
@@ -11469,10 +11572,10 @@
     "Keto"
   ],
   "GRANGER50": [
-    "Suplementos y superalimentos"
+    "Harinas y premezclas"
   ],
   "GRANGER51": [
-    "Suplementos y superalimentos"
+    "Harinas y premezclas"
   ],
   "GRANGERCUP": [
     "Dulces y chocolates",
@@ -11505,7 +11608,8 @@
     "Snacks"
   ],
   "GREEN05": [
-    "Condimentos y especias"
+    "Snacks",
+    "Frutos secos y semillas"
   ],
   "GU1": [
     "Galletas",
@@ -11558,7 +11662,8 @@
     "Galletas"
   ],
   "GUO1": [
-    "Dulces y chocolates"
+    "Miel y untables",
+    "Lácteos"
   ],
   "GUO2": [
     "Dulces y chocolates"
@@ -11615,6 +11720,8 @@
     "Dulces y chocolates"
   ],
   "H4": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "H7": [
@@ -11784,19 +11891,25 @@
     "Suplementos y superalimentos"
   ],
   "HOLSOM": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "HOLSOM00": [
     "Helados y postres"
   ],
   "HOLSOM010": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados",
+    "Miel y untables"
   ],
   "HOLSOM04": [
     "Galletas"
   ],
   "HOLSOM05": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados",
+    "Miel y untables"
   ],
   "HOLSOM06": [
     "Helados y postres"
@@ -11805,7 +11918,9 @@
     "Helados y postres"
   ],
   "HOLSOM08": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados",
+    "Miel y untables"
   ],
   "HOLSOM1": [
     "Helados y postres"
@@ -11826,6 +11941,8 @@
     "Dulces y chocolates"
   ],
   "HOLSOM19": [
+    "Helados y postres",
+    "Congelados",
     "Dulces y chocolates"
   ],
   "HOLSOM9": [
@@ -11839,7 +11956,7 @@
     "Helados y postres"
   ],
   "HOM350": [
-    "Dulces y chocolates"
+    "Cereales y legumbres"
   ],
   "HOME08": [
     "Dulces y chocolates"
@@ -11861,6 +11978,7 @@
     "Conservas"
   ],
   "HUERTANA10": [
+    "Conservas",
     "Pastas y arroces"
   ],
   "HYDRFRUT": [
@@ -12065,6 +12183,7 @@
     "Cuidado personal"
   ],
   "JASM": [
+    "Panificados",
     "Sin gluten / TACC"
   ],
   "JERGE01": [
@@ -12194,7 +12313,8 @@
     "Café e infusiones"
   ],
   "KANATER": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "KANATER3": [
     "Frutos secos y semillas"
@@ -12257,7 +12377,7 @@
     "Snacks"
   ],
   "KE8": [
-    "Condimentos y especias"
+    "Frutos secos y semillas"
   ],
   "KE88": [
     "Keto"
@@ -12496,7 +12616,8 @@
     "Frutos secos y semillas"
   ],
   "KYROS03": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "KYROS07": [
     "Condimentos y especias"
@@ -13129,7 +13250,8 @@
     "Dulces y chocolates"
   ],
   "MAGDAFIT": [
-    "Dulces y chocolates"
+    "Miel y untables",
+    "Lácteos"
   ],
   "MAILLE1": [
     "Condimentos y especias"
@@ -13138,7 +13260,8 @@
     "Panificados"
   ],
   "MAINESPIZZA": [
-    "Pastas y arroces"
+    "Pastas y arroces",
+    "Frutos secos y semillas"
   ],
   "MAINESYAMA": [
     "Panificados"
@@ -13246,7 +13369,7 @@
     "Frutos secos y semillas"
   ],
   "MANI07": [
-    "Pastas y arroces"
+    "Miel y untables"
   ],
   "MANIKING": [
     "Dulces y chocolates",
@@ -13256,14 +13379,15 @@
     "Frutos secos y semillas"
   ],
   "MANIKING09": [
-    "Pastas y arroces",
+    "Miel y untables",
     "Sin gluten / TACC"
   ],
   "MANT1": [
     "Aceites y vinagres"
   ],
   "MANT2": [
-    "Dulces y chocolates"
+    "Condimentos y especias",
+    "Aceites y vinagres"
   ],
   "MANT3": [
     "Aceites y vinagres"
@@ -13293,13 +13417,13 @@
     "Panificados"
   ],
   "MASAMADRE05": [
-    "Lácteos"
+    "Panificados"
   ],
   "MASAMADRE07": [
-    "Condimentos y especias"
+    "Panificados"
   ],
   "MASAMADRE08": [
-    "Condimentos y especias"
+    "Panificados"
   ],
   "MASAMADRE123": [
     "Panificados",
@@ -13350,7 +13474,7 @@
     "Dulces y chocolates"
   ],
   "MATALIPI": [
-    "Condimentos y especias"
+    "Panificados"
   ],
   "MATCHACARDA": [
     "Café e infusiones"
@@ -13442,7 +13566,8 @@
     "Aceites y vinagres"
   ],
   "MIOLI2": [
-    "Dulces y chocolates"
+    "Condimentos y especias",
+    "Aceites y vinagres"
   ],
   "MIOLI3": [
     "Aceites y vinagres"
@@ -13484,18 +13609,20 @@
     "Snacks"
   ],
   "MIX21": [
-    "Condimentos y especias"
+    "Miel y untables"
   ],
   "MIXME02": [
     "Frutos secos y semillas"
   ],
   "MIXME03": [
-    "Panificados"
+    "Snacks",
+    "Dulces y chocolates"
   ],
   "MIXME05": [
-    "Miel y untables"
+    "Frutos secos y semillas"
   ],
   "MIXME06": [
+    "Snacks",
     "Galletas"
   ],
   "MIXME07": [
@@ -13662,7 +13789,7 @@
     "Suplementos y superalimentos"
   ],
   "MUECAS": [
-    "Panificados"
+    "Dulces y chocolates"
   ],
   "MUNCHIS": [
     "Lácteos",
@@ -13710,7 +13837,7 @@
     "Snacks"
   ],
   "NACA00": [
-    "Dulces y chocolates"
+    "Frutos secos y semillas"
   ],
   "NACA01": [
     "Dulces y chocolates"
@@ -13728,7 +13855,7 @@
     "Frutos secos y semillas"
   ],
   "NACA14": [
-    "Panificados"
+    "Frutos secos y semillas"
   ],
   "NACA21": [
     "Dulces y chocolates"
@@ -13758,7 +13885,7 @@
     "Suplementos y superalimentos"
   ],
   "NAKED09": [
-    "Bebidas"
+    "Cuidado personal"
   ],
   "NAKED10": [
     "Suplementos y superalimentos"
@@ -13779,7 +13906,7 @@
     "Suplementos y superalimentos"
   ],
   "NARD1": [
-    "Condimentos y especias"
+    "Conservas"
   ],
   "NARDA01": [
     "Condimentos y especias"
@@ -13833,7 +13960,7 @@
     "Panificados"
   ],
   "NAT838": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "NATALM489": [
     "Galletas",
@@ -13994,16 +14121,16 @@
     "Suplementos y superalimentos"
   ],
   "NATURE15": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "NATURE4": [
-    "Dulces y chocolates"
+    "Suplementos y superalimentos"
   ],
   "NATUROTTI": [
     "Sin gluten / TACC"
   ],
   "NATUTRU": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "NATVAL2": [
     "Suplementos y superalimentos"
@@ -14107,13 +14234,16 @@
     "Café e infusiones"
   ],
   "NOA11": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "NOA12": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "NOA13": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "NOA15": [
     "Dulces y chocolates"
@@ -14341,16 +14471,16 @@
     "Bebidas"
   ],
   "NUDE1": [
-    "Cereales y legumbres"
+    "Bebidas"
   ],
   "NUDE2": [
     "Cereales y legumbres"
   ],
   "NUDE4": [
-    "Cereales y legumbres"
+    "Bebidas"
   ],
   "NUDE5": [
-    "Cereales y legumbres"
+    "Bebidas"
   ],
   "NUECAR": [
     "Frutos secos y semillas"
@@ -14431,7 +14561,7 @@
     "Dulces y chocolates"
   ],
   "NUTRIRAWPASTA": [
-    "Pastas y arroces"
+    "Miel y untables"
   ],
   "NUTRIRTE00": [
     "Dulces y chocolates"
@@ -14530,13 +14660,15 @@
     "Aceites y vinagres"
   ],
   "OMEGA": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "ORALI02": [
     "Congelados"
   ],
   "ORALI03": [
-    "Frutos secos y semillas"
+    "Congelados",
+    "Comidas listas",
+    "Pastas y arroces"
   ],
   "ORANGE": [
     "Dulces y chocolates"
@@ -14679,7 +14811,7 @@
     "Congelados"
   ],
   "OUWE1": [
-    "Bebidas"
+    "Suplementos y superalimentos"
   ],
   "OUWE2": [
     "Suplementos y superalimentos",
@@ -14718,7 +14850,8 @@
     "Condimentos y especias"
   ],
   "PAMPA YOGUCREAM": [
-    "Frutos secos y semillas"
+    "Bebidas",
+    "Dulces y chocolates"
   ],
   "PAMPA0": [
     "Café e infusiones"
@@ -14908,16 +15041,16 @@
     "Bebidas"
   ],
   "PERRIER 4": [
-    "Conservas"
+    "Bebidas"
   ],
   "PERRIER1": [
-    "Conservas"
+    "Bebidas"
   ],
   "PERRIER10": [
     "Bebidas"
   ],
   "PERRIER12": [
-    "Conservas"
+    "Bebidas"
   ],
   "PERRIER2": [
     "Bebidas"
@@ -14926,10 +15059,10 @@
     "Bebidas"
   ],
   "PERRIER5": [
-    "Conservas"
+    "Bebidas"
   ],
   "PERRIER6": [
-    "Conservas"
+    "Bebidas"
   ],
   "PERRIER7": [
     "Bebidas"
@@ -14956,19 +15089,19 @@
     "Condimentos y especias"
   ],
   "PETE1": [
-    "Panificados"
+    "Snacks"
   ],
   "PETE2": [
-    "Panificados"
+    "Snacks"
   ],
   "PETE3": [
     "Snacks"
   ],
   "PETE4": [
-    "Panificados"
+    "Snacks"
   ],
   "PETE5": [
-    "Panificados"
+    "Snacks"
   ],
   "PETE6": [
     "Snacks",
@@ -15111,7 +15244,7 @@
     "Café e infusiones"
   ],
   "PONT3": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "PONT4": [
     "Café e infusiones"
@@ -15190,13 +15323,13 @@
     "Bebidas"
   ],
   "PRET00": [
-    "Panificados"
+    "Snacks"
   ],
   "PRET01": [
     "Snacks"
   ],
   "PRET02": [
-    "Panificados"
+    "Snacks"
   ],
   "PRIMA": [
     "Lácteos"
@@ -15379,7 +15512,8 @@
     "Condimentos y especias"
   ],
   "RANA04": [
-    "Dulces y chocolates"
+    "Condimentos y especias",
+    "Lácteos"
   ],
   "RANA05": [
     "Lácteos"
@@ -15606,7 +15740,8 @@
     "Aceites y vinagres"
   ],
   "ROLNIK3": [
-    "Aceites y vinagres"
+    "Conservas",
+    "Dulces y chocolates"
   ],
   "ROLNIK4": [
     "Aceites y vinagres"
@@ -15654,6 +15789,7 @@
     "Pastas y arroces"
   ],
   "RUMMO06": [
+    "Pastas y arroces",
     "Sin gluten / TACC"
   ],
   "RUMMO07": [
@@ -15661,9 +15797,10 @@
     "Sin gluten / TACC"
   ],
   "RUMMO08": [
-    "Huevos"
+    "Pastas y arroces"
   ],
   "RUMMO11": [
+    "Pastas y arroces",
     "Sin gluten / TACC"
   ],
   "RV50": [
@@ -15692,13 +15829,14 @@
     "Pastas y arroces"
   ],
   "SACLA05": [
+    "Condimentos y especias",
     "Pastas y arroces"
   ],
   "SACLA06": [
     "Pastas y arroces"
   ],
   "SACLA07": [
-    "Pastas y arroces"
+    "Conservas"
   ],
   "SACRA01": [
     "Café e infusiones"
@@ -15812,6 +15950,8 @@
     "Lácteos"
   ],
   "SANMANDITAR": [
+    "Congelados",
+    "Comidas listas",
     "Lácteos"
   ],
   "SANPE": [
@@ -15879,10 +16019,11 @@
     "Sin gluten / TACC"
   ],
   "SCHAR 06": [
+    "Galletas",
     "Sin gluten / TACC"
   ],
   "SCHAR 07": [
-    "Condimentos y especias",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "SCHAR 08": [
@@ -15921,7 +16062,7 @@
     "Congelados"
   ],
   "SEM1": [
-    "Dulces y chocolates"
+    "Cereales y legumbres"
   ],
   "SEM2": [
     "Frutos secos y semillas"
@@ -15939,7 +16080,7 @@
     "Frutos secos y semillas"
   ],
   "SEM7": [
-    "Condimentos y especias"
+    "Cereales y legumbres"
   ],
   "SEM8": [
     "Frutos secos y semillas"
@@ -16054,7 +16195,8 @@
     "Café e infusiones"
   ],
   "SMAM01": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "SMAM04": [
     "Galletas"
@@ -16066,7 +16208,8 @@
     "Galletas"
   ],
   "SMAM11": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "SMAM14": [
     "Panificados"
@@ -16088,7 +16231,7 @@
     "Panificados"
   ],
   "SMAM31": [
-    "Panificados"
+    "Frutos secos y semillas"
   ],
   "SMAMS01": [
     "Lácteos",
@@ -16275,7 +16418,7 @@
     "Cuidado personal"
   ],
   "SRI202": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "SRI203": [
     "Cuidado personal"
@@ -16287,7 +16430,7 @@
     "Condimentos y especias"
   ],
   "SRI848": [
-    "Bebidas"
+    "Cuidado personal"
   ],
   "SRI853": [
     "Condimentos y especias"
@@ -16317,7 +16460,7 @@
     "Cuidado personal"
   ],
   "SRISRI00": [
-    "Bebidas"
+    "Cuidado personal"
   ],
   "SRISRI2": [
     "Suplementos y superalimentos"
@@ -16538,12 +16681,13 @@
     "Dulces y chocolates"
   ],
   "TEI05": [
-    "Galletas"
+    "Snacks"
   ],
   "TEI06": [
     "Snacks"
   ],
   "TEI10": [
+    "Snacks",
     "Frutos secos y semillas"
   ],
   "TEI12": [
@@ -16596,7 +16740,8 @@
     "Condimentos y especias"
   ],
   "THEH35": [
-    "Lácteos"
+    "Congelados",
+    "Comidas listas"
   ],
   "THEHE39": [
     "Snacks"
@@ -16608,13 +16753,16 @@
     "Dulces y chocolates"
   ],
   "TIKAL00": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Dulces y chocolates"
   ],
   "TIKAL01": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Dulces y chocolates"
   ],
   "TIKAL03": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Dulces y chocolates"
   ],
   "TIKAL09": [
     "Dulces y chocolates"
@@ -16675,7 +16823,7 @@
     "Dulces y chocolates"
   ],
   "TORRES1": [
-    "Lácteos"
+    "Snacks"
   ],
   "TORRES2": [
     "Snacks"
@@ -16884,7 +17032,7 @@
     "Keto"
   ],
   "VENTO06": [
-    "Snacks",
+    "Pastas y arroces",
     "Keto"
   ],
   "VENTO07": [
@@ -17046,7 +17194,7 @@
     "Lácteos"
   ],
   "VINACAP": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "VIR100": [
     "Aceites y vinagres"
@@ -17258,7 +17406,8 @@
     "Sin gluten / TACC"
   ],
   "YUCA": [
-    "Café e infusiones"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "YUCA01": [
     "Condimentos y especias"
@@ -17390,7 +17539,7 @@
     "Aceites y vinagres"
   ],
   "ZUELOGAU": [
-    "Aceites y vinagres"
+    "Snacks"
   ],
   "ZUELOIG": [
     "Aceites y vinagres"
@@ -17412,7 +17561,7 @@
     "Pastas y arroces"
   ],
   "DECCE02": [
-    "Condimentos y especias"
+    "Conservas"
   ],
   "NOA10": [
     "Pastas y arroces"
@@ -17470,7 +17619,7 @@
     "Congelados"
   ],
   "1052GRA": [
-    "Café e infusiones"
+    "Cereales y legumbres"
   ],
   "10640": [
     "Pastas y arroces",
@@ -17512,19 +17661,20 @@
     "Cereales y legumbres"
   ],
   "11222": [
-    "Café e infusiones"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "11289": [
     "Cuidado personal"
   ],
   "11310": [
-    "Frutos secos y semillas"
+    "Miel y untables"
   ],
   "11374": [
     "Cereales y legumbres"
   ],
   "1141": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "11436": [
     "Pastas y arroces"
@@ -17546,8 +17696,7 @@
     "Cuidado personal"
   ],
   "1633556578696": [
-    "Café e infusiones",
-    "Sin gluten / TACC"
+    "Harinas y premezclas"
   ],
   "16887": [
     "Suplementos y superalimentos"
@@ -17568,7 +17717,8 @@
     "Cuidado personal"
   ],
   "265": [
-    "Condimentos y especias"
+    "Panificados",
+    "Sin gluten / TACC"
   ],
   "272118": [
     "Suplementos y superalimentos"
@@ -17613,7 +17763,8 @@
     "Miel y untables"
   ],
   "3415581187281": [
-    "Dulces y chocolates"
+    "Helados y postres",
+    "Congelados"
   ],
   "3750": [
     "Condimentos y especias"
@@ -17677,7 +17828,7 @@
     "Miel y untables"
   ],
   "553": [
-    "Café e infusiones"
+    "Dulces y chocolates"
   ],
   "558": [
     "Dulces y chocolates"
@@ -17692,7 +17843,7 @@
     "Snacks"
   ],
   "65097": [
-    "Dulces y chocolates"
+    "Snacks"
   ],
   "65158": [
     "Snacks"
@@ -17725,16 +17876,16 @@
     "Conservas"
   ],
   "7798015441095": [
-    "Snacks"
+    "Panificados"
   ],
   "7798121272835": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "7798181511561": [
     "Snacks"
   ],
   "7798187761083": [
-    "Miel y untables"
+    "Cereales y legumbres"
   ],
   "7798253180152": [
     "Cereales y legumbres"
@@ -17774,25 +17925,26 @@
     "Sin gluten / TACC"
   ],
   "8001250039705": [
+    "Condimentos y especias",
     "Pastas y arroces"
   ],
   "8002873015046": [
     "Dulces y chocolates"
   ],
   "8002873018207": [
-    "Conservas"
+    "Galletas"
   ],
   "8002873021900": [
-    "Conservas"
+    "Galletas"
   ],
   "8002873021917": [
-    "Conservas"
+    "Galletas"
   ],
   "814832015862": [
-    "Dulces y chocolates"
+    "Limpieza y hogar"
   ],
   "82838": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "858982001665": [
     "Dulces y chocolates"
@@ -17810,7 +17962,7 @@
     "Dulces y chocolates"
   ],
   "9438": [
-    "Congelados"
+    "Limpieza y hogar"
   ],
   "970012": [
     "Suplementos y superalimentos"
@@ -17831,7 +17983,7 @@
     "Conservas"
   ],
   "ALCA44": [
-    "Frutos secos y semillas"
+    "Conservas"
   ],
   "ALCARAZ01": [
     "Fermentados"
@@ -17873,7 +18025,8 @@
     "Dulces y chocolates"
   ],
   "BRIL20": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "BYGIRO": [
     "Panificados"
@@ -17888,7 +18041,7 @@
     "Panificados"
   ],
   "CALDORESNUTRI": [
-    "Café e infusiones"
+    "Comidas listas"
   ],
   "CAMPB23": [
     "Comidas listas"
@@ -17897,19 +18050,19 @@
     "Comidas listas"
   ],
   "CAMPB25": [
-    "Café e infusiones"
+    "Comidas listas"
   ],
   "CAMPO": [
     "Harinas y premezclas"
   ],
   "CARMELA03": [
-    "Panificados"
+    "Dulces y chocolates"
   ],
   "CASTMIEL": [
     "Miel y untables"
   ],
   "CEREZA": [
-    "Miel y untables"
+    "Conservas"
   ],
   "CHAP00": [
     "Cuidado personal"
@@ -17921,6 +18074,8 @@
     "Comidas listas"
   ],
   "CROQUE2": [
+    "Congelados",
+    "Comidas listas",
     "Condimentos y especias"
   ],
   "CUÑA": [
@@ -17936,6 +18091,7 @@
     "Café e infusiones"
   ],
   "DAMM5": [
+    "Café e infusiones",
     "Conservas"
   ],
   "DECECCO2": [
@@ -17987,10 +18143,11 @@
     "Dulces y chocolates"
   ],
   "FILITOMPEST": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "FIR01": [
-    "Dulces y chocolates"
+    "Condimentos y especias"
   ],
   "FIR02": [
     "Condimentos y especias"
@@ -18032,6 +18189,8 @@
     "Cereales y legumbres"
   ],
   "H6": [
+    "Helados y postres",
+    "Congelados",
     "Galletas"
   ],
   "HERR01": [
@@ -18047,7 +18206,7 @@
     "Snacks"
   ],
   "HIERBDDIENTELEO": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "HOLSOMBAN": [
     "Helados y postres"
@@ -18092,7 +18251,7 @@
     "Dulces y chocolates"
   ],
   "KEKE": [
-    "Miel y untables"
+    "Snacks"
   ],
   "KEKEPE": [
     "Miel y untables"
@@ -18179,7 +18338,7 @@
     "Cuidado personal"
   ],
   "MASAMADRE02": [
-    "Congelados"
+    "Panificados"
   ],
   "MASAMADRE03": [
     "Cereales y legumbres"
@@ -18188,7 +18347,7 @@
     "Panificados"
   ],
   "MASAMADRE09": [
-    "Cereales y legumbres"
+    "Panificados"
   ],
   "MASAMADRE10": [
     "Panificados"
@@ -18206,7 +18365,8 @@
     "Panificados"
   ],
   "MASAMADRE32": [
-    "Café e infusiones"
+    "Café e infusiones",
+    "Panificados"
   ],
   "MASMADR": [
     "Panificados"
@@ -18236,7 +18396,8 @@
     "Condimentos y especias"
   ],
   "MUTTI02": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "NAKED16": [
     "Suplementos y superalimentos"
@@ -18251,28 +18412,28 @@
     "Suplementos y superalimentos"
   ],
   "NATIERBIO": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "NATIERMATCHA": [
     "Café e infusiones"
   ],
   "NATIK2": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "NATIPRE": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "NATIPRO": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "NATIQ10": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "NATJEN": [
     "Suplementos y superalimentos"
   ],
   "NATREL1": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "NATSEED02": [
     "Suplementos y superalimentos"
@@ -18302,10 +18463,11 @@
     "Dulces y chocolates"
   ],
   "NUT753": [
-    "Café e infusiones"
+    "Comidas listas",
+    "Congelados"
   ],
   "OLD02": [
-    "Snacks"
+    "Panificados"
   ],
   "ONED01": [
     "Suplementos y superalimentos"
@@ -18335,7 +18497,7 @@
     "Dulces y chocolates"
   ],
   "PULSE": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "PUR116": [
     "Cuidado personal"
@@ -18347,7 +18509,7 @@
     "Cuidado personal"
   ],
   "REC1": [
-    "Café e infusiones"
+    "Miel y untables"
   ],
   "REITZEL1": [
     "Conservas"
@@ -18356,16 +18518,19 @@
     "Limpieza y hogar"
   ],
   "RUMMO10": [
-    "Comidas listas"
+    "Pastas y arroces"
   ],
   "RUMMO12": [
+    "Condimentos y especias",
     "Pastas y arroces"
   ],
   "RUMMO13": [
+    "Condimentos y especias",
     "Pastas y arroces"
   ],
   "RUMMO14": [
-    "Condimentos y especias"
+    "Condimentos y especias",
+    "Pastas y arroces"
   ],
   "SCHAR01": [
     "Galletas",
@@ -18418,19 +18583,19 @@
     "Galletas"
   ],
   "SNOW06": [
-    "Frutos secos y semillas"
+    "Miel y untables"
   ],
   "SO YA": [
     "Cereales y legumbres"
   ],
   "SRI REPEL": [
-    "Café e infusiones"
+    "Cuidado personal"
   ],
   "SRISRI3": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "SRISRI4": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "STER3": [
     "Lácteos"
@@ -18463,22 +18628,24 @@
     "Harinas y premezclas"
   ],
   "THEH37": [
-    "Harinas y premezclas"
+    "Congelados",
+    "Comidas listas"
   ],
   "THEH38": [
-    "Harinas y premezclas"
+    "Congelados",
+    "Comidas listas"
   ],
   "TIBAX01": [
-    "Snacks"
+    "Panificados"
   ],
   "TIKAL02": [
     "Frutos secos y semillas"
   ],
   "TIKDUBAI": [
-    "Café e infusiones"
+    "Snacks"
   ],
   "TINTUVALERI": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "TORRES3": [
     "Dulces y chocolates"
@@ -18529,7 +18696,7 @@
     "Keto"
   ],
   "ORGANREA04": [
-    "Café e infusiones"
+    "Suplementos y superalimentos"
   ],
   "VALLE02": [
     "Condimentos y especias"
@@ -18635,6 +18802,7 @@
   ],
   "2100": [
     "Panificados",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "2150": [
@@ -18681,24 +18849,27 @@
     "Suplementos y superalimentos"
   ],
   "77975095126": [
-    "Panificados"
+    "Snacks"
   ],
   "9204": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "9211": [
     "Bebidas"
   ],
   "9914": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "9938": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "3248046900008": [],
   "906": [],
   "BADIA800": [
-    "Panificados"
+    "Condimentos y especias"
   ],
   "BADIA801": [
     "Condimentos y especias"
@@ -18715,17 +18886,18 @@
     "Snacks"
   ],
   "OKNUTRE1": [
-    "Panificados"
+    "Frutos secos y semillas"
   ],
   "OKNUTRE3": [
-    "Panificados"
+    "Panificados",
+    "Snacks"
   ],
   "PORSA": [],
   "SCHAR89": [
     "Sin gluten / TACC"
   ],
   "SCHAR90": [
-    "Cereales y legumbres",
+    "Galletas",
     "Sin gluten / TACC"
   ],
   "SCHAR91": [
