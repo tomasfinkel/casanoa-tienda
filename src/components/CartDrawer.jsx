@@ -21,9 +21,10 @@ export default function CartDrawer() {
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
 
   function enviarPorWhatsapp() {
-    const lineas = itemsConDatos.map(
-      (i) => `• ${i.nombre} x${i.cantidad} — $${i.precio * i.cantidad}`,
-    )
+    const lineas = itemsConDatos.map((i) => {
+      const nombre = i.sabor ? `${i.nombre} — ${i.sabor}` : i.nombre
+      return `• ${nombre} x${i.cantidad} — $${i.precio * i.cantidad}`
+    })
     const mensaje = [
       `Hola! Quiero hacer un pedido en Casa NOA ${sucursal.nombre}:`,
       '',
@@ -55,16 +56,19 @@ export default function CartDrawer() {
             {itemsConDatos.length === 0 && <p>El carrito está vacío.</p>}
 
             {itemsConDatos.map((item) => (
-              <div key={item.id} className="item-carrito">
-                <span>{item.nombre}</span>
+              <div key={item.key} className="item-carrito">
+                <span>
+                  {item.nombre}
+                  {item.sabor && <em className="item-sabor"> — {item.sabor}</em>}
+                </span>
                 <input
                   type="number"
                   min="1"
                   value={item.cantidad}
-                  onChange={(e) => actualizarCantidad(item.id, Number(e.target.value))}
+                  onChange={(e) => actualizarCantidad(item.key, Number(e.target.value))}
                 />
                 <span>${item.precio * item.cantidad}</span>
-                <button onClick={() => quitarItem(item.id)}>Quitar</button>
+                <button onClick={() => quitarItem(item.key)}>Quitar</button>
               </div>
             ))}
 
