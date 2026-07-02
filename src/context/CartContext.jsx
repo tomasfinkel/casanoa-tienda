@@ -17,28 +17,29 @@ export function CartProvider({ children }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
   }, [items])
 
-  function agregarItem(id, cantidad = 1) {
+  function agregarItem(id, cantidad = 1, sabor = null) {
+    const key = sabor ? `${id}__${sabor}` : id
     setItems((prev) => {
-      const existente = prev.find((i) => i.id === id)
+      const existente = prev.find((i) => i.key === key)
       if (existente) {
         return prev.map((i) =>
-          i.id === id ? { ...i, cantidad: i.cantidad + cantidad } : i,
+          i.key === key ? { ...i, cantidad: i.cantidad + cantidad } : i,
         )
       }
-      return [...prev, { id, cantidad }]
+      return [...prev, { key, id, sabor, cantidad }]
     })
   }
 
-  function quitarItem(id) {
-    setItems((prev) => prev.filter((i) => i.id !== id))
+  function quitarItem(key) {
+    setItems((prev) => prev.filter((i) => i.key !== key))
   }
 
-  function actualizarCantidad(id, cantidad) {
+  function actualizarCantidad(key, cantidad) {
     if (cantidad <= 0) {
-      quitarItem(id)
+      quitarItem(key)
       return
     }
-    setItems((prev) => prev.map((i) => (i.id === id ? { ...i, cantidad } : i)))
+    setItems((prev) => prev.map((i) => (i.key === key ? { ...i, cantidad } : i)))
   }
 
   function vaciarCarrito() {
