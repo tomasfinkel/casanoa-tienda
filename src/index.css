@@ -526,10 +526,31 @@ body {
   width: 50px;
 }
 
-.total {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-top: 1rem;
+.selector-sabor {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #c8c0b0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  background: #fff;
+  color: #3c2c23;
+  margin-bottom: 0.4rem;
+}
+
+.selector-sabor--error {
+  border-color: #c0392b;
+}
+
+.sabor-error {
+  color: #c0392b;
+  font-size: 0.75rem;
+  margin: 0 0 0.3rem;
+}
+
+.item-sabor {
+  font-size: 0.8rem;
+  color: #7a6048;
+  font-style: normal;
 }
 
 .info-envio {
