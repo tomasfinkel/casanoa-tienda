@@ -4,11 +4,21 @@ import sabores from '../data/sabores.json'
 
 export default function ProductCard({ producto }) {
   const { agregarItem } = useCart()
+  const [imagenSrc, setImagenSrc] = useState(`/productos/${producto.id}.jpg`)
   const [imagenRota, setImagenRota] = useState(false)
   const [saborElegido, setSaborElegido] = useState('')
   const [error, setError] = useState(false)
 
   const listaSabores = sabores[producto.id] || null
+
+  function handleImagenError() {
+    // Si falla .jpg, intentar .png
+    if (imagenSrc.endsWith('.jpg')) {
+      setImagenSrc(`/productos/${producto.id}.png`)
+    } else {
+      setImagenRota(true)
+    }
+  }
 
   function handleAgregar() {
     if (listaSabores && !saborElegido) {
@@ -22,11 +32,11 @@ export default function ProductCard({ producto }) {
 
   return (
     <div className="card-producto">
-      {producto.imagen && !imagenRota && (
+      {!imagenRota && (
         <img
-          src={producto.imagen}
+          src={imagenSrc}
           alt={producto.nombre}
-          onError={() => setImagenRota(true)}
+          onError={handleImagenError}
         />
       )}
       <h3>{producto.nombre}</h3>
