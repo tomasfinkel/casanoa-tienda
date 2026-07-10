@@ -7584,7 +7584,8 @@
     "Snacks"
   ],
   "98923": [
-    "Galletas"
+    "Snacks",
+    "Keto"
   ],
   "990": [
     "Condimentos y especias"
@@ -11393,7 +11394,7 @@
     "Bebidas"
   ],
   "GIO01": [
-    "Galletas"
+    "Helados y postres"
   ],
   "GIO02": [
     "Dulces y chocolates"
@@ -11409,7 +11410,7 @@
     "Dulces y chocolates"
   ],
   "GIO2": [
-    "Galletas"
+    "Helados y postres"
   ],
   "GIOB": [
     "Dulces y chocolates"
@@ -11560,7 +11561,8 @@
     "Cuidado personal"
   ],
   "GRANGER20": [
-    "Galletas"
+    "Harinas y premezclas",
+    "Suplementos y superalimentos"
   ],
   "GRANGER200G": [
     "Keto"
@@ -12012,10 +12014,10 @@
     "Sin gluten / TACC"
   ],
   "IMI01": [
-    "Galletas"
+    "Snacks"
   ],
   "IMI02": [
-    "Galletas"
+    "Snacks"
   ],
   "IMI05": [
     "Snacks"
@@ -14633,7 +14635,7 @@
     "Aceites y vinagres"
   ],
   "OLI02": [
-    "Galletas"
+    "Snacks"
   ],
   "OLIO": [
     "Aceites y vinagres"
@@ -17573,8 +17575,7 @@
     "Café e infusiones"
   ],
   "10004": [
-    "Galletas",
-    "Sin gluten / TACC"
+    "Snacks"
   ],
   "10006": [
     "Condimentos y especias"
@@ -18170,9 +18171,7 @@
     "Cereales y legumbres"
   ],
   "H6": [
-    "Helados y postres",
-    "Congelados",
-    "Galletas"
+    "Helados y postres"
   ],
   "HERR01": [
     "Conservas"
