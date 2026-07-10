@@ -116,7 +116,7 @@ export default function ProductList({ categoriaInicial }) {
         </p>
       )}
 
-      <div className="grid-productos">
+      <div className="grid-productos" key={categoriaActiva || busqueda}>
         {resultados.map((p) => (
           <ProductCard key={p.id} producto={p} />
         ))}
