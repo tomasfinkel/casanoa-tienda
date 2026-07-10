@@ -723,7 +723,7 @@
     "Condimentos y especias"
   ],
   "10148": [
-    "Snacks"
+    "Lácteos"
   ],
   "10151": [
     "Congelados"
@@ -7027,11 +7027,10 @@
     "Dulces y chocolates"
   ],
   "7798362490128": [
-    "Snacks",
-    "Frutos secos y semillas"
+    "Helados y postres"
   ],
   "7798362490135": [
-    "Dulces y chocolates"
+    "Helados y postres"
   ],
   "7798436180016": [
     "Aceites y vinagres"
@@ -10784,8 +10783,7 @@
     "Frutos secos y semillas"
   ],
   "ELHIGOS": [
-    "Frutos secos y semillas",
-    "Snacks"
+    "Frutos secos y semillas"
   ],
   "ELI": [
     "Pastas y arroces",
@@ -10827,8 +10825,7 @@
     "Frutos secos y semillas"
   ],
   "ELTOMATE": [
-    "Frutos secos y semillas",
-    "Snacks"
+    "Conservas"
   ],
   "ELTONAL": [
     "Frutos secos y semillas"
@@ -12367,7 +12364,7 @@
     "Dulces y chocolates"
   ],
   "KE6": [
-    "Snacks"
+    "Helados y postres"
   ],
   "KE8": [
     "Frutos secos y semillas"
@@ -13070,7 +13067,7 @@
     "Dulces y chocolates"
   ],
   "LINDT01": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "LINDT50": [
     "Dulces y chocolates"
@@ -13088,7 +13085,7 @@
     "Snacks"
   ],
   "LINDT88": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "LINDT89": [
     "Dulces y chocolates"
@@ -13527,13 +13524,13 @@
     "Dulces y chocolates"
   ],
   "MILKA1": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "MILKA2": [
     "Snacks"
   ],
   "MILKA3": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "MILKA9": [
     "Dulces y chocolates"
@@ -14237,7 +14234,7 @@
     "Pastas y arroces"
   ],
   "NOA16": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "NOA18": [
     "Dulces y chocolates"
@@ -16663,14 +16660,16 @@
     "Dulces y chocolates"
   ],
   "TEI05": [
-    "Snacks"
+    "Helados y postres",
+    "Keto"
   ],
   "TEI06": [
-    "Snacks"
+    "Helados y postres",
+    "Keto"
   ],
   "TEI10": [
-    "Snacks",
-    "Frutos secos y semillas"
+    "Helados y postres",
+    "Keto"
   ],
   "TEI12": [
     "Dulces y chocolates"
@@ -17552,10 +17551,10 @@
     "Pastas y arroces"
   ],
   "KE1": [
-    "Snacks"
+    "Helados y postres"
   ],
   "KE7": [
-    "Snacks"
+    "Helados y postres"
   ],
   "KE4": [
     "Snacks"
@@ -17882,10 +17881,10 @@
     "Congelados"
   ],
   "7798362490142": [
-    "Snacks"
+    "Helados y postres"
   ],
   "7798362490210": [
-    "Snacks"
+    "Helados y postres"
   ],
   "7798387050130": [
     "Panificados"
@@ -18206,16 +18205,16 @@
     "Conservas"
   ],
   "ICE00": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "ICE01": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "ICE02": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "ICE03": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "IMI03": [
     "Frutos secos y semillas"
@@ -18233,7 +18232,7 @@
     "Dulces y chocolates"
   ],
   "KEKE": [
-    "Snacks"
+    "Helados y postres"
   ],
   "KEKEPE": [
     "Miel y untables"
@@ -18623,7 +18622,7 @@
     "Frutos secos y semillas"
   ],
   "TIKDUBAI": [
-    "Snacks"
+    "Dulces y chocolates"
   ],
   "TINTUVALERI": [
     "Suplementos y superalimentos"
@@ -18951,5 +18950,8 @@
   ],
   "NAVEIA001": [
     "Bebidas"
+  ],
+  "ICE04": [
+    "Dulces y chocolates"
   ]
 }
