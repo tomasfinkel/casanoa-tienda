@@ -4581,9 +4581,7 @@
     "Congelados"
   ],
   "3248": [
-    "Lácteos",
-    "Panificados",
-    "Congelados"
+    "Panificados"
   ],
   "324A": [
     "Café e infusiones"
@@ -5039,8 +5037,7 @@
     "Sin gluten / TACC"
   ],
   "3738": [
-    "Lácteos",
-    "Dulces y chocolates",
+    "Galletas",
     "Sin gluten / TACC"
   ],
   "3740": [
@@ -5447,7 +5444,8 @@
     "Lácteos"
   ],
   "40186": [
-    "Lácteos"
+    "Comidas listas",
+    "Congelados"
   ],
   "40198644": [
     "Condimentos y especias",
@@ -6300,8 +6298,7 @@
     "Lácteos"
   ],
   "5149": [
-    "Miel y untables",
-    "Lácteos"
+    "Miel y untables"
   ],
   "5150": [
     "Lácteos"
@@ -6698,7 +6695,7 @@
     "Snacks"
   ],
   "6778": [
-    "Lácteos"
+    "Bebidas"
   ],
   "677858": [
     "Snacks"
@@ -8864,8 +8861,7 @@
     "Miel y untables"
   ],
   "BROCAL01": [
-    "Lácteos",
-    "Dulces y chocolates"
+    "Miel y untables"
   ],
   "BROCAL02": [
     "Dulces y chocolates"
@@ -11592,9 +11588,7 @@
     "Harinas y premezclas"
   ],
   "GRANPAN2": [
-    "Lácteos",
-    "Dulces y chocolates",
-    "Suplementos y superalimentos"
+    "Harinas y premezclas"
   ],
   "GRAPI01": [
     "Café e infusiones"
@@ -11663,8 +11657,7 @@
     "Galletas"
   ],
   "GUO1": [
-    "Miel y untables",
-    "Lácteos"
+    "Miel y untables"
   ],
   "GUO2": [
     "Dulces y chocolates"
@@ -11726,8 +11719,7 @@
     "Dulces y chocolates"
   ],
   "H7": [
-    "Lácteos",
-    "Dulces y chocolates"
+    "Helados y postres"
   ],
   "H9": [
     "Frutos secos y semillas"
@@ -12148,10 +12140,10 @@
     "Lácteos"
   ],
   "INVIERNI3": [
-    "Lácteos"
+    "Comidas listas"
   ],
   "INVIERNI4": [
-    "Lácteos"
+    "Comidas listas"
   ],
   "ISOLLA01": [
     "Aceites y vinagres"
@@ -13244,7 +13236,7 @@
   ],
   "MAGDAFIT": [
     "Miel y untables",
-    "Lácteos"
+    "Suplementos y superalimentos"
   ],
   "MAILLE1": [
     "Condimentos y especias"
@@ -14132,7 +14124,7 @@
     "Lácteos"
   ],
   "NAVEIA2": [
-    "Lácteos"
+    "Bebidas"
   ],
   "NEPT03": [
     "Aceites y vinagres"
@@ -15714,7 +15706,6 @@
     "Dulces y chocolates"
   ],
   "RIT6": [
-    "Lácteos",
     "Dulces y chocolates"
   ],
   "ROA1": [
@@ -15943,9 +15934,8 @@
     "Lácteos"
   ],
   "SANMANDITAR": [
-    "Congelados",
     "Comidas listas",
-    "Lácteos"
+    "Congelados"
   ],
   "SANPE": [
     "Bebidas"
@@ -16623,8 +16613,7 @@
     "Suplementos y superalimentos"
   ],
   "TASTE1": [
-    "Lácteos",
-    "Dulces y chocolates",
+    "Snacks",
     "Suplementos y superalimentos"
   ],
   "TASTE2": [
@@ -16855,7 +16844,7 @@
     "Dulces y chocolates"
   ],
   "TRATENF": [
-    "Lácteos"
+    "Bebidas"
   ],
   "TRENTO": [
     "Dulces y chocolates"
@@ -18958,6 +18947,9 @@
   ],
   "BRAV14": [
     "Fermentados",
+    "Bebidas"
+  ],
+  "NAVEIA001": [
     "Bebidas"
   ]
 }
