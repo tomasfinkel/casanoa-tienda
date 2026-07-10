@@ -33,6 +33,7 @@ const ATAJOS = [
   'Fermentados',
   'Sin gluten / TACC',
   'Keto',
+  'Velas y aromatizantes',
 ]
 
 export default function ProductList({ categoriaInicial }) {
