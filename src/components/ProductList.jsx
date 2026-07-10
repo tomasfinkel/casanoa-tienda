@@ -14,7 +14,7 @@ const ATAJOS = [
   'Aceites y vinagres',
   'Café e infusiones',
   'Dulces y chocolates',
-  'Miel y untables',
+  'Miel, mermeladas y untables',
   'Panificados',
   'Congelados',
   'Comidas listas',
@@ -34,6 +34,7 @@ const ATAJOS = [
   'Sin gluten / TACC',
   'Keto',
   'Velas y aromatizantes',
+  'Endulzantes',
 ]
 
 export default function ProductList({ categoriaInicial }) {
