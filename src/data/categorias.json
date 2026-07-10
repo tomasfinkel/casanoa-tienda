@@ -3590,7 +3590,7 @@
     "Condimentos y especias"
   ],
   "1935": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "1936": [
     "Condimentos y especias"
@@ -4681,7 +4681,7 @@
     "Keto"
   ],
   "33174": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "33211": [
     "Condimentos y especias",
@@ -6435,7 +6435,7 @@
     "Snacks"
   ],
   "54079": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "542": [
     "Dulces y chocolates"
@@ -8553,7 +8553,7 @@
     "Frutos secos y semillas"
   ],
   "BLUE07": [
-    "Aceites y vinagres"
+    "Snacks"
   ],
   "BLUE1": [
     "Harinas y premezclas"
@@ -12275,7 +12275,7 @@
     "Miel y untables"
   ],
   "JUMBALAY1": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "JV01": [
     "Café e infusiones"
@@ -15727,7 +15727,7 @@
     "Dulces y chocolates"
   ],
   "ROLNIK4": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "ROLNIK5": [
     "Aceites y vinagres"
@@ -16933,7 +16933,7 @@
     "Conservas"
   ],
   "UYTUNA1": [
-    "Aceites y vinagres"
+    "Conservas"
   ],
   "UYTUNA2": [
     "Conservas"
@@ -18952,5 +18952,8 @@
   ],
   "ICE04": [
     "Dulces y chocolates"
+  ],
+  "HIERBOAS": [
+    "Cuidado personal"
   ]
 }
