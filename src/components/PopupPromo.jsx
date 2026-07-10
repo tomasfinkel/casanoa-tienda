@@ -1,21 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
-import destacado from '../data/destacado.json'
+import { useSucursal } from '../context/BranchContext.jsx'
+import destacadoData from '../data/destacado.json'
 
 const STORAGE_KEY = 'casanoa-tienda-popup-visto'
 
 export default function PopupPromo() {
   const { productos } = useCatalogo()
   const { agregarItem } = useCart()
+  const { sucursalId } = useSucursal()
   const [mostrar, setMostrar] = useState(false)
   const [imagenRota, setImagenRota] = useState(false)
 
-  const producto = productos.find((p) => p.id === destacado.codigo)
-  const claveHoy = `${destacado.codigo}:${new Date().toISOString().slice(0, 10)}`
+  const destacado = sucursalId ? destacadoData[sucursalId] : destacadoData['castex']
+  const producto = productos.find((p) => p.id === destacado?.codigo)
+  const claveHoy = `${destacado?.codigo}:${sucursalId}:${new Date().toISOString().slice(0, 10)}`
 
   useEffect(() => {
-    if (!destacado.activo || !producto) return
+    if (!destacado?.activo || !producto) return
     let visto = null
     try {
       visto = localStorage.getItem(STORAGE_KEY)
@@ -30,9 +33,7 @@ export default function PopupPromo() {
   function cerrar() {
     try {
       localStorage.setItem(STORAGE_KEY, claveHoy)
-    } catch {
-      // si falla, simplemente vuelve a aparecer la próxima vez, no es grave
-    }
+    } catch {}
     setMostrar(false)
   }
 
