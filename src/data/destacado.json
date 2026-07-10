@@ -1,5 +1,17 @@
 {
-  "activo": true,
-  "codigo": "ORANGE",
-  "etiqueta": "Nuevo ingreso"
+  "castex": {
+    "activo": true,
+    "codigo": "ORANGE",
+    "etiqueta": "Nuevo ingreso"
+  },
+  "siria": {
+    "activo": true,
+    "codigo": "ORANGE",
+    "etiqueta": "Nuevo ingreso"
+  },
+  "migueletes": {
+    "activo": true,
+    "codigo": "LOUISLEW09",
+    "etiqueta": "Nuevo ingreso"
+  }
 }
