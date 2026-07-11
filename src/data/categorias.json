@@ -484,16 +484,16 @@
     "Lácteos"
   ],
   "09204": [
-    "Carnes y fiambres"
+    "Snacks"
   ],
   "09211": [
     "Bebidas"
   ],
   "09914": [
-    "Carnes y fiambres"
+    "Snacks"
   ],
   "09938": [
-    "Carnes y fiambres"
+    "Snacks"
   ],
   "10007": [
     "Condimentos, especias y dips"
@@ -3656,6 +3656,7 @@
     "Sin gluten / TACC"
   ],
   "20029": [
+    "Carnes y fiambres",
     "Congelados"
   ],
   "2003": [
@@ -3675,6 +3676,7 @@
     "Congelados"
   ],
   "20081": [
+    "Carnes y fiambres",
     "Congelados"
   ],
   "201": [
@@ -3690,6 +3692,7 @@
     "Congelados"
   ],
   "20166": [
+    "Carnes y fiambres",
     "Congelados"
   ],
   "2019": [
@@ -14795,12 +14798,15 @@
     "Panificados"
   ],
   "PANE1": [
+    "Carnes y fiambres",
     "Congelados"
   ],
   "PANE2": [
+    "Carnes y fiambres",
     "Congelados"
   ],
   "PANE3": [
+    "Carnes y fiambres",
     "Congelados"
   ],
   "PANE4": [
@@ -17987,8 +17993,7 @@
     "Café e infusiones"
   ],
   "DAMM5": [
-    "Café e infusiones",
-    "Conservas"
+    "Café e infusiones"
   ],
   "DECECCO2": [
     "Pastas y arroces"
