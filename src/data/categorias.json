@@ -299,7 +299,7 @@
     "Condimentos y especias"
   ],
   "02100": [
-    "Panificados"
+    "Sin gluten / TACC"
   ],
   "02150": [
     "Condimentos y especias"
@@ -1094,7 +1094,6 @@
     "Condimentos y especias"
   ],
   "10451": [
-    "Panificados",
     "Snacks",
     "Sin gluten / TACC"
   ],
@@ -1237,7 +1236,6 @@
     "Bebidas"
   ],
   "10536": [
-    "Panificados",
     "Snacks",
     "Sin gluten / TACC"
   ],
@@ -1255,7 +1253,7 @@
     "Congelados"
   ],
   "10548": [
-    "Panificados"
+    "Snacks"
   ],
   "10549": [
     "Snacks"
@@ -5607,7 +5605,6 @@
     "Pastas y arroces"
   ],
   "4174": [
-    "Panificados",
     "Snacks",
     "Sin gluten / TACC"
   ],
@@ -5700,7 +5697,8 @@
     "Sin gluten / TACC"
   ],
   "4246": [
-    "Galletas"
+    "Snacks",
+    "Sin gluten / TACC"
   ],
   "4248": [
     "Snacks"
@@ -6395,10 +6393,10 @@
     "Frutos secos y semillas"
   ],
   "52829": [
-    "Panificados"
+    "Galletas"
   ],
   "52836": [
-    "Panificados"
+    "Galletas"
   ],
   "5285000870579": [
     "Frutos secos y semillas"
@@ -6515,12 +6513,11 @@
     "Bebidas"
   ],
   "60019": [
-    "Panificados",
     "Snacks",
     "Sin gluten / TACC"
   ],
   "60026": [
-    "Frutos secos y semillas",
+    "Snacks",
     "Sin gluten / TACC"
   ],
   "60073": [
@@ -7362,7 +7359,7 @@
     "Suplementos y superalimentos"
   ],
   "8681042335217": [
-    "Panificados"
+    "Snacks"
   ],
   "8681042336054": [
     "Snacks"
@@ -7759,9 +7756,8 @@
     "Snacks"
   ],
   "ALMA09": [
-    "Galletas",
-    "Panificados",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "ALMA1": [
     "Snacks"
@@ -9236,7 +9232,6 @@
     "Keto"
   ],
   "CARMEKETO1": [
-    "Panificados",
     "Snacks",
     "Keto"
   ],
@@ -9448,8 +9443,8 @@
     "Sin gluten / TACC"
   ],
   "CELULA01": [
-    "Panificados",
     "Snacks",
+    "Keto",
     "Sin gluten / TACC"
   ],
   "CELULA02": [
@@ -13365,13 +13360,13 @@
     "Panificados"
   ],
   "MASAMADRE05": [
-    "Panificados"
+    "Snacks"
   ],
   "MASAMADRE07": [
-    "Panificados"
+    "Snacks"
   ],
   "MASAMADRE08": [
-    "Panificados"
+    "Snacks"
   ],
   "MASAMADRE123": [
     "Panificados",
@@ -13422,7 +13417,7 @@
     "Dulces y chocolates"
   ],
   "MATALIPI": [
-    "Panificados"
+    "Snacks"
   ],
   "MATCHACARDA": [
     "Café e infusiones"
@@ -16141,8 +16136,8 @@
     "Café e infusiones"
   ],
   "SMAM01": [
-    "Panificados",
-    "Snacks"
+    "Snacks",
+    "Sin gluten / TACC"
   ],
   "SMAM04": [
     "Galletas"
@@ -16154,8 +16149,8 @@
     "Galletas"
   ],
   "SMAM11": [
-    "Panificados",
-    "Snacks"
+    "Snacks",
+    "Sin gluten / TACC"
   ],
   "SMAM14": [
     "Panificados"
@@ -16177,7 +16172,8 @@
     "Panificados"
   ],
   "SMAM31": [
-    "Frutos secos y semillas"
+    "Snacks",
+    "Sin gluten / TACC"
   ],
   "SMAMS01": [
     "Lácteos",
@@ -17863,7 +17859,7 @@
     "Helados y postres"
   ],
   "7798387050130": [
-    "Panificados"
+    "Snacks"
   ],
   "7798404920101": [
     "Snacks"
@@ -18036,7 +18032,7 @@
     "Condimentos y especias"
   ],
   "CUÑA": [
-    "Panificados"
+    "Congelados"
   ],
   "DAMM1": [
     "Café e infusiones"
@@ -18293,13 +18289,13 @@
     "Cuidado personal"
   ],
   "MASAMADRE02": [
-    "Panificados"
+    "Snacks"
   ],
   "MASAMADRE03": [
     "Cereales y legumbres"
   ],
   "MASAMADRE04": [
-    "Panificados"
+    "Snacks"
   ],
   "MASAMADRE09": [
     "Panificados"
@@ -18954,5 +18950,17 @@
   ],
   "STERLI02": [
     "Helados y postres"
+  ],
+  "MASMAD007": [
+    "Snacks"
+  ],
+  "MASAMADRE06": [
+    "Snacks"
+  ],
+  "MASAMADR": [
+    "Snacks"
+  ],
+  "MASAMADRE31": [
+    "Snacks"
   ]
 }
