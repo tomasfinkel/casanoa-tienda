@@ -5159,7 +5159,7 @@
     "Cereales y legumbres"
   ],
   "386": [
-    "Cereales y legumbres"
+    "Pastas y arroces"
   ],
   "38604": [
     "Dulces y chocolates"
@@ -5913,7 +5913,7 @@
     "Congelados"
   ],
   "4558": [
-    "Cereales y legumbres"
+    "Congelados"
   ],
   "4559": [
     "Congelados",
@@ -6183,7 +6183,7 @@
     "Sin gluten / TACC"
   ],
   "50206": [
-    "Cereales y legumbres"
+    "Lácteos"
   ],
   "50257": [
     "Lácteos",
@@ -10651,7 +10651,7 @@
     "Condimentos, especias y dips"
   ],
   "ED1": [
-    "Cereales y legumbres"
+    "Congelados"
   ],
   "EDN1": [
     "Suplementos y superalimentos"
@@ -14385,7 +14385,7 @@
     "Bebidas"
   ],
   "NUDE2": [
-    "Cereales y legumbres"
+    "Lácteos"
   ],
   "NUDE4": [
     "Bebidas"
@@ -16350,7 +16350,7 @@
     "Pastas y arroces"
   ],
   "SRIS45": [
-    "Cereales y legumbres"
+    "Pastas y arroces"
   ],
   "SRIS47": [
     "Condimentos, especias y dips"
@@ -17715,7 +17715,7 @@
     "Pastas y arroces"
   ],
   "4613": [
-    "Cereales y legumbres"
+    "Congelados"
   ],
   "4618": [
     "Congelados"
@@ -17737,7 +17737,7 @@
     "Sin gluten / TACC"
   ],
   "50837": [
-    "Cereales y legumbres"
+    "Galletas"
   ],
   "526": [
     "Endulzantes"
@@ -18103,7 +18103,7 @@
     "Galletas"
   ],
   "GULLON13": [
-    "Cereales y legumbres"
+    "Galletas"
   ],
   "H6": [
     "Helados y postres"
@@ -18929,5 +18929,8 @@
   ],
   "CAFF8": [
     "Café e infusiones"
+  ],
+  "CRUDD01": [
+    "Lácteos"
   ]
 }
