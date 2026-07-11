@@ -1450,8 +1450,7 @@
     "Congelados"
   ],
   "10653": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "10655": [
     "Lácteos"
@@ -1812,9 +1811,7 @@
     "Cuidado personal"
   ],
   "10869": [
-    "Condimentos, especias y dips",
-    "Pastas y arroces",
-    "Sin gluten / TACC"
+    "Galletas"
   ],
   "10870": [
     "Galletas"
@@ -3412,8 +3409,7 @@
     "Aceites y vinagres"
   ],
   "17836": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Miel, mermeladas y untables"
   ],
   "1784": [
     "Condimentos, especias y dips"
@@ -5423,12 +5419,10 @@
     "Congelados"
   ],
   "40198644": [
-    "Condimentos, especias y dips",
-    "Pastas y arroces"
+    "Condimentos, especias y dips"
   ],
   "40198651": [
-    "Condimentos, especias y dips",
-    "Pastas y arroces"
+    "Condimentos, especias y dips"
   ],
   "40293": [
     "Snacks"
@@ -5922,8 +5916,7 @@
     "Congelados"
   ],
   "4561": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "4562": [
     "Congelados"
@@ -5948,39 +5941,31 @@
     "Pastas y arroces"
   ],
   "4575": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Congelados"
   ],
   "4576": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Congelados"
   ],
   "4577": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "4578": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Congelados"
   ],
   "4579": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "458": [
     "Pastas y arroces"
   ],
   "4580": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "4581": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "4582": [
-    "Congelados",
-    "Pastas y arroces"
+    "Congelados"
   ],
   "459": [
     "Pastas y arroces"
@@ -6122,17 +6107,16 @@
     "Lácteos"
   ],
   "49936": [
-    "Pastas y arroces"
+    "Miel, mermeladas y untables"
   ],
   "4994": [
     "Lácteos"
   ],
   "49943": [
-    "Pastas y arroces"
+    "Miel, mermeladas y untables"
   ],
   "49950": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Miel, mermeladas y untables"
   ],
   "4997": [
     "Lácteos"
@@ -9926,8 +9910,7 @@
     "Conservas"
   ],
   "CRISTO01": [
-    "Conservas",
-    "Pastas y arroces"
+    "Conservas"
   ],
   "CRO840": [
     "Snacks"
@@ -9952,8 +9935,7 @@
     "Frutos secos y semillas"
   ],
   "CROPCRUN": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Miel, mermeladas y untables"
   ],
   "CROPS": [
     "Snacks"
@@ -10740,11 +10722,10 @@
     "Frutos secos y semillas"
   ],
   "ELI": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Helados y postres"
   ],
   "ELI5": [
-    "Frutos secos y semillas"
+    "Helados y postres"
   ],
   "ELI6": [
     "Dulces y chocolates"
@@ -12235,8 +12216,7 @@
     "Café e infusiones"
   ],
   "KANATER": [
-    "Pastas y arroces",
-    "Frutos secos y semillas"
+    "Condimentos, especias y dips"
   ],
   "KANATER3": [
     "Frutos secos y semillas"
@@ -16286,7 +16266,7 @@
     "Cuidado personal"
   ],
   "SRI00": [
-    "Pastas y arroces"
+    "Cuidado personal"
   ],
   "SRI001": [
     "Pastas y arroces"
@@ -18931,5 +18911,8 @@
   ],
   "CRUDD01": [
     "Lácteos"
+  ],
+  "ELI4": [
+    "Helados y postres"
   ]
 }
