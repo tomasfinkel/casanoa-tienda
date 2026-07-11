@@ -18,7 +18,7 @@ const ATAJOS = [
   'Panificados',
   'Congelados',
   'Helados y postres',
-  'Condimentos y especias',
+  'Condimentos, especias y dips',
   'Suplementos y superalimentos',
   'Cereales y legumbres',
   'Harinas y premezclas',
