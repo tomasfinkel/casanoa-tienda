@@ -17,7 +17,6 @@ const ATAJOS = [
   'Miel, mermeladas y untables',
   'Panificados',
   'Congelados',
-  'Comidas listas',
   'Helados y postres',
   'Condimentos y especias',
   'Suplementos y superalimentos',
