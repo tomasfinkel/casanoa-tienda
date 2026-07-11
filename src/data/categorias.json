@@ -6436,16 +6436,19 @@
     "Sin gluten / TACC"
   ],
   "582": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "58274": [
     "Pastas y arroces",
     "Cuidado personal"
   ],
   "583": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "584": [
+    "Fermentados",
     "Bebidas"
   ],
   "585": [
@@ -8706,19 +8709,24 @@
     "Suplementos y superalimentos"
   ],
   "BRAVI1": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "BRAVI2": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "BRAVI3": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "BRAVI4": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "BRAVI5": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "BRAVII": [
     "Snacks",
@@ -8881,12 +8889,15 @@
     "Bebidas"
   ],
   "BUNJI00": [
+    "Fermentados",
     "Bebidas"
   ],
   "BUNJI01": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "BUNJI02": [
+    "Fermentados",
     "Bebidas"
   ],
   "BUTTER01": [
@@ -9688,6 +9699,7 @@
     "Bebidas"
   ],
   "CODA01": [
+    "Fermentados",
     "Bebidas"
   ],
   "COFFEON": [
@@ -13045,11 +13057,12 @@
     "Café e infusiones"
   ],
   "LIVEK": [
-    "Café e infusiones",
-    "Condimentos, especias y dips"
+    "Fermentados",
+    "Bebidas"
   ],
   "LIVEK2": [
-    "Café e infusiones"
+    "Fermentados",
+    "Bebidas"
   ],
   "LIVK3": [
     "Café e infusiones"
@@ -18919,5 +18932,13 @@
   ],
   "ELI4": [
     "Helados y postres"
+  ],
+  "LIVEK3": [
+    "Fermentados",
+    "Bebidas"
+  ],
+  "LIVEK4": [
+    "Fermentados",
+    "Bebidas"
   ]
 }
