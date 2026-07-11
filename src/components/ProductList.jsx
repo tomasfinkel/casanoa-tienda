@@ -8,7 +8,7 @@ const LIMITE_RESULTADOS = 500
 
 const ATAJOS = [
   'Vinos',
-  'Lácteos',
+  'Lácteos y veganos',
   'Snacks',
   'Galletas',
   'Aceites y vinagres',
