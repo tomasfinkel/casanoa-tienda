@@ -1230,3 +1230,9 @@ body {
   gap: 1rem;
   padding: 0 1rem;
 }
+
+.cat-circulo-img {
+  width: 65% !important;
+  height: 65% !important;
+  object-fit: contain !important;
+}
