@@ -11,24 +11,24 @@ const PROMOS = [
 ]
 
 const CATEGORIAS_INICIO = [
-  { nombre: 'Snacks', foto: '10110' },
-  { nombre: 'Bebidas y jugos', foto: '10262' },
-  { nombre: 'Cuidado personal', foto: '10227' },
+  { nombre: 'Snacks', foto: 'INTEGRA02' },
+  { nombre: 'Bebidas y jugos', foto: '11283' },
+  { nombre: 'Cuidado personal', foto: '1439' },
   { nombre: 'Suplementos y superalimentos', foto: '11100' },
-  { nombre: 'Dulces y chocolates', foto: '10214' },
+  { nombre: 'Dulces y chocolates', foto: '11448' },
   { nombre: 'Congelados', foto: '10207' },
-  { nombre: 'Café e infusiones', foto: '10123' },
-  { nombre: 'Vinos', foto: 'CHA01' },
+  { nombre: 'Café e infusiones', foto: 'LAV3' },
+  { nombre: 'Vinos', foto: 'PIEL03' },
 ]
 
 const LABEL_CORTO = {
   'Snacks': 'Snacks',
   'Bebidas y jugos': 'Bebidas',
-  'Cuidado personal': 'Cuidado',
+  'Cuidado personal': 'Cuidado personal',
   'Suplementos y superalimentos': 'Suplementos',
-  'Dulces y chocolates': 'Chocolates',
+  'Dulces y chocolates': 'Dulces y chocolates',
   'Congelados': 'Congelados',
-  'Café e infusiones': 'Café',
+  'Café e infusiones': 'Café e infusiones',
   'Vinos': 'Vinos',
 }
 
