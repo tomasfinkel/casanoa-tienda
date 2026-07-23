@@ -12,6 +12,12 @@ import PopupPromo from './components/PopupPromo.jsx'
 function Contenido() {
   const { sucursal, cambiarSucursal } = useSucursal()
   const [tab, setTab] = useState('inicio')
+  const [categoriaInicial, setCategoriaInicial] = useState(null)
+
+  function irAProductos(categoria) {
+    setCategoriaInicial(categoria || null)
+    setTab('productos')
+  }
 
   if (!sucursal) {
     return <BranchPicker />
@@ -48,8 +54,8 @@ function Contenido() {
       </nav>
 
       <main>
-        {tab === 'inicio' && <Inicio onVerProductos={() => setTab('productos')} />}
-        {tab === 'productos' && <ProductList />}
+        {tab === 'inicio' && <Inicio onVerProductos={irAProductos} />}
+        {tab === 'productos' && <ProductList categoriaInicial={categoriaInicial} />}
         {tab === 'cuenta' && <MiCuenta />}
       </main>
       <CartDrawer />
