@@ -12,7 +12,7 @@ const PROMOS = [
 
 const CATEGORIAS_INICIO = [
   { nombre: 'Snacks', foto: 'INTEGRA02' },
-  { nombre: 'Bebidas y jugos', foto: '11283' },
+  { nombre: 'Bebidas y jugos', foto: 'GIOR03' },
   { nombre: 'Cuidado personal', foto: '1439' },
   { nombre: 'Suplementos y superalimentos', foto: '11100' },
   { nombre: 'Dulces y chocolates', foto: '11448' },
