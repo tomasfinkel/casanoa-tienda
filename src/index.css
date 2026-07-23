@@ -1223,3 +1223,10 @@ body {
   border-radius: 50%;
   background: #f0ede8;
 }
+
+.fila-novedades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0 1rem;
+}
