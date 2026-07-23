@@ -1,13 +1,5 @@
 import { useSucursal } from '../context/BranchContext.jsx'
 import Novedades from './Novedades.jsx'
-import InstagramFeed from './InstagramFeed.jsx'
-
-const NIVELES = [
-  { puntos: 50, premio: '5% de descuento' },
-  { puntos: 120, premio: '10% de descuento' },
-  { puntos: 250, premio: 'Producto de regalo' },
-  { puntos: 450, premio: 'Producto premium gratis' },
-]
 
 const PROMOS = [
   { nombre: 'Cuenta DNI', dia: 'Lunes a viernes', detalle: '20% OFF — tope $6.000 por semana', sucursales: null },
@@ -17,15 +9,22 @@ const PROMOS = [
   { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra', sucursales: null },
 ]
 
-const CATEGORIAS_DESTACADAS = [
-  'Vinos',
-  'Lácteos',
-  'Snacks',
-  'Dulces y chocolates',
-  'Suplementos y superalimentos',
-  'Cuidado personal',
-  'Café e infusiones',
-  'Congelados',
+const CATEGORIAS_INICIO = [
+  { nombre: 'Snacks', emoji: '🍿' },
+  { nombre: 'Bebidas y jugos', emoji: '🥤' },
+  { nombre: 'Cuidado personal', emoji: '✨' },
+  { nombre: 'Suplementos y superalimentos', emoji: '💊' },
+  { nombre: 'Dulces y chocolates', emoji: '🍫' },
+  { nombre: 'Congelados', emoji: '🧊' },
+  { nombre: 'Café e infusiones', emoji: '☕' },
+  { nombre: 'Vinos', emoji: '🍷' },
+]
+
+const BENEFICIOS = [
+  { icono: '🚚', titulo: 'Envío gratis', sub: 'Desde $90.000 en CABA' },
+  { icono: '🌍', titulo: 'Importados', sub: 'Productos seleccionados' },
+  { icono: '⭐', titulo: 'Premium', sub: 'Las mejores marcas' },
+  { icono: '💬', titulo: 'Atención', sub: 'Personalizada' },
 ]
 
 export default function Inicio({ onVerProductos }) {
@@ -33,55 +32,74 @@ export default function Inicio({ onVerProductos }) {
 
   return (
     <div className="inicio">
-      <Novedades />
-      <InstagramFeed />
 
-      <section className="seccion-categorias">
-        <h2>Categorías</h2>
-        <div className="grid-categorias-inicio">
-          {CATEGORIAS_DESTACADAS.map((cat) => (
-            <button
-              key={cat}
-              className="boton-categoria-inicio"
-              onClick={() => onVerProductos(cat)}
-            >
-              {cat}
+      {/* HERO */}
+      <section className="hero">
+        <img src="/insta-1.jpg" alt="Casa NOA" className="hero-img" />
+        <div className="hero-overlay">
+          <h1 className="hero-titulo">Alimentos premium,<br />para una vida mejor</h1>
+          <p className="hero-sub">Productos naturales, importados y de las mejores marcas.</p>
+          <button className="hero-btn-principal" onClick={() => onVerProductos()}>Comprar ahora</button>
+          <button className="hero-btn-secundario" onClick={() => onVerProductos()}>Ver categorías</button>
+        </div>
+      </section>
+
+      {/* BENEFICIOS */}
+      <section className="seccion-beneficios">
+        {BENEFICIOS.map((b) => (
+          <div className="beneficio" key={b.titulo}>
+            <span className="beneficio-icono">{b.icono}</span>
+            <span className="beneficio-titulo">{b.titulo}</span>
+            <span className="beneficio-sub">{b.sub}</span>
+          </div>
+        ))}
+      </section>
+
+      {/* CATEGORÍAS */}
+      <section className="seccion-cats-inicio">
+        <div className="seccion-cats-header">
+          <h2>Categorías</h2>
+          <button className="ver-todas" onClick={() => onVerProductos()}>Ver todas →</button>
+        </div>
+        <div className="fila-cats-inicio">
+          {CATEGORIAS_INICIO.map((cat) => (
+            <button key={cat.nombre} className="cat-circulo" onClick={() => onVerProductos(cat.nombre)}>
+              <span className="cat-circulo-emoji">{cat.emoji}</span>
+              <span className="cat-circulo-nombre">{cat.nombre.split(' ')[0]}</span>
             </button>
           ))}
         </div>
       </section>
 
-      <section className="banner-puntos">
-        <h2>Sumá puntos en cada compra</h2>
-        <p className="banner-puntos-sub">
-          1 punto por cada $1.000 gastados, más puntos extra en los
-          productos marcados como novedad.
-        </p>
-        <div className="fila-niveles">
-          {NIVELES.map((n) => (
-            <div className="pill-nivel" key={n.puntos}>
-              <span className="pill-nivel-puntos">{n.puntos}</span>
-              <span className="pill-nivel-premio">{n.premio}</span>
-            </div>
-          ))}
+      {/* NOVEDADES */}
+      <section className="seccion-novedades-inicio">
+        <div className="seccion-cats-header">
+          <h2>Nuevos ingresos</h2>
+          <button className="ver-todas" onClick={() => onVerProductos()}>Ver todos →</button>
         </div>
+        <Novedades />
       </section>
 
-      <section className="banner-promos">
-        <h2>Envíos y retiro</h2>
-        <div className="fila-promos">
-          <div className="card-promo">
-            <span className="card-promo-nombre">Capital Federal</span>
-            <span className="card-promo-dia">Envío gratis desde $90.000</span>
+      {/* ENVÍOS */}
+      <section className="seccion-envios">
+        <div className="envio-card">
+          <span className="envio-icono">🚚</span>
+          <div>
+            <strong>Envío gratis a Capital Federal</strong>
+            <p>En compras desde $90.000</p>
           </div>
-          <div className="card-promo">
-            <span className="card-promo-nombre">Provincia de Buenos Aires</span>
-            <span className="card-promo-dia">Hacé el pedido y retirá en la sucursal</span>
+        </div>
+        <div className="envio-card">
+          <span className="envio-icono">📦</span>
+          <div>
+            <strong>Provincia de Buenos Aires</strong>
+            <p>Pedí y retirá en la sucursal</p>
           </div>
         </div>
       </section>
 
-      <section className="banner-promos">
+      {/* PROMOS */}
+      <section className="seccion-promos-inicio">
         <h2>Promociones vigentes</h2>
         <div className="fila-promos">
           {PROMOS.filter((p) => !p.sucursales || p.sucursales.includes(sucursalId)).map((p) => (
@@ -94,9 +112,6 @@ export default function Inicio({ onVerProductos }) {
         </div>
       </section>
 
-      <button className="boton-ver-productos" onClick={() => onVerProductos()}>
-        Ver catálogo completo
-      </button>
     </div>
   )
 }
