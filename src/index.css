@@ -668,14 +668,15 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 0.8rem;
+  padding: 1rem;
   box-sizing: border-box;
 }
 
 .card-imagen img {
-  width: 85%;
-  height: 85%;
+  width: 75%;
+  height: 75%;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .imagen-placeholder {
@@ -729,4 +730,232 @@ body {
   font-weight: 500;
   color: #5a4a3a;
   margin: 0.2rem 0 0;
+}
+
+/* ===== INICIO REDISEÑO ===== */
+
+.inicio {
+  padding-bottom: 2rem;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vw;
+  max-height: 340px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.55) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 0.5rem;
+}
+
+.hero-titulo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.hero-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+}
+
+.hero-btn-principal {
+  background: #3c2c23;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 0.3rem;
+}
+
+.hero-btn-secundario {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+/* BENEFICIOS */
+.seccion-beneficios {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.2rem 0.5rem;
+  border-bottom: 1px solid #ede9e3;
+  background: #fff;
+}
+
+.beneficio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.beneficio-icono {
+  font-size: 1.3rem;
+}
+
+.beneficio-titulo {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #3c2c23;
+  text-align: center;
+}
+
+.beneficio-sub {
+  font-size: 0.58rem;
+  color: #a89070;
+  text-align: center;
+}
+
+/* CATEGORÍAS EN CÍRCULOS */
+.seccion-cats-inicio {
+  padding: 1.5rem 1rem 0.5rem;
+  background: #fff;
+}
+
+.seccion-cats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.seccion-cats-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.ver-todas {
+  background: none;
+  border: none;
+  color: #a89070;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.fila-cats-inicio {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+
+.fila-cats-inicio::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-circulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cat-circulo-emoji {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #f0ede8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.cat-circulo-nombre {
+  font-size: 0.68rem;
+  color: #3c2c23;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* NOVEDADES */
+.seccion-novedades-inicio {
+  padding: 1.5rem 1rem 0.5rem;
+  background: #fff;
+}
+
+/* ENVÍOS */
+.seccion-envios {
+  margin: 1rem;
+  background: #f5f2ec;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.envio-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.envio-icono {
+  font-size: 1.4rem;
+}
+
+.envio-card strong {
+  font-size: 0.82rem;
+  color: #3c2c23;
+}
+
+.envio-card p {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #7a6048;
+}
+
+/* PROMOS */
+.seccion-promos-inicio {
+  padding: 1.5rem 1rem;
+  background: #fff;
+}
+
+.seccion-promos-inicio h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
 }
