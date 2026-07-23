@@ -44,6 +44,7 @@ export default function ProductCard({ producto }) {
   return (
     <div className="card-producto">
       <div className="card-imagen">
+        {rubro && <span className="card-rubro-badge">{rubro}</span>}
         {!imagenRota ? (
           <img
             src={imagenSrc}
@@ -55,7 +56,6 @@ export default function ProductCard({ producto }) {
         )}
       </div>
       <div className="card-info">
-        {rubro && <span className="card-rubro">{rubro}</span>}
         <span className="card-marca">{marca}</span>
         {descripcion && <span className="card-descripcion">{descripcion}</span>}
         <p className="precio">${producto.precio.toLocaleString('es-AR')}</p>
