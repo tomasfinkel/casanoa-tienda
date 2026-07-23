@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSucursal } from '../context/BranchContext.jsx'
 import Novedades from './Novedades.jsx'
 
@@ -10,15 +11,26 @@ const PROMOS = [
 ]
 
 const CATEGORIAS_INICIO = [
-  { nombre: 'Snacks', emoji: '🍿' },
-  { nombre: 'Bebidas y jugos', emoji: '🥤' },
-  { nombre: 'Cuidado personal', emoji: '✨' },
-  { nombre: 'Suplementos y superalimentos', emoji: '💊' },
-  { nombre: 'Dulces y chocolates', emoji: '🍫' },
-  { nombre: 'Congelados', emoji: '🧊' },
-  { nombre: 'Café e infusiones', emoji: '☕' },
-  { nombre: 'Vinos', emoji: '🍷' },
+  { nombre: 'Snacks', foto: '10110' },
+  { nombre: 'Bebidas y jugos', foto: '10262' },
+  { nombre: 'Cuidado personal', foto: '10227' },
+  { nombre: 'Suplementos y superalimentos', foto: '11100' },
+  { nombre: 'Dulces y chocolates', foto: '10214' },
+  { nombre: 'Congelados', foto: '10207' },
+  { nombre: 'Café e infusiones', foto: '10123' },
+  { nombre: 'Vinos', foto: 'CHA01' },
 ]
+
+const LABEL_CORTO = {
+  'Snacks': 'Snacks',
+  'Bebidas y jugos': 'Bebidas',
+  'Cuidado personal': 'Cuidado',
+  'Suplementos y superalimentos': 'Suplementos',
+  'Dulces y chocolates': 'Chocolates',
+  'Congelados': 'Congelados',
+  'Café e infusiones': 'Café',
+  'Vinos': 'Vinos',
+}
 
 const BENEFICIOS = [
   { icono: '🚚', titulo: 'Envío gratis', sub: 'Desde $90.000 en CABA' },
@@ -27,12 +39,32 @@ const BENEFICIOS = [
   { icono: '💬', titulo: 'Atención', sub: 'Personalizada' },
 ]
 
+function CatFoto({ foto, nombre }) {
+  const [err, setErr] = React.useState(false)
+  const src = `/productos/${foto}.jpg`
+  const srcPng = `/productos/${foto}.png`
+  const [src2, setSrc2] = React.useState(src)
+
+  return err ? (
+    <div className="cat-circulo-placeholder" />
+  ) : (
+    <img
+      src={src2}
+      alt={nombre}
+      className="cat-circulo-img"
+      onError={() => {
+        if (src2.endsWith('.jpg')) { setSrc2(srcPng) }
+        else { setErr(true) }
+      }}
+    />
+  )
+}
+
 export default function Inicio({ onVerProductos }) {
   const { sucursalId } = useSucursal()
 
   return (
     <div className="inicio">
-
       {/* HERO */}
       <section className="hero">
         <img src="/insta-1.jpg" alt="Casa NOA" className="hero-img" />
@@ -64,8 +96,10 @@ export default function Inicio({ onVerProductos }) {
         <div className="fila-cats-inicio">
           {CATEGORIAS_INICIO.map((cat) => (
             <button key={cat.nombre} className="cat-circulo" onClick={() => onVerProductos(cat.nombre)}>
-              <span className="cat-circulo-emoji">{cat.emoji}</span>
-              <span className="cat-circulo-nombre">{cat.nombre.split(' ')[0]}</span>
+              <div className="cat-circulo-wrap">
+                <CatFoto foto={cat.foto} nombre={cat.nombre} />
+              </div>
+              <span className="cat-circulo-nombre">{LABEL_CORTO[cat.nombre] || cat.nombre}</span>
             </button>
           ))}
         </div>
@@ -111,7 +145,6 @@ export default function Inicio({ onVerProductos }) {
           ))}
         </div>
       </section>
-
     </div>
   )
 }
