@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
+import { useSucursal } from '../context/BranchContext.jsx'
 import sabores from '../data/sabores.json'
+import categorias from '../data/categorias.json'
 
 export default function ProductCard({ producto }) {
   const { agregarItem } = useCart()
+  const { sucursalId } = useSucursal()
   const [imagenSrc, setImagenSrc] = useState(`/productos/${producto.id}.jpg`)
   const [imagenRota, setImagenRota] = useState(false)
   const [saborElegido, setSaborElegido] = useState('')
@@ -11,8 +14,16 @@ export default function ProductCard({ producto }) {
 
   const listaSabores = sabores[producto.id] || null
 
+  // Separar marca y descripción
+  const partes = producto.nombre.split(' - ')
+  const marca = partes[0]
+  const descripcion = partes.slice(1).join(' - ')
+
+  // Obtener primer rubro
+  const rubros = categorias[producto.id] || []
+  const rubro = rubros[0] || null
+
   function handleImagenError() {
-    // Si falla .jpg, intentar .png
     if (imagenSrc.endsWith('.jpg')) {
       setImagenSrc(`/productos/${producto.id}.png`)
     } else {
@@ -32,15 +43,23 @@ export default function ProductCard({ producto }) {
 
   return (
     <div className="card-producto">
-      {!imagenRota && (
-        <img
-          src={imagenSrc}
-          alt={producto.nombre}
-          onError={handleImagenError}
-        />
-      )}
-      <h3>{producto.nombre}</h3>
-      <p className="precio">${producto.precio}</p>
+      <div className="card-imagen">
+        {!imagenRota ? (
+          <img
+            src={imagenSrc}
+            alt={producto.nombre}
+            onError={handleImagenError}
+          />
+        ) : (
+          <div className="imagen-placeholder" />
+        )}
+      </div>
+      <div className="card-info">
+        {rubro && <span className="card-rubro">{rubro}</span>}
+        <span className="card-marca">{marca}</span>
+        {descripcion && <span className="card-descripcion">{descripcion}</span>}
+        <p className="precio">${producto.precio.toLocaleString('es-AR')}</p>
+      </div>
       {listaSabores && (
         <select
           className={`selector-sabor${error ? ' selector-sabor--error' : ''}`}
@@ -54,7 +73,7 @@ export default function ProductCard({ producto }) {
         </select>
       )}
       {error && <p className="sabor-error">Elegí un sabor primero</p>}
-      <button onClick={handleAgregar}>Agregar al carrito</button>
+      <button className="boton-agregar" onClick={handleAgregar}>+</button>
     </div>
   )
 }
