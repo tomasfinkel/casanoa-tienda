@@ -959,3 +959,165 @@ body {
   font-weight: 800;
   margin: 0 0 1rem;
 }
+
+/* ===== BRANCH PICKER ===== */
+.branch-picker {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  text-align: center;
+}
+
+.logo-picker {
+  height: 48px;
+  margin-bottom: 2rem;
+}
+
+.branch-picker h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0 0 0.4rem;
+}
+
+.picker-sub {
+  color: #7a6048;
+  font-size: 0.85rem;
+  margin: 0 0 1.5rem;
+}
+
+.btn-ubicacion {
+  background: #3c2c23;
+  color: #e7e3db;
+  border: none;
+  border-radius: 10px;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  max-width: 320px;
+}
+
+.btn-ubicacion:disabled {
+  opacity: 0.6;
+}
+
+.picker-error {
+  color: #c0392b;
+  font-size: 0.78rem;
+  margin: 0.5rem 0;
+}
+
+.picker-divisor {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 320px;
+  margin: 1.2rem 0;
+  color: #a89070;
+  font-size: 0.75rem;
+}
+
+.picker-divisor::before,
+.picker-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e7e3db;
+}
+
+.picker-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.picker-opcion {
+  background: #f5f2ec;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.picker-opcion-nombre {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #3c2c23;
+}
+
+.picker-opcion-dir {
+  font-size: 0.75rem;
+  color: #7a6048;
+}
+
+.sugerida-card {
+  background: #f5f2ec;
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sugerida-label {
+  font-size: 0.7rem;
+  color: #a89070;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0;
+}
+
+.sugerida-nombre {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0;
+}
+
+.sugerida-dir {
+  font-size: 0.78rem;
+  color: #7a6048;
+  margin: 0;
+}
+
+.sugerida-dist {
+  font-size: 0.75rem;
+  color: #a89070;
+  margin: 0 0 0.5rem;
+}
+
+.btn-confirmar {
+  background: #3c2c23;
+  color: #e7e3db;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-otra {
+  background: none;
+  border: none;
+  color: #7a6048;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
