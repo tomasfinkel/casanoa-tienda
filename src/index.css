@@ -1121,3 +1121,41 @@ body {
   cursor: pointer;
   text-decoration: underline;
 }
+
+.picker-direccion {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.input-direccion {
+  flex: 1;
+  border: 1.5px solid #e7e3db;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.88rem;
+  color: #3c2c23;
+  outline: none;
+  background: #f5f2ec;
+}
+
+.input-direccion:focus {
+  border-color: #3c2c23;
+}
+
+.btn-buscar-dir {
+  background: #3c2c23;
+  color: #e7e3db;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-buscar-dir:disabled {
+  opacity: 0.5;
+}
