@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSucursal } from '../context/BranchContext.jsx'
 
 const SUCURSALES_GEO = [
@@ -6,6 +6,8 @@ const SUCURSALES_GEO = [
   { id: 'siria', nombre: 'Av. República Árabe Siria', direccion: 'República Árabe Siria 2990, Palermo', lat: -34.5808445, lng: -58.4138029 },
   { id: 'migueletes', nombre: 'Migueletes', direccion: 'Migueletes 984, Palermo', lat: -34.5654665, lng: -58.4361232 },
 ]
+
+const MAX_DIST_KM = 50
 
 function distanciaKm(lat1, lng1, lat2, lng2) {
   const R = 6371
@@ -39,6 +41,47 @@ export default function BranchPicker() {
   const [error, setError] = useState(null)
   const [sugerida, setSugerida] = useState(null)
   const [direccion, setDireccion] = useState('')
+  const [sugerencias, setSugerencias] = useState([])
+  const [mostrarSugerencias, setMostrarSugerencias] = useState(false)
+  const debounceRef = useRef(null)
+
+  useEffect(() => {
+    if (direccion.length < 4) {
+      setSugerencias([])
+      return
+    }
+    clearTimeout(debounceRef.current)
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const q = encodeURIComponent(direccion + ', Buenos Aires')
+        const res = await fetch(
+          `https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=5&countrycodes=ar&viewbox=-58.5333,-34.7050,-58.3333,-34.4800&bounded=0`,
+          { headers: { 'Accept-Language': 'es' } }
+        )
+        const data = await res.json()
+        setSugerencias(data || [])
+        setMostrarSugerencias(true)
+      } catch {
+        setSugerencias([])
+      }
+    }, 400)
+  }, [direccion])
+
+  function elegirSugerencia(item) {
+    setDireccion(item.display_name.split(',').slice(0, 2).join(','))
+    setSugerencias([])
+    setMostrarSugerencias(false)
+    const lat = parseFloat(item.lat)
+    const lng = parseFloat(item.lon)
+    const mejor = sucursalMasCercana(lat, lng)
+    if (mejor.distancia > MAX_DIST_KM) {
+      setError('Esta dirección está fuera del área de cobertura. Podés retirar en una de nuestras sucursales.')
+      setSugerida(null)
+    } else {
+      setError(null)
+      setSugerida(mejor)
+    }
+  }
 
   function detectarGPS() {
     if (!navigator.geolocation) {
@@ -51,7 +94,11 @@ export default function BranchPicker() {
       (pos) => {
         const mejor = sucursalMasCercana(pos.coords.latitude, pos.coords.longitude)
         setBuscando(false)
-        setSugerida(mejor)
+        if (mejor.distancia > MAX_DIST_KM) {
+          setError('Estás fuera del área de cobertura. Podés retirar en una de nuestras sucursales.')
+        } else {
+          setSugerida(mejor)
+        }
       },
       () => {
         setBuscando(false)
@@ -61,36 +108,11 @@ export default function BranchPicker() {
     )
   }
 
-  async function buscarDireccion() {
-    if (!direccion.trim()) return
-    setBuscando(true)
-    setError(null)
-    try {
-      const query = encodeURIComponent(direccion + ', Buenos Aires, Argentina')
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`,
-        { headers: { 'Accept-Language': 'es' } }
-      )
-      const data = await res.json()
-      if (!data || data.length === 0) {
-        setError('No encontramos esa dirección. Intentá con calle y número.')
-        setBuscando(false)
-        return
-      }
-      const { lat, lon } = data[0]
-      const mejor = sucursalMasCercana(parseFloat(lat), parseFloat(lon))
-      setSugerida(mejor)
-    } catch {
-      setError('Error al buscar la dirección. Intentá de nuevo.')
-    }
-    setBuscando(false)
-  }
-
   return (
     <div className="branch-picker">
       <img src="/casa-noa-logo.png" alt="Casa NOA" className="logo-picker" />
       <h2>¿Desde dónde comprás?</h2>
-      <p className="picker-sub">Ingresá tu dirección o usá tu ubicación actual</p>
+      <p className="picker-sub">Ingresá tu dirección para ver la sucursal más cercana</p>
 
       {sugerida ? (
         <div className="sugerida-card">
@@ -111,46 +133,43 @@ export default function BranchPicker() {
         </div>
       ) : (
         <>
-          {/* Campo de dirección */}
           <div className="picker-direccion">
-            <input
-              type="text"
-              className="input-direccion"
-              placeholder="Ej: Av. Santa Fe 1234"
-              value={direccion}
-              onChange={(e) => setDireccion(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && buscarDireccion()}
-            />
-            <button
-              className="btn-buscar-dir"
-              onClick={buscarDireccion}
-              disabled={buscando || !direccion.trim()}
-            >
-              {buscando ? '...' : 'Buscar'}
-            </button>
+            <div className="autocomplete-wrap">
+              <input
+                type="text"
+                className="input-direccion"
+                placeholder="Ej: Av. Santa Fe 1234, CABA"
+                value={direccion}
+                onChange={(e) => { setDireccion(e.target.value); setError(null) }}
+                onFocus={() => sugerencias.length > 0 && setMostrarSugerencias(true)}
+                onBlur={() => setTimeout(() => setMostrarSugerencias(false), 200)}
+                autoComplete="off"
+              />
+              {mostrarSugerencias && sugerencias.length > 0 && (
+                <ul className="autocomplete-lista">
+                  {sugerencias.map((s, i) => (
+                    <li key={i} className="autocomplete-item" onMouseDown={() => elegirSugerencia(s)}>
+                      {s.display_name.split(',').slice(0, 3).join(',')}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
+
+          {error && <p className="picker-error">{error}</p>}
 
           <div className="picker-divisor"><span>o</span></div>
 
-          <button
-            className="btn-ubicacion"
-            onClick={detectarGPS}
-            disabled={buscando}
-          >
+          <button className="btn-ubicacion" onClick={detectarGPS} disabled={buscando}>
             {buscando ? 'Detectando...' : '📍 Usar mi ubicación actual'}
           </button>
-
-          {error && <p className="picker-error">{error}</p>}
 
           <div className="picker-divisor"><span>o elegí manualmente</span></div>
 
           <div className="picker-lista">
             {SUCURSALES_GEO.map((suc) => (
-              <button
-                key={suc.id}
-                className="picker-opcion"
-                onClick={() => elegirSucursal(suc.id)}
-              >
+              <button key={suc.id} className="picker-opcion" onClick={() => elegirSucursal(suc.id)}>
                 <span className="picker-opcion-nombre">{suc.nombre}</span>
                 <span className="picker-opcion-dir">{suc.direccion}</span>
               </button>
