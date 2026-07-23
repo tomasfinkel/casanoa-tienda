@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-  background: #e7e3db;
+  background: #ffffff;
   color: #3c2c23;
 }
 
@@ -650,8 +650,6 @@ body {
 
 
 /* ===== PRODUCT CARD ===== */
-
-/* ===== PRODUCT CARD ===== */
 .card-producto {
   display: flex;
   flex-direction: column;
@@ -670,43 +668,43 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 0.5rem;
+  padding: 0.8rem;
   box-sizing: border-box;
 }
 
 .card-imagen img {
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   object-fit: contain;
 }
 
 .imagen-placeholder {
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
 }
 
 .boton-agregar {
   position: absolute;
   bottom: 0.6rem;
   right: 0.6rem;
-  background: transparent;
-  color: #3c2c23;
+  background: #3c2c23;
+  color: #e7e3db;
   border: none;
-  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.3rem;
   cursor: pointer;
-  line-height: 1;
-  padding: 0;
-  width: 28px;
-  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
 
 .card-info {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.15rem;
   padding: 0.5rem 0.1rem 0;
 }
 
@@ -719,15 +717,16 @@ body {
 }
 
 .card-descripcion {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #1a1a1a;
   line-height: 1.3;
+  text-transform: none;
 }
 
 .card-producto .precio {
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: #7a6048;
-  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #5a4a3a;
+  margin: 0.2rem 0 0;
 }
