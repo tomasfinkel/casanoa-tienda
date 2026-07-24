@@ -108,19 +108,7 @@ export default function Inicio({ onVerProductos }) {
       {/* Banner 1 */}
       <BannerFoto src="/insta-3.jpg" titulo="LO NUEVO QUE VALE LA PENA CONOCER" onTap={() => onVerProductos()} />
 
-      {/* Video */}
-      <div className="seccion-video">
-        <video
-          src="/hero-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="hero-video"
-        />
-      </div>
-
-      {/* Secciones con banner entre ellas */}
+      {/* Secciones con video y banner intercalados */}
       {SECCIONES.map((s, i) => (
         <div key={s.titulo}>
           <SeccionHorizontal
@@ -128,7 +116,12 @@ export default function Inicio({ onVerProductos }) {
             codigos={s.codigos}
             onVerTodos={() => onVerProductos()}
           />
-          {i === 1 && (
+          {i === 0 && (
+            <div className="seccion-video">
+              <video src="/hero-video.mp4" autoPlay muted loop playsInline className="hero-video" />
+            </div>
+          )}
+          {i === 2 && (
             <BannerFoto src="/insta-4.jpg" titulo="SELECCIÓN PREMIUM" onTap={() => onVerProductos()} />
           )}
         </div>
