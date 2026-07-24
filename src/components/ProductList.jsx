@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
+import CategoryGrid from './CategoryGrid.jsx'
 import categorias from '../data/categorias.json'
 
 const LIMITE_RESULTADOS = 500
@@ -92,6 +93,22 @@ export default function ProductList({ categoriaInicial }) {
   }
   const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
   const buscando = categoriaActiva || busqueda.trim().length >= 2
+
+  // Si no hay búsqueda ni categoría activa, mostrar grilla de categorías
+  if (!buscando) {
+    return (
+      <div>
+        <input
+          className="buscador"
+          type="text"
+          placeholder={`Buscá entre ${productos.length} productos...`}
+          value={busqueda}
+          onChange={(e) => buscarTexto(e.target.value)}
+        />
+        <CategoryGrid onElegir={(cat) => aplicarAtajo(cat)} />
+      </div>
+    )
+  }
 
   return (
     <div>
