@@ -120,21 +120,29 @@ export default function ProductList({ categoriaInicial }) {
         onChange={(e) => buscarTexto(e.target.value)}
       />
 
-      <div className="atajos">
-        {ATAJOS.map((cat) => (
-          <button
-            key={cat}
-            className={'boton-atajo' + (categoriaActiva === cat ? ' activo' : '')}
-            onClick={() => aplicarAtajo(cat)}
-          >
-            {cat}
+      {categoriaActiva && (
+        <div className="barra-rubro">
+          <button className="btn-volver" onClick={() => setCategoriaActiva(null)}>
+            ← Volver
           </button>
-        ))}
-      </div>
-
-      {!buscando && (
-        <p className="estado">Escribí al menos 2 letras, o tocá un atajo, para buscar.</p>
+          <span className="rubro-activo-titulo">{categoriaActiva}</span>
+        </div>
       )}
+
+      {busqueda.trim().length >= 2 && !categoriaActiva && (
+        <div className="atajos">
+          {ATAJOS.map((cat) => (
+            <button
+              key={cat}
+              className={'boton-atajo' + (categoriaActiva === cat ? ' activo' : '')}
+              onClick={() => aplicarAtajo(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      )}
+
       {buscando && coincidencias.length === 0 && (
         <p className="estado">No encontramos nada.</p>
       )}
