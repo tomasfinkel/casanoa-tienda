@@ -1647,3 +1647,75 @@ body {
   flex-shrink: 0;
   width: 160px;
 }
+
+/* ===== SECCION HEADER ALINEADO ===== */
+.seccion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.seccion-titulo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ===== BANNER FOTO ===== */
+.banner-foto {
+  position: relative;
+  margin: 1.5rem 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 140px;
+}
+
+.banner-foto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-foto-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6) 60%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+}
+
+.banner-foto-titulo {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.04em;
+  max-width: 65%;
+  line-height: 1.3;
+}
+
+.banner-foto-flecha {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+/* ===== VIDEO ===== */
+.seccion-video {
+  margin: 1.5rem 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  max-height: 400px;
+  object-fit: cover;
+}
