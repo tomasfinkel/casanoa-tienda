@@ -8,6 +8,7 @@ import ProductList from './components/ProductList.jsx'
 import CartDrawer from './components/CartDrawer.jsx'
 import MiCuenta from './components/MiCuenta.jsx'
 import PopupPromo from './components/PopupPromo.jsx'
+import SelectorEnvio from './components/SelectorEnvio.jsx'
 
 function IconoInicio({ activo }) {
   return (
@@ -103,6 +104,7 @@ function Contenido() {
             <span>Carrito</span>
           </button>
         )} />
+      <SelectorEnvio />
       </nav>
     </CartProvider>
   )
