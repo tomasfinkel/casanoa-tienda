@@ -1535,3 +1535,65 @@ body {
   min-width: 16px;
   text-align: center;
 }
+
+/* ===== CATEGORY GRID GRUPOS ===== */
+.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cat-grid-fila {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.cat-grid-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cat-grid-item {
+  position: relative;
+}
+
+.cat-grid-chevron {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  font-size: 0.6rem;
+  color: #a89070;
+}
+
+.cat-grid-item.abierto {
+  border: 2px solid #3c2c23;
+}
+
+.cat-subs {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: #f5f2ec;
+  border-radius: 12px;
+  padding: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.cat-sub-item {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3c2c23;
+  cursor: pointer;
+}
+
+.cat-sub-item:active {
+  background: #e7e3db;
+}
