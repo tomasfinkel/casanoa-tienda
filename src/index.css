@@ -1225,10 +1225,21 @@ body {
 }
 
 .fila-novedades {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 1rem;
   padding: 0 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fila-novedades::-webkit-scrollbar {
+  display: none;
+}
+
+.fila-novedades .card-producto {
+  flex-shrink: 0;
+  width: 160px;
 }
 
 .cat-circulo-img {
@@ -1332,4 +1343,52 @@ body {
   color: #3c2c23;
   text-align: center;
   line-height: 1.2;
+}
+
+/* ===== CARRUSEL ===== */
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 60vw;
+  max-height: 340px;
+  overflow: hidden;
+}
+
+.carrusel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.carrusel-img.activo {
+  opacity: 1;
+}
+
+.carrusel-dots {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.carrusel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s;
+}
+
+.carrusel-dot.activo {
+  background: #fff;
 }
