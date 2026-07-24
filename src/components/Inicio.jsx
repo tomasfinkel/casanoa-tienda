@@ -13,10 +13,10 @@ const PROMOS = [
 ]
 
 const SLIDES = [
-  { src: '/insta-1.jpg', alt: 'Casa NOA' },
-  { src: '/insta-2.jpg', alt: 'Casa NOA' },
-  { src: '/insta-3.jpg', alt: 'Casa NOA' },
-  { src: '/insta-4.jpg', alt: 'Casa NOA' },
+  '/insta-1.jpg',
+  '/insta-2.jpg',
+  '/insta-3.jpg',
+  '/insta-4.jpg',
 ]
 
 const SECCIONES = [
@@ -27,18 +27,22 @@ const SECCIONES = [
   { titulo: 'Importados', codigos: ['ZUCC002', '8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88'] },
 ]
 
+// Banners de foto entre secciones
+const BANNERS = [
+  { src: '/insta-3.jpg', titulo: 'LO NUEVO QUE VALE LA PENA CONOCER', idx: 1 },
+  { src: '/insta-4.jpg', titulo: 'SELECCIÓN PREMIUM', idx: 3 },
+]
+
 function Carrusel({ onComprar }) {
   const [activo, setActivo] = useState(0)
-
   useEffect(() => {
-    const t = setInterval(() => setActivo(prev => (prev + 1) % SLIDES.length), 4000)
+    const t = setInterval(() => setActivo(p => (p + 1) % SLIDES.length), 4000)
     return () => clearInterval(t)
   }, [])
-
   return (
     <div className="carrusel">
-      {SLIDES.map((s, i) => (
-        <img key={s.src} src={s.src} alt={s.alt}
+      {SLIDES.map((src, i) => (
+        <img key={src} src={src} alt="Casa NOA"
           className={'carrusel-img' + (i === activo ? ' activo' : '')} />
       ))}
       <div className="hero-overlay">
@@ -56,15 +60,26 @@ function Carrusel({ onComprar }) {
   )
 }
 
+function BannerFoto({ src, titulo, onTap }) {
+  return (
+    <div className="banner-foto" onClick={onTap}>
+      <img src={src} alt={titulo} className="banner-foto-img" />
+      <div className="banner-foto-overlay">
+        <span className="banner-foto-titulo">{titulo}</span>
+        <span className="banner-foto-flecha">→</span>
+      </div>
+    </div>
+  )
+}
+
 function SeccionHorizontal({ titulo, codigos, onVerTodos }) {
   const { productos } = useCatalogo()
   const items = codigos.map(c => productos.find(p => p.id === c)).filter(Boolean)
   if (items.length === 0) return null
-
   return (
     <section className="seccion-horizontal">
-      <div className="seccion-cats-header">
-        <h2>{titulo}</h2>
+      <div className="seccion-header">
+        <h2 className="seccion-titulo">{titulo}</h2>
         <button className="ver-todas" onClick={onVerTodos}>Ver todos →</button>
       </div>
       <div className="fila-horizontal">
@@ -81,23 +96,45 @@ export default function Inicio({ onVerProductos }) {
     <div className="inicio">
       <Carrusel onComprar={() => onVerProductos()} />
 
-      <section className="seccion-novedades-inicio">
-        <div className="seccion-cats-header">
-          <h2>Nuevos ingresos</h2>
+      {/* Nuevos ingresos */}
+      <section className="seccion-horizontal">
+        <div className="seccion-header">
+          <h2 className="seccion-titulo">Nuevos ingresos</h2>
           <button className="ver-todas" onClick={() => onVerProductos()}>Ver todos →</button>
         </div>
         <Novedades />
       </section>
 
-      {SECCIONES.map(s => (
-        <SeccionHorizontal
-          key={s.titulo}
-          titulo={s.titulo}
-          codigos={s.codigos}
-          onVerTodos={() => onVerProductos()}
+      {/* Banner 1 */}
+      <BannerFoto src="/insta-3.jpg" titulo="LO NUEVO QUE VALE LA PENA CONOCER" onTap={() => onVerProductos()} />
+
+      {/* Video */}
+      <div className="seccion-video">
+        <video
+          src="/hero-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-video"
         />
+      </div>
+
+      {/* Secciones con banner entre ellas */}
+      {SECCIONES.map((s, i) => (
+        <div key={s.titulo}>
+          <SeccionHorizontal
+            titulo={s.titulo}
+            codigos={s.codigos}
+            onVerTodos={() => onVerProductos()}
+          />
+          {i === 1 && (
+            <BannerFoto src="/insta-4.jpg" titulo="SELECCIÓN PREMIUM" onTap={() => onVerProductos()} />
+          )}
+        </div>
       ))}
 
+      {/* Envíos */}
       <section className="seccion-envios">
         <div className="envio-card">
           <span className="envio-icono">🚚</span>
@@ -115,8 +152,9 @@ export default function Inicio({ onVerProductos }) {
         </div>
       </section>
 
+      {/* Promos */}
       <section className="seccion-promos-inicio">
-        <h2>Promociones vigentes</h2>
+        <h2 className="seccion-titulo" style={{padding: '0 1rem'}}>Promociones vigentes</h2>
         <div className="fila-promos">
           {PROMOS.filter(p => !p.sucursales || p.sucursales.includes(sucursalId)).map(p => (
             <div className="card-promo" key={p.nombre}>
