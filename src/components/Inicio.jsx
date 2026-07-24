@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { useSucursal } from '../context/BranchContext.jsx'
 import Novedades from './Novedades.jsx'
 
@@ -10,53 +10,48 @@ const PROMOS = [
   { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra', sucursales: null },
 ]
 
-const CATEGORIAS_INICIO = [
-  { nombre: 'Snacks', foto: 'INTEGRA02' },
-  { nombre: 'Bebidas y jugos', foto: 'GIOR03' },
-  { nombre: 'Cuidado personal', foto: '1439' },
-  { nombre: 'Suplementos y superalimentos', foto: '11100' },
-  { nombre: 'Dulces y chocolates', foto: '11448' },
-  { nombre: 'Congelados', foto: '10207' },
-  { nombre: 'Café e infusiones', foto: 'LAV3' },
-  { nombre: 'Vinos', foto: 'PIEL03' },
+const SLIDES = [
+  { src: '/insta-1.jpg', alt: 'Casa NOA' },
+  { src: '/insta-2.jpg', alt: 'Casa NOA' },
+  { src: '/insta-3.jpg', alt: 'Casa NOA' },
+  { src: '/insta-4.jpg', alt: 'Casa NOA' },
 ]
 
-const LABEL_CORTO = {
-  'Snacks': 'Snacks',
-  'Bebidas y jugos': 'Bebidas',
-  'Cuidado personal': 'Cuidado personal',
-  'Suplementos y superalimentos': 'Suplementos',
-  'Dulces y chocolates': 'Dulces y chocolates',
-  'Congelados': 'Congelados',
-  'Café e infusiones': 'Café e infusiones',
-  'Vinos': 'Vinos',
-}
+function Carrusel({ onComprar }) {
+  const [activo, setActivo] = useState(0)
 
-const BENEFICIOS = [
-  { icono: '🚚', titulo: 'Envío gratis', sub: 'Desde $90.000 en CABA' },
-  { icono: '🌍', titulo: 'Importados', sub: 'Productos seleccionados' },
-  { icono: '⭐', titulo: 'Premium', sub: 'Las mejores marcas' },
-  { icono: '💬', titulo: 'Atención', sub: 'Personalizada' },
-]
+  useEffect(() => {
+    const t = setInterval(() => {
+      setActivo((prev) => (prev + 1) % SLIDES.length)
+    }, 4000)
+    return () => clearInterval(t)
+  }, [])
 
-function CatFoto({ foto, nombre }) {
-  const [err, setErr] = React.useState(false)
-  const src = `/productos/${foto}.jpg`
-  const srcPng = `/productos/${foto}.png`
-  const [src2, setSrc2] = React.useState(src)
-
-  return err ? (
-    <div className="cat-circulo-placeholder" />
-  ) : (
-    <img
-      src={src2}
-      alt={nombre}
-      className="cat-circulo-img"
-      onError={() => {
-        if (src2.endsWith('.jpg')) { setSrc2(srcPng) }
-        else { setErr(true) }
-      }}
-    />
+  return (
+    <div className="carrusel">
+      {SLIDES.map((s, i) => (
+        <img
+          key={s.src}
+          src={s.src}
+          alt={s.alt}
+          className={'carrusel-img' + (i === activo ? ' activo' : '')}
+        />
+      ))}
+      <div className="hero-overlay">
+        <h1 className="hero-titulo">Alimentos premium,<br />para una vida mejor</h1>
+        <p className="hero-sub">Productos naturales, importados y de las mejores marcas.</p>
+        <button className="hero-btn-principal" onClick={onComprar}>Comprar ahora</button>
+      </div>
+      <div className="carrusel-dots">
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            className={'carrusel-dot' + (i === activo ? ' activo' : '')}
+            onClick={() => setActivo(i)}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -65,47 +60,8 @@ export default function Inicio({ onVerProductos }) {
 
   return (
     <div className="inicio">
-      {/* HERO */}
-      <section className="hero">
-        <img src="/insta-1.jpg" alt="Casa NOA" className="hero-img" />
-        <div className="hero-overlay">
-          <h1 className="hero-titulo">Alimentos premium,<br />para una vida mejor</h1>
-          <p className="hero-sub">Productos naturales, importados y de las mejores marcas.</p>
-          <button className="hero-btn-principal" onClick={() => onVerProductos()}>Comprar ahora</button>
-          <button className="hero-btn-secundario" onClick={() => onVerProductos()}>Ver categorías</button>
-        </div>
-      </section>
+      <Carrusel onComprar={() => onVerProductos()} />
 
-      {/* BENEFICIOS */}
-      <section className="seccion-beneficios">
-        {BENEFICIOS.map((b) => (
-          <div className="beneficio" key={b.titulo}>
-            <span className="beneficio-icono">{b.icono}</span>
-            <span className="beneficio-titulo">{b.titulo}</span>
-            <span className="beneficio-sub">{b.sub}</span>
-          </div>
-        ))}
-      </section>
-
-      {/* CATEGORÍAS */}
-      <section className="seccion-cats-inicio">
-        <div className="seccion-cats-header">
-          <h2>Categorías</h2>
-          <button className="ver-todas" onClick={() => onVerProductos()}>Ver todas →</button>
-        </div>
-        <div className="fila-cats-inicio">
-          {CATEGORIAS_INICIO.map((cat) => (
-            <button key={cat.nombre} className="cat-circulo" onClick={() => onVerProductos(cat.nombre)}>
-              <div className="cat-circulo-wrap">
-                <CatFoto foto={cat.foto} nombre={cat.nombre} />
-              </div>
-              <span className="cat-circulo-nombre">{LABEL_CORTO[cat.nombre] || cat.nombre}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* NOVEDADES */}
       <section className="seccion-novedades-inicio">
         <div className="seccion-cats-header">
           <h2>Nuevos ingresos</h2>
@@ -114,7 +70,6 @@ export default function Inicio({ onVerProductos }) {
         <Novedades />
       </section>
 
-      {/* ENVÍOS */}
       <section className="seccion-envios">
         <div className="envio-card">
           <span className="envio-icono">🚚</span>
@@ -132,7 +87,6 @@ export default function Inicio({ onVerProductos }) {
         </div>
       </section>
 
-      {/* PROMOS */}
       <section className="seccion-promos-inicio">
         <h2>Promociones vigentes</h2>
         <div className="fila-promos">
