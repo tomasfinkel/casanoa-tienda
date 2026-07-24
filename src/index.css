@@ -1392,3 +1392,143 @@ body {
 .carrusel-dot.activo {
   background: #fff;
 }
+
+/* ===== SELECTOR ENVIO ===== */
+.selector-envio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+
+.selector-envio-panel {
+  background: #fff;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 1.5rem 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.selector-envio-panel h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #3c2c23;
+  margin: 0 0 0.4rem;
+  text-align: center;
+}
+
+.envio-opcion {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f5f2ec;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.envio-opcion:active {
+  border-color: #3c2c23;
+}
+
+.envio-opcion-icono {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.envio-opcion strong {
+  font-size: 0.9rem;
+  color: #3c2c23;
+  display: block;
+}
+
+.envio-opcion p {
+  font-size: 0.75rem;
+  color: #7a6048;
+  margin: 0.2rem 0 0;
+}
+
+.envio-cancelar {
+  background: none;
+  border: none;
+  color: #a89070;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.input-direccion-envio {
+  border: 1.5px solid #e7e3db;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  color: #3c2c23;
+  width: 100%;
+  background: #f5f2ec;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-direccion-envio:focus {
+  border-color: #3c2c23;
+}
+
+.btn-confirmar-delivery {
+  background: #3c2c23;
+  color: #e7e3db;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-confirmar-delivery:disabled {
+  opacity: 0.4;
+}
+
+/* ===== CONTROL CANTIDAD ===== */
+.control-cantidad {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background: #3c2c23;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  color: #e7e3db;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.ctrl-num {
+  color: #e7e3db;
+  font-size: 0.85rem;
+  font-weight: 700;
+  min-width: 16px;
+  text-align: center;
+}
