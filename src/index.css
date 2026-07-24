@@ -1623,3 +1623,27 @@ body {
   font-weight: 700;
   color: #3c2c23;
 }
+
+/* ===== SECCIONES HORIZONTALES ===== */
+.seccion-horizontal {
+  padding: 1.5rem 0 0.5rem;
+  background: #fff;
+}
+
+.fila-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fila-horizontal::-webkit-scrollbar {
+  display: none;
+}
+
+.fila-horizontal .card-producto {
+  flex-shrink: 0;
+  width: 160px;
+}
