@@ -1236,3 +1236,45 @@ body {
   height: 65% !important;
   object-fit: contain !important;
 }
+
+/* ===== NAVBAR INFERIOR ===== */
+.navbar-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #e7e3db;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
+  z-index: 100;
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+  color: #a89070;
+}
+
+.navbar-item span {
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: #a89070;
+}
+
+.navbar-item.activo span {
+  color: #3c2c23;
+  font-weight: 700;
+}
+
+.main-con-navbar {
+  padding-bottom: 70px;
+}
