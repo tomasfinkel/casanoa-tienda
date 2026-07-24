@@ -19,7 +19,6 @@ export default function CartDrawer({ renderTrigger }) {
 
   const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
-  const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
 
   function enviarPorWhatsapp() {
     const lineas = itemsConDatos.map((i) => {
