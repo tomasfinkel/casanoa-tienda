@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 
-export default function CartDrawer() {
+export default function CartDrawer({ renderTrigger }) {
   const [abierto, setAbierto] = useState(false)
   const { items, actualizarCantidad, quitarItem, vaciarCarrito } = useCart()
   const { productos } = useCatalogo()
@@ -18,6 +18,7 @@ export default function CartDrawer() {
     .filter(Boolean)
 
   const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
+  const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
 
   function enviarPorWhatsapp() {
@@ -38,9 +39,14 @@ export default function CartDrawer() {
 
   return (
     <>
-      <button className="boton-carrito" onClick={() => setAbierto(true)}>
-        Carrito ({cantidadTotal})
-      </button>
+      {renderTrigger
+        ? renderTrigger(cantidadTotal, () => setAbierto(true))
+        : (
+          <button className="boton-carrito" onClick={() => setAbierto(true)}>
+            Carrito ({cantidadTotal})
+          </button>
+        )
+      }
 
       {abierto && (
         <div className="carrito-overlay" onClick={() => setAbierto(false)}>

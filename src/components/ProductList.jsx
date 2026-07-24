@@ -75,10 +75,20 @@ export default function ProductList({ categoriaInicial }) {
     coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
   } else if (busqueda.trim().length >= 2) {
     const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
-    coincidencias = productos.filter((p) => {
+    const todos = productos.filter((p) => {
       const nombre = p.nombre.toLowerCase()
       return palabras.every((palabra) => nombre.includes(palabra))
     })
+    // Priorizar los que coinciden en la marca (antes del guion)
+    const enMarca = todos.filter((p) => {
+      const marca = p.nombre.split(' - ')[0].toLowerCase()
+      return palabras.every((palabra) => marca.includes(palabra))
+    })
+    const enDescripcion = todos.filter((p) => {
+      const marca = p.nombre.split(' - ')[0].toLowerCase()
+      return !palabras.every((palabra) => marca.includes(palabra))
+    })
+    coincidencias = [...enMarca, ...enDescripcion]
   }
   const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
   const buscando = categoriaActiva || busqueda.trim().length >= 2
