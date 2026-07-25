@@ -54,6 +54,7 @@ export default function PopupPromo() {
         )}
         <span className="popup-etiqueta">{destacado.etiqueta}</span>
         <h3>{producto.nombre}</h3>
+        {destacado.descripcion && <p className="popup-descripcion">{destacado.descripcion}</p>}
         <p className="popup-precio">${producto.precio}</p>
         <button
           className="popup-agregar"
