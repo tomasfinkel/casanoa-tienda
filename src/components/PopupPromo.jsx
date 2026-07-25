@@ -13,7 +13,8 @@ export default function PopupPromo() {
   const [mostrar, setMostrar] = useState(false)
   const [imagenRota, setImagenRota] = useState(false)
 
-  const destacado = sucursalId ? destacadoData[sucursalId] : destacadoData['castex']
+  const sucId = sucursalId || 'castex'
+  const destacado = destacadoData[sucId] || destacadoData['castex']
 
   // Buscar en catálogo, pero si no está usar datos del destacado igual
   const productoCatalogo = productos.find((p) => p.id === destacado?.codigo)
@@ -24,14 +25,14 @@ export default function PopupPromo() {
     imagen: `/productos/${destacado.codigo}.jpg`,
   } : null)
 
-  const claveHoy = `${destacado?.codigo}:${sucursalId}:${new Date().toISOString().slice(0, 10)}`
+  const claveHoy = `${destacado?.codigo}:${sucId}:${new Date().toISOString().slice(0, 10)}`
 
   useEffect(() => {
     if (!destacado?.activo) return
     let visto = null
     try { visto = localStorage.getItem(STORAGE_KEY) } catch {}
     if (visto !== claveHoy) setMostrar(true)
-  }, [destacado, claveHoy])
+  }, [claveHoy, destacado?.activo])
 
   function cerrar() {
     try { localStorage.setItem(STORAGE_KEY, claveHoy) } catch {}
