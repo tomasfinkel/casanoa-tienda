@@ -1785,10 +1785,11 @@ body {
   border: none;
   border-radius: 12px;
   padding: 0.65rem 1rem;
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #3c2c23;
   outline: none;
   font-family: inherit;
+  min-width: 0;
 }
 
 .buscador-cancelar {
