@@ -412,7 +412,8 @@
   ],
   "05402": [
     "Frutos secos y semillas",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "05566": [
     "Dulces y chocolates"
@@ -6610,7 +6611,8 @@
   ],
   "63135": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "638564872735": [
     "Dulces y chocolates"
@@ -8094,15 +8096,18 @@
   ],
   "ASSORT": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "ASSORT01": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "ASSORT02": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "ATAL03": [
     "Lácteos y veganos"
@@ -8734,7 +8739,8 @@
   ],
   "BOULE": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "BOUT01": [
     "Snacks"
@@ -10039,7 +10045,8 @@
   ],
   "CROQUANT": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "CROW8": [
     "Snacks"
@@ -13084,7 +13091,8 @@
   ],
   "LIBANES": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "LIBERATOSAL": [
     "Condimentos, especias y dips"
@@ -14638,7 +14646,8 @@
   ],
   "OAT": [
     "Dulces y chocolates",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "ODDI": [
     "Lácteos y veganos",
@@ -14705,7 +14714,8 @@
     "Pastas, arroces y salsas"
   ],
   "ORANGE": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Novedades"
   ],
   "ORGANISPICHLOR": [
     "Café e infusiones"
@@ -19153,61 +19163,77 @@
     "Galletas"
   ],
   "01069": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Novedades"
   ],
   "01076": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Novedades"
   ],
   "PERGALE00": [
     "Galletas",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PERGALE01": [
     "Galletas",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PERGALE02": [
     "Galletas",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PERGALE03": [
     "Galletas",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PICKS00": [
     "Snacks",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PICKS01": [
     "Snacks",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PICKS02": [
     "Snacks",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PICKS03": [
     "Snacks",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PICKS04": [
     "Snacks",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "PICKS05": [
     "Snacks",
-    "Importados"
+    "Importados",
+    "Novedades"
   ],
   "60968": [
-    "Snacks"
+    "Snacks",
+    "Novedades"
   ],
   "57814": [
-    "Snacks"
+    "Snacks",
+    "Novedades"
   ],
   "VELANIG": [
-    "Velas y aromatizantes"
+    "Velas y aromatizantes",
+    "Novedades"
   ],
   "VELANIGHT": [
-    "Velas y aromatizantes"
+    "Velas y aromatizantes",
+    "Novedades"
   ]
 }
