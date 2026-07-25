@@ -100,7 +100,7 @@ export default function Inicio({ onVerProductos }) {
       <section className="seccion-horizontal">
         <div className="seccion-header">
           <h2 className="seccion-titulo">Nuevos ingresos</h2>
-          <button className="ver-todas" onClick={() => onVerProductos()}>Ver todos →</button>
+          <button className="ver-todas" onClick={() => onVerProductos('Novedades')}>Ver todos →</button>
         </div>
         <Novedades />
       </section>
