@@ -63,7 +63,7 @@ export default function ProductList({ categoriaInicial }) {
 
   function buscarTexto(valor) {
     setBusqueda(valor)
-    setCategoriaActiva(null)
+    // NO resetear categoriaActiva — si estamos en un rubro, buscamos dentro de él
   }
 
   function aplicarAtajo(categoria) {
@@ -72,7 +72,24 @@ export default function ProductList({ categoriaInicial }) {
   }
 
   let coincidencias = []
-  if (categoriaActiva) {
+  if (categoriaActiva && busqueda.trim().length >= 2) {
+    // Buscar dentro del rubro activo
+    const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
+    const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
+    const todos = enRubro.filter((p) => {
+      const nombre = p.nombre.toLowerCase()
+      return palabras.every((palabra) => nombre.includes(palabra))
+    })
+    const enMarca = todos.filter((p) => {
+      const marca = p.nombre.split(' - ')[0].toLowerCase()
+      return palabras.every((palabra) => marca.includes(palabra))
+    })
+    const enDescripcion = todos.filter((p) => {
+      const marca = p.nombre.split(' - ')[0].toLowerCase()
+      return !palabras.every((palabra) => marca.includes(palabra))
+    })
+    coincidencias = [...enMarca, ...enDescripcion]
+  } else if (categoriaActiva) {
     coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
   } else if (busqueda.trim().length >= 2) {
     const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
@@ -80,7 +97,6 @@ export default function ProductList({ categoriaInicial }) {
       const nombre = p.nombre.toLowerCase()
       return palabras.every((palabra) => nombre.includes(palabra))
     })
-    // Priorizar los que coinciden en la marca (antes del guion)
     const enMarca = todos.filter((p) => {
       const marca = p.nombre.split(' - ')[0].toLowerCase()
       return palabras.every((palabra) => marca.includes(palabra))
@@ -115,7 +131,7 @@ export default function ProductList({ categoriaInicial }) {
       <input
         className="buscador"
         type="text"
-        placeholder={`Buscá entre ${productos.length} productos...`}
+        placeholder={categoriaActiva ? `Buscá en ${categoriaActiva}...` : `Buscá entre ${productos.length} productos...`}
         value={busqueda}
         onChange={(e) => buscarTexto(e.target.value)}
       />

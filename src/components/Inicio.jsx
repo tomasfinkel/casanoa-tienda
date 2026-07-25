@@ -23,7 +23,7 @@ const SECCIONES = [
   { titulo: 'Vinos seleccionados', codigos: ['240600', 'PIEL03', 'CHA01', 'CHA02', 'ESTRE1', 'ESTRE2'] },
   { titulo: 'Chocolates premium', codigos: ['LINDT01', 'LINDT88', 'TONY2', 'TONYS3', 'TIKDUBAI', 'NOA16'] },
   { titulo: 'Wellness', codigos: ['0008', '0009', '0010', '0011', 'ORMU01', 'NAKED16'] },
-  { titulo: 'Café de especialidad', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'] },
+  { titulo: 'Café', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'] },
   { titulo: 'Importados', codigos: ['ZUCC002', '8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88'] },
 ]
 
