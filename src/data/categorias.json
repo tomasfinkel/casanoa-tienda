@@ -6609,7 +6609,8 @@
     "Lácteos y veganos"
   ],
   "63135": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "638564872735": [
     "Dulces y chocolates"
@@ -8092,13 +8093,16 @@
     "Condimentos, especias y dips"
   ],
   "ASSORT": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "ASSORT01": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "ASSORT02": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "ATAL03": [
     "Lácteos y veganos"
@@ -8729,7 +8733,8 @@
     "Condimentos, especias y dips"
   ],
   "BOULE": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "BOUT01": [
     "Snacks"
@@ -10033,7 +10038,8 @@
     "Snacks"
   ],
   "CROQUANT": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "CROW8": [
     "Snacks"
@@ -13078,7 +13084,7 @@
   ],
   "LIBANES": [
     "Dulces y chocolates",
-    "Frutos secos y semillas"
+    "Importados"
   ],
   "LIBERATOSAL": [
     "Condimentos, especias y dips"
@@ -14631,7 +14637,8 @@
     "Cuidado personal"
   ],
   "OAT": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Importados"
   ],
   "ODDI": [
     "Lácteos y veganos",
@@ -19144,5 +19151,63 @@
   ],
   "LAZARALIM": [
     "Galletas"
+  ],
+  "01069": [
+    "Dulces y chocolates"
+  ],
+  "01076": [
+    "Dulces y chocolates"
+  ],
+  "PERGALE00": [
+    "Galletas",
+    "Importados"
+  ],
+  "PERGALE01": [
+    "Galletas",
+    "Importados"
+  ],
+  "PERGALE02": [
+    "Galletas",
+    "Importados"
+  ],
+  "PERGALE03": [
+    "Galletas",
+    "Importados"
+  ],
+  "PICKS00": [
+    "Snacks",
+    "Importados"
+  ],
+  "PICKS01": [
+    "Snacks",
+    "Importados"
+  ],
+  "PICKS02": [
+    "Snacks",
+    "Importados"
+  ],
+  "PICKS03": [
+    "Snacks",
+    "Importados"
+  ],
+  "PICKS04": [
+    "Snacks",
+    "Importados"
+  ],
+  "PICKS05": [
+    "Snacks",
+    "Importados"
+  ],
+  "60968": [
+    "Snacks"
+  ],
+  "57814": [
+    "Snacks"
+  ],
+  "VELANIG": [
+    "Velas y aromatizantes"
+  ],
+  "VELANIGHT": [
+    "Velas y aromatizantes"
   ]
 }
