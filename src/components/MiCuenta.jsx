@@ -190,6 +190,7 @@ export default function MiCuenta() {
   }
 
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(cliente.telefono)}`
+  const descuentoUsado = cliente.historial && cliente.historial.length > 0
 
   return (
     <div className="mi-cuenta">
@@ -199,6 +200,15 @@ export default function MiCuenta() {
       <p className="texto-inicio">
         Mostrá este código en el local para sumar puntos en tu compra.
       </p>
+
+      {!descuentoUsado && (
+        <div className="descuento-bienvenida">
+          <span className="descuento-etiqueta">🎁 Descuento de bienvenida</span>
+          <span className="descuento-monto">15% OFF</span>
+          <span className="descuento-detalle">En tu primera compra, con cualquier medio de pago, sin tope. Mostrá este QR en el local.</span>
+        </div>
+      )}
+
       <button className="link-cerrar-sesion" onClick={cerrarSesion}>
         No soy yo / cerrar sesión
       </button>

@@ -5,11 +5,11 @@ import ProductCard from './ProductCard.jsx'
 import Novedades from './Novedades.jsx'
 
 const PROMOS = [
-  { nombre: 'Cuenta DNI', dia: 'Lunes a viernes', detalle: '20% OFF — tope $6.000 por semana', sucursales: null },
-  { nombre: 'BBVA', dia: 'Martes', detalle: '30% OFF con Visa o Mastercard — tope $12.000 por mes', sucursales: null },
-  { nombre: 'Mercado Pago', dia: 'Miércoles y sábados', detalle: '25% de reintegro con tarjeta de crédito Mercado Pago en el Point — tope $15.000 por mes', sucursales: ['siria'] },
-  { nombre: 'Megatlon', dia: 'Todos los días', detalle: '15% OFF en efectivo / 10% OFF con cualquier otro medio de pago', sucursales: ['migueletes'] },
-  { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra', sucursales: null },
+  { nombre: 'Cuenta DNI', dia: 'Lunes a viernes', detalle: '20% OFF — tope $6.000 por semana. Solo retirando y pagando en el local.', sucursales: null },
+  { nombre: 'BBVA', dia: 'Martes', detalle: '30% OFF con Visa o Mastercard — tope $12.000 por mes. Solo retirando y pagando en el local.', sucursales: null },
+  { nombre: 'Mercado Pago', dia: 'Miércoles y sábados', detalle: '25% de reintegro con tarjeta de crédito Mercado Pago en el Point — tope $15.000 por mes. Solo retirando y pagando en el local.', sucursales: ['siria'] },
+  { nombre: 'Megatlon', dia: 'Todos los días', detalle: '15% OFF en efectivo / 10% OFF con cualquier otro medio de pago. Solo retirando y pagando en el local.', sucursales: ['migueletes'] },
+  { nombre: 'Efectivo', dia: 'Todos los días', detalle: '10% OFF, sin mínimo de compra. Solo retirando y pagando en el local.', sucursales: null },
 ]
 
 const SLIDES = [
