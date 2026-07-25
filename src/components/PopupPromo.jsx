@@ -1,71 +1,52 @@
 import { useState } from 'react'
-import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
-import { useSucursal } from '../context/BranchContext.jsx'
-import destacadoData from '../data/destacado.json'
+import { useCatalogo } from '../context/CatalogContext.jsx'
 
-const STORAGE_KEY = 'casanoa-tienda-popup-visto'
-
-function yaVisto(codigo) {
-  try {
-    const clave = `${codigo}:${new Date().toISOString().slice(0, 10)}`
-    return localStorage.getItem(STORAGE_KEY) === clave
-  } catch {
-    return false
-  }
-}
-
-function marcarVisto(codigo) {
-  try {
-    const clave = `${codigo}:${new Date().toISOString().slice(0, 10)}`
-    localStorage.setItem(STORAGE_KEY, clave)
-  } catch {}
-}
+const STORAGE_KEY = 'casanoa-popup-true-dates'
 
 export default function PopupPromo() {
-  const { productos } = useCatalogo()
   const { agregarItem } = useCart()
-  const { sucursalId } = useSucursal()
-
-  const sucId = sucursalId || 'castex'
-  const destacado = destacadoData[sucId] || destacadoData['castex']
-
-  const [mostrar, setMostrar] = useState(true) // DEBUG: forzar a true
-
+  const { productos } = useCatalogo()
   const [imagenRota, setImagenRota] = useState(false)
 
-  const productoCatalogo = productos.find((p) => p.id === destacado?.codigo)
-  const producto = productoCatalogo || (destacado?.activo ? {
-    id: destacado.codigo,
-    nombre: destacado.descripcion || destacado.codigo,
-    precio: null,
-    imagen: `/productos/${destacado.codigo}.jpg`,
-  } : null)
+  const [cerrado, setCerrado] = useState(() => {
+    try {
+      const hoy = new Date().toISOString().slice(0, 10)
+      return localStorage.getItem(STORAGE_KEY) === hoy
+    } catch {
+      return false
+    }
+  })
 
   function cerrar() {
-    marcarVisto(destacado.codigo)
-    setMostrar(false)
+    try {
+      const hoy = new Date().toISOString().slice(0, 10)
+      localStorage.setItem(STORAGE_KEY, hoy)
+    } catch {}
+    setCerrado(true)
   }
 
-  if (!mostrar || !producto) return null
+  if (cerrado) return null
+
+  const productoCatalogo = productos.find(p => p.id === 'TRUE')
 
   return (
     <div className="popup-overlay" onClick={cerrar}>
-      <div className="popup-card" onClick={(e) => e.stopPropagation()}>
-        <button className="popup-cerrar" onClick={cerrar} aria-label="Cerrar">×</button>
+      <div className="popup-card" onClick={e => e.stopPropagation()}>
+        <button className="popup-cerrar" onClick={cerrar}>×</button>
         {!imagenRota && (
           <img
-            src={producto.imagen}
-            alt={producto.nombre}
+            src="/productos/TRUE.jpg"
+            alt="True Dates"
             onError={() => setImagenRota(true)}
           />
         )}
-        <span className="popup-etiqueta">{destacado.etiqueta}</span>
-        <h3>{producto.nombre}</h3>
-        {destacado.descripcion && <p className="popup-descripcion">{destacado.descripcion}</p>}
-        {producto.precio && <p className="popup-precio">${producto.precio}</p>}
+        <span className="popup-etiqueta">Exclusivo Casa NOA</span>
+        <h3>True Dates</h3>
+        <p className="popup-descripcion">Dátiles saborizados sin azúcar</p>
+        {productoCatalogo && <p className="popup-precio">${productoCatalogo.precio}</p>}
         {productoCatalogo ? (
-          <button className="popup-agregar" onClick={() => { agregarItem(producto.id); cerrar() }}>
+          <button className="popup-agregar" onClick={() => { agregarItem('TRUE'); cerrar() }}>
             Agregar al carrito
           </button>
         ) : (
