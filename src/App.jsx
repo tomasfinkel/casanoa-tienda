@@ -104,7 +104,8 @@ function Contenido() {
             <span>Carrito</span>
           </button>
         )} />
-      <SelectorEnvio />
+    <SelectorEnvio />
+      <PopupPromo />
       </nav>
     </CartProvider>
   )
