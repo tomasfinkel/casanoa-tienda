@@ -45,20 +45,34 @@ export default function ProductList({ categoriaInicial }) {
   }
 
   // Calcular coincidencias
+  function buscarProductos(lista, termino) {
+    const palabras = termino.trim().toLowerCase().split(/\s+/).filter(Boolean)
+    // Primero: marca empieza con el término (prefijo)
+    const prefijoDeMarca = lista.filter((p) => {
+      const marca = p.nombre.split(' - ')[0].toLowerCase()
+      return palabras.every((w) => marca.startsWith(w) || marca.split(' ').some(part => part.startsWith(w)))
+    })
+    // Segundo: marca contiene el término (pero no empieza)
+    const contieneMarca = lista.filter((p) => {
+      const marca = p.nombre.split(' - ')[0].toLowerCase()
+      return !prefijoDeMarca.includes(p) && palabras.every((w) => marca.includes(w))
+    })
+    // Tercero: descripción contiene el término
+    const enDescripcion = lista.filter((p) => {
+      return !prefijoDeMarca.includes(p) && !contieneMarca.includes(p) &&
+        palabras.every((w) => p.nombre.toLowerCase().includes(w))
+    })
+    return [...prefijoDeMarca, ...contieneMarca, ...enDescripcion]
+  }
+
   let coincidencias = []
   if (categoriaActiva && busqueda.trim().length >= 2) {
-    const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
     const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
-    const todos = enRubro.filter((p) => palabras.every((w) => p.nombre.toLowerCase().includes(w)))
-    const enMarca = todos.filter((p) => palabras.every((w) => p.nombre.split(' - ')[0].toLowerCase().includes(w)))
-    coincidencias = [...enMarca, ...todos.filter(p => !enMarca.includes(p))]
+    coincidencias = buscarProductos(enRubro, busqueda)
   } else if (categoriaActiva) {
     coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
   } else if (busqueda.trim().length >= 2) {
-    const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
-    const todos = productos.filter((p) => palabras.every((w) => p.nombre.toLowerCase().includes(w)))
-    const enMarca = todos.filter((p) => palabras.every((w) => p.nombre.split(' - ')[0].toLowerCase().includes(w)))
-    coincidencias = [...enMarca, ...todos.filter(p => !enMarca.includes(p))]
+    coincidencias = buscarProductos(productos, busqueda)
   }
 
   const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
