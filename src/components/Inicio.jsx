@@ -24,7 +24,7 @@ const SECCIONES = [
   { titulo: 'Chocolates premium', codigos: ['LINDT01', 'LINDT88', 'TONY2', 'TONYS3', 'TIKDUBAI', 'NOA16'], categoria: 'Dulces y chocolates' },
   { titulo: 'Wellness', codigos: ['0008', '0009', '0010', '0011', 'ORMU01', 'NAKED16'], categoria: 'Suplementos y superalimentos' },
   { titulo: 'Café de especialidad y premium', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'], categoria: 'Café e infusiones' },
-  { titulo: 'Importados', codigos: ['ZUCC002', '8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88'], categoria: 'Importados' },
+  { titulo: 'Importados', codigos: ['8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88', 'BONNE01'], categoria: 'Importados' },
 ]
 
 // Banners de foto entre secciones

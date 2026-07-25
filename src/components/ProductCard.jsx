@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import sabores from '../data/sabores.json'
 import categorias from '../data/categorias.json'
+import novedades from '../data/novedades.json'
+
+const SET_NOVEDADES = new Set(novedades)
 
 export default function ProductCard({ producto }) {
   const { agregarItem, items, actualizarCantidad } = useCart()
@@ -44,9 +47,12 @@ export default function ProductCard({ producto }) {
     }
   }
 
+  const esNovedad = SET_NOVEDADES.has(producto.id)
+
   return (
     <div className="card-producto">
       <div className="card-imagen">
+        {esNovedad && <span className="badge-nuevo">NUEVO</span>}
         {!imagenRota ? (
           <img src={imagenSrc} alt={producto.nombre} onError={handleImagenError} />
         ) : (
