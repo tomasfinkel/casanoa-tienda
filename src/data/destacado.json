@@ -1,17 +1,20 @@
 {
   "castex": {
     "activo": true,
-    "codigo": "ORANGE",
-    "etiqueta": "Nuevo ingreso"
+    "codigo": "TRUE",
+    "etiqueta": "Exclusivo Casa NOA",
+    "descripcion": "Dátiles saborizados sin azúcar"
   },
   "siria": {
     "activo": true,
-    "codigo": "ORANGE",
-    "etiqueta": "Nuevo ingreso"
+    "codigo": "TRUE",
+    "etiqueta": "Exclusivo Casa NOA",
+    "descripcion": "Dátiles saborizados sin azúcar"
   },
   "migueletes": {
     "activo": true,
     "codigo": "LOUISLEW09",
-    "etiqueta": "Nuevo ingreso"
+    "etiqueta": "Nuevo ingreso",
+    "descripcion": null
   }
 }
