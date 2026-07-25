@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
@@ -7,173 +7,161 @@ import categorias from '../data/categorias.json'
 
 const LIMITE_RESULTADOS = 500
 
-const ATAJOS = [
-  'Vinos',
-  'Lácteos y veganos',
-  'Snacks',
-  'Galletas',
-  'Aceites y vinagres',
-  'Café e infusiones',
-  'Dulces y chocolates',
-  'Miel, mermeladas y untables',
-  'Panificados',
-  'Congelados',
-  'Helados y postres',
-  'Condimentos, especias y dips',
-  'Suplementos y superalimentos',
-  'Cereales, legumbres y granolas',
-  'Harinas y premezclas',
-  'Bebidas y jugos',
-  'Pastas, arroces y salsas',
-  'Conservas',
-  'Frutos secos y semillas',
-  'Huevos',
-  'Carnes y fiambres',
-  'Cuidado personal',
-  'Fermentados',
-  'Sin gluten / TACC',
-  'Keto',
-  'Velas y aromatizantes',
-  'Endulzantes',
-  'Importados',
+const RUBROS_SUGERIDOS = [
+  'Snacks', 'Bebidas y jugos', 'Vinos', 'Dulces y chocolates',
+  'Suplementos y superalimentos', 'Café e infusiones', 'Importados',
+  'Lácteos y veganos', 'Congelados',
 ]
 
 export default function ProductList({ categoriaInicial }) {
   const { productos: todosLosProductos, cargando, error } = useCatalogo()
   const { sucursalId } = useSucursal()
   const [busqueda, setBusqueda] = useState('')
+  const [buscadorActivo, setBuscadorActivo] = useState(false)
   const [categoriaActiva, setCategoriaActiva] = useState(categoriaInicial || null)
+  const inputRef = useRef(null)
 
   if (cargando) return <p className="estado">Cargando catálogo...</p>
-  if (error)
-    return <p className="estado error">No se pudo cargar el catálogo: {error}</p>
+  if (error) return <p className="estado error">No se pudo cargar el catálogo: {error}</p>
 
-  // Si la sucursal todavía no sincronizó ningún producto hoy, fallamos
-  // abierto (puede ser que el cron no llegó todavía). Si ya sincronizó,
-  // un producto ausente o sin esa sucursal en su stock significa que
-  // de verdad no hay stock ahí — se oculta.
   const sucursalesConDatos = todosLosProductos.sucursalesConDatos
   const sucursalYaSincronizo = sucursalesConDatos?.has(sucursalId) ?? false
   const productos = todosLosProductos.filter((p) => {
     const enEstaSucursal = p.stock ? p.stock[sucursalId] : undefined
-    if (enEstaSucursal === undefined || enEstaSucursal === null) {
-      return !sucursalYaSincronizo
-    }
+    if (enEstaSucursal === undefined || enEstaSucursal === null) return !sucursalYaSincronizo
     return enEstaSucursal > 0
   })
-
-  function buscarTexto(valor) {
-    setBusqueda(valor)
-    // NO resetear categoriaActiva — si estamos en un rubro, buscamos dentro de él
-  }
 
   function aplicarAtajo(categoria) {
     setCategoriaActiva(categoria)
     setBusqueda('')
+    setBuscadorActivo(false)
   }
 
+  function cancelarBusqueda() {
+    setBusqueda('')
+    setBuscadorActivo(false)
+    inputRef.current?.blur()
+  }
+
+  // Calcular coincidencias
   let coincidencias = []
   if (categoriaActiva && busqueda.trim().length >= 2) {
-    // Buscar dentro del rubro activo
     const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
     const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
-    const todos = enRubro.filter((p) => {
-      const nombre = p.nombre.toLowerCase()
-      return palabras.every((palabra) => nombre.includes(palabra))
-    })
-    const enMarca = todos.filter((p) => {
-      const marca = p.nombre.split(' - ')[0].toLowerCase()
-      return palabras.every((palabra) => marca.includes(palabra))
-    })
-    const enDescripcion = todos.filter((p) => {
-      const marca = p.nombre.split(' - ')[0].toLowerCase()
-      return !palabras.every((palabra) => marca.includes(palabra))
-    })
-    coincidencias = [...enMarca, ...enDescripcion]
+    const todos = enRubro.filter((p) => palabras.every((w) => p.nombre.toLowerCase().includes(w)))
+    const enMarca = todos.filter((p) => palabras.every((w) => p.nombre.split(' - ')[0].toLowerCase().includes(w)))
+    coincidencias = [...enMarca, ...todos.filter(p => !enMarca.includes(p))]
   } else if (categoriaActiva) {
     coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
   } else if (busqueda.trim().length >= 2) {
     const palabras = busqueda.trim().toLowerCase().split(/\s+/).filter(Boolean)
-    const todos = productos.filter((p) => {
-      const nombre = p.nombre.toLowerCase()
-      return palabras.every((palabra) => nombre.includes(palabra))
-    })
-    const enMarca = todos.filter((p) => {
-      const marca = p.nombre.split(' - ')[0].toLowerCase()
-      return palabras.every((palabra) => marca.includes(palabra))
-    })
-    const enDescripcion = todos.filter((p) => {
-      const marca = p.nombre.split(' - ')[0].toLowerCase()
-      return !palabras.every((palabra) => marca.includes(palabra))
-    })
-    coincidencias = [...enMarca, ...enDescripcion]
+    const todos = productos.filter((p) => palabras.every((w) => p.nombre.toLowerCase().includes(w)))
+    const enMarca = todos.filter((p) => palabras.every((w) => p.nombre.split(' - ')[0].toLowerCase().includes(w)))
+    coincidencias = [...enMarca, ...todos.filter(p => !enMarca.includes(p))]
   }
-  const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
-  const buscando = categoriaActiva || busqueda.trim().length >= 2
 
-  // Si no hay búsqueda ni categoría activa, mostrar grilla de categorías
-  if (!buscando) {
+  const resultados = coincidencias.slice(0, LIMITE_RESULTADOS)
+
+  // Vista: buscador activo sin texto → mostrar sugerencias
+  if (buscadorActivo && !busqueda && !categoriaActiva) {
     return (
       <div>
-        <input
-          className="buscador"
-          type="text"
-          placeholder={`Buscá entre ${productos.length} productos...`}
-          value={busqueda}
-          onChange={(e) => buscarTexto(e.target.value)}
-        />
-        <CategoryGrid onElegir={(cat) => aplicarAtajo(cat)} />
+        <div className="buscador-barra-activa">
+          <input
+            ref={inputRef}
+            className="buscador-nuevo"
+            type="text"
+            placeholder="Buscá productos o marcas..."
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+            autoFocus
+          />
+          <button className="buscador-cancelar" onClick={cancelarBusqueda}>Cancelar</button>
+        </div>
+        <div className="buscador-sugerencias">
+          <p className="sugerencias-titulo">CATEGORÍAS</p>
+          {RUBROS_SUGERIDOS.map(r => (
+            <button key={r} className="sugerencia-item" onClick={() => aplicarAtajo(r)}>
+              {r}
+            </button>
+          ))}
+        </div>
       </div>
     )
   }
 
-  return (
-    <div>
-      <input
-        className="buscador"
-        type="text"
-        placeholder={categoriaActiva ? `Buscá en ${categoriaActiva}...` : `Buscá entre ${productos.length} productos...`}
-        value={busqueda}
-        onChange={(e) => buscarTexto(e.target.value)}
-      />
+  // Vista: buscando por texto
+  if (buscadorActivo && busqueda.trim().length >= 2) {
+    return (
+      <div>
+        <div className="buscador-barra-activa">
+          <input
+            ref={inputRef}
+            className="buscador-nuevo"
+            type="text"
+            placeholder="Buscá productos o marcas..."
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+            autoFocus
+          />
+          <button className="buscador-cancelar" onClick={cancelarBusqueda}>Cancelar</button>
+        </div>
+        {coincidencias.length === 0 && <p className="estado">No encontramos nada.</p>}
+        {coincidencias.length > LIMITE_RESULTADOS && (
+          <p className="estado">Mostrando {LIMITE_RESULTADOS} de {coincidencias.length} — escribí algo más específico.</p>
+        )}
+        <div className="grid-productos" key="busqueda">
+          {resultados.map((p) => <ProductCard key={p.id} producto={p} />)}
+        </div>
+      </div>
+    )
+  }
 
-      {categoriaActiva && (
+  // Vista: dentro de un rubro
+  if (categoriaActiva) {
+    return (
+      <div>
+        <div className="buscador-barra-activa">
+          <input
+            ref={inputRef}
+            className="buscador-nuevo"
+            type="text"
+            placeholder={`Buscá en ${categoriaActiva}...`}
+            value={busqueda}
+            onChange={(e) => { setBusqueda(e.target.value); setBuscadorActivo(true) }}
+            onFocus={() => setBuscadorActivo(true)}
+          />
+          <button className="buscador-cancelar" onClick={() => { setCategoriaActiva(null); setBusqueda(''); setBuscadorActivo(false) }}>Cancelar</button>
+        </div>
         <div className="barra-rubro">
-          <button className="btn-volver" onClick={() => setCategoriaActiva(null)}>
-            ← Volver
-          </button>
+          <button className="btn-volver" onClick={() => { setCategoriaActiva(null); setBusqueda('') }}>← Volver</button>
           <span className="rubro-activo-titulo">{categoriaActiva}</span>
         </div>
-      )}
-
-      {busqueda.trim().length >= 2 && !categoriaActiva && (
-        <div className="atajos">
-          {ATAJOS.map((cat) => (
-            <button
-              key={cat}
-              className={'boton-atajo' + (categoriaActiva === cat ? ' activo' : '')}
-              onClick={() => aplicarAtajo(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+        {coincidencias.length === 0 && <p className="estado">No encontramos nada.</p>}
+        <div className="grid-productos" key={categoriaActiva}>
+          {resultados.map((p) => <ProductCard key={p.id} producto={p} />)}
         </div>
-      )}
-
-      {buscando && coincidencias.length === 0 && (
-        <p className="estado">No encontramos nada.</p>
-      )}
-      {coincidencias.length > LIMITE_RESULTADOS && (
-        <p className="estado">
-          Mostrando los primeros {LIMITE_RESULTADOS} de {coincidencias.length} resultados — escribí algo más específico.
-        </p>
-      )}
-
-      <div className="grid-productos" key={categoriaActiva || busqueda}>
-        {resultados.map((p) => (
-          <ProductCard key={p.id} producto={p} />
-        ))}
       </div>
+    )
+  }
+
+  // Vista: grilla de categorías (estado inicial)
+  return (
+    <div>
+      <div className="buscador-barra">
+        <input
+          ref={inputRef}
+          className="buscador-nuevo"
+          type="text"
+          placeholder={`Buscá entre ${productos.length} productos...`}
+          value={busqueda}
+          onFocus={() => setBuscadorActivo(true)}
+          onChange={(e) => { setBusqueda(e.target.value); setBuscadorActivo(true) }}
+          readOnly={!buscadorActivo}
+        />
+      </div>
+      <CategoryGrid onElegir={aplicarAtajo} />
     </div>
   )
 }
