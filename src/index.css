@@ -1760,3 +1760,75 @@ body {
   margin: 0.2rem 0 0.5rem;
   font-style: italic;
 }
+
+/* ===== BUSCADOR NUEVO ESTILO EREWHON ===== */
+.buscador-barra {
+  padding: 0.8rem 1rem;
+  background: #fff;
+}
+
+.buscador-barra-activa {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #f0ede8;
+}
+
+.buscador-nuevo {
+  flex: 1;
+  background: #f0ede8;
+  border: none;
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  color: #3c2c23;
+  outline: none;
+  font-family: inherit;
+}
+
+.buscador-cancelar {
+  background: none;
+  border: none;
+  color: #3c2c23;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0;
+  font-family: inherit;
+}
+
+.buscador-sugerencias {
+  padding: 1rem;
+}
+
+.sugerencias-titulo {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #a89070;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.8rem;
+}
+
+.sugerencia-item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  color: #3c2c23;
+  cursor: pointer;
+  border-bottom: 1px solid #f0ede8;
+  font-family: inherit;
+}
+
+.sugerencia-item:last-child {
+  border-bottom: none;
+}
