@@ -1753,3 +1753,10 @@ body {
   opacity: 0.85;
   line-height: 1.4;
 }
+
+.popup-descripcion {
+  font-size: 0.82rem;
+  color: #7a6048;
+  margin: 0.2rem 0 0.5rem;
+  font-style: italic;
+}
