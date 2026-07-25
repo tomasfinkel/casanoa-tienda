@@ -20,11 +20,11 @@ const SLIDES = [
 ]
 
 const SECCIONES = [
-  { titulo: 'Vinos seleccionados', codigos: ['240600', 'PIEL03', 'CHA01', 'CHA02', 'ESTRE1', 'ESTRE2'] },
-  { titulo: 'Chocolates premium', codigos: ['LINDT01', 'LINDT88', 'TONY2', 'TONYS3', 'TIKDUBAI', 'NOA16'] },
-  { titulo: 'Wellness', codigos: ['0008', '0009', '0010', '0011', 'ORMU01', 'NAKED16'] },
-  { titulo: 'Café de especialidad y premium', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'] },
-  { titulo: 'Importados', codigos: ['ZUCC002', '8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88'] },
+  { titulo: 'Vinos seleccionados', codigos: ['240600', 'PIEL03', 'CHA01', 'CHA02', 'ESTRE1', 'ESTRE2'], categoria: 'Vinos' },
+  { titulo: 'Chocolates premium', codigos: ['LINDT01', 'LINDT88', 'TONY2', 'TONYS3', 'TIKDUBAI', 'NOA16'], categoria: 'Dulces y chocolates' },
+  { titulo: 'Wellness', codigos: ['0008', '0009', '0010', '0011', 'ORMU01', 'NAKED16'], categoria: 'Suplementos y superalimentos' },
+  { titulo: 'Café de especialidad y premium', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'], categoria: 'Café e infusiones' },
+  { titulo: 'Importados', codigos: ['ZUCC002', '8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88'], categoria: 'Importados' },
 ]
 
 // Banners de foto entre secciones
@@ -72,7 +72,7 @@ function BannerFoto({ src, titulo, onTap }) {
   )
 }
 
-function SeccionHorizontal({ titulo, codigos, onVerTodos }) {
+function SeccionHorizontal({ titulo, codigos, categoria, onVerTodos }) {
   const { productos } = useCatalogo()
   const items = codigos.map(c => productos.find(p => p.id === c)).filter(Boolean)
   if (items.length === 0) return null
@@ -80,7 +80,7 @@ function SeccionHorizontal({ titulo, codigos, onVerTodos }) {
     <section className="seccion-horizontal">
       <div className="seccion-header">
         <h2 className="seccion-titulo">{titulo}</h2>
-        <button className="ver-todas" onClick={onVerTodos}>Ver todos →</button>
+        <button className="ver-todas" onClick={() => onVerTodos(categoria)}>Ver todos →</button>
       </div>
       <div className="fila-horizontal">
         {items.map(p => <ProductCard key={p.id} producto={p} />)}
@@ -114,7 +114,8 @@ export default function Inicio({ onVerProductos }) {
           <SeccionHorizontal
             titulo={s.titulo}
             codigos={s.codigos}
-            onVerTodos={() => onVerProductos()}
+            categoria={s.categoria}
+            onVerTodos={onVerProductos}
           />
           {i === 0 && (
             <div className="seccion-video">

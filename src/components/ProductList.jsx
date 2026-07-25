@@ -35,6 +35,7 @@ const ATAJOS = [
   'Keto',
   'Velas y aromatizantes',
   'Endulzantes',
+  'Importados',
 ]
 
 export default function ProductList({ categoriaInicial }) {
