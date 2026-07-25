@@ -158,7 +158,6 @@ export default function ProductList({ categoriaInicial }) {
           value={busqueda}
           onFocus={() => setBuscadorActivo(true)}
           onChange={(e) => { setBusqueda(e.target.value); setBuscadorActivo(true) }}
-          readOnly={!buscadorActivo}
         />
       </div>
       <CategoryGrid onElegir={aplicarAtajo} />
