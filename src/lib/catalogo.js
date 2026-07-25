@@ -62,7 +62,14 @@ export async function obtenerCatalogoCompleto() {
   if (!resProductos.ok) throw new Error('No se pudo leer el cache de DUX')
 
   const raw = await resProductos.json()
-  const productos = extraerListaProductos(raw)
+  const productosRaw = extraerListaProductos(raw)
+  // Deduplicar por código — el sync de precios puede generar duplicados
+  const vistos = new Set()
+  const productos = productosRaw.filter((p) => {
+    if (vistos.has(p.codigo)) return false
+    vistos.add(p.codigo)
+    return true
+  })
   const sucursalesConDatos = calcularSucursalesConDatos(stockPorCodigo)
 
   const resultado = productos.map((p) => ({
