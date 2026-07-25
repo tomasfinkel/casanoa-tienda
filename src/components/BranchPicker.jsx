@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import { useSucursal } from '../context/BranchContext.jsx'
 
 const SUCURSALES_GEO = [
-  { id: 'castex', nombre: 'Castex', direccion: 'Castex 3390, Palermo', lat: -34.5780548, lng: -58.405876 },
-  { id: 'siria', nombre: 'Av. República Árabe Siria', direccion: 'República Árabe Siria 2990, Palermo', lat: -34.5808445, lng: -58.4138029 },
-  { id: 'migueletes', nombre: 'Migueletes', direccion: 'Migueletes 984, Palermo', lat: -34.5654665, lng: -58.4361232 },
+  { id: 'castex', nombre: 'Castex', direccion: 'Castex 3390, Barrio Parque', lat: -34.5780548, lng: -58.405876 },
+  { id: 'siria', nombre: 'Av. República Árabe Siria', direccion: 'República Árabe Siria 2990, Palermo Chico', lat: -34.5808445, lng: -58.4138029 },
+  { id: 'migueletes', nombre: 'Migueletes', direccion: 'Migueletes 984, Las Cañitas', lat: -34.5654665, lng: -58.4361232 },
 ]
 
 const MAX_DIST_KM = 50
