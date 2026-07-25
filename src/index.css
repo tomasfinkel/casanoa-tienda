@@ -1765,6 +1765,7 @@ body {
 .buscador-barra {
   padding: 0.8rem 1rem;
   background: #fff;
+  display: flex;
 }
 
 .buscador-barra-activa {
@@ -1832,4 +1833,18 @@ body {
 
 .sugerencia-item:last-child {
   border-bottom: none;
+}
+
+.badge-nuevo {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: #3c2c23;
+  color: #e7e3db;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  z-index: 1;
 }
