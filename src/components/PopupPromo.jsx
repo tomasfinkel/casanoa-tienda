@@ -30,10 +30,7 @@ export default function PopupPromo() {
   const sucId = sucursalId || 'castex'
   const destacado = destacadoData[sucId] || destacadoData['castex']
 
-  const [mostrar, setMostrar] = useState(() => {
-    if (!destacado?.activo) return false
-    return !yaVisto(destacado.codigo)
-  })
+  const [mostrar, setMostrar] = useState(true) // DEBUG: forzar a true
 
   const [imagenRota, setImagenRota] = useState(false)
 
