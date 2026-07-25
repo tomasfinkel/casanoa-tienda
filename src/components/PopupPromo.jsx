@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
@@ -6,17 +6,37 @@ import destacadoData from '../data/destacado.json'
 
 const STORAGE_KEY = 'casanoa-tienda-popup-visto'
 
+function yaVisto(codigo) {
+  try {
+    const clave = `${codigo}:${new Date().toISOString().slice(0, 10)}`
+    return localStorage.getItem(STORAGE_KEY) === clave
+  } catch {
+    return false
+  }
+}
+
+function marcarVisto(codigo) {
+  try {
+    const clave = `${codigo}:${new Date().toISOString().slice(0, 10)}`
+    localStorage.setItem(STORAGE_KEY, clave)
+  } catch {}
+}
+
 export default function PopupPromo() {
   const { productos } = useCatalogo()
   const { agregarItem } = useCart()
   const { sucursalId } = useSucursal()
-  const [mostrar, setMostrar] = useState(false)
-  const [imagenRota, setImagenRota] = useState(false)
 
   const sucId = sucursalId || 'castex'
   const destacado = destacadoData[sucId] || destacadoData['castex']
 
-  // Buscar en catálogo, pero si no está usar datos del destacado igual
+  const [mostrar, setMostrar] = useState(() => {
+    if (!destacado?.activo) return false
+    return !yaVisto(destacado.codigo)
+  })
+
+  const [imagenRota, setImagenRota] = useState(false)
+
   const productoCatalogo = productos.find((p) => p.id === destacado?.codigo)
   const producto = productoCatalogo || (destacado?.activo ? {
     id: destacado.codigo,
@@ -25,17 +45,8 @@ export default function PopupPromo() {
     imagen: `/productos/${destacado.codigo}.jpg`,
   } : null)
 
-  const claveHoy = `${destacado?.codigo}:${sucId}:${new Date().toISOString().slice(0, 10)}`
-
-  useEffect(() => {
-    if (!destacado?.activo) return
-    let visto = null
-    try { visto = localStorage.getItem(STORAGE_KEY) } catch {}
-    if (visto !== claveHoy) setMostrar(true)
-  }, [claveHoy, destacado?.activo])
-
   function cerrar() {
-    try { localStorage.setItem(STORAGE_KEY, claveHoy) } catch {}
+    marcarVisto(destacado.codigo)
     setMostrar(false)
   }
 
@@ -56,12 +67,11 @@ export default function PopupPromo() {
         <h3>{producto.nombre}</h3>
         {destacado.descripcion && <p className="popup-descripcion">{destacado.descripcion}</p>}
         {producto.precio && <p className="popup-precio">${producto.precio}</p>}
-        {productoCatalogo && (
+        {productoCatalogo ? (
           <button className="popup-agregar" onClick={() => { agregarItem(producto.id); cerrar() }}>
             Agregar al carrito
           </button>
-        )}
-        {!productoCatalogo && (
+        ) : (
           <button className="popup-agregar" onClick={cerrar}>
             Ver en tienda
           </button>
