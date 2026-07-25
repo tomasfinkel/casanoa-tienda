@@ -20,7 +20,7 @@ export default function CartDrawer({ renderTrigger }) {
   const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
 
-  function enviarPorWhatsapp() {
+  async function enviarPorWhatsapp() {
     const lineas = itemsConDatos.map((i) => {
       const nombre = i.sabor ? `${i.nombre} — ${i.sabor}` : i.nombre
       return `• ${nombre} x${i.cantidad} — $${i.precio * i.cantidad}`
@@ -34,6 +34,25 @@ export default function CartDrawer({ renderTrigger }) {
     ].join('\n')
     const url = `https://wa.me/${sucursal.whatsapp}?text=${encodeURIComponent(mensaje)}`
     window.open(url, '_blank')
+
+    // Notificación por email a Casa NOA
+    try {
+      const lineasHtml = itemsConDatos.map((i) => {
+        const nombre = i.sabor ? `${i.nombre} — ${i.sabor}` : i.nombre
+        return `<li>${nombre} x${i.cantidad} — $${(i.precio * i.cantidad).toLocaleString('es-AR')}</li>`
+      }).join('')
+      await fetch('https://casanoa-pedidos.vercel.app/api/enviar-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: 'info@casanoa.com.ar',
+          subject: `Nuevo pedido — ${sucursal.nombre}`,
+          html: `<h2>Nuevo pedido en Casa NOA ${sucursal.nombre}</h2><ul>${lineasHtml}</ul><p><b>Total: $${total.toLocaleString('es-AR')}</b></p>`,
+        }),
+      })
+    } catch {
+      // no bloquear si falla el mail
+    }
   }
 
   return (
