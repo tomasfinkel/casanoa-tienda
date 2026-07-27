@@ -805,6 +805,157 @@ body {
   100% { background-position: -200% 0; }
 }
 
+/* ===== TARJETA CLUB ===== */
+.tarjeta-club {
+  margin: 1rem;
+  background: #3c2c23;
+  border-radius: 18px;
+  padding: 1.5rem;
+  color: #e7e3db;
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjeta-club-header {
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta-club-logo {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  border: 1.5px solid #a89070;
+  color: #a89070;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+
+.tarjeta-club-titulo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.tarjeta-club-titulo-club {
+  color: #d4a054;
+}
+
+.tarjeta-club-linea {
+  height: 1px;
+  background: rgba(231, 227, 219, 0.25);
+  margin: 1rem 0;
+}
+
+.tarjeta-club-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tarjeta-club-nombre {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.tarjeta-club-nivel {
+  font-size: 0.7rem;
+  color: #d4a054;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+.tarjeta-club-qr {
+  width: 88px;
+  height: 88px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px;
+}
+
+.puntos-resumen {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 1.2rem 1rem 0;
+}
+
+.puntos-numero {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3c2c23;
+}
+
+.puntos-label {
+  font-size: 0.95rem;
+  color: #8a8578;
+}
+
+.puntos-barra-track {
+  margin: 0.6rem 1rem 0;
+  height: 8px;
+  background: #e0dcd3;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.puntos-barra-fill {
+  height: 100%;
+  background: #d4a054;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.puntos-para-siguiente {
+  padding: 0.5rem 1rem 0;
+  font-size: 0.85rem;
+  color: #8a8578;
+}
+
+.beneficios-titulo {
+  padding: 1.2rem 1rem 0.6rem;
+  font-size: 1.05rem;
+}
+
+.fila-beneficios-club {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 1rem;
+}
+
+.beneficio-club {
+  flex: 1;
+  background: #f0ede8;
+  border-radius: 12px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.beneficio-club-icono {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.beneficio-club strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #3c2c23;
+}
+
+.beneficio-club p {
+  font-size: 0.72rem;
+  color: #8a8578;
+  margin: 0.2rem 0 0;
+}
+
+.beneficio-club--bloqueado {
+  opacity: 0.55;
+}
+
 .card-descripcion {
   font-size: 0.85rem;
   font-weight: 600;
