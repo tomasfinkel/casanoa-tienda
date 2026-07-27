@@ -961,6 +961,49 @@ body {
   border: 1px solid #d4a054;
 }
 
+.tarjeta-club--select {
+  background: linear-gradient(135deg, #3c2c23 0%, #4a362a 100%);
+  box-shadow: 0 0 0 1.5px #a89070 inset;
+}
+
+.tarjeta-club--premium {
+  background: linear-gradient(135deg, #2a1f18 0%, #3c2c23 100%);
+  box-shadow: 0 0 0 1.5px #d4a054 inset, 0 4px 20px rgba(212, 160, 84, 0.25);
+}
+
+.tarjeta-club--premium .tarjeta-club-titulo-club {
+  color: #f0c078;
+}
+
+.beneficio-club--pedir-fecha {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.input-fecha-inline {
+  font-size: 0.75rem;
+  padding: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #e0dcd3;
+  font-family: inherit;
+}
+
+.btn-guardar-fecha {
+  background: #3c2c23;
+  color: #e7e3db;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.btn-guardar-fecha:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .label-fecha-nacimiento {
   display: flex;
   flex-direction: column;
