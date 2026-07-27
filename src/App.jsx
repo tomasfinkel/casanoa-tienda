@@ -61,10 +61,18 @@ function Contenido() {
   const { sucursal, cambiarSucursal } = useSucursal()
   const [tab, setTab] = useState('inicio')
   const [categoriaInicial, setCategoriaInicial] = useState(null)
+  const [buscadorInicial, setBuscadorInicial] = useState(false)
   const [cartItems, setCartItems] = useState([])
 
   function irAProductos(categoria) {
     setCategoriaInicial(categoria || null)
+    setBuscadorInicial(false)
+    setTab('productos')
+  }
+
+  function irABuscar() {
+    setCategoriaInicial(null)
+    setBuscadorInicial(true)
     setTab('productos')
   }
 
@@ -80,8 +88,8 @@ function Contenido() {
       </header>
 
       <main className="main-con-navbar">
-        {tab === 'inicio' && <Inicio onVerProductos={irAProductos} />}
-        {tab === 'productos' && <ProductList categoriaInicial={categoriaInicial} />}
+        {tab === 'inicio' && <Inicio onVerProductos={irAProductos} onBuscar={irABuscar} />}
+        {tab === 'productos' && <ProductList categoriaInicial={categoriaInicial} buscadorInicial={buscadorInicial} />}
         {tab === 'cuenta' && <MiCuenta />}
       </main>
 
