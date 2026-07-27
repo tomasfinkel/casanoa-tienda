@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
@@ -6,6 +6,10 @@ import CategoryGrid from './CategoryGrid.jsx'
 import categorias from '../data/categorias.json'
 
 const LIMITE_RESULTADOS = 500
+
+// Guarda la posición de scroll de cada rubro para restaurarla al volver,
+// incluso si el componente se desmonta (por ejemplo al cambiar de pestaña).
+const scrollGuardado = {}
 
 const RUBROS_SUGERIDOS = [
   'Snacks', 'Bebidas y jugos', 'Vinos y bebidas selectas', 'Dulces y chocolates',
@@ -20,6 +24,25 @@ export default function ProductList({ categoriaInicial }) {
   const [buscadorActivo, setBuscadorActivo] = useState(false)
   const [categoriaActiva, setCategoriaActiva] = useState(categoriaInicial || null)
   const inputRef = useRef(null)
+
+  // Restaurar y guardar la posición de scroll de cada rubro
+  useEffect(() => {
+    const key = categoriaActiva || '__todas__'
+    const yGuardado = scrollGuardado[key]
+    if (yGuardado) {
+      requestAnimationFrame(() => window.scrollTo(0, yGuardado))
+    } else {
+      window.scrollTo(0, 0)
+    }
+    function guardarScroll() {
+      scrollGuardado[key] = window.scrollY
+    }
+    window.addEventListener('scroll', guardarScroll, { passive: true })
+    return () => {
+      guardarScroll()
+      window.removeEventListener('scroll', guardarScroll)
+    }
+  }, [categoriaActiva])
 
   if (cargando) return <p className="estado">Cargando catálogo...</p>
   if (error) return <p className="estado error">No se pudo cargar el catálogo: {error}</p>
