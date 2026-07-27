@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const CartContext = createContext(null)
 const STORAGE_KEY = 'casanoa-tienda-carrito'
 const TIPO_KEY = 'casanoa-tienda-tipo-envio'
+const DIRECCION_KEY = 'casanoa-tienda-direccion'
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
@@ -20,7 +21,9 @@ export function CartProvider({ children }) {
 
   const [pendienteAgregar, setPendienteAgregar] = useState(null)
   const [mostrarSelectorEnvio, setMostrarSelectorEnvio] = useState(false)
-  const [direccionDelivery, setDireccionDelivery] = useState('')
+  const [direccionDelivery, setDireccionDelivery] = useState(() => {
+    try { return localStorage.getItem(DIRECCION_KEY) || '' } catch { return '' }
+  })
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
@@ -49,7 +52,10 @@ export function CartProvider({ children }) {
   function confirmarTipoEnvio(tipo, direccion = '') {
     setTipoEnvio(tipo)
     setDireccionDelivery(direccion)
-    try { localStorage.setItem(TIPO_KEY, tipo) } catch {}
+    try {
+      localStorage.setItem(TIPO_KEY, tipo)
+      if (direccion) localStorage.setItem(DIRECCION_KEY, direccion)
+    } catch {}
     setMostrarSelectorEnvio(false)
     if (pendienteAgregar) {
       _agregarReal(pendienteAgregar.id, pendienteAgregar.cantidad, pendienteAgregar.sabor)
