@@ -17,13 +17,14 @@ const RUBROS_SUGERIDOS = [
   'Lácteos y veganos', 'Congelados',
 ]
 
-export default function ProductList({ categoriaInicial, buscadorInicial }) {
+export default function ProductList({ categoriaInicial, buscadorInicial, onVolverInicio }) {
   const { productos: todosLosProductos, cargando, error } = useCatalogo()
   const { sucursalId } = useSucursal()
   const [busqueda, setBusqueda] = useState('')
   const [buscadorActivo, setBuscadorActivo] = useState(!!buscadorInicial)
   const [categoriaActiva, setCategoriaActiva] = useState(categoriaInicial || null)
   const inputRef = useRef(null)
+  const viaBuscadorInicial = useRef(!!buscadorInicial)
 
   // Restaurar y guardar la posición de scroll de cada rubro
   useEffect(() => {
@@ -72,6 +73,9 @@ export default function ProductList({ categoriaInicial, buscadorInicial }) {
     setBusqueda('')
     setBuscadorActivo(false)
     inputRef.current?.blur()
+    if (viaBuscadorInicial.current && !categoriaActiva && onVolverInicio) {
+      onVolverInicio()
+    }
   }
 
   // Calcular coincidencias
