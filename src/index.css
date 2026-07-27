@@ -695,9 +695,9 @@ body {
   color: #e7e3db;
   border: none;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 1.3rem;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -715,9 +715,20 @@ body {
 .card-marca {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #a89070;
+  color: #8a6a45;
   text-transform: uppercase;
   letter-spacing: 0.07em;
+}
+
+.card-imagen.cargando {
+  background: linear-gradient(90deg, #f0ede8 25%, #e5e0d8 50%, #f0ede8 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .card-descripcion {
