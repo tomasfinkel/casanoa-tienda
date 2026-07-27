@@ -17,7 +17,7 @@ const CATEGORIAS_INICIO = [
   { nombre: 'Dulces y chocolates', emoji: '🍫' },
   { nombre: 'Congelados', emoji: '🧊' },
   { nombre: 'Café e infusiones', emoji: '☕' },
-  { nombre: 'Vinos', emoji: '🍷' },
+  { nombre: 'Vinos y bebidas selectas', emoji: '🍷' },
 ]
 
 const BENEFICIOS = [
