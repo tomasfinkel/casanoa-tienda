@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSucursal } from '../context/BranchContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
+import { useCart } from '../context/CartContext.jsx'
 import ProductCard from './ProductCard.jsx'
 import Novedades from './Novedades.jsx'
 
@@ -27,11 +28,40 @@ const SECCIONES = [
   { titulo: 'Importados', codigos: ['8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88', 'BONNE01'], categoria: 'Importados' },
 ]
 
-// Banners de foto entre secciones
-const BANNERS = [
-  { src: '/insta-3.jpg', titulo: 'LO NUEVO QUE VALE LA PENA CONOCER', idx: 1 },
-  { src: '/insta-4.jpg', titulo: 'SELECCIÓN PREMIUM', idx: 3 },
+// Chips de acceso rápido debajo del hero
+const CHIPS_RAPIDOS = [
+  { nombre: 'Novedades', categoria: 'Novedades' },
+  { nombre: 'Snacks', categoria: 'Snacks' },
+  { nombre: 'Wellness', categoria: 'Suplementos y superalimentos' },
+  { nombre: 'Bebidas', categoria: 'Bebidas y jugos' },
+  { nombre: 'Chocolates', categoria: 'Dulces y chocolates' },
 ]
+
+const ENVIO_GRATIS_DESDE = 90000
+
+function BarraEnvioGratis({ onVerProductos }) {
+  const { items } = useCart()
+  const { productos } = useCatalogo()
+  const total = items.reduce((acc, i) => {
+    const p = productos.find(prod => prod.id === i.id)
+    return acc + (p ? p.precio * i.cantidad : 0)
+  }, 0)
+  if (total === 0) return null
+  const porcentaje = Math.min(100, (total / ENVIO_GRATIS_DESDE) * 100)
+  const falta = ENVIO_GRATIS_DESDE - total
+  return (
+    <div className="barra-envio-gratis" onClick={() => onVerProductos()}>
+      <div className="barra-envio-gratis-texto">
+        {falta > 0
+          ? <>Te faltan <strong>${falta.toLocaleString('es-AR')}</strong> para envío gratis</>
+          : <strong>¡Tu pedido ya tiene envío gratis!</strong>}
+      </div>
+      <div className="barra-envio-gratis-track">
+        <div className="barra-envio-gratis-fill" style={{ width: `${porcentaje}%` }} />
+      </div>
+    </div>
+  )
+}
 
 function Carrusel({ onComprar }) {
   const [activo, setActivo] = useState(0)
@@ -95,6 +125,17 @@ export default function Inicio({ onVerProductos }) {
   return (
     <div className="inicio">
       <Carrusel onComprar={() => onVerProductos()} />
+
+      {/* Chips de acceso rápido */}
+      <div className="fila-chips-rapidos">
+        {CHIPS_RAPIDOS.map((c) => (
+          <button key={c.nombre} className="chip-rapido" onClick={() => onVerProductos(c.categoria)}>
+            {c.nombre}
+          </button>
+        ))}
+      </div>
+
+      <BarraEnvioGratis onVerProductos={onVerProductos} />
 
       {/* Nuevos ingresos */}
       <section className="seccion-horizontal">
