@@ -124,6 +124,13 @@ export default function Inicio({ onVerProductos }) {
 
   return (
     <div className="inicio">
+      <div className="inicio-buscador-wrap">
+        <button className="inicio-buscador-fake" onClick={() => onVerProductos()}>
+          <span>¿Qué estás buscando?</span>
+          <span className="inicio-buscador-lupa">🔍</span>
+        </button>
+      </div>
+
       <Carrusel onComprar={() => onVerProductos()} />
 
       {/* Chips de acceso rápido */}
