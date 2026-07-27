@@ -82,8 +82,8 @@ function Contenido() {
     <CartProvider onItemsChange={setCartItems}>
       <header className="topbar">
         <img src="/casa-noa-logo.png" alt="Casa NOA" className="logo" />
-        <button className="link-cambiar-topbar" onClick={cambiarSucursal}>
-          {sucursal.nombre} · cambiar
+        <button className="boton-sucursal-pill" onClick={cambiarSucursal}>
+          {sucursal.nombre} <span className="boton-sucursal-chevron">⌄</span>
         </button>
       </header>
 
