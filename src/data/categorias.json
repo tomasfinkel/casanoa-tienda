@@ -6303,7 +6303,8 @@
     "Lácteos y veganos"
   ],
   "51507": [
-    "Galletas"
+    "Galletas",
+    "Lácteos y veganos"
   ],
   "5151": [
     "Lácteos y veganos"
@@ -12115,7 +12116,8 @@
     "Suplementos y superalimentos"
   ],
   "INTEGRACACAO": [
-    "Galletas"
+    "Galletas",
+    "Lácteos y veganos"
   ],
   "INTI00": [
     "Café e infusiones"
@@ -19308,5 +19310,9 @@
     "Snacks",
     "Importados",
     "Novedades"
+  ],
+  "51504": [
+    "Galletas",
+    "Lácteos y veganos"
   ]
 }
