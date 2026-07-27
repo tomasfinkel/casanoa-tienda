@@ -117,6 +117,7 @@ export default function MiCuenta() {
   const [nombreForm, setNombreForm] = useState('')
   const [telefonoForm, setTelefonoForm] = useState('')
   const [emailForm, setEmailForm] = useState('')
+  const [fechaNacimientoForm, setFechaNacimientoForm] = useState('')
   const [enviando, setEnviando] = useState(false)
 
   useEffect(() => {
@@ -144,6 +145,7 @@ export default function MiCuenta() {
         nombre: nombreForm.trim(),
         telefono: telefonoLimpio,
         email: emailForm.trim(),
+        fechaNacimiento: fechaNacimientoForm || null,
         puntos: 0,
         fechaRegistro: new Date().toISOString(),
       }
@@ -191,6 +193,14 @@ export default function MiCuenta() {
             onChange={(e) => setEmailForm(e.target.value)}
             required
           />
+          <label className="label-fecha-nacimiento">
+            Fecha de nacimiento (para tu regalo de cumpleaños)
+            <input
+              type="date"
+              value={fechaNacimientoForm}
+              onChange={(e) => setFechaNacimientoForm(e.target.value)}
+            />
+          </label>
           {error && <p className="estado error">{error}</p>}
           <button type="submit" disabled={enviando}>
             {enviando ? 'Registrando...' : 'Registrarme'}
@@ -213,6 +223,8 @@ export default function MiCuenta() {
   const porcentajeProgreso = proximo
     ? Math.min(100, ((cliente.puntos - nivel.min) / (proximo.min - nivel.min)) * 100)
     : 100
+  const esMesDeCumple = cliente.fechaNacimiento &&
+    new Date(cliente.fechaNacimiento + 'T00:00:00').getMonth() === new Date().getMonth()
 
   return (
     <div className="mi-cuenta">
@@ -262,6 +274,13 @@ export default function MiCuenta() {
           <strong>Envío gratis</strong>
           <p>{nivel.envioGratis ? 'Con cualquier monto' : `Desde nivel ${NIVELES.find(n => n.envioGratis)?.nombre}`}</p>
         </div>
+        {cliente.fechaNacimiento && (
+          <div className={`beneficio-club${esMesDeCumple ? ' beneficio-club--activo' : ''}`}>
+            <span className="beneficio-club-icono">🎂</span>
+            <strong>Cumpleaños</strong>
+            <p>{esMesDeCumple ? '¡Es tu mes! Pasá por el local' : 'Regalo en tu mes'}</p>
+          </div>
+        )}
       </div>
 
       <button className="link-cerrar-sesion" onClick={cerrarSesion}>
