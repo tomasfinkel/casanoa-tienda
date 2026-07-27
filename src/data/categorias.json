@@ -19163,59 +19163,67 @@
     "Galletas"
   ],
   "01069": [
-    "Dulces y chocolates",
+    "Café e infusiones",
+    "Importados",
     "Novedades"
   ],
   "01076": [
-    "Dulces y chocolates",
+    "Café e infusiones",
+    "Importados",
     "Novedades"
   ],
   "PERGALE00": [
-    "Galletas",
+    "Dulces y chocolates",
     "Importados",
     "Novedades"
   ],
   "PERGALE01": [
-    "Galletas",
+    "Dulces y chocolates",
     "Importados",
     "Novedades"
   ],
   "PERGALE02": [
-    "Galletas",
+    "Dulces y chocolates",
     "Importados",
     "Novedades"
   ],
   "PERGALE03": [
-    "Galletas",
+    "Dulces y chocolates",
     "Importados",
     "Novedades"
   ],
   "PICKS00": [
+    "Dulces y chocolates",
     "Snacks",
     "Importados",
     "Novedades"
   ],
   "PICKS01": [
+    "Dulces y chocolates",
     "Snacks",
     "Importados",
     "Novedades"
   ],
   "PICKS02": [
+    "Dulces y chocolates",
     "Snacks",
     "Importados",
     "Novedades"
   ],
   "PICKS03": [
+    "Dulces y chocolates",
     "Snacks",
     "Importados",
     "Novedades"
   ],
   "PICKS04": [
+    "Dulces y chocolates",
     "Snacks",
     "Importados",
     "Novedades"
   ],
   "PICKS05": [
+    "Dulces y chocolates",
     "Snacks",
     "Importados",
     "Novedades"
@@ -19234,6 +19242,71 @@
   ],
   "VELANIGHT": [
     "Velas y aromatizantes",
+    "Novedades"
+  ],
+  "QUM": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "QUM1": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "QUM2": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "QUM3": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "QUM4": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "12288": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "12295": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "13803": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "13810": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "213803": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "211205": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "8006380215258": [
+    "Dulces y chocolates",
+    "Importados",
+    "Novedades"
+  ],
+  "57807": [
+    "Snacks",
+    "Importados",
     "Novedades"
   ]
 }
