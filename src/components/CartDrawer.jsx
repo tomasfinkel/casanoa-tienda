@@ -104,10 +104,10 @@ export default function CartDrawer({ renderTrigger }) {
                 <p className="total">Total: ${total}</p>
                 <div className="info-envio">
                   <p>
-                    <strong>Envío gratis a Capital Federal</strong> a partir de $90.000.
-                    {total >= 90000
+                    <strong>Envío gratis a Capital Federal</strong> a partir de $55.000.
+                    {total >= 55000
                       ? ' ¡Tu pedido ya califica!'
-                      : ` Te faltan $${90000 - total} para llegar.`}
+                      : ` Te faltan $${55000 - total} para llegar.`}
                   </p>
                   <p>
                     <strong>Provincia de Buenos Aires:</strong> hacé el pedido y coordinás

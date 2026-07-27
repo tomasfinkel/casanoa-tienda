@@ -17,11 +17,11 @@ const RUBROS_SUGERIDOS = [
   'Lácteos y veganos', 'Congelados',
 ]
 
-export default function ProductList({ categoriaInicial }) {
+export default function ProductList({ categoriaInicial, buscadorInicial }) {
   const { productos: todosLosProductos, cargando, error } = useCatalogo()
   const { sucursalId } = useSucursal()
   const [busqueda, setBusqueda] = useState('')
-  const [buscadorActivo, setBuscadorActivo] = useState(false)
+  const [buscadorActivo, setBuscadorActivo] = useState(!!buscadorInicial)
   const [categoriaActiva, setCategoriaActiva] = useState(categoriaInicial || null)
   const inputRef = useRef(null)
 
@@ -43,6 +43,13 @@ export default function ProductList({ categoriaInicial }) {
       window.removeEventListener('scroll', guardarScroll)
     }
   }, [categoriaActiva])
+
+  // Si venimos del buscador del Inicio, enfocar el input directamente
+  useEffect(() => {
+    if (buscadorInicial) {
+      inputRef.current?.focus()
+    }
+  }, [])
 
   if (cargando) return <p className="estado">Cargando catálogo...</p>
   if (error) return <p className="estado error">No se pudo cargar el catálogo: {error}</p>

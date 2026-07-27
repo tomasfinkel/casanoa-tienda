@@ -37,7 +37,7 @@ const CHIPS_RAPIDOS = [
   { nombre: 'Chocolates', categoria: 'Dulces y chocolates' },
 ]
 
-const ENVIO_GRATIS_DESDE = 90000
+const ENVIO_GRATIS_DESDE = 55000
 
 function BarraEnvioGratis({ onVerProductos }) {
   const { items } = useCart()
@@ -119,13 +119,13 @@ function SeccionHorizontal({ titulo, codigos, categoria, onVerTodos }) {
   )
 }
 
-export default function Inicio({ onVerProductos }) {
+export default function Inicio({ onVerProductos, onBuscar }) {
   const { sucursalId } = useSucursal()
 
   return (
     <div className="inicio">
       <div className="inicio-buscador-wrap">
-        <button className="inicio-buscador-fake" onClick={() => onVerProductos()}>
+        <button className="inicio-buscador-fake" onClick={() => onBuscar ? onBuscar() : onVerProductos()}>
           <span>¿Qué estás buscando?</span>
           <span className="inicio-buscador-lupa">🔍</span>
         </button>
@@ -182,7 +182,7 @@ export default function Inicio({ onVerProductos }) {
           <span className="envio-icono">🚚</span>
           <div>
             <strong>Envío gratis a Capital Federal</strong>
-            <p>En compras desde $90.000</p>
+            <p>En compras desde $55.000</p>
           </div>
         </div>
         <div className="envio-card">
