@@ -5,7 +5,7 @@ import { useSucursal } from '../context/BranchContext.jsx'
 
 export default function CartDrawer({ renderTrigger }) {
   const [abierto, setAbierto] = useState(false)
-  const { items, actualizarCantidad, quitarItem, vaciarCarrito } = useCart()
+  const { items, actualizarCantidad, quitarItem, vaciarCarrito, tipoEnvio, direccionDelivery } = useCart()
   const { productos } = useCatalogo()
   const { sucursal, cambiarSucursal } = useSucursal()
 
@@ -31,6 +31,9 @@ export default function CartDrawer({ renderTrigger }) {
       ...lineas,
       '',
       `Total: $${total}`,
+      '',
+      `Entrega: ${tipoEnvio === 'delivery' ? 'Delivery' : 'Retiro en el local'}`,
+      ...(tipoEnvio === 'delivery' && direccionDelivery ? [`Dirección: ${direccionDelivery}`] : []),
     ].join('\n')
     const url = `https://wa.me/${sucursal.whatsapp}?text=${encodeURIComponent(mensaje)}`
     window.open(url, '_blank')
@@ -111,8 +114,17 @@ export default function CartDrawer({ renderTrigger }) {
                     con la sucursal para pasar a retirarlo.
                   </p>
                 </div>
+                <div className="resumen-pedido">
+                  <p><strong>Sucursal:</strong> {sucursal?.nombre}</p>
+                  <p><strong>Entrega:</strong> {tipoEnvio === 'delivery' ? 'Delivery' : 'Retiro en el local'}</p>
+                  {tipoEnvio === 'delivery' && direccionDelivery && (
+                    <p><strong>Dirección:</strong> {direccionDelivery}</p>
+                  )}
+                  <p><strong>Productos:</strong> {cantidadTotal}</p>
+                  <p><strong>Total estimado:</strong> ${total.toLocaleString('es-AR')}</p>
+                </div>
                 <button className="boton-whatsapp" onClick={enviarPorWhatsapp}>
-                  Finalizar pedido por WhatsApp
+                  Enviar pedido por WhatsApp
                 </button>
                 <button onClick={vaciarCarrito}>Vaciar carrito</button>
               </>
