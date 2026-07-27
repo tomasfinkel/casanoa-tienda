@@ -956,6 +956,23 @@ body {
   opacity: 0.55;
 }
 
+.beneficio-club--activo {
+  background: #fbeedd;
+  border: 1px solid #d4a054;
+}
+
+.label-fecha-nacimiento {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: #8a8578;
+}
+
+.label-fecha-nacimiento input {
+  font-family: inherit;
+}
+
 .card-descripcion {
   font-size: 0.85rem;
   font-weight: 600;
