@@ -8,7 +8,7 @@ import categorias from '../data/categorias.json'
 const LIMITE_RESULTADOS = 500
 
 const RUBROS_SUGERIDOS = [
-  'Snacks', 'Bebidas y jugos', 'Vinos', 'Dulces y chocolates',
+  'Snacks', 'Bebidas y jugos', 'Vinos y bebidas selectas', 'Dulces y chocolates',
   'Suplementos y superalimentos', 'Café e infusiones', 'Importados',
   'Lácteos y veganos', 'Congelados',
 ]
