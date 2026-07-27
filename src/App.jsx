@@ -89,7 +89,7 @@ function Contenido() {
 
       <main className="main-con-navbar">
         {tab === 'inicio' && <Inicio onVerProductos={irAProductos} onBuscar={irABuscar} />}
-        {tab === 'productos' && <ProductList categoriaInicial={categoriaInicial} buscadorInicial={buscadorInicial} />}
+        {tab === 'productos' && <ProductList categoriaInicial={categoriaInicial} buscadorInicial={buscadorInicial} onVolverInicio={() => setTab('inicio')} />}
         {tab === 'cuenta' && <MiCuenta />}
       </main>
 
