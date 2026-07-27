@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CatalogProvider } from './context/CatalogContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
-import { BranchProvider, useSucursal } from './context/BranchContext.jsx'
+import { BranchProvider, useSucursal, SUCURSALES } from './context/BranchContext.jsx'
 import BranchPicker from './components/BranchPicker.jsx'
 import Inicio from './components/Inicio.jsx'
 import ProductList from './components/ProductList.jsx'
@@ -58,11 +58,12 @@ function IconoCarrito({ activo, cantidad }) {
 }
 
 function Contenido() {
-  const { sucursal, cambiarSucursal } = useSucursal()
+  const { sucursal, sucursalId, elegirSucursal, cambiarSucursal } = useSucursal()
   const [tab, setTab] = useState('inicio')
   const [categoriaInicial, setCategoriaInicial] = useState(null)
   const [buscadorInicial, setBuscadorInicial] = useState(false)
   const [cartItems, setCartItems] = useState([])
+  const [selectorSucursalAbierto, setSelectorSucursalAbierto] = useState(false)
 
   function irAProductos(categoria) {
     setCategoriaInicial(categoria || null)
@@ -82,9 +83,30 @@ function Contenido() {
     <CartProvider onItemsChange={setCartItems}>
       <header className="topbar">
         <img src="/casa-noa-logo.png" alt="Casa NOA" className="logo" />
-        <button className="boton-sucursal-pill" onClick={cambiarSucursal}>
-          {sucursal.nombre} <span className="boton-sucursal-chevron">⌄</span>
-        </button>
+        <div className="selector-sucursal-wrap">
+          <button className="boton-sucursal-pill" onClick={() => setSelectorSucursalAbierto(v => !v)}>
+            {sucursal.nombre} <span className="boton-sucursal-chevron">⌄</span>
+          </button>
+          {selectorSucursalAbierto && (
+            <>
+              <div className="selector-sucursal-fondo" onClick={() => setSelectorSucursalAbierto(false)} />
+              <div className="selector-sucursal-dropdown">
+                {Object.entries(SUCURSALES).map(([id, s]) => (
+                  <button
+                    key={id}
+                    className={'selector-sucursal-opcion' + (id === sucursalId ? ' activa' : '')}
+                    onClick={() => { elegirSucursal(id); setSelectorSucursalAbierto(false) }}
+                  >
+                    {s.nombre}
+                  </button>
+                ))}
+                <button className="selector-sucursal-otra" onClick={() => { setSelectorSucursalAbierto(false); cambiarSucursal() }}>
+                  Ingresar otra dirección
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </header>
 
       <main className="main-con-navbar">

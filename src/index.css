@@ -43,6 +43,67 @@ body {
   display: block;
 }
 
+.selector-sucursal-wrap {
+  position: relative;
+}
+
+.selector-sucursal-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+.selector-sucursal-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: #fff;
+  border: 1px solid #e0dcd3;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(60, 44, 35, 0.15);
+  padding: 0.4rem;
+  min-width: 220px;
+  z-index: 41;
+}
+
+.selector-sucursal-opcion {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: #3c2c23;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.selector-sucursal-opcion:hover {
+  background: #f0ede8;
+}
+
+.selector-sucursal-opcion.activa {
+  background: #f0ede8;
+  font-weight: 700;
+}
+
+.selector-sucursal-otra {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-top: 1px solid #e0dcd3;
+  margin-top: 0.3rem;
+  padding: 0.6rem 0.7rem 0.3rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: #8a6a45;
+  cursor: pointer;
+}
+
 .tabs-principales {
   display: flex;
   border-bottom: 1px solid #d8d3c8;
