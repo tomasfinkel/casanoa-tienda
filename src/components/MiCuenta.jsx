@@ -119,6 +119,8 @@ export default function MiCuenta() {
   const [emailForm, setEmailForm] = useState('')
   const [fechaNacimientoForm, setFechaNacimientoForm] = useState('')
   const [enviando, setEnviando] = useState(false)
+  const [fechaNacimientoNueva, setFechaNacimientoNueva] = useState('')
+  const [guardandoFecha, setGuardandoFecha] = useState(false)
 
   useEffect(() => {
     if (!telefono) {
@@ -216,6 +218,20 @@ export default function MiCuenta() {
     setCliente(null)
   }
 
+  async function guardarFechaNacimiento() {
+    if (!fechaNacimientoNueva) return
+    setGuardandoFecha(true)
+    try {
+      const clientes = await leerClientes()
+      clientes[cliente.telefono] = { ...clientes[cliente.telefono], fechaNacimiento: fechaNacimientoNueva }
+      await guardarClientes(clientes)
+      setCliente(clientes[cliente.telefono])
+    } catch (e) {
+      setError('No se pudo guardar: ' + e.message)
+    }
+    setGuardandoFecha(false)
+  }
+
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(cliente.telefono)}`
   const descuentoUsado = cliente.historial && cliente.historial.length > 0
   const { actual: nivel, proximo } = calcularNivel(cliente.puntos)
@@ -228,7 +244,7 @@ export default function MiCuenta() {
 
   return (
     <div className="mi-cuenta">
-      <div className="tarjeta-club">
+      <div className={`tarjeta-club tarjeta-club--${nivel.nombre.toLowerCase()}`}>
         <div className="tarjeta-club-header">
           <div className="tarjeta-club-logo">CASA<br />NOA</div>
         </div>
@@ -274,11 +290,29 @@ export default function MiCuenta() {
           <strong>Envío gratis</strong>
           <p>{nivel.envioGratis ? 'Con cualquier monto' : `Desde nivel ${NIVELES.find(n => n.envioGratis)?.nombre}`}</p>
         </div>
-        {cliente.fechaNacimiento && (
+        {cliente.fechaNacimiento ? (
           <div className={`beneficio-club${esMesDeCumple ? ' beneficio-club--activo' : ''}`}>
             <span className="beneficio-club-icono">🎂</span>
             <strong>Cumpleaños</strong>
             <p>{esMesDeCumple ? '¡Es tu mes! Pasá por el local' : 'Regalo en tu mes'}</p>
+          </div>
+        ) : (
+          <div className="beneficio-club beneficio-club--pedir-fecha">
+            <span className="beneficio-club-icono">🎂</span>
+            <strong>Cumpleaños</strong>
+            <input
+              type="date"
+              className="input-fecha-inline"
+              value={fechaNacimientoNueva}
+              onChange={(e) => setFechaNacimientoNueva(e.target.value)}
+            />
+            <button
+              className="btn-guardar-fecha"
+              onClick={guardarFechaNacimiento}
+              disabled={!fechaNacimientoNueva || guardandoFecha}
+            >
+              {guardandoFecha ? 'Guardando...' : 'Guardar'}
+            </button>
           </div>
         )}
       </div>
