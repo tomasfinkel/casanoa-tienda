@@ -143,6 +143,13 @@
   const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`
   const PIN_CORRECTO = '2024' // Cambiar por el PIN que prefieran
 
+  const CANJES = [
+    { umbral: 50, premio: '5% de descuento' },
+    { umbral: 120, premio: '10% de descuento' },
+    { umbral: 250, premio: 'Producto de regalo' },
+    { umbral: 450, premio: 'Producto premium gratis' },
+  ]
+
   let clienteActual = null
   let telefonoActual = null
 
@@ -201,10 +208,18 @@
       clienteActual = cliente
       telefonoActual = telefono
 
+      const canjeMasAlto = CANJES.filter(c => cliente.puntos >= c.umbral).pop()
+      const premiosHtml = canjeMasAlto
+        ? `<div class="mensaje exito">Tiene ${cliente.puntos} puntos → puede canjear: <strong>${canjeMasAlto.premio}</strong> (${canjeMasAlto.umbral} pts)
+            <button class="btn-secundario" style="margin-top:0.6rem" onclick="canjearPremio(${canjeMasAlto.umbral}, '${canjeMasAlto.premio.replace(/'/g, "\\'")}')">Marcar como canjeado</button>
+          </div>`
+        : ''
+
       resultado.innerHTML = `
         <div class="card-cliente">
           <div class="nombre">${cliente.nombre}</div>
           <div class="puntos-actuales">${cliente.puntos} puntos actuales</div>
+          ${premiosHtml}
           <label>Monto de la compra ($)</label>
           <input type="number" id="montoInput" placeholder="Ej: 25000" />
           <button class="btn-principal" onclick="sumarPuntos()">Sumar puntos</button>
@@ -213,6 +228,34 @@
       `
     } catch (e) {
       mostrarMensaje('Error: ' + e.message, 'error')
+    }
+  }
+
+  async function canjearPremio(umbral, premio) {
+    if (!confirm(`¿Confirmás el canje de "${premio}" por ${umbral} puntos?`)) return
+    const sucursal = document.getElementById('sucursalSelect').value
+    try {
+      const clientes = await leerClientes()
+      const cliente = clientes[telefonoActual]
+      if (!cliente || cliente.puntos < umbral) {
+        mostrarMensaje('Ya no tiene puntos suficientes para este canje.', 'error')
+        return
+      }
+      cliente.puntos -= umbral
+      cliente.canjes = cliente.canjes || []
+      cliente.canjes.push({
+        fecha: new Date().toISOString(),
+        premio,
+        puntosUsados: umbral,
+        sucursal,
+      })
+      clientes[telefonoActual] = cliente
+      await guardarClientes(clientes)
+
+      mostrarMensaje(`Canje registrado: ${premio}. Le quedan ${cliente.puntos} puntos.`, 'exito')
+      volverABuscar()
+    } catch (e) {
+      mostrarMensaje('Error al canjear: ' + e.message, 'error')
     }
   }
 
