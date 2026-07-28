@@ -208,11 +208,20 @@
           <label>Monto de la compra ($)</label>
           <input type="number" id="montoInput" placeholder="Ej: 25000" />
           <button class="btn-principal" onclick="sumarPuntos()">Sumar puntos</button>
+          <button class="btn-secundario" onclick="volverABuscar()">← Volver</button>
         </div>
       `
     } catch (e) {
       mostrarMensaje('Error: ' + e.message, 'error')
     }
+  }
+
+  function volverABuscar() {
+    document.getElementById('resultadoBusqueda').innerHTML = ''
+    document.getElementById('mensajeArea').innerHTML = ''
+    document.getElementById('telefonoInput').value = ''
+    clienteActual = null
+    telefonoActual = null
   }
 
   async function sumarPuntos() {
