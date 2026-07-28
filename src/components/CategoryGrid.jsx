@@ -10,6 +10,7 @@ const ESTRUCTURA = [
   { nombre: 'Suplementos y superalimentos', foto: '11100', subs: ['Suplementos y superalimentos', 'Keto', 'Sin gluten / TACC'] },
   { nombre: 'Cuidado personal', foto: '1439', subs: ['Cuidado personal'] },
   { nombre: 'Velas y aromatizantes', foto: 'LOUISLEW09', subs: ['Velas y aromatizantes'] },
+  { nombre: 'Kosher', foto: 'MASSEROSA', subs: ['Kosher'] },
 ]
 
 function FotoCategoria({ foto, nombre }) {

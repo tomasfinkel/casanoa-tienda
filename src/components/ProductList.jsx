@@ -14,7 +14,7 @@ const scrollGuardado = {}
 const RUBROS_SUGERIDOS = [
   'Snacks', 'Bebidas y jugos', 'Vinos y bebidas selectas', 'Dulces y chocolates',
   'Suplementos y superalimentos', 'Café e infusiones', 'Importados',
-  'Lácteos y veganos', 'Congelados',
+  'Lácteos y veganos', 'Congelados', 'Kosher',
 ]
 
 export default function ProductList({ categoriaActiva, buscadorActivo, onNavegar, onVolver }) {
