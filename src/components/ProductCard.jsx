@@ -67,7 +67,14 @@ export default function ProductCard({ producto }) {
             style={{ opacity: imagenCargada ? 1 : 0 }}
           />
         ) : (
-          <div className="imagen-placeholder" />
+          <div className="imagen-placeholder">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 45 L50 15 L85 45 L85 90 L15 90 Z" />
+              <path d="M40 55 Q45 65 50 55 Q55 65 60 55" />
+              <circle cx="50" cy="70" r="3" fill="currentColor" stroke="none" />
+            </svg>
+            <span>CASA NOA</span>
+          </div>
         )}
 
         {cantidadEnCarrito > 0 ? (
