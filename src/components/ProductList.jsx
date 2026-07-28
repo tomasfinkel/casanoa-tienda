@@ -96,12 +96,23 @@ export default function ProductList({ categoriaActiva, buscadorActivo, onNavegar
     return [...prefijoDeMarca, ...contieneMarca, ...enDescripcion]
   }
 
+  function ordenarPorMarca(lista) {
+    return [...lista].sort((a, b) => {
+      const marcaA = a.nombre.split(' - ')[0]
+      const marcaB = b.nombre.split(' - ')[0]
+      const cmpMarca = marcaA.localeCompare(marcaB, 'es', { sensitivity: 'base' })
+      if (cmpMarca !== 0) return cmpMarca
+      return a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' })
+    })
+  }
+
   let coincidencias = []
   if (categoriaActiva && busqueda.trim().length >= 2) {
     const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
     coincidencias = buscarProductos(enRubro, busqueda)
   } else if (categoriaActiva) {
-    coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
+    const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
+    coincidencias = ordenarPorMarca(enRubro)
   } else if (busqueda.trim().length >= 2) {
     coincidencias = buscarProductos(productos, busqueda)
   }
