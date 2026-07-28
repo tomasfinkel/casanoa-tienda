@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CatalogProvider } from './context/CatalogContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import { BranchProvider, useSucursal, SUCURSALES } from './context/BranchContext.jsx'
@@ -59,22 +59,38 @@ function IconoCarrito({ activo, cantidad }) {
 
 function Contenido() {
   const { sucursal, sucursalId, elegirSucursal, cambiarSucursal } = useSucursal()
-  const [tab, setTab] = useState('inicio')
-  const [categoriaInicial, setCategoriaInicial] = useState(null)
-  const [buscadorInicial, setBuscadorInicial] = useState(false)
+  const [vista, setVista] = useState({ tab: 'inicio', categoriaActiva: null, buscadorActivo: false })
   const [cartItems, setCartItems] = useState([])
   const [selectorSucursalAbierto, setSelectorSucursalAbierto] = useState(false)
 
+  // Al montar, dejamos una entrada base en el historial y escuchamos "atrás"
+  // (gesto de deslizar en iOS, botón atrás en Android, o el de arriba del navegador)
+  useEffect(() => {
+    window.history.replaceState(vista, '')
+    function handler(e) {
+      if (e.state) setVista(e.state)
+    }
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  function navegar(cambios) {
+    const nuevaVista = { ...vista, ...cambios }
+    window.history.pushState(nuevaVista, '')
+    setVista(nuevaVista)
+  }
+
   function irAProductos(categoria) {
-    setCategoriaInicial(categoria || null)
-    setBuscadorInicial(false)
-    setTab('productos')
+    navegar({ tab: 'productos', categoriaActiva: categoria || null, buscadorActivo: false })
   }
 
   function irABuscar() {
-    setCategoriaInicial(null)
-    setBuscadorInicial(true)
-    setTab('productos')
+    navegar({ tab: 'productos', categoriaActiva: null, buscadorActivo: true })
+  }
+
+  function cambiarTab(nuevoTab) {
+    navegar({ tab: nuevoTab, categoriaActiva: null, buscadorActivo: false })
   }
 
   if (!sucursal) return <BranchPicker />
@@ -110,22 +126,29 @@ function Contenido() {
       </header>
 
       <main className="main-con-navbar">
-        {tab === 'inicio' && <Inicio onVerProductos={irAProductos} onBuscar={irABuscar} />}
-        {tab === 'productos' && <ProductList categoriaInicial={categoriaInicial} buscadorInicial={buscadorInicial} onVolverInicio={() => setTab('inicio')} />}
-        {tab === 'cuenta' && <MiCuenta />}
+        {vista.tab === 'inicio' && <Inicio onVerProductos={irAProductos} onBuscar={irABuscar} />}
+        {vista.tab === 'productos' && (
+          <ProductList
+            categoriaActiva={vista.categoriaActiva}
+            buscadorActivo={vista.buscadorActivo}
+            onNavegar={navegar}
+            onVolver={() => window.history.back()}
+          />
+        )}
+        {vista.tab === 'cuenta' && <MiCuenta />}
       </main>
 
       <nav className="navbar-inferior">
-        <button className={'navbar-item' + (tab === 'inicio' ? ' activo' : '')} onClick={() => setTab('inicio')}>
-          <IconoInicio activo={tab === 'inicio'} />
+        <button className={'navbar-item' + (vista.tab === 'inicio' ? ' activo' : '')} onClick={() => cambiarTab('inicio')}>
+          <IconoInicio activo={vista.tab === 'inicio'} />
           <span>Inicio</span>
         </button>
-        <button className={'navbar-item' + (tab === 'productos' ? ' activo' : '')} onClick={() => irAProductos(null)}>
-          <IconoProductos activo={tab === 'productos'} />
+        <button className={'navbar-item' + (vista.tab === 'productos' ? ' activo' : '')} onClick={() => irAProductos(null)}>
+          <IconoProductos activo={vista.tab === 'productos'} />
           <span>Productos</span>
         </button>
-        <button className={'navbar-item' + (tab === 'cuenta' ? ' activo' : '')} onClick={() => setTab('cuenta')}>
-          <IconoCuenta activo={tab === 'cuenta'} />
+        <button className={'navbar-item' + (vista.tab === 'cuenta' ? ' activo' : '')} onClick={() => cambiarTab('cuenta')}>
+          <IconoCuenta activo={vista.tab === 'cuenta'} />
           <span>Mi cuenta</span>
         </button>
         <CartDrawer renderTrigger={(cantidad, abrir) => (
