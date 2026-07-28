@@ -286,7 +286,8 @@
   ],
   "01779": [
     "Lácteos y veganos",
-    "Importados"
+    "Importados",
+    "Kosher"
   ],
   "01848": [
     "Café e infusiones"
@@ -393,7 +394,8 @@
     "Dulces y chocolates"
   ],
   "047295": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "04995": [
     "Condimentos, especias y dips"
@@ -660,22 +662,27 @@
     "Congelados"
   ],
   "10109": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10110": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10111": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10112": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10120": [
     "Lácteos y veganos"
   ],
   "10121": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "10122": [
     "Snacks",
@@ -740,7 +747,8 @@
     "Condimentos, especias y dips"
   ],
   "10148": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "10151": [
     "Congelados"
@@ -784,10 +792,12 @@
     "Sin gluten / TACC"
   ],
   "10209": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "10210": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "10214": [
     "Dulces y chocolates"
@@ -954,16 +964,19 @@
     "Café e infusiones"
   ],
   "10328": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10329": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10330": [
     "Carnes y fiambres"
   ],
   "10337": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10338": [
     "Condimentos, especias y dips"
@@ -1116,7 +1129,8 @@
   ],
   "10451": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "10452": [
     "Galletas"
@@ -1166,7 +1180,8 @@
     "Condimentos, especias y dips"
   ],
   "10490": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Kosher"
   ],
   "10492": [
     "Galletas"
@@ -1243,7 +1258,8 @@
     "Kosher"
   ],
   "10531": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10532": [
     "Condimentos, especias y dips"
@@ -1259,7 +1275,8 @@
   ],
   "10536": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "10539": [
     "Dulces y chocolates"
@@ -1294,7 +1311,8 @@
     "Dulces y chocolates"
   ],
   "10560": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "10562": [
     "Lácteos y veganos"
@@ -1335,7 +1353,8 @@
     "Pastas, arroces y salsas"
   ],
   "10590": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10592": [
     "Huevos"
@@ -1434,7 +1453,8 @@
     "Frutos secos y semillas"
   ],
   "10630": [
-    "Congelados"
+    "Congelados",
+    "Kosher"
   ],
   "10632": [
     "Panificados"
@@ -1450,13 +1470,16 @@
     "Kosher"
   ],
   "10643": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10644": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10645": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10646": [
     "Lácteos y veganos"
@@ -1468,10 +1491,12 @@
     "Café e infusiones"
   ],
   "10650": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10651": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10652": [
     "Congelados"
@@ -1480,7 +1505,8 @@
     "Congelados"
   ],
   "10655": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "10657": [
     "Conservas"
@@ -1490,7 +1516,8 @@
   ],
   "10659": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "10660": [
     "Condimentos, especias y dips"
@@ -1517,10 +1544,12 @@
     "Lácteos y veganos"
   ],
   "10671": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10672": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "10673": [
     "Huevos"
@@ -1569,10 +1598,12 @@
     "Bebidas y jugos"
   ],
   "10697": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10698": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "107": [
     "Aceites y vinagres"
@@ -1762,7 +1793,8 @@
   ],
   "10811": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "10813": [
     "Lácteos y veganos",
@@ -1786,10 +1818,12 @@
     "Condimentos, especias y dips"
   ],
   "10826": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "10828": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "10830": [
     "Snacks"
@@ -1864,7 +1898,8 @@
   ],
   "10884": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "1089": [
     "Fermentados"
@@ -1873,7 +1908,8 @@
     "Congelados"
   ],
   "10899": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "109": [
     "Aceites y vinagres"
@@ -1994,7 +2030,8 @@
     "Snacks"
   ],
   "10969": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "10974": [
     "Cuidado personal"
@@ -2112,7 +2149,8 @@
     "Lácteos y veganos"
   ],
   "11075": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "11076": [
     "Cereales, legumbres y granolas"
@@ -2447,7 +2485,8 @@
     "Frutos secos y semillas"
   ],
   "11258": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "11259": [
     "Condimentos, especias y dips",
@@ -2628,22 +2667,28 @@
     "Huevos"
   ],
   "11355": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11356": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11357": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11358": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11359": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11361": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11364": [
     "Suplementos y superalimentos"
@@ -2858,13 +2903,16 @@
     "Snacks"
   ],
   "11477": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11478": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11479": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "11480": [
     "Snacks"
@@ -2876,7 +2924,8 @@
     "Cuidado personal"
   ],
   "11483": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "11484": [
     "Condimentos, especias y dips"
@@ -3541,7 +3590,8 @@
     "Pastas, arroces y salsas"
   ],
   "1868": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "187": [
     "Aceites y vinagres"
@@ -3634,25 +3684,31 @@
     "Importados"
   ],
   "1934": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "1935": [
-    "Conservas"
+    "Conservas",
+    "Kosher"
   ],
   "1936": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "1937": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "1938": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "194": [
     "Aceites y vinagres"
   ],
   "1942": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "1945": [
     "Condimentos, especias y dips",
@@ -3963,18 +4019,22 @@
   ],
   "2355": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "2356": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "2357": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "2362": [
-    "Harinas y premezclas"
+    "Harinas y premezclas",
+    "Kosher"
   ],
   "236777": [
     "Condimentos, especias y dips"
@@ -4055,7 +4115,8 @@
     "Café e infusiones"
   ],
   "24947": [
-    "Harinas y premezclas"
+    "Harinas y premezclas",
+    "Kosher"
   ],
   "2495": [
     "Harinas y premezclas"
@@ -4383,7 +4444,8 @@
   ],
   "2920": [
     "Lácteos y veganos",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "2935": [
     "Bebidas y jugos"
@@ -4620,7 +4682,8 @@
     "Keto"
   ],
   "3210": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "322": [
     "Pastas, arroces y salsas"
@@ -4648,10 +4711,12 @@
     "Café e infusiones"
   ],
   "3258": [
-    "Congelados"
+    "Congelados",
+    "Kosher"
   ],
   "3259": [
-    "Congelados"
+    "Congelados",
+    "Kosher"
   ],
   "326": [
     "Pastas, arroces y salsas"
@@ -4762,7 +4827,8 @@
     "Cereales, legumbres y granolas"
   ],
   "3335": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "3338": [
     "Congelados"
@@ -4827,7 +4893,8 @@
   ],
   "3409": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "341": [
     "Cereales, legumbres y granolas"
@@ -5071,23 +5138,28 @@
   ],
   "3728": [
     "Galletas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "3729": [
     "Galletas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "3730": [
     "Galletas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "3731": [
     "Galletas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "3732": [
     "Cereales, legumbres y granolas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "3736": [
     "Dulces y chocolates",
@@ -5115,7 +5187,8 @@
   ],
   "3763": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "3764": [
     "Sin gluten / TACC"
@@ -5257,16 +5330,19 @@
     "Cereales, legumbres y granolas"
   ],
   "3889": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "389": [
     "Cereales, legumbres y granolas"
   ],
   "3890": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "3891": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "39": [
     "Congelados"
@@ -5555,27 +5631,33 @@
   ],
   "4084": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4085": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4086": [
     "Frutos secos y semillas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4088": [
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4089": [
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "409": [
     "Pastas, arroces y salsas"
   ],
   "4090": [
-    "Café e infusiones"
+    "Café e infusiones",
+    "Kosher"
   ],
   "4098": [
     "Snacks"
@@ -5678,19 +5760,24 @@
   ],
   "4174": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4175": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "4176": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "4177": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "4178": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "4180": [
     "Snacks",
@@ -5786,16 +5873,19 @@
     "Pastas, arroces y salsas"
   ],
   "4263": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "4264": [
     "Panificados",
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4265": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4277": [
     "Galletas"
@@ -5818,7 +5908,8 @@
   ],
   "4329": [
     "Huevos",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "4331": [
     "Huevos"
@@ -6138,7 +6229,8 @@
   ],
   "47295": [
     "Suplementos y superalimentos",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "47922": [
     "Snacks"
@@ -6151,7 +6243,8 @@
   ],
   "48619": [
     "Dulces y chocolates",
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "48884": [
     "Congelados",
@@ -6226,7 +6319,8 @@
     "Condimentos, especias y dips"
   ],
   "50014": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "5002": [
     "Lácteos y veganos"
@@ -6241,7 +6335,8 @@
     "Keto"
   ],
   "50038": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "50094": [
     "Lácteos y veganos"
@@ -6420,7 +6515,8 @@
   ],
   "52356": [
     "Pastas, arroces y salsas",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "523778": [
     "Cuidado personal"
@@ -6482,7 +6578,8 @@
     "Panificados"
   ],
   "52981": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "53231": [
     "Lácteos y veganos"
@@ -6609,14 +6706,16 @@
     "Snacks"
   ],
   "60462": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "609": [
     "Bebidas y jugos",
     "Kosher"
   ],
   "60932": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "60964": [
     "Sin gluten / TACC"
@@ -6730,7 +6829,8 @@
     "Lácteos y veganos"
   ],
   "65963": [
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "66104": [
     "Aceites y vinagres"
@@ -6863,7 +6963,8 @@
   ],
   "734191403820": [
     "Snacks",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "73555": [
     "Snacks"
@@ -6895,7 +6996,8 @@
   ],
   "763571730393": [
     "Pastas, arroces y salsas",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "763571853498": [
     "Cuidado personal"
@@ -7044,7 +7146,8 @@
     "Dulces y chocolates"
   ],
   "7798187761090": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Kosher"
   ],
   "7798197300067": [
     "Dulces y chocolates"
@@ -7478,7 +7581,8 @@
     "Condimentos, especias y dips"
   ],
   "880047": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "8801037039795": [
     "Café e infusiones"
@@ -7615,7 +7719,8 @@
     "Dulces y chocolates"
   ],
   "960516": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "96078": [
     "Dulces y chocolates"
@@ -7654,27 +7759,34 @@
   ],
   "983": [
     "Condimentos, especias y dips",
-    "Bebidas y jugos"
+    "Bebidas y jugos",
+    "Kosher"
   ],
   "98391": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "98529": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "987": [
     "Condimentos, especias y dips",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "98916": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "98923": [
     "Snacks",
-    "Keto"
+    "Keto",
+    "Kosher"
   ],
   "990": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "99058": [
     "Suplementos y superalimentos"
@@ -7688,20 +7800,25 @@
   ],
   "992": [
     "Condimentos, especias y dips",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "994": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "995": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "997": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "998": [
     "Condimentos, especias y dips",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "ABALDO01": [
     "Café e infusiones"
@@ -8002,22 +8119,28 @@
     "Conservas"
   ],
   "ANC": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "ANC1": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "ANC2": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "ANC4": [
-    "Pastas, arroces y salsas"
+    "Pastas, arroces y salsas",
+    "Kosher"
   ],
   "ANCE12": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "ANCE13": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "ANCH": [
     "Aceites y vinagres",
@@ -8837,13 +8960,16 @@
     "Snacks"
   ],
   "BR06": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BR07": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BR08": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BRAG1": [
     "Dulces y chocolates"
@@ -8908,26 +9034,33 @@
     "Café e infusiones"
   ],
   "BRIA02": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BRIA14": [
     "Frutos secos y semillas",
-    "Keto"
+    "Keto",
+    "Kosher"
   ],
   "BRIA15": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "BRIASNACK01": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BRIASNACK02": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BRIASNACK03": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BRIASNACK04": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "BRIDGE": [
     "Snacks"
@@ -8972,22 +9105,28 @@
     "Bebidas y jugos"
   ],
   "BROC12": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "BROCAL N": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "BROCAL01": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "BROCAL02": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "BROCAL03": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "BROCAL04": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "BRU01": [
     "Café e infusiones"
@@ -10178,7 +10317,8 @@
     "Kosher"
   ],
   "CRUDE20": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "CS10": [
     "Bebidas y jugos"
@@ -10475,89 +10615,116 @@
     "Frutos secos y semillas"
   ],
   "DICO": [
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "DICO00": [
-    "Harinas y premezclas"
+    "Harinas y premezclas",
+    "Kosher"
   ],
   "DICO012": [
-    "Aceites y vinagres"
+    "Aceites y vinagres",
+    "Kosher"
   ],
   "DICO1": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "DICO19": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO25": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO26": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "DICO27": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO33": [
-    "Harinas y premezclas"
+    "Harinas y premezclas",
+    "Kosher"
   ],
   "DICO43": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO44": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO54": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO55": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICO56": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "DICO57": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "DICO6": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "DICO61": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "DICO62": [
     "Lácteos y veganos",
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "DICO76": [
-    "Pastas, arroces y salsas"
+    "Pastas, arroces y salsas",
+    "Kosher"
   ],
   "DICO79": [
     "Condimentos, especias y dips",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "DICO80": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "DICOAVE": [
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "DICOBI": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICOCOFFE": [
-    "Café e infusiones"
+    "Café e infusiones",
+    "Kosher"
   ],
   "DICOESPECIAS01": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "DICOMEREARVEJA": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "DICOMEREHARIARROZYA": [
-    "Pastas, arroces y salsas"
+    "Pastas, arroces y salsas",
+    "Kosher"
   ],
   "DIKOKO": [
     "Bebidas y jugos"
@@ -10889,7 +11056,8 @@
     "Frutos secos y semillas"
   ],
   "ELBROCALTOMATE": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "ELCAJU": [
     "Frutos secos y semillas"
@@ -11112,21 +11280,26 @@
   ],
   "FELI36": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "FELI78": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "FELICES01": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "FELICES10": [
     "Dulces y chocolates",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "FELICESMUZZA": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "FELICIA1": [
     "Pastas, arroces y salsas",
@@ -11137,7 +11310,8 @@
   ],
   "FELICV": [
     "Snacks",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "FERRALE01": [
     "Bebidas y jugos"
@@ -11642,7 +11816,8 @@
     "Pastas, arroces y salsas"
   ],
   "GOLD15": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "GOLDENMILK 02": [
     "Condimentos, especias y dips"
@@ -12444,10 +12619,12 @@
     "Bebidas y jugos"
   ],
   "JUMBA1": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "JUMBALAY1": [
-    "Conservas"
+    "Conservas",
+    "Kosher"
   ],
   "JV01": [
     "Café e infusiones"
@@ -12515,13 +12692,16 @@
     "Dulces y chocolates"
   ],
   "KAY02": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "KAY03": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "KAY04": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "KE01": [
     "Congelados"
@@ -12789,10 +12969,12 @@
   ],
   "KYROS03": [
     "Pastas, arroces y salsas",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "KYROS07": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "L&B01": [
     "Dulces y chocolates"
@@ -12888,10 +13070,12 @@
     "Huevos"
   ],
   "LADDUPRO": [
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "LADDUPROO": [
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "LADEL10": [
     "Lácteos y veganos"
@@ -13175,7 +13359,8 @@
     "Congelados"
   ],
   "LECRUN": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "LEE1": [
     "Condimentos, especias y dips"
@@ -13194,7 +13379,8 @@
     "Importados"
   ],
   "LEF01": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "LEO01": [
     "Pastas, arroces y salsas"
@@ -13540,28 +13726,35 @@
     "Pastas, arroces y salsas"
   ],
   "MANI02": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "MANI05": [
     "Condimentos, especias y dips",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "MANI06": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "MANI07": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "MANIKING": [
     "Dulces y chocolates",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "MANIKING08": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "MANIKING09": [
     "Miel, mermeladas y untables",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "MANT1": [
     "Aceites y vinagres"
@@ -13690,18 +13883,22 @@
   ],
   "MERLIN01": [
     "Café e infusiones",
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "MERLINBARR2": [
     "Snacks",
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "MERLINBARR|": [
     "Snacks",
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "MERLINPOCHO": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "MESTIZO02": [
     "Pastas, arroces y salsas"
@@ -13958,17 +14155,20 @@
     "Condimentos, especias y dips"
   ],
   "MU1": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "MUCH03": [
     "Congelados"
   ],
   "MUECA21": [
     "Snacks",
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Kosher"
   ],
   "MUECAS": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "MUNCHIS": [
     "Lácteos y veganos",
@@ -14016,31 +14216,40 @@
     "Snacks"
   ],
   "NACA00": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "NACA01": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "NACA02": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Kosher"
   ],
   "NACA03": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "NACA09": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "NACA13": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "NACA14": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "NACA21": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "NACA29": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "NAKED01": [
     "Suplementos y superalimentos"
@@ -14103,7 +14312,8 @@
     "Condimentos, especias y dips"
   ],
   "NAT": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "NAT00": [
     "Suplementos y superalimentos"
@@ -14118,7 +14328,8 @@
     "Suplementos y superalimentos"
   ],
   "NAT1": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "NAT100": [
     "Suplementos y superalimentos"
@@ -14133,7 +14344,8 @@
     "Suplementos y superalimentos"
   ],
   "NAT2": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "NAT4564": [
     "Panificados"
@@ -14285,10 +14497,12 @@
   ],
   "NATU AL": [
     "Dulces y chocolates",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "NATURAL02": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Kosher"
   ],
   "NATURALFEEDING01": [
     "Snacks"
@@ -15321,15 +15535,18 @@
   ],
   "PHILA12": [
     "Lácteos y veganos",
-    "Importados"
+    "Importados",
+    "Kosher"
   ],
   "PHILAQUE": [
     "Lácteos y veganos",
-    "Importados"
+    "Importados",
+    "Kosher"
   ],
   "PHILAQUE01": [
     "Lácteos y veganos",
-    "Importados"
+    "Importados",
+    "Kosher"
   ],
   "PIEL01": [
     "Vinos y bebidas selectas"
@@ -15377,7 +15594,8 @@
     "Café e infusiones"
   ],
   "PIMIDICO": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "PITICHO": [
     "Dulces y chocolates"
@@ -16344,7 +16562,8 @@
     "Condimentos, especias y dips"
   ],
   "SHI1": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "SHUN01": [
     "Condimentos, especias y dips"
@@ -17730,27 +17949,34 @@
     "Sin gluten / TACC"
   ],
   "ZA678": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "ZA976": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "ZAFGRAN01": [
     "Frutos secos y semillas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "ZAFGRAN02": [
     "Frutos secos y semillas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "ZAFR13": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "ZAFR25": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "ZAFRGRAN": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Kosher"
   ],
   "ZAN1": [
     "Lácteos y veganos"
@@ -17878,7 +18104,8 @@
     "Snacks"
   ],
   "10006": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "10160": [
     "Dulces y chocolates"
@@ -18060,7 +18287,8 @@
     "Importados"
   ],
   "3750": [
-    "Condimentos, especias y dips"
+    "Condimentos, especias y dips",
+    "Kosher"
   ],
   "4012200032947": [
     "Conservas"
@@ -18102,14 +18330,17 @@
     "Congelados"
   ],
   "48626": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "50757": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Kosher"
   ],
   "50764": [
     "Frutos secos y semillas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Kosher"
   ],
   "50837": [
     "Galletas"
@@ -18183,7 +18414,8 @@
     "Kosher"
   ],
   "7798187761083": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Kosher"
   ],
   "7798253180152": [
     "Cereales, legumbres y granolas"
@@ -18274,10 +18506,12 @@
     "Suplementos y superalimentos"
   ],
   "98377": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "98512": [
-    "Galletas"
+    "Galletas",
+    "Kosher"
   ],
   "99439": [
     "Galletas",
@@ -18328,7 +18562,8 @@
     "Harinas y premezclas"
   ],
   "BRIA16": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "BRIL20": [
     "Condimentos, especias y dips",
@@ -18419,10 +18654,12 @@
     "Importados"
   ],
   "DICO64": [
-    "Harinas y premezclas"
+    "Harinas y premezclas",
+    "Kosher"
   ],
   "DICOAZ": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "DIV002": [
     "Galletas"
@@ -18449,7 +18686,8 @@
     "Pastas, arroces y salsas"
   ],
   "FELICES535": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "FILIPO24": [
     "Conservas"
@@ -18486,7 +18724,8 @@
     "Snacks"
   ],
   "GOLD17": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "GRANGER 08": [
     "Panificados"
@@ -18560,10 +18799,12 @@
     "Kosher"
   ],
   "JUMBALAY": [
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Kosher"
   ],
   "JUMBALAY3": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Kosher"
   ],
   "KEKE": [
     "Helados y postres"
@@ -18695,7 +18936,8 @@
     "Kosher"
   ],
   "MERLIN03": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "MI77": [
     "Cereales, legumbres y granolas"
@@ -19208,7 +19450,8 @@
   "HEN01": [],
   "LABU": [],
   "MERLIN02": [
-    "Snacks"
+    "Snacks",
+    "Kosher"
   ],
   "OKNUTRE1": [
     "Frutos secos y semillas"
@@ -19359,7 +19602,8 @@
     "Bebidas y jugos"
   ],
   "FELICES534": [
-    "Lácteos y veganos"
+    "Lácteos y veganos",
+    "Kosher"
   ],
   "LAZARA12": [
     "Galletas"
@@ -19590,6 +19834,156 @@
     "Kosher"
   ],
   "NOTC145": [
+    "Kosher"
+  ],
+  "57069": [
+    "Kosher"
+  ],
+  "56420": [
+    "Kosher"
+  ],
+  "JUMBA4": [
+    "Kosher"
+  ],
+  "16263745868": [
+    "Kosher"
+  ],
+  "51258": [
+    "Kosher"
+  ],
+  "JUMBALAY4": [
+    "Kosher"
+  ],
+  "JUMBALAY2": [
+    "Kosher"
+  ],
+  "56437": [
+    "Kosher"
+  ],
+  "MF006": [
+    "Kosher"
+  ],
+  "70082": [
+    "Kosher"
+  ],
+  "70099": [
+    "Kosher"
+  ],
+  "KAY00": [
+    "Kosher"
+  ],
+  "10530": [
+    "Kosher"
+  ],
+  "10577": [
+    "Kosher"
+  ],
+  "10827": [
+    "Kosher"
+  ],
+  "4091": [
+    "Kosher"
+  ],
+  "ZA5646": [
+    "Kosher"
+  ],
+  "ZAFR27": [
+    "Kosher"
+  ],
+  "MANIKINGGA": [
+    "Kosher"
+  ],
+  "SHIV07": [
+    "Kosher"
+  ],
+  "SHIVA02": [
+    "Kosher"
+  ],
+  "WEEKIT11": [
+    "Kosher"
+  ],
+  "DICO01": [
+    "Kosher"
+  ],
+  "10333": [
+    "Kosher"
+  ],
+  "DICOCE": [
+    "Kosher"
+  ],
+  "ALBADICO": [
+    "Kosher"
+  ],
+  "DICO39": [
+    "Kosher"
+  ],
+  "DICO37": [
+    "Kosher"
+  ],
+  "DICO51": [
+    "Kosher"
+  ],
+  "DICO29": [
+    "Kosher"
+  ],
+  "024978": [
+    "Kosher"
+  ],
+  "AJODICO": [
+    "Kosher"
+  ],
+  "PROVEDICO": [
+    "Kosher"
+  ],
+  "2367": [
+    "Kosher"
+  ],
+  "DICO678": [
+    "Kosher"
+  ],
+  "2364": [
+    "Kosher"
+  ],
+  "DICO52": [
+    "Kosher"
+  ],
+  "2373": [
+    "Kosher"
+  ],
+  "DICO67": [
+    "Kosher"
+  ],
+  "DICO788": [
+    "Kosher"
+  ],
+  "AJIDICO": [
+    "Kosher"
+  ],
+  "PEREDICO": [
+    "Kosher"
+  ],
+  "DICO04": [
+    "Kosher"
+  ],
+  "02631": [
+    "Kosher"
+  ],
+  "04895": [
+    "Kosher"
+  ],
+  "2359": [
+    "Kosher"
+  ],
+  "DICO32": [
+    "Kosher"
+  ],
+  "FELICES12": [
+    "Kosher"
+  ],
+  "KYROS21": [
+    "Kosher"
+  ],
+  "03482": [
     "Kosher"
   ]
 }
