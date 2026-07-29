@@ -24,7 +24,10 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
       },
     })
-    if (!pedidosRes.ok) throw new Error('No se pudo leer pedidos de Supabase')
+    if (!pedidosRes.ok) {
+      const detalle = await pedidosRes.text()
+      throw new Error(`No se pudo leer pedidos de Supabase (status ${pedidosRes.status}): ${detalle}`)
+    }
     const pedidos = await pedidosRes.json()
 
     // 2. Traer nombres de clientes desde jsonbin (para no mostrar solo el teléfono)
