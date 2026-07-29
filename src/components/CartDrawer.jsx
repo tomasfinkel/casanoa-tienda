@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
+import { supabase } from '../supabaseClient.js'
+
+const TELEFONO_KEY = 'casanoa-tienda-telefono'
 
 export default function CartDrawer({ renderTrigger }) {
   const [abierto, setAbierto] = useState(false)
@@ -37,6 +40,23 @@ export default function CartDrawer({ renderTrigger }) {
     ].join('\n')
     const url = `https://wa.me/${sucursal.whatsapp}?text=${encodeURIComponent(mensaje)}`
     window.open(url, '_blank')
+
+    // Guardar el pedido en Supabase para historial de compras
+    try {
+      let telefono = null
+      try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
+      await supabase.from('pedidos').insert({
+        telefono_cliente: telefono,
+        sucursal: sucursal.nombre,
+        items: itemsConDatos.map((i) => ({
+          id: i.id, nombre: i.nombre, sabor: i.sabor, cantidad: i.cantidad, precio: i.precio,
+        })),
+        total,
+        tipo_envio: tipoEnvio,
+      })
+    } catch {
+      // no bloquear el pedido si falla el guardado
+    }
 
     // Notificación por email a Casa NOA
     try {

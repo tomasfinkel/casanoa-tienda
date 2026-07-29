@@ -4,6 +4,9 @@ import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
 import CategoryGrid from './CategoryGrid.jsx'
 import categorias from '../data/categorias.json'
+import { supabase } from '../supabaseClient.js'
+
+const TELEFONO_KEY = 'casanoa-tienda-telefono'
 
 const LIMITE_RESULTADOS = 500
 
@@ -54,6 +57,25 @@ export default function ProductList({ categoriaActiva, buscadorActivo, onNavegar
   // Si cambia el rubro activo (incluso al volver por historial), limpiar el texto tipeado
   useEffect(() => {
     setBusqueda('')
+  }, [categoriaActiva])
+
+  // Registrar búsquedas/navegación por rubro para poder armar sugerencias después.
+  // Debounce de 800ms en texto libre para no insertar una fila por cada letra tipeada.
+  useEffect(() => {
+    if (!busqueda.trim() || busqueda.trim().length < 2) return
+    const timeout = setTimeout(() => {
+      let telefono = null
+      try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
+      supabase.from('eventos_busqueda').insert({ telefono_cliente: telefono, termino: busqueda.trim() }).then(() => {})
+    }, 800)
+    return () => clearTimeout(timeout)
+  }, [busqueda])
+
+  useEffect(() => {
+    if (!categoriaActiva) return
+    let telefono = null
+    try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
+    supabase.from('eventos_busqueda').insert({ telefono_cliente: telefono, termino: categoriaActiva }).then(() => {})
   }, [categoriaActiva])
 
   if (cargando) return <p className="estado">Cargando catálogo...</p>
