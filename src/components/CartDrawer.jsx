@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 import { supabase } from '../supabaseClient.js'
+import ProductCard from './ProductCard.jsx'
 
 const TELEFONO_KEY = 'casanoa-tienda-telefono'
 
@@ -22,6 +23,35 @@ export default function CartDrawer({ renderTrigger }) {
 
   const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
+
+  const [sugeridos, setSugeridos] = useState([])
+
+  useEffect(() => {
+    if (!abierto) return
+    let telefono = null
+    try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
+    if (!telefono) { setSugeridos([]); return }
+
+    fetch(`/api/sugerencias?telefono=${encodeURIComponent(telefono)}`)
+      .then((r) => r.json())
+      .then((data) => {
+        const terminos = data.terminos || []
+        const idsEnCarrito = new Set(items.map((i) => i.id))
+        const encontrados = []
+        for (const termino of terminos) {
+          const t = termino.toLowerCase()
+          const match = productos.find((p) =>
+            !idsEnCarrito.has(p.id) &&
+            !encontrados.some((e) => e.id === p.id) &&
+            p.nombre.toLowerCase().includes(t)
+          )
+          if (match) encontrados.push(match)
+          if (encontrados.length >= 4) break
+        }
+        setSugeridos(encontrados)
+      })
+      .catch(() => setSugeridos([]))
+  }, [abierto])
 
   async function enviarPorWhatsapp() {
     const lineas = itemsConDatos.map((i) => {
@@ -147,6 +177,15 @@ export default function CartDrawer({ renderTrigger }) {
                   Enviar pedido por WhatsApp
                 </button>
                 <button onClick={vaciarCarrito}>Vaciar carrito</button>
+
+                {sugeridos.length > 0 && (
+                  <div className="sugerencias-carrito">
+                    <h3>Basado en lo que buscaste</h3>
+                    <div className="grid-productos-sugeridos">
+                      {sugeridos.map((p) => <ProductCard key={p.id} producto={p} />)}
+                    </div>
+                  </div>
+                )}
               </>
             )}
 
