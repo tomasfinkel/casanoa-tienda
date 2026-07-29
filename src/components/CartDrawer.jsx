@@ -4,6 +4,7 @@ import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 import { supabase } from '../supabaseClient.js'
 import ProductCard from './ProductCard.jsx'
+import categorias from '../data/categorias.json'
 
 const TELEFONO_KEY = 'casanoa-tienda-telefono'
 
@@ -36,18 +37,31 @@ export default function CartDrawer({ renderTrigger }) {
       .then((r) => r.json())
       .then((data) => {
         const terminos = data.terminos || []
+        const idsRecompra = data.recompra || []
         const idsEnCarrito = new Set(items.map((i) => i.id))
         const encontrados = []
+
+        // 1) Primero, productos ya comprados antes (recompra), sin repetir carrito
+        for (const id of idsRecompra) {
+          if (encontrados.length >= 4) break
+          if (idsEnCarrito.has(id)) continue
+          const producto = productos.find((p) => p.id === id)
+          if (producto) encontrados.push(producto)
+        }
+
+        // 2) Completar con lo buscado: si el término es un rubro real, usar categorias.json;
+        //    si no, buscar el texto dentro del nombre del producto.
         for (const termino of terminos) {
+          if (encontrados.length >= 4) break
           const t = termino.toLowerCase()
           const match = productos.find((p) =>
             !idsEnCarrito.has(p.id) &&
             !encontrados.some((e) => e.id === p.id) &&
-            p.nombre.toLowerCase().includes(t)
+            ((categorias[p.id] || []).includes(termino) || p.nombre.toLowerCase().includes(t))
           )
           if (match) encontrados.push(match)
-          if (encontrados.length >= 4) break
         }
+
         setSugeridos(encontrados)
       })
       .catch(() => setSugeridos([]))
