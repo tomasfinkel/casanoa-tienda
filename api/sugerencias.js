@@ -41,7 +41,33 @@ export default async function handler(req, res) {
       .slice(0, 5)
       .map(([termino]) => termino)
 
-    res.status(200).json({ terminos })
+    // Productos ya comprados antes por este cliente (para sugerir recompra)
+    let recompra = []
+    try {
+      const pedidosUrl = `${SUPABASE_URL}/pedidos?telefono_cliente=eq.${encodeURIComponent(telefono)}&select=items`
+      const pedidosRes = await fetch(pedidosUrl, {
+        headers: {
+          apikey: SUPABASE_SERVICE_ROLE_KEY,
+          Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+        },
+      })
+      if (pedidosRes.ok) {
+        const pedidos = await pedidosRes.json()
+        const conteoProductos = {}
+        for (const pedido of pedidos) {
+          for (const item of pedido.items || []) {
+            conteoProductos[item.id] = (conteoProductos[item.id] || 0) + 1
+          }
+        }
+        recompra = Object.entries(conteoProductos)
+          .sort((a, b) => b[1] - a[1])
+          .map(([id]) => id)
+      }
+    } catch {
+      // si falla, seguimos solo con términos de búsqueda
+    }
+
+    res.status(200).json({ terminos, recompra })
   } catch (e) {
     res.status(500).json({ error: e.message })
   }
