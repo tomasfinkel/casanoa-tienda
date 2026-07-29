@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'GET') return res.status(405).json({ error: 'Método no permitido' })
 
-  const SUPABASE_URL = process.env.SUPABASE_URL
+  const SUPABASE_URL = (process.env.SUPABASE_URL || '').replace(/\/+$/, '')
   const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
   const JSONBIN_BIN_ID = '6a41818ef5f4af5e293e7862'
   const JSONBIN_MASTER_KEY = process.env.JSONBIN_MASTER_KEY
