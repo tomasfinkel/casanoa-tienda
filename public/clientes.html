@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Casa NOA — Panel de clientes</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0ede8;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    color: #3c2c23;
+  }
+  .contenedor { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+  .subtitulo { color: #8a8578; font-size: 0.85rem; margin-bottom: 1.5rem; }
+  input {
+    width: 100%; padding: 0.7rem; border-radius: 8px;
+    border: 1px solid #e0dcd3; font-size: 1rem; font-family: inherit;
+  }
+  button {
+    padding: 0.8rem; border-radius: 8px; border: none;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 1rem; font-family: inherit;
+  }
+  .btn-principal { background: #3c2c23; color: #e7e3db; width: 100%; }
+  .login-panel { background: #fff; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .oculto { display: none; }
+  .mensaje { padding: 0.8rem; border-radius: 8px; font-size: 0.85rem; margin-top: 1rem; }
+  .mensaje.error { background: #fbe4e0; color: #a13d2c; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; margin-top: 1rem; }
+  th, td { padding: 0.7rem 0.8rem; text-align: left; font-size: 0.85rem; border-bottom: 1px solid #f0ede8; }
+  th { background: #3c2c23; color: #e7e3db; cursor: pointer; user-select: none; }
+  th:hover { background: #2a1f18; }
+  tr:hover td { background: #faf8f5; }
+  .resumen-top { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .stat { background: #fff; border-radius: 10px; padding: 0.9rem 1.2rem; flex: 1; min-width: 140px; }
+  .stat .num { font-size: 1.4rem; font-weight: 700; }
+  .stat .label { color: #8a8578; font-size: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <div id="loginPanel" class="login-panel">
+    <h1>Casa NOA — Panel de clientes</h1>
+    <p class="subtitulo">Acceso solo para dueños/gerencia</p>
+    <label>PIN de acceso</label>
+    <input type="password" id="pinInput" inputmode="numeric" placeholder="••••" />
+    <button class="btn-principal" onclick="verificarPin()">Ingresar</button>
+    <p id="pinError" class="mensaje error oculto">PIN incorrecto</p>
+  </div>
+
+  <div id="appPanel" class="oculto">
+    <h1>Panel de clientes</h1>
+    <p class="subtitulo">Quién compra, cuánto, y cada cuánto vuelve</p>
+    <input type="text" id="filtroInput" placeholder="Buscar por nombre o teléfono..." oninput="filtrar()" />
+    <div id="resumenTop" class="resumen-top"></div>
+    <div id="tablaArea"></div>
+    <p id="estadoMensaje" class="subtitulo"></p>
+  </div>
+
+</div>
+
+<script>
+  const PIN_CORRECTO = '2024' // mismo PIN que personal.html — cambiar acá si lo cambian allá
+  const API_URL = 'https://casanoa-pedidos.vercel.app/api/panel-clientes'
+
+  let datosCompletos = []
+  let ordenActual = { campo: 'totalGastado', asc: false }
+
+  function verificarPin() {
+    const pin = document.getElementById('pinInput').value
+    if (pin === PIN_CORRECTO) {
+      document.getElementById('loginPanel').classList.add('oculto')
+      document.getElementById('appPanel').classList.remove('oculto')
+      cargarDatos()
+    } else {
+      document.getElementById('pinError').classList.remove('oculto')
+    }
+  }
+
+  async function cargarDatos() {
+    document.getElementById('estadoMensaje').textContent = 'Cargando...'
+    try {
+      const res = await fetch(API_URL)
+      if (!res.ok) throw new Error('No se pudo conectar con el panel')
+      const data = await res.json()
+      datosCompletos = data.clientes
+      renderResumen(data)
+      renderTabla(datosCompletos)
+      document.getElementById('estadoMensaje').textContent = ''
+    } catch (e) {
+      document.getElementById('estadoMensaje').textContent = 'Error: ' + e.message
+    }
+  }
+
+  function renderResumen(data) {
+    const totalClientes = data.clientes.length
+    const totalVendido = data.clientes.reduce((a, c) => a + c.totalGastado, 0)
+    const recurrentes = data.clientes.filter(c => c.cantidadPedidos > 1).length
+    document.getElementById('resumenTop').innerHTML = `
+      <div class="stat"><div class="num">${data.totalPedidos}</div><div class="label">Pedidos totales</div></div>
+      <div class="stat"><div class="num">${totalClientes}</div><div class="label">Clientes distintos</div></div>
+      <div class="stat"><div class="num">${recurrentes}</div><div class="label">Clientes recurrentes</div></div>
+      <div class="stat"><div class="num">$${Math.round(totalVendido).toLocaleString('es-AR')}</div><div class="label">Vendido total</div></div>
+    `
+  }
+
+  function formatearFecha(iso) {
+    return new Date(iso).toLocaleDateString('es-AR')
+  }
+
+  function ordenarPor(campo) {
+    if (ordenActual.campo === campo) ordenActual.asc = !ordenActual.asc
+    else ordenActual = { campo, asc: false }
+    renderTabla(datosFiltrados())
+  }
+
+  function datosFiltrados() {
+    const texto = document.getElementById('filtroInput').value.trim().toLowerCase()
+    if (!texto) return datosCompletos
+    return datosCompletos.filter(c =>
+      (c.nombre || '').toLowerCase().includes(texto) || c.telefono.includes(texto)
+    )
+  }
+
+  function filtrar() {
+    renderTabla(datosFiltrados())
+  }
+
+  function renderTabla(lista) {
+    const { campo, asc } = ordenActual
+    const ordenada = [...lista].sort((a, b) => {
+      let va = a[campo], vb = b[campo]
+      if (va === null) va = -Infinity
+      if (vb === null) vb = -Infinity
+      if (typeof va === 'string') return asc ? va.localeCompare(vb) : vb.localeCompare(va)
+      return asc ? va - vb : vb - va
+    })
+
+    const filas = ordenada.map(c => `
+      <tr>
+        <td>${c.nombre || '<em>Sin nombre</em>'}</td>
+        <td>${c.telefono}</td>
+        <td>${c.cantidadPedidos}</td>
+        <td>$${Math.round(c.totalGastado).toLocaleString('es-AR')}</td>
+        <td>${c.diasPromedio ? c.diasPromedio + ' días' : '—'}</td>
+        <td>${formatearFecha(c.ultimoPedido)}</td>
+      </tr>
+    `).join('')
+
+    document.getElementById('tablaArea').innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th onclick="ordenarPor('nombre')">Cliente</th>
+            <th onclick="ordenarPor('telefono')">Teléfono</th>
+            <th onclick="ordenarPor('cantidadPedidos')">Pedidos</th>
+            <th onclick="ordenarPor('totalGastado')">Total gastado</th>
+            <th onclick="ordenarPor('diasPromedio')">Frecuencia</th>
+            <th onclick="ordenarPor('ultimoPedido')">Última compra</th>
+          </tr>
+        </thead>
+        <tbody>${filas || '<tr><td colspan="6">Sin datos todavía.</td></tr>'}</tbody>
+      </table>
+    `
+  }
+</script>
+</body>
+</html>
