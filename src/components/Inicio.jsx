@@ -22,7 +22,7 @@ const SLIDES = [
 
 const SECCIONES = [
   { titulo: 'Vinos y bebidas selectas', codigos: ['240600', 'PIEL03', 'CHA01', 'CHA02', 'ESTRE1', 'ESTRE2'], categoria: 'Vinos y bebidas selectas' },
-  { titulo: 'Seleccionados Casa NOA', codigos: ['10752', 'PONTNUEVA', 'KAY02', '11235', 'WAP', 'INTEGRA02', '70091', 'ONED01', 'BACI11', '970012', '7798343751682', 'KAY03', 'MAMIK', 'CALI04', '11075', 'CALI05', '10628', 'MI77', '00000051'], categoria: 'Seleccionados Casa NOA' },
+  { titulo: 'Seleccionados Casa Noa', codigos: ['10752', 'PONTNUEVA', 'KAY02', '11235', 'WAP', 'INTEGRA02'], categoria: 'Seleccionados Casa NOA' },
   { titulo: 'Wellness', codigos: ['DIABLA08', 'GRACOL', 'MARIA1', 'NAKED04', 'NATIER04', '0011'], categoria: 'Suplementos y superalimentos' },
   { titulo: 'Café de especialidad y premium', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'], categoria: 'Café e infusiones' },
   { titulo: 'Importados', codigos: ['8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88', 'BONNE01'], categoria: 'Importados' },
