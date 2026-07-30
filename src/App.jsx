@@ -149,7 +149,7 @@ function Contenido() {
         </button>
         <button className={'navbar-item' + (vista.tab === 'cuenta' ? ' activo' : '')} onClick={() => cambiarTab('cuenta')}>
           <IconoCuenta activo={vista.tab === 'cuenta'} />
-          <span>Mi cuenta</span>
+          <span>Miembros</span>
         </button>
         <CartDrawer renderTrigger={(cantidad, abrir) => (
           <button className="navbar-item" onClick={abrir}>
