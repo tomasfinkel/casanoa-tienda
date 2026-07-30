@@ -980,6 +980,24 @@ body {
   color: #8a8578;
 }
 
+.visitas-resumen {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem 0;
+}
+
+.visitas-numero {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3c2c23;
+}
+
+.visitas-label {
+  font-size: 0.85rem;
+  color: #8a8578;
+}
+
 .puntos-barra-track {
   margin: 0.6rem 1rem 0;
   height: 8px;
@@ -1052,12 +1070,12 @@ body {
   box-shadow: 0 0 0 1.5px #a89070 inset;
 }
 
-.tarjeta-club--premium {
+.tarjeta-club--prive {
   background: linear-gradient(135deg, #2a1f18 0%, #3c2c23 100%);
   box-shadow: 0 0 0 1.5px #d4a054 inset, 0 4px 20px rgba(212, 160, 84, 0.25);
 }
 
-.tarjeta-club--premium .tarjeta-club-titulo-club {
+.tarjeta-club--prive .tarjeta-club-titulo-club {
   color: #f0c078;
 }
 
