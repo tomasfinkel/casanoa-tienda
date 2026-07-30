@@ -22,7 +22,7 @@ const SLIDES = [
 
 const SECCIONES = [
   { titulo: 'Vinos y bebidas selectas', codigos: ['240600', 'PIEL03', 'CHA01', 'CHA02', 'ESTRE1', 'ESTRE2'], categoria: 'Vinos y bebidas selectas' },
-  { titulo: 'Chocolates premium', codigos: ['LINDT01', 'LINDT88', 'TONY2', 'TONYS3', 'TIKDUBAI', 'NOA16'], categoria: 'Dulces y chocolates' },
+  { titulo: 'Seleccionados Casa NOA', codigos: ['10752', 'PONTNUEVA', 'KAY02', '11235', 'WAP', 'INTEGRA02', '70091', 'ONED01', 'BACI11', '970012', '7798343751682', 'KAY03', 'MAMIK', 'CALI04', '11075', 'CALI05', '10628', 'MI77', '00000051'], categoria: 'Seleccionados Casa NOA' },
   { titulo: 'Wellness', codigos: ['DIABLA08', 'GRACOL', 'MARIA1', 'NAKED04', 'NATIER04', '0011'], categoria: 'Suplementos y superalimentos' },
   { titulo: 'Café de especialidad y premium', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'], categoria: 'Café e infusiones' },
   { titulo: 'Importados', codigos: ['8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88', 'BONNE01'], categoria: 'Importados' },
@@ -127,7 +127,10 @@ export default function Inicio({ onVerProductos, onBuscar }) {
       <div className="inicio-buscador-wrap">
         <button className="inicio-buscador-fake" onClick={() => onBuscar ? onBuscar() : onVerProductos()}>
           <span>¿Qué estás buscando?</span>
-          <span className="inicio-buscador-lupa">🔍</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8578" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
         </button>
       </div>
 
