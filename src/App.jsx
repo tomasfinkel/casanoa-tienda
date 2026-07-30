@@ -19,15 +19,13 @@ function BarraEnvioGratis({ onIrAProductos }) {
     const p = productos.find(prod => prod.id === i.id)
     return acc + (p ? p.precio * i.cantidad : 0)
   }, 0)
-  if (total === 0) return null
+  if (total === 0 || total >= ENVIO_GRATIS_DESDE) return null
   const porcentaje = Math.min(100, (total / ENVIO_GRATIS_DESDE) * 100)
   const falta = ENVIO_GRATIS_DESDE - total
   return (
     <div className="barra-envio-gratis barra-envio-gratis--fija" onClick={onIrAProductos}>
       <div className="barra-envio-gratis-texto">
-        {falta > 0
-          ? <>Te faltan <strong>${falta.toLocaleString('es-AR')}</strong> para envío gratis</>
-          : <strong>¡Tu pedido ya tiene envío gratis!</strong>}
+        Te faltan <strong>${falta.toLocaleString('es-AR')}</strong> para envío gratis
       </div>
       <div className="barra-envio-gratis-track">
         <div className="barra-envio-gratis-fill" style={{ width: `${porcentaje}%` }} />
