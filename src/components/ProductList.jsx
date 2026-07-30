@@ -1,25 +1,82 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
 import ProductCard from './ProductCard.jsx'
 import CategoryGrid from './CategoryGrid.jsx'
 import categorias from '../data/categorias.json'
+import { supabase } from '../supabaseClient.js'
+
+const TELEFONO_KEY = 'casanoa-tienda-telefono'
 
 const LIMITE_RESULTADOS = 500
 
+// Guarda la posición de scroll de cada rubro para restaurarla al volver,
+// incluso si el componente se desmonta (por ejemplo al cambiar de pestaña).
+const scrollGuardado = {}
+
 const RUBROS_SUGERIDOS = [
-  'Snacks', 'Bebidas y jugos', 'Vinos', 'Dulces y chocolates',
+  'Snacks', 'Bebidas y jugos', 'Vinos y bebidas selectas', 'Dulces y chocolates',
   'Suplementos y superalimentos', 'Café e infusiones', 'Importados',
-  'Lácteos y veganos', 'Congelados',
+  'Lácteos y veganos', 'Congelados', 'Kosher',
 ]
 
-export default function ProductList({ categoriaInicial }) {
+export default function ProductList({ categoriaActiva, buscadorActivo, onNavegar, onVolver }) {
   const { productos: todosLosProductos, cargando, error } = useCatalogo()
   const { sucursalId } = useSucursal()
   const [busqueda, setBusqueda] = useState('')
-  const [buscadorActivo, setBuscadorActivo] = useState(false)
-  const [categoriaActiva, setCategoriaActiva] = useState(categoriaInicial || null)
   const inputRef = useRef(null)
+
+  // Restaurar y guardar la posición de scroll de cada rubro
+  useEffect(() => {
+    const key = categoriaActiva || '__todas__'
+    const yGuardado = scrollGuardado[key]
+    if (yGuardado) {
+      requestAnimationFrame(() => window.scrollTo(0, yGuardado))
+    } else {
+      window.scrollTo(0, 0)
+    }
+    function guardarScroll() {
+      scrollGuardado[key] = window.scrollY
+    }
+    window.addEventListener('scroll', guardarScroll, { passive: true })
+    return () => {
+      guardarScroll()
+      window.removeEventListener('scroll', guardarScroll)
+    }
+  }, [categoriaActiva])
+
+  // Si llegamos con el buscador ya activo (por ejemplo desde el Inicio), enfocar el input
+  useEffect(() => {
+    if (buscadorActivo) {
+      inputRef.current?.focus()
+    } else {
+      setBusqueda('')
+    }
+  }, [buscadorActivo])
+
+  // Si cambia el rubro activo (incluso al volver por historial), limpiar el texto tipeado
+  useEffect(() => {
+    setBusqueda('')
+  }, [categoriaActiva])
+
+  // Registrar búsquedas/navegación por rubro para poder armar sugerencias después.
+  // Debounce de 800ms en texto libre para no insertar una fila por cada letra tipeada.
+  useEffect(() => {
+    if (!busqueda.trim() || busqueda.trim().length < 2) return
+    const timeout = setTimeout(() => {
+      let telefono = null
+      try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
+      supabase.from('eventos_busqueda').insert({ telefono_cliente: telefono, termino: busqueda.trim() }).then(() => {})
+    }, 800)
+    return () => clearTimeout(timeout)
+  }, [busqueda])
+
+  useEffect(() => {
+    if (!categoriaActiva) return
+    let telefono = null
+    try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
+    supabase.from('eventos_busqueda').insert({ telefono_cliente: telefono, termino: categoriaActiva }).then(() => {})
+  }, [categoriaActiva])
 
   if (cargando) return <p className="estado">Cargando catálogo...</p>
   if (error) return <p className="estado error">No se pudo cargar el catálogo: {error}</p>
@@ -33,15 +90,11 @@ export default function ProductList({ categoriaInicial }) {
   })
 
   function aplicarAtajo(categoria) {
-    setCategoriaActiva(categoria)
-    setBusqueda('')
-    setBuscadorActivo(false)
+    onNavegar({ categoriaActiva: categoria, buscadorActivo: false })
   }
 
-  function cancelarBusqueda() {
-    setBusqueda('')
-    setBuscadorActivo(false)
-    inputRef.current?.blur()
+  function activarBuscador() {
+    if (!buscadorActivo) onNavegar({ buscadorActivo: true })
   }
 
   // Calcular coincidencias
@@ -65,12 +118,23 @@ export default function ProductList({ categoriaInicial }) {
     return [...prefijoDeMarca, ...contieneMarca, ...enDescripcion]
   }
 
+  function ordenarPorMarca(lista) {
+    return [...lista].sort((a, b) => {
+      const marcaA = a.nombre.split(' - ')[0]
+      const marcaB = b.nombre.split(' - ')[0]
+      const cmpMarca = marcaA.localeCompare(marcaB, 'es', { sensitivity: 'base' })
+      if (cmpMarca !== 0) return cmpMarca
+      return a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' })
+    })
+  }
+
   let coincidencias = []
   if (categoriaActiva && busqueda.trim().length >= 2) {
     const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
     coincidencias = buscarProductos(enRubro, busqueda)
   } else if (categoriaActiva) {
-    coincidencias = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
+    const enRubro = productos.filter((p) => (categorias[p.id] || []).includes(categoriaActiva))
+    coincidencias = ordenarPorMarca(enRubro)
   } else if (busqueda.trim().length >= 2) {
     coincidencias = buscarProductos(productos, busqueda)
   }
@@ -91,7 +155,7 @@ export default function ProductList({ categoriaInicial }) {
             onChange={(e) => setBusqueda(e.target.value)}
             autoFocus
           />
-          <button className="buscador-cancelar" onClick={cancelarBusqueda}>Cancelar</button>
+          <button className="buscador-cancelar" onClick={onVolver}>Cancelar</button>
         </div>
         <div className="buscador-sugerencias">
           <p className="sugerencias-titulo">CATEGORÍAS</p>
@@ -119,7 +183,7 @@ export default function ProductList({ categoriaInicial }) {
             onChange={(e) => setBusqueda(e.target.value)}
             autoFocus
           />
-          <button className="buscador-cancelar" onClick={cancelarBusqueda}>Cancelar</button>
+          <button className="buscador-cancelar" onClick={onVolver}>Cancelar</button>
         </div>
         {coincidencias.length === 0 && <p className="estado">No encontramos nada.</p>}
         {coincidencias.length > LIMITE_RESULTADOS && (
@@ -143,13 +207,13 @@ export default function ProductList({ categoriaInicial }) {
             type="text"
             placeholder={`Buscá en ${categoriaActiva}...`}
             value={busqueda}
-            onChange={(e) => { setBusqueda(e.target.value); setBuscadorActivo(true) }}
-            onFocus={() => setBuscadorActivo(true)}
+            onChange={(e) => { setBusqueda(e.target.value); activarBuscador() }}
+            onFocus={activarBuscador}
           />
-          <button className="buscador-cancelar" onClick={() => { setCategoriaActiva(null); setBusqueda(''); setBuscadorActivo(false) }}>Cancelar</button>
+          <button className="buscador-cancelar" onClick={onVolver}>Cancelar</button>
         </div>
         <div className="barra-rubro">
-          <button className="btn-volver" onClick={() => { setCategoriaActiva(null); setBusqueda('') }}>← Volver</button>
+          <button className="btn-volver" onClick={onVolver}>← Volver</button>
           <span className="rubro-activo-titulo">{categoriaActiva}</span>
         </div>
         {coincidencias.length === 0 && <p className="estado">No encontramos nada.</p>}
@@ -170,8 +234,8 @@ export default function ProductList({ categoriaInicial }) {
           type="text"
           placeholder={`Buscá entre ${productos.length} productos...`}
           value={busqueda}
-          onFocus={() => setBuscadorActivo(true)}
-          onChange={(e) => { setBusqueda(e.target.value); setBuscadorActivo(true) }}
+          onFocus={activarBuscador}
+          onChange={(e) => { setBusqueda(e.target.value); activarBuscador() }}
         />
       </div>
       <CategoryGrid onElegir={aplicarAtajo} />

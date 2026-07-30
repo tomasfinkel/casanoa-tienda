@@ -10,6 +10,7 @@ export default function ProductCard({ producto }) {
   const { agregarItem, items, actualizarCantidad } = useCart()
   const [imagenSrc, setImagenSrc] = useState(`/productos/${producto.id}.jpg`)
   const [imagenRota, setImagenRota] = useState(false)
+  const [imagenCargada, setImagenCargada] = useState(false)
   const [saborElegido, setSaborElegido] = useState('')
   const [errorSabor, setErrorSabor] = useState(false)
 
@@ -25,6 +26,10 @@ export default function ProductCard({ producto }) {
   function handleImagenError() {
     if (imagenSrc.endsWith('.jpg')) setImagenSrc(`/productos/${producto.id}.png`)
     else setImagenRota(true)
+  }
+
+  function handleImagenCargada() {
+    setImagenCargada(true)
   }
 
   function handleAgregar() {
@@ -51,12 +56,25 @@ export default function ProductCard({ producto }) {
 
   return (
     <div className="card-producto">
-      <div className="card-imagen">
+      <div className={`card-imagen${!imagenRota && !imagenCargada ? ' cargando' : ''}`}>
         {esNovedad && <span className="badge-nuevo">NUEVO</span>}
         {!imagenRota ? (
-          <img src={imagenSrc} alt={producto.nombre} onError={handleImagenError} />
+          <img
+            src={imagenSrc}
+            alt={producto.nombre}
+            onError={handleImagenError}
+            onLoad={handleImagenCargada}
+            style={{ opacity: imagenCargada ? 1 : 0 }}
+          />
         ) : (
-          <div className="imagen-placeholder" />
+          <div className="imagen-placeholder">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 45 L50 15 L85 45 L85 90 L15 90 Z" />
+              <path d="M40 55 Q45 65 50 55 Q55 65 60 55" />
+              <circle cx="50" cy="70" r="3" fill="currentColor" stroke="none" />
+            </svg>
+            <span>CASA NOA</span>
+          </div>
         )}
 
         {cantidadEnCarrito > 0 ? (

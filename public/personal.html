@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Casa NOA — Sumar puntos</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0ede8;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    color: #3c2c23;
+  }
+  .contenedor {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+  .subtitulo {
+    color: #8a8578;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+  }
+  select, input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #e0dcd3;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-family: inherit;
+  }
+  .btn-principal {
+    background: #3c2c23;
+    color: #e7e3db;
+  }
+  .btn-principal:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .btn-secundario {
+    background: #fff;
+    color: #3c2c23;
+    border: 1px solid #e0dcd3;
+  }
+  .card-cliente {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .card-cliente .nombre {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .card-cliente .puntos-actuales {
+    color: #8a8578;
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+  }
+  .mensaje {
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+  .mensaje.error {
+    background: #fbe4e0;
+    color: #a13d2c;
+  }
+  .mensaje.exito {
+    background: #e3f0e3;
+    color: #2c5c2c;
+  }
+  .oculto { display: none; }
+  .login-panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <div id="loginPanel" class="login-panel">
+    <h1>Casa NOA — Personal</h1>
+    <p class="subtitulo">Acceso solo para empleados</p>
+    <label>PIN de acceso</label>
+    <input type="password" id="pinInput" inputmode="numeric" placeholder="••••" />
+    <button class="btn-principal" onclick="verificarPin()">Ingresar</button>
+    <p id="pinError" class="mensaje error oculto">PIN incorrecto</p>
+  </div>
+
+  <div id="appPanel" class="oculto">
+    <h1>Sumar puntos</h1>
+    <p class="subtitulo" id="subtituloSucursal"></p>
+
+    <label>Sucursal</label>
+    <select id="sucursalSelect">
+      <option value="castex">Castex</option>
+      <option value="siria">Av. República Árabe Siria</option>
+      <option value="migueletes">Migueletes</option>
+    </select>
+
+    <label>Teléfono del cliente</label>
+    <input type="tel" id="telefonoInput" placeholder="11XXXXXXXX" />
+    <button class="btn-secundario" onclick="buscarCliente()">Buscar cliente</button>
+
+    <div id="resultadoBusqueda"></div>
+
+    <div id="mensajeArea"></div>
+  </div>
+
+</div>
+
+<script>
+  const JSONBIN_BIN_ID = '6a41818ef5f4af5e293e7862'
+  const JSONBIN_MASTER_KEY = '$2a$10$1BGyO1jHwbMeYO1q//l4cONT1jPzR454VBh9kchyu6xE.xsmMtxz2'
+  const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`
+  const PIN_CORRECTO = '2024' // Cambiar por el PIN que prefieran
+
+  const CANJES = [
+    { umbral: 50, premio: '5% de descuento' },
+    { umbral: 120, premio: '10% de descuento' },
+    { umbral: 250, premio: 'Producto de regalo' },
+    { umbral: 450, premio: 'Producto premium gratis' },
+  ]
+
+  let clienteActual = null
+  let telefonoActual = null
+
+  function verificarPin() {
+    const pin = document.getElementById('pinInput').value
+    if (pin === PIN_CORRECTO) {
+      document.getElementById('loginPanel').classList.add('oculto')
+      document.getElementById('appPanel').classList.remove('oculto')
+    } else {
+      document.getElementById('pinError').classList.remove('oculto')
+    }
+  }
+
+  async function leerClientes() {
+    const res = await fetch(JSONBIN_URL + '/latest', {
+      headers: { 'X-Master-Key': JSONBIN_MASTER_KEY },
+    })
+    if (!res.ok) throw new Error('No se pudo conectar con la base de clientes')
+    const data = await res.json()
+    return data.record?.clientes ?? {}
+  }
+
+  async function guardarClientes(clientes) {
+    const res = await fetch(JSONBIN_URL, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': JSONBIN_MASTER_KEY,
+      },
+      body: JSON.stringify({ clientes }),
+    })
+    if (!res.ok) throw new Error('No se pudo guardar')
+  }
+
+  function mostrarMensaje(texto, tipo) {
+    const area = document.getElementById('mensajeArea')
+    area.innerHTML = `<div class="mensaje ${tipo}">${texto}</div>`
+  }
+
+  async function buscarCliente() {
+    const telefono = document.getElementById('telefonoInput').value.trim()
+    const resultado = document.getElementById('resultadoBusqueda')
+    document.getElementById('mensajeArea').innerHTML = ''
+    resultado.innerHTML = ''
+    clienteActual = null
+
+    if (!telefono) return
+
+    try {
+      const clientes = await leerClientes()
+      const cliente = clientes[telefono]
+      if (!cliente) {
+        mostrarMensaje('No se encontró ningún cliente con ese teléfono.', 'error')
+        return
+      }
+      clienteActual = cliente
+      telefonoActual = telefono
+
+      const canjeMasAlto = CANJES.filter(c => cliente.puntos >= c.umbral).pop()
+      const premiosHtml = canjeMasAlto
+        ? `<div class="mensaje exito">Tiene ${cliente.puntos} puntos → puede canjear: <strong>${canjeMasAlto.premio}</strong> (${canjeMasAlto.umbral} pts)
+            <button class="btn-secundario" style="margin-top:0.6rem" onclick="canjearPremio(${canjeMasAlto.umbral}, '${canjeMasAlto.premio.replace(/'/g, "\\'")}')">Marcar como canjeado</button>
+          </div>`
+        : ''
+
+      resultado.innerHTML = `
+        <div class="card-cliente">
+          <div class="nombre">${cliente.nombre}</div>
+          <div class="puntos-actuales">${cliente.puntos} puntos actuales</div>
+          ${premiosHtml}
+          <label>Monto de la compra ($)</label>
+          <input type="number" id="montoInput" placeholder="Ej: 25000" />
+          <button class="btn-principal" onclick="sumarPuntos()">Sumar puntos</button>
+          <button class="btn-secundario" onclick="volverABuscar()">← Volver</button>
+        </div>
+      `
+    } catch (e) {
+      mostrarMensaje('Error: ' + e.message, 'error')
+    }
+  }
+
+  async function canjearPremio(umbral, premio) {
+    if (!confirm(`¿Confirmás el canje de "${premio}" por ${umbral} puntos?`)) return
+    const sucursal = document.getElementById('sucursalSelect').value
+    try {
+      const clientes = await leerClientes()
+      const cliente = clientes[telefonoActual]
+      if (!cliente || cliente.puntos < umbral) {
+        mostrarMensaje('Ya no tiene puntos suficientes para este canje.', 'error')
+        return
+      }
+      cliente.puntos -= umbral
+      cliente.canjes = cliente.canjes || []
+      cliente.canjes.push({
+        fecha: new Date().toISOString(),
+        premio,
+        puntosUsados: umbral,
+        sucursal,
+      })
+      clientes[telefonoActual] = cliente
+      await guardarClientes(clientes)
+
+      mostrarMensaje(`Canje registrado: ${premio}. Le quedan ${cliente.puntos} puntos.`, 'exito')
+      volverABuscar()
+    } catch (e) {
+      mostrarMensaje('Error al canjear: ' + e.message, 'error')
+    }
+  }
+
+  function volverABuscar() {
+    document.getElementById('resultadoBusqueda').innerHTML = ''
+    document.getElementById('mensajeArea').innerHTML = ''
+    document.getElementById('telefonoInput').value = ''
+    clienteActual = null
+    telefonoActual = null
+  }
+
+  async function sumarPuntos() {
+    const monto = Number(document.getElementById('montoInput').value)
+    const sucursal = document.getElementById('sucursalSelect').value
+    if (!monto || monto <= 0) {
+      mostrarMensaje('Ingresá un monto válido.', 'error')
+      return
+    }
+
+    const puntosGanados = Math.floor(monto / 1000)
+
+    try {
+      const clientes = await leerClientes()
+      const cliente = clientes[telefonoActual]
+      if (!cliente) {
+        mostrarMensaje('El cliente ya no existe en la base.', 'error')
+        return
+      }
+      cliente.puntos = (cliente.puntos || 0) + puntosGanados
+      cliente.historial = cliente.historial || []
+      cliente.historial.push({
+        fecha: new Date().toISOString(),
+        monto,
+        sucursal,
+        puntosGanados,
+      })
+      clientes[telefonoActual] = cliente
+      await guardarClientes(clientes)
+
+      mostrarMensaje(`¡Listo! Se sumaron ${puntosGanados} puntos. ${cliente.nombre} ahora tiene ${cliente.puntos} puntos.`, 'exito')
+      document.getElementById('resultadoBusqueda').innerHTML = ''
+      document.getElementById('telefonoInput').value = ''
+      clienteActual = null
+      telefonoActual = null
+    } catch (e) {
+      mostrarMensaje('Error al guardar: ' + e.message, 'error')
+    }
+  }
+</script>
+</body>
+</html>

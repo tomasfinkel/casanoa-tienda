@@ -40,7 +40,7 @@ export default function SelectorEnvio() {
               <span className="envio-opcion-icono">🚚</span>
               <div>
                 <strong>Delivery</strong>
-                <p>Gratis desde $90.000 en CABA. El costo se coordina por WhatsApp.</p>
+                <p>Gratis desde $55.000 en CABA. El costo se coordina por WhatsApp.</p>
               </div>
             </button>
             <button className="envio-cancelar" onClick={() => { setMostrarSelectorEnvio(false); setPaso('elegir') }}>

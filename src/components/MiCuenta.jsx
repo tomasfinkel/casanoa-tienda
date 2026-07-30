@@ -64,6 +64,23 @@ async function enviarBienvenida(nombre, email) {
 
 const STORAGE_KEY = 'casanoa-tienda-telefono'
 
+// Niveles del club: se sube por puntos acumulados (que se suman por compra)
+const NIVELES = [
+  { nombre: 'Miembro', min: 0, envioGratis: false },
+  { nombre: 'Select', min: 500, envioGratis: false },
+  { nombre: 'Premium', min: 1500, envioGratis: true },
+]
+
+function calcularNivel(puntos) {
+  let actual = NIVELES[0]
+  for (const n of NIVELES) {
+    if (puntos >= n.min) actual = n
+  }
+  const idx = NIVELES.indexOf(actual)
+  const proximo = NIVELES[idx + 1] || null
+  return { actual, proximo }
+}
+
 async function leerClientes() {
   const res = await fetch(JSONBIN_URL + '/latest', {
     headers: { 'X-Master-Key': JSONBIN_MASTER_KEY },
@@ -100,7 +117,10 @@ export default function MiCuenta() {
   const [nombreForm, setNombreForm] = useState('')
   const [telefonoForm, setTelefonoForm] = useState('')
   const [emailForm, setEmailForm] = useState('')
+  const [fechaNacimientoForm, setFechaNacimientoForm] = useState('')
   const [enviando, setEnviando] = useState(false)
+  const [fechaNacimientoNueva, setFechaNacimientoNueva] = useState('')
+  const [guardandoFecha, setGuardandoFecha] = useState(false)
 
   useEffect(() => {
     if (!telefono) {
@@ -127,6 +147,7 @@ export default function MiCuenta() {
         nombre: nombreForm.trim(),
         telefono: telefonoLimpio,
         email: emailForm.trim(),
+        fechaNacimiento: fechaNacimientoForm || null,
         puntos: 0,
         fechaRegistro: new Date().toISOString(),
       }
@@ -174,6 +195,14 @@ export default function MiCuenta() {
             onChange={(e) => setEmailForm(e.target.value)}
             required
           />
+          <label className="label-fecha-nacimiento">
+            Fecha de nacimiento (para tu regalo de cumpleaños)
+            <input
+              type="date"
+              value={fechaNacimientoForm}
+              onChange={(e) => setFechaNacimientoForm(e.target.value)}
+            />
+          </label>
           {error && <p className="estado error">{error}</p>}
           <button type="submit" disabled={enviando}>
             {enviando ? 'Registrando...' : 'Registrarme'}
@@ -189,25 +218,104 @@ export default function MiCuenta() {
     setCliente(null)
   }
 
+  async function guardarFechaNacimiento() {
+    if (!fechaNacimientoNueva) return
+    setGuardandoFecha(true)
+    try {
+      const clientes = await leerClientes()
+      clientes[cliente.telefono] = { ...clientes[cliente.telefono], fechaNacimiento: fechaNacimientoNueva }
+      await guardarClientes(clientes)
+      setCliente(clientes[cliente.telefono])
+    } catch (e) {
+      setError('No se pudo guardar: ' + e.message)
+    }
+    setGuardandoFecha(false)
+  }
+
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(cliente.telefono)}`
   const descuentoUsado = cliente.historial && cliente.historial.length > 0
+  const { actual: nivel, proximo } = calcularNivel(cliente.puntos)
+  const puntosParaProximo = proximo ? proximo.min - cliente.puntos : 0
+  const porcentajeProgreso = proximo
+    ? Math.min(100, ((cliente.puntos - nivel.min) / (proximo.min - nivel.min)) * 100)
+    : 100
+  const esMesDeCumple = cliente.fechaNacimiento &&
+    new Date(cliente.fechaNacimiento + 'T00:00:00').getMonth() === new Date().getMonth()
 
   return (
     <div className="mi-cuenta">
-      <h2>Hola, {cliente.nombre}</h2>
-      <p className="puntos-actuales">{cliente.puntos} puntos</p>
-      <img src={qrUrl} alt="Tu código" className="qr-cliente" />
+      <div className={`tarjeta-club tarjeta-club--${nivel.nombre.toLowerCase()}`}>
+        <div className="tarjeta-club-header">
+          <div className="tarjeta-club-logo">CASA<br />NOA</div>
+        </div>
+        <div className="tarjeta-club-titulo">
+          CASA NOA <span className="tarjeta-club-titulo-club">CLUB</span>
+        </div>
+        <div className="tarjeta-club-linea" />
+        <div className="tarjeta-club-info">
+          <div>
+            <div className="tarjeta-club-nombre">{cliente.nombre.toUpperCase()}</div>
+            <div className="tarjeta-club-nivel">MIEMBRO {nivel.nombre.toUpperCase()}</div>
+          </div>
+          <img src={qrUrl} alt="Tu código" className="tarjeta-club-qr" />
+        </div>
+      </div>
+
+      <div className="puntos-resumen">
+        <span className="puntos-numero">{cliente.puntos.toLocaleString('es-AR')}</span>
+        <span className="puntos-label">puntos</span>
+      </div>
+      <div className="puntos-barra-track">
+        <div className="puntos-barra-fill" style={{ width: `${porcentajeProgreso}%` }} />
+      </div>
+      {proximo
+        ? <p className="puntos-para-siguiente">Te faltan {puntosParaProximo.toLocaleString('es-AR')} puntos para nivel {proximo.nombre}</p>
+        : <p className="puntos-para-siguiente">¡Llegaste al nivel máximo!</p>}
+
       <p className="texto-inicio">
         Mostrá este código en el local para sumar puntos en tu compra.
       </p>
 
-      {!descuentoUsado && (
-        <div className="descuento-bienvenida">
-          <span className="descuento-etiqueta">🎁 Descuento de bienvenida</span>
-          <span className="descuento-monto">15% OFF</span>
-          <span className="descuento-detalle">En tu primera compra, con cualquier medio de pago, sin tope. Mostrá este QR en el local.</span>
+      <h3 className="beneficios-titulo">Tus beneficios</h3>
+      <div className="fila-beneficios-club">
+        {!descuentoUsado && (
+          <div className="beneficio-club">
+            <span className="beneficio-club-icono">🎁</span>
+            <strong>15% OFF</strong>
+            <p>Primera compra</p>
+          </div>
+        )}
+        <div className={`beneficio-club${nivel.envioGratis ? '' : ' beneficio-club--bloqueado'}`}>
+          <span className="beneficio-club-icono">🚚</span>
+          <strong>Envío gratis</strong>
+          <p>{nivel.envioGratis ? 'Con cualquier monto' : `Desde nivel ${NIVELES.find(n => n.envioGratis)?.nombre}`}</p>
         </div>
-      )}
+        {cliente.fechaNacimiento ? (
+          <div className={`beneficio-club${esMesDeCumple ? ' beneficio-club--activo' : ''}`}>
+            <span className="beneficio-club-icono">🎂</span>
+            <strong>Cumpleaños</strong>
+            <p>{esMesDeCumple ? '¡Es tu mes! Pasá por el local' : 'Regalo en tu mes'}</p>
+          </div>
+        ) : (
+          <div className="beneficio-club beneficio-club--pedir-fecha">
+            <span className="beneficio-club-icono">🎂</span>
+            <strong>Cumpleaños</strong>
+            <input
+              type="date"
+              className="input-fecha-inline"
+              value={fechaNacimientoNueva}
+              onChange={(e) => setFechaNacimientoNueva(e.target.value)}
+            />
+            <button
+              className="btn-guardar-fecha"
+              onClick={guardarFechaNacimiento}
+              disabled={!fechaNacimientoNueva || guardandoFecha}
+            >
+              {guardandoFecha ? 'Guardando...' : 'Guardar'}
+            </button>
+          </div>
+        )}
+      </div>
 
       <button className="link-cerrar-sesion" onClick={cerrarSesion}>
         No soy yo / cerrar sesión
