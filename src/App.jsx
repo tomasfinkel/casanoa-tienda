@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { CatalogProvider } from './context/CatalogContext.jsx'
-import { CartProvider } from './context/CartContext.jsx'
+import { CatalogProvider, useCatalogo } from './context/CatalogContext.jsx'
+import { CartProvider, useCart } from './context/CartContext.jsx'
 import { BranchProvider, useSucursal, SUCURSALES } from './context/BranchContext.jsx'
 import BranchPicker from './components/BranchPicker.jsx'
 import Inicio from './components/Inicio.jsx'
@@ -9,6 +9,32 @@ import CartDrawer from './components/CartDrawer.jsx'
 import MiCuenta from './components/MiCuenta.jsx'
 import PopupPromo from './components/PopupPromo.jsx'
 import SelectorEnvio from './components/SelectorEnvio.jsx'
+
+const ENVIO_GRATIS_DESDE = 55000
+
+function BarraEnvioGratis({ onIrAProductos }) {
+  const { items } = useCart()
+  const { productos } = useCatalogo()
+  const total = items.reduce((acc, i) => {
+    const p = productos.find(prod => prod.id === i.id)
+    return acc + (p ? p.precio * i.cantidad : 0)
+  }, 0)
+  if (total === 0) return null
+  const porcentaje = Math.min(100, (total / ENVIO_GRATIS_DESDE) * 100)
+  const falta = ENVIO_GRATIS_DESDE - total
+  return (
+    <div className="barra-envio-gratis barra-envio-gratis--fija" onClick={onIrAProductos}>
+      <div className="barra-envio-gratis-texto">
+        {falta > 0
+          ? <>Te faltan <strong>${falta.toLocaleString('es-AR')}</strong> para envío gratis</>
+          : <strong>¡Tu pedido ya tiene envío gratis!</strong>}
+      </div>
+      <div className="barra-envio-gratis-track">
+        <div className="barra-envio-gratis-fill" style={{ width: `${porcentaje}%` }} />
+      </div>
+    </div>
+  )
+}
 
 function IconoInicio({ activo }) {
   return (
@@ -138,7 +164,9 @@ function Contenido() {
         {vista.tab === 'cuenta' && <MiCuenta />}
       </main>
 
-      <nav className="navbar-inferior">
+      <div className="pie-fijo">
+        <BarraEnvioGratis onIrAProductos={() => irAProductos(null)} />
+        <nav className="navbar-inferior">
         <button className={'navbar-item' + (vista.tab === 'inicio' ? ' activo' : '')} onClick={() => cambiarTab('inicio')}>
           <IconoInicio activo={vista.tab === 'inicio'} />
           <span>Inicio</span>
@@ -160,6 +188,7 @@ function Contenido() {
     <SelectorEnvio />
       <PopupPromo />
       </nav>
+      </div>
     </CartProvider>
   )
 }

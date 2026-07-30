@@ -1634,18 +1634,27 @@ body {
 }
 
 /* ===== NAVBAR INFERIOR ===== */
-.navbar-inferior {
+.pie-fijo {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 100;
+}
+
+.navbar-inferior {
   background: #fff;
   border-top: 1px solid #e7e3db;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
-  z-index: 100;
+}
+
+.barra-envio-gratis--fija {
+  margin: 0;
+  border-radius: 0;
+  border-top: 1px solid #e0dcd3;
 }
 
 .navbar-item {
@@ -1672,7 +1681,7 @@ body {
 }
 
 .main-con-navbar {
-  padding-bottom: 70px;
+  padding-bottom: 135px;
 }
 
 /* ===== CATEGORY GRID ===== */
