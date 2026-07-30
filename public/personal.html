@@ -215,10 +215,13 @@
           </div>`
         : ''
 
+      const visitasDelMes = contarVisitasDelMes(cliente.historial)
+      const nivelActual = [...NIVELES_VISITA].reverse().find(n => visitasDelMes >= n.min)
+
       resultado.innerHTML = `
         <div class="card-cliente">
           <div class="nombre">${cliente.nombre}</div>
-          <div class="puntos-actuales">${cliente.puntos} puntos actuales</div>
+          <div class="puntos-actuales">${cliente.puntos} puntos actuales · ${visitasDelMes} ${visitasDelMes === 1 ? 'visita' : 'visitas'} este mes (nivel ${nivelActual.nombre})</div>
           ${premiosHtml}
           <label>Monto de la compra ($)</label>
           <input type="number" id="montoInput" placeholder="Ej: 25000" />
@@ -267,6 +270,22 @@
     telefonoActual = null
   }
 
+  const NIVELES_VISITA = [
+    { nombre: 'Miembro', min: 0 },
+    { nombre: 'Select', min: 4 },
+    { nombre: 'Privé', min: 12 },
+  ]
+
+  function mesActualISO() {
+    const ahora = new Date()
+    return `${ahora.getFullYear()}-${String(ahora.getMonth() + 1).padStart(2, '0')}`
+  }
+
+  function contarVisitasDelMes(historial) {
+    const mes = mesActualISO()
+    return (historial || []).filter((h) => (h.fecha || '').slice(0, 7) === mes).length
+  }
+
   async function sumarPuntos() {
     const monto = Number(document.getElementById('montoInput').value)
     const sucursal = document.getElementById('sucursalSelect').value
@@ -284,6 +303,8 @@
         mostrarMensaje('El cliente ya no existe en la base.', 'error')
         return
       }
+      const visitasAntes = contarVisitasDelMes(cliente.historial)
+
       cliente.puntos = (cliente.puntos || 0) + puntosGanados
       cliente.historial = cliente.historial || []
       cliente.historial.push({
@@ -295,7 +316,14 @@
       clientes[telefonoActual] = cliente
       await guardarClientes(clientes)
 
-      mostrarMensaje(`¡Listo! Se sumaron ${puntosGanados} puntos. ${cliente.nombre} ahora tiene ${cliente.puntos} puntos.`, 'exito')
+      const visitasAhora = contarVisitasDelMes(cliente.historial)
+      const nivelCruzado = NIVELES_VISITA.find(n => n.min > 0 && visitasAntes < n.min && visitasAhora >= n.min)
+
+      let mensaje = `¡Listo! Se sumaron ${puntosGanados} puntos. ${cliente.nombre} ahora tiene ${cliente.puntos} puntos. (${visitasAhora}ª visita del mes)`
+      if (nivelCruzado) {
+        mensaje = `🎉 ¡${cliente.nombre} subió a nivel ${nivelCruzado.nombre}! Es su visita número ${visitasAhora} del mes — corresponde entregarle su premio.<br><br>` + mensaje
+      }
+      mostrarMensaje(mensaje, nivelCruzado ? 'exito' : 'exito')
       document.getElementById('resultadoBusqueda').innerHTML = ''
       document.getElementById('telefonoInput').value = ''
       clienteActual = null
