@@ -64,21 +64,33 @@ async function enviarBienvenida(nombre, email) {
 
 const STORAGE_KEY = 'casanoa-tienda-telefono'
 
-// Niveles del club: se sube por puntos acumulados (que se suman por compra)
+// Niveles del club: se recalculan cada mes según cuántas veces compró
+// en el local en ESE mes (cualquier compra registrada por el personal cuenta como visita)
 const NIVELES = [
-  { nombre: 'Miembro', min: 0, envioGratis: false },
-  { nombre: 'Select', min: 500, envioGratis: false },
-  { nombre: 'Premium', min: 1500, envioGratis: true },
+  { nombre: 'Miembro', min: 0, envioGratis: false, premio: false },
+  { nombre: 'Select', min: 4, envioGratis: false, premio: true },
+  { nombre: 'Privé', min: 12, envioGratis: true, premio: true },
 ]
 
-function calcularNivel(puntos) {
+function mesActualISO() {
+  const ahora = new Date()
+  return `${ahora.getFullYear()}-${String(ahora.getMonth() + 1).padStart(2, '0')}`
+}
+
+function contarVisitasDelMes(historial) {
+  const mes = mesActualISO()
+  return (historial || []).filter((h) => (h.fecha || '').slice(0, 7) === mes).length
+}
+
+function calcularNivel(historial) {
+  const visitas = contarVisitasDelMes(historial)
   let actual = NIVELES[0]
   for (const n of NIVELES) {
-    if (puntos >= n.min) actual = n
+    if (visitas >= n.min) actual = n
   }
   const idx = NIVELES.indexOf(actual)
   const proximo = NIVELES[idx + 1] || null
-  return { actual, proximo }
+  return { actual, proximo, visitas }
 }
 
 async function leerClientes() {
@@ -234,17 +246,18 @@ export default function MiCuenta() {
 
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(cliente.telefono)}`
   const descuentoUsado = cliente.historial && cliente.historial.length > 0
-  const { actual: nivel, proximo } = calcularNivel(cliente.puntos)
-  const puntosParaProximo = proximo ? proximo.min - cliente.puntos : 0
+  const { actual: nivel, proximo, visitas } = calcularNivel(cliente.historial)
+  const visitasParaProximo = proximo ? proximo.min - visitas : 0
   const porcentajeProgreso = proximo
-    ? Math.min(100, ((cliente.puntos - nivel.min) / (proximo.min - nivel.min)) * 100)
+    ? Math.min(100, ((visitas - nivel.min) / (proximo.min - nivel.min)) * 100)
     : 100
+  const nivelSlug = nivel.nombre.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   const esMesDeCumple = cliente.fechaNacimiento &&
     new Date(cliente.fechaNacimiento + 'T00:00:00').getMonth() === new Date().getMonth()
 
   return (
     <div className="mi-cuenta">
-      <div className={`tarjeta-club tarjeta-club--${nivel.nombre.toLowerCase()}`}>
+      <div className={`tarjeta-club tarjeta-club--${nivelSlug}`}>
         <div className="tarjeta-club-header">
           <div className="tarjeta-club-logo">CASA<br />NOA</div>
         </div>
@@ -265,12 +278,17 @@ export default function MiCuenta() {
         <span className="puntos-numero">{cliente.puntos.toLocaleString('es-AR')}</span>
         <span className="puntos-label">puntos</span>
       </div>
+
+      <div className="visitas-resumen">
+        <span className="visitas-numero">{visitas}</span>
+        <span className="visitas-label">{visitas === 1 ? 'visita este mes' : 'visitas este mes'}</span>
+      </div>
       <div className="puntos-barra-track">
         <div className="puntos-barra-fill" style={{ width: `${porcentajeProgreso}%` }} />
       </div>
       {proximo
-        ? <p className="puntos-para-siguiente">Te faltan {puntosParaProximo.toLocaleString('es-AR')} puntos para nivel {proximo.nombre}</p>
-        : <p className="puntos-para-siguiente">¡Llegaste al nivel máximo!</p>}
+        ? <p className="puntos-para-siguiente">Te faltan {visitasParaProximo} {visitasParaProximo === 1 ? 'visita' : 'visitas'} este mes para nivel {proximo.nombre}</p>
+        : <p className="puntos-para-siguiente">¡Estás en el nivel máximo este mes!</p>}
 
       <p className="texto-inicio">
         Mostrá este código en el local para sumar puntos en tu compra.
