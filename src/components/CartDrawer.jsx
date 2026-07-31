@@ -5,7 +5,7 @@ import { useSucursal } from '../context/BranchContext.jsx'
 
 export default function CartDrawer({ renderTrigger }) {
   const [abierto, setAbierto] = useState(false)
-  const { items, actualizarCantidad, quitarItem, vaciarCarrito, tipoEnvio, direccionDelivery, instruccionesEnvio } = useCart()
+  const { items, actualizarCantidad, quitarItem, vaciarCarrito, tipoEnvio, direccionDelivery, instruccionesEnvio, setMostrarSelectorEnvio } = useCart()
   const { productos } = useCatalogo()
   const { sucursal, cambiarSucursal } = useSucursal()
 
@@ -117,7 +117,7 @@ export default function CartDrawer({ renderTrigger }) {
                 </div>
                 <div className="resumen-pedido">
                   <p><strong>Sucursal:</strong> {sucursal?.nombre}</p>
-                  <p><strong>Entrega:</strong> {tipoEnvio === 'delivery' ? 'Delivery' : 'Retiro en el local'}</p>
+                  <p><strong>Entrega:</strong> {tipoEnvio === 'delivery' ? 'Delivery' : 'Retiro en el local'} <button className="link-cambiar" onClick={() => setMostrarSelectorEnvio(true)}>cambiar</button></p>
                   {tipoEnvio === 'delivery' && direccionDelivery && (
                     <p><strong>Dirección:</strong> {direccionDelivery}</p>
                   )}
