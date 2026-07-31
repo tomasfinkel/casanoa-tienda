@@ -1893,6 +1893,35 @@ body {
   border-color: #3c2c23;
 }
 
+.label-instrucciones-envio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #3c2c23;
+  margin-top: 0.9rem;
+}
+
+.input-instrucciones-envio {
+  border: 1.5px solid #e7e3db;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #3c2c23;
+  width: 100%;
+  background: #f5f2ec;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.input-instrucciones-envio:focus {
+  border-color: #3c2c23;
+}
+
 .btn-confirmar-delivery {
   background: #3c2c23;
   color: #e7e3db;
