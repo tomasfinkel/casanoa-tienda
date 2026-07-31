@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
 import { useSucursal } from '../context/BranchContext.jsx'
-import { supabase } from '../supabaseClient.js'
-import ProductCard from './ProductCard.jsx'
-import categorias from '../data/categorias.json'
-
-const TELEFONO_KEY = 'casanoa-tienda-telefono'
 
 export default function CartDrawer({ renderTrigger }) {
   const [abierto, setAbierto] = useState(false)
-  const { items, actualizarCantidad, quitarItem, vaciarCarrito, tipoEnvio, direccionDelivery } = useCart()
+  const { items, actualizarCantidad, quitarItem, vaciarCarrito, tipoEnvio, direccionDelivery, instruccionesEnvio } = useCart()
   const { productos } = useCatalogo()
   const { sucursal, cambiarSucursal } = useSucursal()
 
@@ -24,48 +19,6 @@ export default function CartDrawer({ renderTrigger }) {
 
   const total = itemsConDatos.reduce((acc, i) => acc + i.precio * i.cantidad, 0)
   const cantidadTotal = items.reduce((acc, i) => acc + i.cantidad, 0)
-
-  const [sugeridos, setSugeridos] = useState([])
-
-  useEffect(() => {
-    if (!abierto) return
-    let telefono = null
-    try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
-    if (!telefono) { setSugeridos([]); return }
-
-    fetch(`/api/sugerencias?telefono=${encodeURIComponent(telefono)}`)
-      .then((r) => r.json())
-      .then((data) => {
-        const terminos = data.terminos || []
-        const idsRecompra = data.recompra || []
-        const idsEnCarrito = new Set(items.map((i) => i.id))
-        const encontrados = []
-
-        // 1) Primero, productos ya comprados antes (recompra), sin repetir carrito
-        for (const id of idsRecompra) {
-          if (encontrados.length >= 4) break
-          if (idsEnCarrito.has(id)) continue
-          const producto = productos.find((p) => p.id === id)
-          if (producto) encontrados.push(producto)
-        }
-
-        // 2) Completar con lo buscado: si el término es un rubro real, usar categorias.json;
-        //    si no, buscar el texto dentro del nombre del producto.
-        for (const termino of terminos) {
-          if (encontrados.length >= 4) break
-          const t = termino.toLowerCase()
-          const match = productos.find((p) =>
-            !idsEnCarrito.has(p.id) &&
-            !encontrados.some((e) => e.id === p.id) &&
-            ((categorias[p.id] || []).includes(termino) || p.nombre.toLowerCase().includes(t))
-          )
-          if (match) encontrados.push(match)
-        }
-
-        setSugeridos(encontrados)
-      })
-      .catch(() => setSugeridos([]))
-  }, [abierto])
 
   async function enviarPorWhatsapp() {
     const lineas = itemsConDatos.map((i) => {
@@ -81,26 +34,10 @@ export default function CartDrawer({ renderTrigger }) {
       '',
       `Entrega: ${tipoEnvio === 'delivery' ? 'Delivery' : 'Retiro en el local'}`,
       ...(tipoEnvio === 'delivery' && direccionDelivery ? [`Dirección: ${direccionDelivery}`] : []),
+      ...(tipoEnvio === 'delivery' && instruccionesEnvio ? [`Instrucciones: ${instruccionesEnvio}`] : []),
     ].join('\n')
     const url = `https://wa.me/${sucursal.whatsapp}?text=${encodeURIComponent(mensaje)}`
     window.open(url, '_blank')
-
-    // Guardar el pedido en Supabase para historial de compras
-    try {
-      let telefono = null
-      try { telefono = localStorage.getItem(TELEFONO_KEY) || null } catch {}
-      await supabase.from('pedidos').insert({
-        telefono_cliente: telefono,
-        sucursal: sucursal.nombre,
-        items: itemsConDatos.map((i) => ({
-          id: i.id, nombre: i.nombre, sabor: i.sabor, cantidad: i.cantidad, precio: i.precio,
-        })),
-        total,
-        tipo_envio: tipoEnvio,
-      })
-    } catch {
-      // no bloquear el pedido si falla el guardado
-    }
 
     // Notificación por email a Casa NOA
     try {
@@ -184,6 +121,9 @@ export default function CartDrawer({ renderTrigger }) {
                   {tipoEnvio === 'delivery' && direccionDelivery && (
                     <p><strong>Dirección:</strong> {direccionDelivery}</p>
                   )}
+                  {tipoEnvio === 'delivery' && instruccionesEnvio && (
+                    <p><strong>Instrucciones:</strong> {instruccionesEnvio}</p>
+                  )}
                   <p><strong>Productos:</strong> {cantidadTotal}</p>
                   <p><strong>Total estimado:</strong> ${total.toLocaleString('es-AR')}</p>
                 </div>
@@ -191,15 +131,6 @@ export default function CartDrawer({ renderTrigger }) {
                   Enviar pedido por WhatsApp
                 </button>
                 <button onClick={vaciarCarrito}>Vaciar carrito</button>
-
-                {sugeridos.length > 0 && (
-                  <div className="sugerencias-carrito">
-                    <h3>Basado en lo que buscaste</h3>
-                    <div className="grid-productos-sugeridos">
-                      {sugeridos.map((p) => <ProductCard key={p.id} producto={p} />)}
-                    </div>
-                  </div>
-                )}
               </>
             )}
 

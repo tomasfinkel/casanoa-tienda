@@ -5,6 +5,7 @@ export default function SelectorEnvio() {
   const { mostrarSelectorEnvio, setMostrarSelectorEnvio, confirmarTipoEnvio } = useCart()
   const [paso, setPaso] = useState('elegir') // 'elegir' | 'direccion'
   const [direccion, setDireccion] = useState('')
+  const [instrucciones, setInstrucciones] = useState('')
 
   if (!mostrarSelectorEnvio) return null
 
@@ -18,9 +19,10 @@ export default function SelectorEnvio() {
   }
 
   function confirmarDelivery() {
-    confirmarTipoEnvio('delivery', direccion)
+    confirmarTipoEnvio('delivery', direccion, instrucciones)
     setPaso('elegir')
     setDireccion('')
+    setInstrucciones('')
   }
 
   return (
@@ -58,6 +60,16 @@ export default function SelectorEnvio() {
               onChange={(e) => setDireccion(e.target.value)}
               autoFocus
             />
+            <label className="label-instrucciones-envio">
+              Instrucciones para la entrega (opcional)
+              <textarea
+                className="input-instrucciones-envio"
+                placeholder="Ej: entregar después de las 18hs, portero eléctrico piso 4, dejar en seguridad, avisar antes por WhatsApp..."
+                value={instrucciones}
+                onChange={(e) => setInstrucciones(e.target.value)}
+                rows={3}
+              />
+            </label>
             <button
               className="btn-confirmar-delivery"
               onClick={confirmarDelivery}
