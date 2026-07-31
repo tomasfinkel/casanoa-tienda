@@ -4,6 +4,7 @@ const CartContext = createContext(null)
 const STORAGE_KEY = 'casanoa-tienda-carrito'
 const TIPO_KEY = 'casanoa-tienda-tipo-envio'
 const DIRECCION_KEY = 'casanoa-tienda-direccion'
+const INSTRUCCIONES_KEY = 'casanoa-tienda-instrucciones-envio'
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
@@ -23,6 +24,9 @@ export function CartProvider({ children }) {
   const [mostrarSelectorEnvio, setMostrarSelectorEnvio] = useState(false)
   const [direccionDelivery, setDireccionDelivery] = useState(() => {
     try { return localStorage.getItem(DIRECCION_KEY) || '' } catch { return '' }
+  })
+  const [instruccionesEnvio, setInstruccionesEnvio] = useState(() => {
+    try { return localStorage.getItem(INSTRUCCIONES_KEY) || '' } catch { return '' }
   })
 
   useEffect(() => {
@@ -49,12 +53,14 @@ export function CartProvider({ children }) {
     _agregarReal(id, cantidad, sabor)
   }
 
-  function confirmarTipoEnvio(tipo, direccion = '') {
+  function confirmarTipoEnvio(tipo, direccion = '', instrucciones = '') {
     setTipoEnvio(tipo)
     setDireccionDelivery(direccion)
+    setInstruccionesEnvio(instrucciones)
     try {
       localStorage.setItem(TIPO_KEY, tipo)
       if (direccion) localStorage.setItem(DIRECCION_KEY, direccion)
+      localStorage.setItem(INSTRUCCIONES_KEY, instrucciones)
     } catch {}
     setMostrarSelectorEnvio(false)
     if (pendienteAgregar) {
@@ -80,7 +86,7 @@ export function CartProvider({ children }) {
     <CartContext.Provider value={{
       items, agregarItem, quitarItem, actualizarCantidad, vaciarCarrito,
       tipoEnvio, mostrarSelectorEnvio, setMostrarSelectorEnvio,
-      confirmarTipoEnvio, direccionDelivery
+      confirmarTipoEnvio, direccionDelivery, instruccionesEnvio
     }}>
       {children}
     </CartContext.Provider>
