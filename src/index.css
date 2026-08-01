@@ -892,18 +892,53 @@ body {
 }
 
 /* ===== TARJETA CLUB ===== */
+.hero-ahorro {
+  background: linear-gradient(135deg, #3c2c23 0%, #2a1f18 100%);
+  padding: 2.2rem 1.5rem;
+  text-align: center;
+}
+
+.hero-ahorro-titulo {
+  color: #f0c078;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.hero-ahorro-bajada {
+  color: #e0d8c8;
+  font-size: 0.85rem;
+  margin: 0.5rem auto 0;
+  max-width: 280px;
+  line-height: 1.4;
+}
+
 .tarjeta-club {
-  margin: 1rem;
-  background: #3c2c23;
+  margin: -1.3rem 1rem 1rem;
+  background: #1a1410;
   border-radius: 18px;
-  padding: 1.5rem;
+  padding: 1.6rem;
   color: #e7e3db;
   position: relative;
   overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 160, 84, 0.25);
+}
+
+.tarjeta-club-marca-agua {
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  width: 160px;
+  opacity: 0.06;
+  pointer-events: none;
 }
 
 .tarjeta-club-header {
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tarjeta-club-logo {
@@ -922,6 +957,8 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1;
 }
 
 .tarjeta-club-titulo-club {
@@ -930,8 +967,10 @@ body {
 
 .tarjeta-club-linea {
   height: 1px;
-  background: rgba(231, 227, 219, 0.25);
-  margin: 1rem 0;
+  background: rgba(231, 227, 219, 0.2);
+  margin: 1.1rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 .tarjeta-club-info {
@@ -939,27 +978,30 @@ body {
   align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tarjeta-club-nombre {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
 .tarjeta-club-nivel {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: #d4a054;
-  letter-spacing: 0.08em;
-  margin-top: 0.2rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+  font-weight: 600;
 }
 
 .tarjeta-club-qr {
-  width: 88px;
-  height: 88px;
+  width: 92px;
+  height: 92px;
   border-radius: 8px;
   background: #fff;
-  padding: 4px;
+  padding: 5px;
 }
 
 .puntos-resumen {
