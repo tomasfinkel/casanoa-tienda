@@ -1065,17 +1065,17 @@ body {
   border: 1px solid #d4a054;
 }
 
-.tarjeta-club--select {
+.tarjeta-club--signature {
   background: linear-gradient(135deg, #3c2c23 0%, #4a362a 100%);
   box-shadow: 0 0 0 1.5px #a89070 inset;
 }
 
-.tarjeta-club--prive {
+.tarjeta-club--reserve {
   background: linear-gradient(135deg, #2a1f18 0%, #3c2c23 100%);
   box-shadow: 0 0 0 1.5px #d4a054 inset, 0 4px 20px rgba(212, 160, 84, 0.25);
 }
 
-.tarjeta-club--prive .tarjeta-club-titulo-club {
+.tarjeta-club--reserve .tarjeta-club-titulo-club {
   color: #f0c078;
 }
 
