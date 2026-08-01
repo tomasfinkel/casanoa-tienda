@@ -189,6 +189,10 @@ export default function MiCuenta() {
   if (!cliente) {
     return (
       <div className="mi-cuenta">
+        <div className="hero-ahorro">
+          <div className="hero-ahorro-titulo">GANÁS EN CADA COMPRA</div>
+          <p className="hero-ahorro-bajada">Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
+        </div>
         <h2>Registrate para sumar puntos</h2>
         <p className="texto-inicio">
           Una vez registrado, vas a tener un código para mostrar en el local
@@ -266,7 +270,13 @@ export default function MiCuenta() {
 
   return (
     <div className="mi-cuenta">
+      <div className="hero-ahorro">
+        <div className="hero-ahorro-titulo">GANÁS EN CADA COMPRA</div>
+        <p className="hero-ahorro-bajada">Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
+      </div>
+
       <div className={`tarjeta-club tarjeta-club--${nivelSlug}`}>
+        <img src="/c-mark-transparent.png" alt="" className="tarjeta-club-marca-agua" />
         <div className="tarjeta-club-header">
           <div className="tarjeta-club-logo">CASA<br />NOA</div>
         </div>
