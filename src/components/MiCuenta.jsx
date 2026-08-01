@@ -67,9 +67,9 @@ const STORAGE_KEY = 'casanoa-tienda-telefono'
 // Niveles del club: se recalculan cada mes según cuántas veces compró
 // en el local en ESE mes (cualquier compra registrada por el personal cuenta como visita)
 const NIVELES = [
-  { nombre: 'Classic', min: 0, envioGratis: false, premio: false },
-  { nombre: 'Select', min: 4, envioGratis: false, premio: true },
-  { nombre: 'Privé', min: 12, envioGratis: true, premio: true },
+  { nombre: 'Select', min: 0, envioGratis: false, premio: false },
+  { nombre: 'Signature', min: 4, envioGratis: false, premio: true },
+  { nombre: 'Reserve', min: 12, envioGratis: true, premio: true },
 ]
 
 function mesActualISO() {
