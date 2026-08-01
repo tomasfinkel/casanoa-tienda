@@ -892,29 +892,52 @@ body {
 }
 
 /* ===== TARJETA CLUB ===== */
-.hero-ahorro {
-  background: linear-gradient(135deg, #3c2c23 0%, #2a1f18 100%);
-  padding: 2.2rem 1.5rem;
-  text-align: center;
+.bloque-beneficio {
+  margin: 1rem 1rem 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f0ede8;
 }
 
-.hero-ahorro-titulo {
-  color: #f0c078;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
+.bloque-beneficio-foto {
+  width: 100%;
+  display: block;
+  max-height: 220px;
+  object-fit: cover;
 }
 
-.hero-ahorro-bajada {
-  color: #e0d8c8;
+.bloque-beneficio-texto {
+  padding: 1rem 1.1rem;
+}
+
+.bloque-beneficio-texto strong {
+  display: block;
   font-size: 0.85rem;
-  margin: 0.5rem auto 0;
-  max-width: 280px;
+  letter-spacing: 0.03em;
+  color: #3c2c23;
+}
+
+.bloque-beneficio-texto p {
+  font-size: 0.8rem;
+  color: #8a8578;
+  margin: 0.35rem 0 0;
   line-height: 1.4;
 }
 
+.bloque-beneficio--solido {
+  background: linear-gradient(135deg, #3c2c23 0%, #2a1f18 100%);
+}
+
+.bloque-beneficio--solido .bloque-beneficio-texto strong {
+  color: #f0c078;
+}
+
+.bloque-beneficio--solido .bloque-beneficio-texto p {
+  color: #e0d8c8;
+}
+
 .tarjeta-club {
-  margin: -1.3rem 1rem 1rem;
+  margin: 1rem;
   background: #1a1410;
   border-radius: 18px;
   padding: 1.6rem;
