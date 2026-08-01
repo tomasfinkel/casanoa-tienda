@@ -1024,45 +1024,98 @@ body {
   font-size: 1.05rem;
 }
 
-.fila-beneficios-club {
+.checklist-beneficios {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.85rem;
+  color: #3c2c23;
+}
+
+.checklist-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #3c2c23;
+  color: #e7e3db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.tarjeta-pedir-fecha {
+  margin: 1.2rem 1rem 0;
+  background: #f0ede8;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.tarjeta-pedir-fecha strong {
+  font-size: 0.85rem;
+}
+
+.tarjeta-pedir-fecha p {
+  font-size: 0.75rem;
+  color: #8a8578;
+  margin: 0.1rem 0 0;
+}
+
+.fila-niveles-bloqueados {
   display: flex;
   gap: 0.75rem;
   padding: 0 1rem;
 }
 
-.beneficio-club {
+.mini-tarjeta-nivel {
   flex: 1;
-  background: #f0ede8;
   border-radius: 12px;
-  padding: 1rem 0.75rem;
-  text-align: center;
+  padding: 0.9rem;
+  color: #e7e3db;
+  background: linear-gradient(135deg, #3c2c23 0%, #4a362a 100%);
+  opacity: 0.85;
 }
 
-.beneficio-club-icono {
-  font-size: 1.4rem;
-  display: block;
-  margin-bottom: 0.4rem;
+.mini-tarjeta-nivel--reserve {
+  background: linear-gradient(135deg, #2a1f18 0%, #3c2c23 100%);
 }
 
-.beneficio-club strong {
-  display: block;
-  font-size: 0.85rem;
-  color: #3c2c23;
+.mini-tarjeta-nivel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
 }
 
-.beneficio-club p {
-  font-size: 0.72rem;
-  color: #8a8578;
+.mini-tarjeta-nivel-candado {
+  font-size: 0.8rem;
+}
+
+.mini-tarjeta-nivel-nombre {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.mini-tarjeta-nivel-requisito {
+  font-size: 0.65rem;
+  color: #cfc7ba;
   margin: 0.2rem 0 0;
-}
-
-.beneficio-club--bloqueado {
-  opacity: 0.55;
-}
-
-.beneficio-club--activo {
-  background: #fbeedd;
-  border: 1px solid #d4a054;
 }
 
 .tarjeta-club--signature {
@@ -1077,12 +1130,6 @@ body {
 
 .tarjeta-club--reserve .tarjeta-club-titulo-club {
   color: #f0c078;
-}
-
-.beneficio-club--pedir-fecha {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
 }
 
 .input-fecha-inline {
