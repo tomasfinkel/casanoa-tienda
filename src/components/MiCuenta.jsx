@@ -67,9 +67,18 @@ const STORAGE_KEY = 'casanoa-tienda-telefono'
 // Niveles del club: se recalculan cada mes según cuántas veces compró
 // en el local en ESE mes (cualquier compra registrada por el personal cuenta como visita)
 const NIVELES = [
-  { nombre: 'Select', min: 0, envioGratis: false, premio: false },
-  { nombre: 'Signature', min: 4, envioGratis: false, premio: true },
-  { nombre: 'Reserve', min: 12, envioGratis: true, premio: true },
+  {
+    nombre: 'Select', min: 0, envioGratis: false, premio: false,
+    beneficios: ['Sumás 1 punto por cada $1.000 en compras', 'Código QR para identificarte en el local'],
+  },
+  {
+    nombre: 'Signature', min: 4, envioGratis: false, premio: true,
+    beneficios: ['Premio especial al llegar a 4 visitas en el mes'],
+  },
+  {
+    nombre: 'Reserve', min: 12, envioGratis: true, premio: true,
+    beneficios: ['Envío gratis con cualquier monto', 'Beneficios exclusivos Reserve'],
+  },
 ]
 
 function mesActualISO() {
@@ -268,7 +277,7 @@ export default function MiCuenta() {
         <div className="tarjeta-club-info">
           <div>
             <div className="tarjeta-club-nombre">{cliente.nombre.toUpperCase()}</div>
-            <div className="tarjeta-club-nivel">MIEMBRO {nivel.nombre.toUpperCase()}</div>
+            <div className="tarjeta-club-nivel">{nivel.nombre.toUpperCase()} MEMBER</div>
           </div>
           <img src={qrUrl} alt="Tu código" className="tarjeta-club-qr" />
         </div>
@@ -294,46 +303,71 @@ export default function MiCuenta() {
         Mostrá este código en el local para sumar puntos en tu compra.
       </p>
 
-      <h3 className="beneficios-titulo">Tus beneficios</h3>
-      <div className="fila-beneficios-club">
+      <h3 className="beneficios-titulo">Tus beneficios {nivel.nombre}</h3>
+      <div className="checklist-beneficios">
+        {NIVELES.slice(0, NIVELES.indexOf(nivel) + 1).flatMap(n => n.beneficios).map((b, i) => (
+          <div key={i} className="checklist-item">
+            <span className="checklist-check">✓</span>
+            <span>{b}</span>
+          </div>
+        ))}
         {!descuentoUsado && (
-          <div className="beneficio-club">
-            <span className="beneficio-club-icono">🎁</span>
-            <strong>15% OFF</strong>
-            <p>Primera compra</p>
+          <div className="checklist-item">
+            <span className="checklist-check">✓</span>
+            <span>15% OFF en tu primera compra</span>
           </div>
         )}
-        <div className={`beneficio-club${nivel.envioGratis ? '' : ' beneficio-club--bloqueado'}`}>
-          <span className="beneficio-club-icono">🚚</span>
-          <strong>Envío gratis</strong>
-          <p>{nivel.envioGratis ? 'Con cualquier monto' : `Desde nivel ${NIVELES.find(n => n.envioGratis)?.nombre}`}</p>
-        </div>
-        {cliente.fechaNacimiento ? (
-          <div className={`beneficio-club${esMesDeCumple ? ' beneficio-club--activo' : ''}`}>
-            <span className="beneficio-club-icono">🎂</span>
-            <strong>Cumpleaños</strong>
-            <p>{esMesDeCumple ? '¡Es tu mes! Pasá por el local' : 'Regalo en tu mes'}</p>
-          </div>
-        ) : (
-          <div className="beneficio-club beneficio-club--pedir-fecha">
-            <span className="beneficio-club-icono">🎂</span>
-            <strong>Cumpleaños</strong>
-            <input
-              type="date"
-              className="input-fecha-inline"
-              value={fechaNacimientoNueva}
-              onChange={(e) => setFechaNacimientoNueva(e.target.value)}
-            />
-            <button
-              className="btn-guardar-fecha"
-              onClick={guardarFechaNacimiento}
-              disabled={!fechaNacimientoNueva || guardandoFecha}
-            >
-              {guardandoFecha ? 'Guardando...' : 'Guardar'}
-            </button>
+        {cliente.fechaNacimiento && (
+          <div className="checklist-item">
+            <span className="checklist-check">✓</span>
+            <span>{esMesDeCumple ? '¡Es tu mes de cumpleaños! Pasá por el local' : 'Regalo en tu mes de cumpleaños'}</span>
           </div>
         )}
       </div>
+
+      {!cliente.fechaNacimiento && (
+        <div className="tarjeta-pedir-fecha">
+          <span className="beneficio-club-icono">🎂</span>
+          <div>
+            <strong>Sumá tu cumpleaños</strong>
+            <p>Para activar tu regalo del mes</p>
+          </div>
+          <input
+            type="date"
+            className="input-fecha-inline"
+            value={fechaNacimientoNueva}
+            onChange={(e) => setFechaNacimientoNueva(e.target.value)}
+          />
+          <button
+            className="btn-guardar-fecha"
+            onClick={guardarFechaNacimiento}
+            disabled={!fechaNacimientoNueva || guardandoFecha}
+          >
+            {guardandoFecha ? 'Guardando...' : 'Guardar'}
+          </button>
+        </div>
+      )}
+
+      {NIVELES.slice(NIVELES.indexOf(nivel) + 1).length > 0 && (
+        <>
+          <h3 className="beneficios-titulo">Próximos niveles a desbloquear</h3>
+          <div className="fila-niveles-bloqueados">
+            {NIVELES.slice(NIVELES.indexOf(nivel) + 1).map((n) => {
+              const slug = n.nombre.toLowerCase()
+              return (
+                <div key={n.nombre} className={`mini-tarjeta-nivel mini-tarjeta-nivel--${slug}`}>
+                  <div className="mini-tarjeta-nivel-header">
+                    <span>CASA NOA<br />{n.nombre.toUpperCase()} MEMBER</span>
+                    <span className="mini-tarjeta-nivel-candado">🔒</span>
+                  </div>
+                  <div className="mini-tarjeta-nivel-nombre">{cliente.nombre.toUpperCase()}</div>
+                  <p className="mini-tarjeta-nivel-requisito">{n.min} visitas en el mes</p>
+                </div>
+              )
+            })}
+          </div>
+        </>
+      )}
 
       <button className="link-cerrar-sesion" onClick={cerrarSesion}>
         No soy yo / cerrar sesión
