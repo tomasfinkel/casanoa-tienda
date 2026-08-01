@@ -189,11 +189,34 @@ export default function MiCuenta() {
   if (!cliente) {
     return (
       <div className="mi-cuenta">
-        <div className="hero-ahorro">
-          <div className="hero-ahorro-titulo">GANÁS EN CADA COMPRA</div>
-          <p className="hero-ahorro-bajada">Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
+      <div className="bloque-beneficio">
+        <img src="/beneficio-envio.jpg" alt="" className="bloque-beneficio-foto" />
+        <div className="bloque-beneficio-texto">
+          <strong>GANÁS EN CADA COMPRA</strong>
+          <p>Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
         </div>
-        <h2>Registrate para sumar puntos</h2>
+      </div>
+
+      <div className="bloque-beneficio bloque-beneficio--solido">
+        <div className="bloque-beneficio-texto">
+          <strong>PREMIO SIGNATURE</strong>
+          <p>Un regalo especial cada vez que llegás a 4 visitas en el mes.</p>
+        </div>
+      </div>
+
+      <div className="bloque-beneficio">
+        <img src="/beneficio-categorias.jpg" alt="" className="bloque-beneficio-foto" />
+      </div>
+
+      <div className="bloque-beneficio">
+        <img src="/beneficio-novedades.jpg" alt="" className="bloque-beneficio-foto" />
+        <div className="bloque-beneficio-texto">
+          <strong>ENVÍO GRATIS RESERVE</strong>
+          <p>Con cualquier monto, al llegar a nivel Reserve (12 visitas en el mes).</p>
+        </div>
+      </div>
+
+      <h2>Registrate para sumar puntos</h2>
         <p className="texto-inicio">
           Una vez registrado, vas a tener un código para mostrar en el local
           y sumar puntos en cada compra.
@@ -270,11 +293,6 @@ export default function MiCuenta() {
 
   return (
     <div className="mi-cuenta">
-      <div className="hero-ahorro">
-        <div className="hero-ahorro-titulo">GANÁS EN CADA COMPRA</div>
-        <p className="hero-ahorro-bajada">Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
-      </div>
-
       <div className={`tarjeta-club tarjeta-club--${nivelSlug}`}>
         <img src="/c-mark-transparent.png" alt="" className="tarjeta-club-marca-agua" />
         <div className="tarjeta-club-header">
@@ -312,6 +330,33 @@ export default function MiCuenta() {
       <p className="texto-inicio">
         Mostrá este código en el local para sumar puntos en tu compra.
       </p>
+
+      <div className="bloque-beneficio">
+        <img src="/beneficio-envio.jpg" alt="" className="bloque-beneficio-foto" />
+        <div className="bloque-beneficio-texto">
+          <strong>GANÁS EN CADA COMPRA</strong>
+          <p>Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
+        </div>
+      </div>
+
+      <div className="bloque-beneficio bloque-beneficio--solido">
+        <div className="bloque-beneficio-texto">
+          <strong>PREMIO SIGNATURE</strong>
+          <p>Un regalo especial cada vez que llegás a 4 visitas en el mes.</p>
+        </div>
+      </div>
+
+      <div className="bloque-beneficio">
+        <img src="/beneficio-categorias.jpg" alt="" className="bloque-beneficio-foto" />
+      </div>
+
+      <div className="bloque-beneficio">
+        <img src="/beneficio-novedades.jpg" alt="" className="bloque-beneficio-foto" />
+        <div className="bloque-beneficio-texto">
+          <strong>ENVÍO GRATIS RESERVE</strong>
+          <p>Con cualquier monto, al llegar a nivel Reserve (12 visitas en el mes).</p>
+        </div>
+      </div>
 
       <h3 className="beneficios-titulo">Tus beneficios {nivel.nombre}</h3>
       <div className="checklist-beneficios">
