@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSucursal } from '../context/BranchContext.jsx'
 import { useCatalogo } from '../context/CatalogContext.jsx'
-import { useCart } from '../context/CartContext.jsx'
 import ProductCard from './ProductCard.jsx'
 import Novedades from './Novedades.jsx'
 
@@ -24,7 +23,7 @@ const SECCIONES = [
   { titulo: 'Vinos y bebidas selectas', codigos: ['240600', 'PIEL03', 'CHA01', 'CHA02', 'ESTRE1', 'ESTRE2'], categoria: 'Vinos y bebidas selectas' },
   { titulo: 'Seleccionados Casa Noa', codigos: ['10752', 'PONTNUEVA', 'KAY02', '11235', 'WAP', 'INTEGRA02'], categoria: 'Seleccionados Casa NOA' },
   { titulo: 'Wellness', codigos: ['DIABLA08', 'GRACOL', 'MARIA1', 'NAKED04', 'NATIER04', '0011'], categoria: 'Suplementos y superalimentos' },
-  { titulo: 'Café de especialidad y premium', codigos: ['LAV3', 'CAFF8', 'CAFF06', 'DAMM1', 'DAMM2', 'DAMM5'], categoria: 'Café e infusiones' },
+  { titulo: 'Keto', codigos: ['GRANGER200G', 'BAS', 'BYGIKE', 'ANIMA', 'CHIA28', '714604171942'], categoria: 'Keto' },
   { titulo: 'Importados', codigos: ['8002873021900', 'MINISET', 'SANPE', 'TONY1', 'LINDT88', 'BONNE01'], categoria: 'Importados' },
 ]
 
@@ -36,32 +35,6 @@ const CHIPS_RAPIDOS = [
   { nombre: 'Bebidas', categoria: 'Bebidas y jugos' },
   { nombre: 'Chocolates', categoria: 'Dulces y chocolates' },
 ]
-
-const ENVIO_GRATIS_DESDE = 55000
-
-function BarraEnvioGratis({ onVerProductos }) {
-  const { items } = useCart()
-  const { productos } = useCatalogo()
-  const total = items.reduce((acc, i) => {
-    const p = productos.find(prod => prod.id === i.id)
-    return acc + (p ? p.precio * i.cantidad : 0)
-  }, 0)
-  if (total === 0) return null
-  const porcentaje = Math.min(100, (total / ENVIO_GRATIS_DESDE) * 100)
-  const falta = ENVIO_GRATIS_DESDE - total
-  return (
-    <div className="barra-envio-gratis" onClick={() => onVerProductos()}>
-      <div className="barra-envio-gratis-texto">
-        {falta > 0
-          ? <>Te faltan <strong>${falta.toLocaleString('es-AR')}</strong> para envío gratis</>
-          : <strong>¡Tu pedido ya tiene envío gratis!</strong>}
-      </div>
-      <div className="barra-envio-gratis-track">
-        <div className="barra-envio-gratis-fill" style={{ width: `${porcentaje}%` }} />
-      </div>
-    </div>
-  )
-}
 
 function Carrusel({ onComprar }) {
   const [activo, setActivo] = useState(0)
@@ -144,8 +117,6 @@ export default function Inicio({ onVerProductos, onBuscar }) {
           </button>
         ))}
       </div>
-
-      <BarraEnvioGratis onVerProductos={onVerProductos} />
 
       {/* Nuevos ingresos */}
       <section className="seccion-horizontal">
