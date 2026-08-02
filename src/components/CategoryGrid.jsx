@@ -2,15 +2,15 @@ import { useState } from 'react'
 
 const ESTRUCTURA = [
   { nombre: 'Snacks', foto: 'INTEGRA02', subs: ['Snacks'] },
-  { nombre: 'Bebidas y jugos', foto: 'GIOR03', subs: ['Bebidas y jugos', 'Café e infusiones', 'Vinos', 'Fermentados'] },
+  { nombre: 'Bebidas y jugos', foto: 'GIOR03', subs: ['Bebidas y jugos', 'Café e infusiones', 'Vinos'] },
   { nombre: 'Dulces y chocolates', foto: '11448', subs: ['Dulces y chocolates', 'Galletas', 'Miel, mermeladas y untables', 'Endulzantes'] },
-  { nombre: 'Lácteos y veganos', foto: 'FELICES535', subs: ['Lácteos y veganos'] },
+  { nombre: 'Lácteos y veganos', foto: 'FELICES535', subs: ['Lácteos y veganos', 'Huevos', 'Fermentados'] },
   { nombre: 'Congelados', foto: '10207', subs: ['Congelados', 'Helados y postres'] },
-  { nombre: 'Almacén', foto: '110', subs: ['Aceites y vinagres', 'Panificados', 'Cereales, legumbres y granolas', 'Harinas y premezclas', 'Pastas, arroces y salsas', 'Conservas', 'Frutos secos y semillas', 'Huevos'] },
+  { nombre: 'Almacén', foto: '110', subs: ['Aceites y vinagres', 'Panificados', 'Cereales, legumbres y granolas', 'Harinas y premezclas', 'Pastas, arroces y salsas', 'Conservas', 'Frutos secos y semillas'] },
   { nombre: 'Suplementos y superalimentos', foto: '11100', subs: ['Suplementos y superalimentos', 'Keto', 'Sin gluten / TACC'] },
-  { nombre: 'Cuidado personal', foto: '1439', subs: ['Cuidado personal'] },
+  { nombre: 'Cuidado personal', foto: '1439', subs: ['Cuidado personal', 'Hogar y limpieza'] },
   { nombre: 'Velas y aromatizantes', foto: 'LOUISLEW09', subs: ['Velas y aromatizantes'] },
-  { nombre: 'Kosher', foto: 'PHILAQUE', subs: ['Kosher'] },
+  { nombre: 'Kosher', foto: 'MASSEROSA', subs: ['Kosher'] },
 ]
 
 function FotoCategoria({ foto, nombre }) {
