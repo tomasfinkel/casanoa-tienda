@@ -1188,7 +1188,8 @@
     "Dulces y chocolates"
   ],
   "10498": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "10499": [
     "Dulces y chocolates"
@@ -3107,7 +3108,8 @@
     "Cuidado personal"
   ],
   "1441": [
-    "Cuidado personal"
+    "Cuidado personal",
+    "Keto"
   ],
   "1443": [
     "Cuidado personal"
@@ -3234,7 +3236,8 @@
     "Cuidado personal"
   ],
   "1529": [
-    "Cuidado personal"
+    "Cuidado personal",
+    "Keto"
   ],
   "1530": [
     "Cuidado personal"
@@ -3972,7 +3975,8 @@
   ],
   "2356": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Keto"
   ],
   "2357": [
     "Harinas y premezclas",
@@ -4026,7 +4030,8 @@
   ],
   "2441": [
     "Harinas y premezclas",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Keto"
   ],
   "24410": [
     "Miel, mermeladas y untables"
@@ -6747,7 +6752,8 @@
     "Snacks"
   ],
   "663288459": [
-    "Congelados"
+    "Congelados",
+    "Keto"
   ],
   "669423293460": [
     "Café e infusiones"
@@ -6945,7 +6951,8 @@
   ],
   "7794303001071": [
     "Dulces y chocolates",
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Keto"
   ],
   "7798003743422": [
     "Café e infusiones"
@@ -7128,7 +7135,8 @@
     "Keto"
   ],
   "7798456650360": [
-    "Suplementos y superalimentos"
+    "Suplementos y superalimentos",
+    "Keto"
   ],
   "780": [
     "Condimentos, especias y dips"
@@ -7866,7 +7874,8 @@
   "ALMA08": [
     "Galletas",
     "Panificados",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "ALMA09": [
     "Snacks",
@@ -7884,7 +7893,8 @@
   ],
   "ALMA11": [
     "Condimentos, especias y dips",
-    "Miel, mermeladas y untables"
+    "Miel, mermeladas y untables",
+    "Keto"
   ],
   "ALMA13": [
     "Galletas",
@@ -8928,7 +8938,8 @@
     "Snacks"
   ],
   "BRIASNACK02": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "BRIASNACK03": [
     "Snacks"
@@ -9563,10 +9574,12 @@
   ],
   "CEL14": [
     "Galletas",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "CEL15": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "CELEBES": [
     "Bebidas y jugos"
@@ -9597,22 +9610,27 @@
   ],
   "CELULA02": [
     "Galletas",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "CELULA03": [
     "Cereales, legumbres y granolas",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "CELULA04": [
     "Panificados",
-    "Sin gluten / TACC"
+    "Sin gluten / TACC",
+    "Keto"
   ],
   "CELULA05": [
-    "Panificados"
+    "Panificados",
+    "Keto"
   ],
   "CELULA06": [
     "Galletas",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "CELULAP": [
     "Panificados",
@@ -9713,7 +9731,8 @@
   ],
   "CHIA28": [
     "Aceites y vinagres",
-    "Kosher"
+    "Kosher",
+    "Keto"
   ],
   "CHIA33": [
     "Dulces y chocolates",
@@ -12536,7 +12555,8 @@
     "Lácteos y veganos"
   ],
   "KE01": [
-    "Congelados"
+    "Congelados",
+    "Keto"
   ],
   "KE11": [
     "Cereales, legumbres y granolas",
@@ -12707,60 +12727,77 @@
     "Condimentos, especias y dips"
   ],
   "KS00": [
-    "Galletas"
+    "Galletas",
+    "Keto"
   ],
   "KS01": [
-    "Panificados"
+    "Panificados",
+    "Keto"
   ],
   "KS02": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS03": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS033": [
     "Dulces y chocolates",
     "Keto"
   ],
   "KS04": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS05": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS06": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS07": [
-    "Galletas"
+    "Galletas",
+    "Keto"
   ],
   "KS08": [
     "Congelados",
-    "Helados y postres"
+    "Helados y postres",
+    "Keto"
   ],
   "KS09": [
-    "Helados y postres"
+    "Helados y postres",
+    "Keto"
   ],
   "KS10": [
-    "Helados y postres"
+    "Helados y postres",
+    "Keto"
   ],
   "KS11": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS12": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS13": [
-    "Galletas"
+    "Galletas",
+    "Keto"
   ],
   "KS15": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "KS20": [
-    "Panificados"
+    "Panificados",
+    "Keto"
   ],
   "KS21": [
-    "Galletas"
+    "Galletas",
+    "Keto"
   ],
   "KS30": [
     "Panificados",
@@ -14767,17 +14804,20 @@
     "Dulces y chocolates"
   ],
   "NUTRIRTE03": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "NUTRIRTE04": [
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "NUTRIRTE05": [
     "Dulces y chocolates",
     "Keto"
   ],
   "NUTRIRTE10": [
-    "Galletas"
+    "Galletas",
+    "Keto"
   ],
   "NUTRIRTE11": [
     "Snacks"
@@ -16932,7 +16972,8 @@
     "Keto"
   ],
   "TEI022": [
-    "Dulces y chocolates"
+    "Dulces y chocolates",
+    "Keto"
   ],
   "TEI03": [
     "Helados y postres",
@@ -16968,7 +17009,8 @@
     "Importados"
   ],
   "TEIGRANO": [
-    "Cereales, legumbres y granolas"
+    "Cereales, legumbres y granolas",
+    "Keto"
   ],
   "TEMPEH05": [
     "Congelados"
@@ -17307,7 +17349,8 @@
     "Keto"
   ],
   "VENTO": [
-    "Helados y postres"
+    "Helados y postres",
+    "Keto"
   ],
   "VENTO02": [
     "Congelados",
@@ -17330,10 +17373,12 @@
     "Keto"
   ],
   "VENTO100": [
-    "Frutos secos y semillas"
+    "Frutos secos y semillas",
+    "Keto"
   ],
   "VENTO12": [
-    "Panificados"
+    "Panificados",
+    "Keto"
   ],
   "VENTO30": [
     "Congelados",
@@ -17343,10 +17388,12 @@
     "Keto"
   ],
   "VENTO33": [
-    "Pastas, arroces y salsas"
+    "Pastas, arroces y salsas",
+    "Keto"
   ],
   "VENTO41": [
-    "Congelados"
+    "Congelados",
+    "Keto"
   ],
   "VENTO42": [
     "Pastas, arroces y salsas",
@@ -17847,7 +17894,8 @@
   ],
   "CELULA10": [
     "Galletas",
-    "Snacks"
+    "Snacks",
+    "Keto"
   ],
   "DECECCO05": [
     "Pastas, arroces y salsas"
@@ -17898,7 +17946,8 @@
     "Dulces y chocolates"
   ],
   "10300": [
-    "Endulzantes"
+    "Endulzantes",
+    "Keto"
   ],
   "10343": [
     "Pastas, arroces y salsas",
@@ -18136,7 +18185,8 @@
     "Importados"
   ],
   "553": [
-    "Endulzantes"
+    "Endulzantes",
+    "Keto"
   ],
   "558": [
     "Endulzantes"
@@ -19011,7 +19061,8 @@
     "Limpieza y hogar"
   ],
   "VENTO25": [
-    "Congelados"
+    "Congelados",
+    "Keto"
   ],
   "VILLARES": [
     "Frutos secos y semillas"
@@ -19248,10 +19299,12 @@
     "Sin gluten / TACC"
   ],
   "VENTO1 00": [
-    "Helados y postres"
+    "Helados y postres",
+    "Keto"
   ],
   "VENTO101": [
-    "Helados y postres"
+    "Helados y postres",
+    "Keto"
   ],
   "LOUISLEW00": [
     "Velas y aromatizantes"
@@ -19609,5 +19662,11 @@
   ],
   "NOTC145": [
     "Kosher"
+  ],
+  "826": [
+    "Keto"
+  ],
+  "714604532873": [
+    "Keto"
   ]
 }
