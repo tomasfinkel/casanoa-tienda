@@ -1076,7 +1076,8 @@
     "Sin gluten / TACC"
   ],
   "10419": [
-    "Cuidado personal"
+    "Cuidado personal",
+    "Hogar y limpieza"
   ],
   "10420": [
     "Dulces y chocolates"
@@ -12715,7 +12716,7 @@
     "Bebidas y jugos"
   ],
   "KONJAC": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "KORONEI": [
     "Aceites y vinagres"
@@ -18032,7 +18033,7 @@
     "Miel, mermeladas y untables"
   ],
   "12449": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "12819": [
     "Galletas",
@@ -18220,7 +18221,7 @@
     "Harinas y premezclas"
   ],
   "757037950869": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "7630486400716": [
     "Dulces y chocolates"
@@ -18308,7 +18309,7 @@
     "Importados"
   ],
   "814832015862": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "82838": [
     "Cuidado personal"
@@ -18317,7 +18318,7 @@
     "Endulzantes"
   ],
   "859547004640": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "8809576261110": [
     "Cuidado personal"
@@ -18329,7 +18330,7 @@
     "Endulzantes"
   ],
   "9438": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "970012": [
     "Suplementos y superalimentos",
@@ -18869,7 +18870,7 @@
     "Suplementos y superalimentos"
   ],
   "OXI12": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "PERU02": [
     "Dulces y chocolates"
@@ -18899,7 +18900,7 @@
     "Conservas"
   ],
   "REYNOLDS2": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "RUMMO10": [
     "Pastas, arroces y salsas",
@@ -18925,46 +18926,46 @@
     "Sin gluten / TACC"
   ],
   "SCRUB1": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB10": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB2": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB3": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB4": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB5": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB6": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB7": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB752": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB8": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB800": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB801": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB802": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SCRUB9": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "SILRA": [],
   "SMOO10": [
@@ -19049,16 +19050,16 @@
     "Cereales, legumbres y granolas"
   ],
   "VANIMA1": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "VANIMA13": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "VANIMA16": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "VANIMA5": [
-    "Limpieza y hogar"
+    "Hogar y limpieza"
   ],
   "VENTO25": [
     "Congelados",
@@ -19668,5 +19669,14 @@
   ],
   "714604532873": [
     "Keto"
+  ],
+  "SCRUB048": [
+    "Hogar y limpieza"
+  ],
+  "SCRUB769": [
+    "Hogar y limpieza"
+  ],
+  "SCRUB613": [
+    "Hogar y limpieza"
   ]
 }
