@@ -189,14 +189,6 @@ export default function MiCuenta() {
   if (!cliente) {
     return (
       <div className="mi-cuenta">
-      <div className="bloque-beneficio">
-        <img src="/beneficio-envio.jpg" alt="" className="bloque-beneficio-foto" />
-        <div className="bloque-beneficio-texto">
-          <strong>GANÁS EN CADA COMPRA</strong>
-          <p>Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
-        </div>
-      </div>
-
       <div className="bloque-beneficio bloque-beneficio--solido">
         <div className="bloque-beneficio-texto">
           <strong>PREMIO SIGNATURE</strong>
@@ -330,14 +322,6 @@ export default function MiCuenta() {
       <p className="texto-inicio">
         Mostrá este código en el local para sumar puntos en tu compra.
       </p>
-
-      <div className="bloque-beneficio">
-        <img src="/beneficio-envio.jpg" alt="" className="bloque-beneficio-foto" />
-        <div className="bloque-beneficio-texto">
-          <strong>GANÁS EN CADA COMPRA</strong>
-          <p>Sumás 1 punto por cada $1.000 gastados, para canjear en tu próxima visita.</p>
-        </div>
-      </div>
 
       <div className="bloque-beneficio bloque-beneficio--solido">
         <div className="bloque-beneficio-texto">
