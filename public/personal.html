@@ -80,6 +80,31 @@
     font-size: 0.85rem;
     margin-top: 0.2rem;
   }
+  .telefono-actual-info {
+    font-size: 0.75rem;
+    color: #8a8578;
+    margin-top: 0.3rem;
+  }
+  .link-corregir-tel {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color: #7a6048;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.75rem;
+    font-family: inherit;
+  }
+  .caja-corregir-tel {
+    background: #fff;
+    border: 1px solid #e0dcd3;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-top: 0.5rem;
+  }
+  .caja-corregir-tel label {
+    font-size: 0.75rem;
+  }
   .mensaje {
     padding: 0.8rem;
     border-radius: 8px;
@@ -189,6 +214,26 @@
     area.innerHTML = `<div class="mensaje ${tipo}">${texto}</div>`
   }
 
+  function soloDigitos(tel) {
+    return (tel || '').replace(/\D/g, '')
+  }
+
+  // Busca coincidencia exacta primero; si no, compara solo los últimos 8 dígitos
+  // (para ignorar diferencias de +54, 9, 15, espacios o guiones)
+  function buscarClienteEnBase(clientes, telefonoBuscado) {
+    if (clientes[telefonoBuscado]) {
+      return { clave: telefonoBuscado, cliente: clientes[telefonoBuscado] }
+    }
+    const digitos = soloDigitos(telefonoBuscado)
+    const cola = digitos.slice(-8)
+    for (const clave of Object.keys(clientes)) {
+      if (soloDigitos(clave).slice(-8) === cola && cola.length === 8) {
+        return { clave, cliente: clientes[clave] }
+      }
+    }
+    return null
+  }
+
   async function buscarCliente() {
     const telefono = document.getElementById('telefonoInput').value.trim()
     const resultado = document.getElementById('resultadoBusqueda')
@@ -200,13 +245,18 @@
 
     try {
       const clientes = await leerClientes()
-      const cliente = clientes[telefono]
+      const encontrado = buscarClienteEnBase(clientes, telefono)
+      if (!encontrado) {
+        mostrarMensaje('No se encontró ningún cliente con ese teléfono.', 'error')
+        return
+      }
+      const cliente = encontrado.cliente
+      telefonoActual = encontrado.clave
       if (!cliente) {
         mostrarMensaje('No se encontró ningún cliente con ese teléfono.', 'error')
         return
       }
       clienteActual = cliente
-      telefonoActual = telefono
 
       const canjeMasAlto = CANJES.filter(c => cliente.puntos >= c.umbral).pop()
       const premiosHtml = canjeMasAlto
@@ -222,6 +272,8 @@
         <div class="card-cliente">
           <div class="nombre">${cliente.nombre}</div>
           <div class="puntos-actuales">${cliente.puntos} puntos actuales · ${visitasDelMes} ${visitasDelMes === 1 ? 'visita' : 'visitas'} este mes (nivel ${nivelActual.nombre})</div>
+          <div class="telefono-actual-info">Tel. registrado: ${telefonoActual} <button class="link-corregir-tel" onclick="mostrarCorregirTelefono()">¿está mal? corregir</button></div>
+          <div id="corregirTelefonoArea"></div>
           ${premiosHtml}
           <label>Monto de la compra ($)</label>
           <input type="number" id="montoInput" placeholder="Ej: 25000" />
@@ -231,6 +283,42 @@
       `
     } catch (e) {
       mostrarMensaje('Error: ' + e.message, 'error')
+    }
+  }
+
+  function mostrarCorregirTelefono() {
+    document.getElementById('corregirTelefonoArea').innerHTML = `
+      <div class="caja-corregir-tel">
+        <label>Teléfono correcto</label>
+        <input type="tel" id="telefonoCorrectoInput" placeholder="11XXXXXXXX" />
+        <button class="btn-secundario" onclick="corregirTelefono()">Guardar corrección</button>
+      </div>
+    `
+  }
+
+  async function corregirTelefono() {
+    const nuevoTelefono = document.getElementById('telefonoCorrectoInput').value.trim()
+    if (!nuevoTelefono || !clienteActual) return
+    if (nuevoTelefono === telefonoActual) {
+      mostrarMensaje('Es el mismo teléfono que ya tenía.', 'error')
+      return
+    }
+    try {
+      const clientes = await leerClientes()
+      if (clientes[nuevoTelefono]) {
+        mostrarMensaje('Ese teléfono ya pertenece a otro cliente registrado. No se puede usar.', 'error')
+        return
+      }
+      const datosCliente = { ...clientes[telefonoActual], telefono: nuevoTelefono }
+      delete clientes[telefonoActual]
+      clientes[nuevoTelefono] = datosCliente
+      await guardarClientes(clientes)
+      mostrarMensaje(`Teléfono corregido de ${telefonoActual} a ${nuevoTelefono}. Se mantuvieron sus puntos e historial.`, 'exito')
+      telefonoActual = nuevoTelefono
+      clienteActual = datosCliente
+      document.getElementById('corregirTelefonoArea').innerHTML = ''
+    } catch (e) {
+      mostrarMensaje('Error al corregir: ' + e.message, 'error')
     }
   }
 
