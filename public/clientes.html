@@ -39,6 +39,7 @@
   .stat { background: #fff; border-radius: 10px; padding: 0.9rem 1.2rem; flex: 1; min-width: 140px; }
   .stat .num { font-size: 1.4rem; font-weight: 700; }
   .stat .label { color: #8a8578; font-size: 0.75rem; }
+  .sin-compras { color: #b0a89a; font-style: italic; }
 </style>
 </head>
 <body>
@@ -101,15 +102,18 @@
     const totalClientes = data.clientes.length
     const totalVendido = data.clientes.reduce((a, c) => a + c.totalGastado, 0)
     const recurrentes = data.clientes.filter(c => c.cantidadPedidos > 1).length
+    const sinComprasAun = data.clientes.filter(c => c.cantidadPedidos === 0).length
     document.getElementById('resumenTop').innerHTML = `
       <div class="stat"><div class="num">${data.totalPedidos}</div><div class="label">Pedidos totales</div></div>
       <div class="stat"><div class="num">${totalClientes}</div><div class="label">Clientes distintos</div></div>
       <div class="stat"><div class="num">${recurrentes}</div><div class="label">Clientes recurrentes</div></div>
       <div class="stat"><div class="num">$${Math.round(totalVendido).toLocaleString('es-AR')}</div><div class="label">Vendido total</div></div>
+      <div class="stat"><div class="num">${sinComprasAun}</div><div class="label">Registrados sin compras aún</div></div>
     `
   }
 
   function formatearFecha(iso) {
+    if (!iso) return '—'
     return new Date(iso).toLocaleDateString('es-AR')
   }
 
@@ -148,7 +152,7 @@
         <td>${c.cantidadPedidos}</td>
         <td>$${Math.round(c.totalGastado).toLocaleString('es-AR')}</td>
         <td>${c.diasPromedio ? c.diasPromedio + ' días' : '—'}</td>
-        <td>${formatearFecha(c.ultimoPedido)}</td>
+        <td>${c.cantidadPedidos === 0 ? '<span class="sin-compras">Sin compras aún</span>' : formatearFecha(c.ultimoPedido)}</td>
       </tr>
     `).join('')
 
