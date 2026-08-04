@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     }
     const pedidos = await pedidosRes.json()
 
-    // 2. Traer nombres de clientes desde jsonbin (para no mostrar solo el teléfono)
+    // 2. Traer todos los clientes registrados desde jsonbin (nombre, fecha de alta)
     let clientes = {}
     try {
       const clientesRes = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         clientes = data.record?.clientes ?? {}
       }
     } catch {
-      // si falla jsonbin, seguimos solo con teléfonos
+      // si falla jsonbin, seguimos solo con teléfonos de los pedidos
     }
 
     // 3. Agrupar pedidos por teléfono
@@ -63,6 +63,22 @@ export default async function handler(req, res) {
       r.totalGastado += Number(p.total) || 0
       if (p.creado_en < r.primerPedido) r.primerPedido = p.creado_en
       if (p.creado_en > r.ultimoPedido) r.ultimoPedido = p.creado_en
+    }
+
+    // 3b. Sumar los clientes registrados que todavía no tienen ningún pedido,
+    // para que aparezcan en el panel desde el momento en que se dan de alta
+    // (aunque no hayan comprado nada todavía).
+    for (const [tel, c] of Object.entries(clientes)) {
+      if (!resumen[tel]) {
+        resumen[tel] = {
+          telefono: tel,
+          nombre: c.nombre || null,
+          cantidadPedidos: 0,
+          totalGastado: 0,
+          primerPedido: c.fechaRegistro || null,
+          ultimoPedido: null,
+        }
+      }
     }
 
     // 4. Calcular frecuencia promedio (días entre compras) donde hay más de un pedido
