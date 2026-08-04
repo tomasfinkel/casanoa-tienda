@@ -404,6 +404,19 @@
       clientes[telefonoActual] = cliente
       await guardarClientes(clientes)
 
+      // Registrar la venta también en el Panel de clientes (Supabase),
+      // para que las ventas del local cuenten igual que las online.
+      // Si esto falla, no bloqueamos el flujo de puntos — ya se guardó lo importante.
+      try {
+        await fetch('https://casanoa-pedidos.vercel.app/api/registrar-venta-local', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ telefono: telefonoActual, sucursal, total: monto }),
+        })
+      } catch {
+        // silencioso: el panel de clientes es informativo, no crítico
+      }
+
       const visitasAhora = contarVisitasDelMes(cliente.historial)
       const nivelCruzado = NIVELES_VISITA.find(n => n.min > 0 && visitasAntes < n.min && visitasAhora >= n.min)
 
