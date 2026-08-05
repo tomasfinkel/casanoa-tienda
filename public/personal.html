@@ -406,21 +406,27 @@
 
       // Registrar la venta también en el Panel de clientes (Supabase),
       // para que las ventas del local cuenten igual que las online.
-      // Si esto falla, no bloqueamos el flujo de puntos — ya se guardó lo importante.
+      // Si esto falla, no bloqueamos el flujo de puntos (ya se guardó lo importante),
+      // pero SÍ lo mostramos abajo del todo para poder diagnosticarlo.
+      let avisoSupabase = ''
       try {
-        await fetch('https://casanoa-pedidos.vercel.app/api/registrar-venta-local', {
+        const rSupabase = await fetch('https://casanoa-pedidos.vercel.app/api/registrar-venta-local', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ telefono: telefonoActual, sucursal, total: monto }),
         })
-      } catch {
-        // silencioso: el panel de clientes es informativo, no crítico
+        if (!rSupabase.ok) {
+          const detalle = await rSupabase.text()
+          avisoSupabase = `<br><small style="opacity:0.7">(Panel de clientes: no se pudo registrar — ${rSupabase.status}: ${detalle})</small>`
+        }
+      } catch (eSupabase) {
+        avisoSupabase = `<br><small style="opacity:0.7">(Panel de clientes: error de conexión — ${eSupabase.message})</small>`
       }
 
       const visitasAhora = contarVisitasDelMes(cliente.historial)
       const nivelCruzado = NIVELES_VISITA.find(n => n.min > 0 && visitasAntes < n.min && visitasAhora >= n.min)
 
-      let mensaje = `¡Listo! Se sumaron ${puntosGanados} puntos. ${cliente.nombre} ahora tiene ${cliente.puntos} puntos. (${visitasAhora}ª visita del mes)`
+      let mensaje = `¡Listo! Se sumaron ${puntosGanados} puntos. ${cliente.nombre} ahora tiene ${cliente.puntos} puntos. (${visitasAhora}ª visita del mes)` + avisoSupabase
       if (nivelCruzado) {
         mensaje = `🎉 ¡${cliente.nombre} subió a nivel ${nivelCruzado.nombre}! Es su visita número ${visitasAhora} del mes — corresponde entregarle su premio.<br><br>` + mensaje
       }
